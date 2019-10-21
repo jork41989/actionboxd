@@ -53,7 +53,7 @@ All Three
 
 Day 1 - combined User Auth  
 
-
+ 
 Day 2 - Movies table and basic movie page layout
 
 Movie table and connection 

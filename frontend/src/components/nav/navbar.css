@@ -1,0 +1,60 @@
+.navbar-section {
+    display: block;
+    width: 950px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.logo{
+    position: relative;
+    margin: 22px 0 0;
+    float: left;
+    font-size: 24px;
+    color: #fff;
+    font-family:'Graphik Bold';
+}
+
+.NavBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    height: 72px;
+    background-color: #14181c;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    float: left;
+    font-size: 1rem;
+    line-height: 17px;
+    text-transform: uppercase;
+    letter-spacing: .07692308em;
+    font-family:'Graphik Semibold';
+}
+
+.nav-links button, .profile-link{
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    /* font-weight: 400; */
+    font-weight: 800;
+    padding-left: 10px;
+    color: #9ab;
+    text-transform: uppercase;
+    font-family: Graphik-Semibold-Web,sans-serif;
+    cursor: pointer;
+}
+
+.profile-link{
+    text-decoration: none;
+    margin: 27px;
+}
+
+.nav-links button:focus{
+    outline: none;
+}
+
+
