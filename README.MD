@@ -51,7 +51,7 @@ Jordan Ackerman
 
 All Three
 
-Day 1 - combined User Auth
+Day 1 - combined User Auth  
 
 
 Day 2 - Movies table and basic movie page layout
