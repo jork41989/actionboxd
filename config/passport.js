@@ -14,3 +14,4 @@ module.exports = passport => {
     console.log(jwt_payload);
   }));
 };
+
