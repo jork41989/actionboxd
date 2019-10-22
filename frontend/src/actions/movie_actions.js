@@ -14,10 +14,10 @@ const receiveMovies = movies => ({
     movies
 });
 
-const receiveUserMovies = movies => ({
-    type: RECEIVE_USER_MOVIES,
-    movies
-});
+// const receiveUserMovies = movies => ({
+//     type: RECEIVE_USER_MOVIES,
+//     movies
+// });
 
 export const getMovie = id => dispatch => (
     MoviesApiUtil.getMovie(id)
@@ -29,7 +29,7 @@ export const getMovies = () => dispatch => (
         .then(movies => dispatch(receiveMovies(movies)))
 )
 
-export const getUserMovies = (id) => dispatch => (
-    MoviesApiUtil.getUserMovies(id)
-        .then(movies => dispatch(receiveUserMovies(movies)))
-)
+// export const getUserMovies = (id) => dispatch => (
+//     MoviesApiUtil.getUserMovies(id)
+//         .then(movies => dispatch(receiveUserMovies(movies)))
+// )
