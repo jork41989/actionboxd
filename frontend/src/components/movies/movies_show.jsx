@@ -59,9 +59,38 @@ export default class MoviesShow extends React.Component {
                                 {/* {this.props.movie.year} */}
                             </p>
                         </div>
-                        {/* 
-                        {this.props.movie.description} */}
-                        description here
+
+                        <div className="movie-show-info-description">
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here 
+                            description here description here description here  
+                            {/* {this.props.movie.description} */}
+                        </div>
+
+                        <ul className="actions-panel">
+                            <li>
+                                Watch button here
+                            </li>
+                        </ul>
+
+                        <div className="movie-show-info-reviews">
+
+                        </div>
                     </section>
 
                 </div>
