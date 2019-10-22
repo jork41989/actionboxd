@@ -13,7 +13,7 @@ export default class movies_show extends React.Component {
 
     render() {
         return (
-            <div className="movie-show">
+            <div className="movie-show-container">
                 {this.props.movie.title}
                 {this.props.movie.year}
                 {this.props.movie.description}
