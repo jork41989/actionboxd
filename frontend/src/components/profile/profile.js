@@ -11,14 +11,7 @@ class Profile extends React.Component {
         }
     }
     
-    componentWillMount() {
-        console.log(this.props.currentUser)
-        
-    }
-
-    componentWillReceiveProps(newState) {
-        
-    }   
+   
     
     render() {
       return ( <div>
