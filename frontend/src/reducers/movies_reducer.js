@@ -21,8 +21,6 @@ const moviesReducer = (state = {}, action) => {
             moviesArr.forEach(movie => {
                 moviesObj[movie._id] = movie
             })
-            // newState = merge({}, state);
-            // movieArr2 = movieArr.map(movie => { [movie._id]: movie });
             newState = merge({}, state, moviesObj);
             return newState; 
         default:
