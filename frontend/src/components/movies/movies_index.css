@@ -1,12 +1,15 @@
 .movies-index-container{
-    display: flex;
-    flex-direction: column;
+    display: block;
     position: relative;
     top: 150px;
 }
 
 .movies-index-header{
     margin: 0 auto;
+    font-family: Graphik-Regular-Web,sans-serif;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #456;
 }
 
 .movies-list{
