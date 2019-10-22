@@ -102,6 +102,32 @@
     letter-spacing: .02em;
 }
 
+/* may include tags section if bonus hit */
+.movie-show-info-description{
+    display: inline-block;
+    font-family: Graphik-Light-Web,sans-serif;
+    width: 390px;
+    padding-bottom: 50px;
+    font-size: 17px;
+    line-height: 1.43625;
+}
+
+.actions-panel{
+    display: inline-block;
+    position: absolute;
+    width: 230px;
+    margin-bottom: 1.53846154rem;
+    font-size: 1rem;
+    list-style: none;
+}
+
+.movie-show-info-reviews{
+    display: block;
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
 .temp{
     position: absolute;
     top: 2000px;
