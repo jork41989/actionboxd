@@ -2,10 +2,6 @@ import React from 'react';
 import MoviesIndexItem from './movies_index_item';
 
 class MoviesIndex extends React.Component{
-    constructor(props){
-        super(props)
-    }
-
     componentDidMount(){
         this.props.getMovies();
     }
@@ -14,11 +10,22 @@ class MoviesIndex extends React.Component{
         let moviesList = this.props.movies.map(movie => 
                 <MoviesIndexItem key={movie.id} movie={movie} />
             );
-        
+
+        if (moviesList.length === 0){
+            return <div>
+                Loading...
+            </div>
+        }
+
         return(
-            <ul className="movies-list">
-                {moviesList}
-            </ul>
+            <div className="photos-index-container">
+                <div>
+                    HI
+                </div>
+                <ul className="movies-list">
+                    {moviesList}
+                </ul>
+            </div>
         );
     }
 }

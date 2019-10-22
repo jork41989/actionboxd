@@ -11,7 +11,7 @@ import ProfileContainer from './profile/profile_container';
 import '../App.css'
 import './graphik-cufonfonts-webfont/style.css'
 
-import MoviesIndexContainer from './movies/movies_Index_container';
+import MoviesIndexContainer from './movies/movies_index_container';
 
 
 const App = () => (
@@ -19,7 +19,7 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
-      <Route exact path ="/movies" ceomponent={MoviesIndexContainer} />
+      <Route exact path ="/movies" component={MoviesIndexContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
      
     </Switch>
