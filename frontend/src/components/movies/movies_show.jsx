@@ -83,9 +83,9 @@ export default class MoviesShow extends React.Component {
                         </div>
 
                         <ul className="actions-panel">
-                            <li>
+                            <li className="actions-panel-watch-container">
                                 <i className="far fa-eye"></i>
-                                Watch button here
+                                Watch
                             </li>
                         </ul>
 
