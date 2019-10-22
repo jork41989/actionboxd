@@ -104,9 +104,10 @@
     text-shadow: #000 2px 0 5px;
     display: inline;
     margin: 0 7px 0 0;
-    font-family: TiemposHeadlineWeb-Bold,sans-serif;
+    /* font-family: TiemposHeadlineWeb-Bold,sans-serif; */
+    font-family:Tiempos Headline Bold;
     font-weight: 400;
-    font-size: 2.46153846rem;
+    font-size: 32px;
     color: #FFFFFF;
 }
 
@@ -127,11 +128,12 @@
 /* may include tags section if bonus hit */
 .movie-show-info-description{
     display: inline-block;
-    font-family: Graphik-Light-Web,sans-serif;
+    /* font-family: Graphik-Light-Web,sans-serif; */
+    font-family: Tiempos Headline Regular;
     width: 390px;
     padding-bottom: 50px;
-    font-size: 17px;
-    line-height: 1.43625;
+    font-size: 16px;
+    line-height: 1.53625;
 }
 
 .actions-panel{
