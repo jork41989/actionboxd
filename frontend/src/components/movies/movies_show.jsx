@@ -2,6 +2,7 @@ import React from 'react'
 
 export default class MoviesShow extends React.Component {
     componentDidMount(){
+        debugger;
         this.props.getMovie(this.props.match.params.movieId)
     }
 
@@ -12,11 +13,15 @@ export default class MoviesShow extends React.Component {
     }
 
     render() {
+        if (!this.props.movie) {
+            return <div>Loading...</div>;
+        }
+
         return (
             <div className="movie-show-container">
-                {this.props.movie.title}
+                {/* {this.props.movie.title}
                 {this.props.movie.year}
-                {this.props.movie.description}
+                {this.props.movie.description} */}
             </div>
         )
     }
