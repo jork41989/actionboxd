@@ -8,6 +8,7 @@ const path = require('path');
 
 
 const users = require("./routes/api/users");
+
 const movies = require("./routes/api/movies")
 
 if (process.env.NODE_ENV === 'production') {
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
   })
 }
+
 
 
 mongoose
@@ -32,8 +34,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
-app.use("/api/movies", movies);
 
+app.use('/api/movies', movies);
 
 
 const port = process.env.PORT || 5000;

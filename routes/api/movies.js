@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
 });
 
 
-
 router.get('/:id', (req, res) => {
   Movie.findById(req.params.id)
     .then(movie => res.json(movie)
