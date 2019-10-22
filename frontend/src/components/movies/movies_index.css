@@ -10,6 +10,7 @@
     padding-bottom: 5px;
     margin-bottom: 10px;
     border-bottom: 1px solid #456;
+    width: 664px;
 }
 
 .movies-list{
@@ -17,9 +18,10 @@
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: auto;
     list-style: none;
-    column-gap: 10px;
+    column-gap: 5px;
     margin: 0 auto;
     width: 664px;
+    padding: 0px;
 }
 
 .movies-list li{
