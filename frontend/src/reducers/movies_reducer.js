@@ -9,6 +9,7 @@ const moviesReducer = (state = {}, action) => {
     let newState;
     let movie;
     let movieArr;
+    let movieArr2;
     switch(action.type){
         case RECEIVE_MOVIE:
             movie = action.movie.data
@@ -16,8 +17,9 @@ const moviesReducer = (state = {}, action) => {
             return newState;
         case RECEIVE_MOVIES:
             movieArr = action.movies.data;
+            // newState = merge({}, state);
+            // movieArr2 = movieArr.map(movie => { [movie._id]: movie });
             newState = merge({}, state, movieArr);
-            debugger;
             return newState; 
         default:
             return state;
