@@ -31,7 +31,7 @@ export default class MoviesShow extends React.Component {
 
                 <div className="movie-show-content">
 
-                    <div className="movie-show-poster-link-container">
+                    <section className="movie-show-poster-link-container">
                         <div className="poster-panel">
                             <div className="poster">
                                 <div>poster here</div>
@@ -46,16 +46,23 @@ export default class MoviesShow extends React.Component {
                                 {/* this.props.movie.trailerUrl */}
                             </div>
                         </div>
-                    </div>
+                    </section>
 
-                    <div className="movie-show-info">
-                        {/* {this.props.movie.title}
-                        {this.props.movie.year}
+                    <section className="movie-show-info">
+                        <div className="movie-show-info-header">
+                            <h1 className="movie-show-title">
+                                TITLE HERE
+                                {/* {this.props.movie.title} */}
+                            </h1>
+                            <p className="movie-show-year">
+                                year here
+                                {/* {this.props.movie.year} */}
+                            </p>
+                        </div>
+                        {/* 
                         {this.props.movie.description} */}
-                        title here 
-                        year here 
                         description here
-                    </div>
+                    </section>
 
                 </div>
 
