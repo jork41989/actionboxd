@@ -31,7 +31,6 @@
     font-size: 1rem;
     line-height: 17px;
     text-transform: uppercase;
-    letter-spacing: .07692308em;
     font-family:'Graphik Semibold';
 }
 
@@ -39,12 +38,12 @@
     border: none;
     background: transparent;
     font-size: 13px;
-    /* font-weight: 400; */
     font-weight: 800;
     padding-left: 10px;
     color: #9ab;
     text-transform: uppercase;
     font-family: Graphik-Semibold-Web,sans-serif;
+    letter-spacing: 1px;
     cursor: pointer;
 }
 
