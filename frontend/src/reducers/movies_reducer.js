@@ -5,7 +5,7 @@ import {
 } from '../actions/movie_actions';
 import merge from 'lodash/merge'
 
-const moviesReducer = (state, action) => {
+const moviesReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState;
     let movie;
