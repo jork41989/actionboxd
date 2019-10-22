@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
@@ -10,6 +11,9 @@ import ProfileContainer from './profile/profile_container';
 import '../App.css'
 import './graphik-cufonfonts-webfont/style.css'
 
+import MoviesIndexContainer from './movies/movies_index_container';
+import MoviesShowContainer from './movies/movies_show_container';
+
 
 const App = () => (
   <div className={'mainDiv'}>
@@ -19,8 +23,8 @@ const App = () => (
     <div className={'body'}> 
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
-
-
+      <Route exact path ="/movies" component={MoviesIndexContainer} />
+      <Route exact path ="/movies/:movieId" component={MoviesShowContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
      
     </Switch>
