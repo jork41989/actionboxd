@@ -1,4 +1,4 @@
-import * as MoviesApiUitl from '../util/movies_api_util';
+import * as MoviesApiUtil from '../util/movies_api_util';
 
 export const RECEIVE_MOVIE = "RECEIVE_MOVIE";
 export const RECEIVE_MOVIES = "RECEIVE_MOVIES";
@@ -15,21 +15,21 @@ const receiveMovies = movies => ({
 });
 
 const receiveUserMovies = movies => ({
-    type: RECEIVE_MOVIE,
+    type: RECEIVE_USER_MOVIES,
     movies
 });
 
 export const getMovie = id => dispatch => (
-    MoviesApiUitl.getMovie(id)
+    MoviesApiUtil.getMovie(id)
         .then(movie => dispatch(receiveMovie(movie)))
 )
 
 export const getMovies = () => dispatch => (
-    MoviesApiUitl.getMovies()
+    MoviesApiUtil.getMovies()
         .then(movies => dispatch(receiveMovies(movies)))
 )
 
 export const getUserMovies = (id) => dispatch => (
-    MoviesApiUitl.getUserMovies(id)
+    MoviesApiUtil.getUserMovies(id)
         .then(movies => dispatch(receiveUserMovies(movies)))
 )
