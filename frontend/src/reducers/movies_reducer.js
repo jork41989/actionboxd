@@ -11,14 +11,14 @@ const moviesReducer = (state = {}, action) => {
     let movie;
     switch(action.type){
         case RECEIVE_MOVIE:
-            movie = action.movie
-            newState = merge({}, state, { [movie.id]: action.movie });
+            movie = action.movie.data
+            newState = merge({}, state, { [movie.id]: action.movie.data });
             return newState;
         case RECEIVE_MOVIES:
-            newState = merge({}, state, action.movies);
+            newState = merge({}, state, action.movies.data);
             return newState; 
         case RECEIVE_USER_MOVIES:
-            newState = merge({}, state, action.movies);
+            newState = merge({}, state, action.movies.data);
             return newState;
         default:
             return state;
