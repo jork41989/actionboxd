@@ -17,7 +17,8 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  watched_movies: []
 })
 
 const User = mongoose.model('users', UserSchema);

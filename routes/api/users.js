@@ -98,4 +98,20 @@ router.post('/login', (req, res) => {
     })
 })
 
+
+router.patch('/:user_id', (req, res) => {
+
+  User.findOneAndUpdate(
+    { _id: req.params.user_id },
+    { $push: { watched_movies: req.params.movie_id } },
+    function (error, success) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(success);
+      }
+    });
+
+})
+
 module.exports = router;
