@@ -60,6 +60,7 @@ class LoginForm extends React.Component {
           <div onClick={this.props.closeModal} className="close-x">X</div>
           <form onSubmit={this.handleSubmit}>
             <div className={'formCenter'}>
+              <p className={'formHeader'}>Sign In</p>
               <br/>
                 <input type="text"
                   value={this.state.email}

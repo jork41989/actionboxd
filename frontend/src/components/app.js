@@ -13,7 +13,10 @@ import './graphik-cufonfonts-webfont/style.css'
 
 const App = () => (
   <div className={'mainDiv'}>
+    <div className={'NavDivWidth'}>
     <NavBarContainer />
+    </div>
+    <div className={'body'}> 
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
 
@@ -22,6 +25,7 @@ const App = () => (
      
     </Switch>
     <Modal />
+    </div>
   </div>
 );
 

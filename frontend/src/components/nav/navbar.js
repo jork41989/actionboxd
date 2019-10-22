@@ -36,7 +36,7 @@ class NavBar extends React.Component {
       return (
         <div className="navbar-section">
           <div className="NavBar">
-              <h1 className="logo">ActionBoxd</h1>
+            <Link to={'/'} ><h1 className="logo">ActionBoxd</h1></Link>
               { this.getLinks() }
           </div>
         </div>
