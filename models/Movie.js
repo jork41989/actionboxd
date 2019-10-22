@@ -8,12 +8,20 @@ const MovieSchema = new Schema({
     required: true
   },
   year: {
-    type: Integer,
+    type: Number,
     required: true
   },
   description: {
     type: String,
     required: true
+  },
+  poster_url: {
+    type: String,
+    required: false
+  },
+  trailer_url: {
+    type: String,
+    required: false
   }
 });
 
