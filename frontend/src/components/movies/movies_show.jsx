@@ -15,10 +15,10 @@ export default class MoviesShow extends React.Component {
     }
 
     render() {
-        // if (!this.props.movie) {
-        //     return <div>Loading...</div>;
-        // }
-        
+        if (!this.props.movie) {
+            return <div>Loading...</div>;
+        }
+
         return (
             <div className="movie-show-container">
                 <div className="background-image">
@@ -35,16 +35,19 @@ export default class MoviesShow extends React.Component {
                     <section className="movie-show-poster-link-container">
                         <div className="poster-panel">
                             <div className="poster">
-                                <div>poster here</div>
-                                {/* {this.props.movie.posterUrl} */}
+                                {/* <div></div> */}
+                                <img src={this.props.movie.poster_url} alt="dark-knight-poster"/>
                             </div>
                             <ul className="movie-stats">
                                 watched stats here
                                 {/* {this.props.movie.watchedIds.length} */}
                             </ul>
                             <div className="watch-panel">
-                                trailer link here
-                                {/* this.props.movie.trailerUrl */}
+                                <p>WATCH</p>
+                                <div className="trailer-link-container">
+                                    <i className="fab fa-youtube"></i>
+                                    <a href={this.props.movie.trailer_url} className="trailer-link">Play Trailer</a>    
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -52,35 +55,15 @@ export default class MoviesShow extends React.Component {
                     <section className="movie-show-info">
                         <div className="movie-show-info-header">
                             <h1 className="movie-show-title">
-                                TITLE HERE
-                                {/* {this.props.movie.title} */}
+                                {this.props.movie.title}
                             </h1>
                             <p className="movie-show-year">
-                                year here
-                                {/* {this.props.movie.year} */}
+                                {this.props.movie.year}
                             </p>
                         </div>
 
                         <div className="movie-show-info-description">
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here  
-                            {/* {this.props.movie.description} */}
+                            {this.props.movie.description}
                         </div>
 
                         <ul className="actions-panel">
