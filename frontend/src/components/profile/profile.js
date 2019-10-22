@@ -1,4 +1,5 @@
 import React from 'react';
+import './profile.css'
 
 
 class Profile extends React.Component {
@@ -11,7 +12,7 @@ class Profile extends React.Component {
     }
     
     componentWillMount() {
-        console.log(this.props.currentUser.id)
+        console.log(this.props.currentUser)
         
     }
 
@@ -20,7 +21,12 @@ class Profile extends React.Component {
     }   
     
     render() {
-      return ( <div>Hello world</div>  )
+      return ( <div>
+          <div className={'profileHeader'}>
+              <div className={'Profile-photo'}></div>
+              <p className={'Profile-username'}>{this.props.currentUser.username}</p>
+            </div>
+      </div>  )
     }
 }
 

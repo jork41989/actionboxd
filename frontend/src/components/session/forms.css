@@ -1,7 +1,13 @@
 .signup-login-bg{
-  background-color: black;
+  background-color: #14181c;
   color: #678;
-  padding: 150px 100px;
+  padding: 90px 100px;
+  border-radius: 3px;
+}
+
+.formHeader{
+  text-align: center;
+  font-family:'Graphik Regular';
 }
 
 .submit{
@@ -13,7 +19,7 @@
     padding-top: 6px;
     padding-bottom: 7px;
     margin: 0;
-    font-family: Graphik-Semibold-Web,sans-serif;
+    font-family:'Graphik Semibold';
     border-radius: 3px;
     cursor: pointer;    
     font-weight: 400;

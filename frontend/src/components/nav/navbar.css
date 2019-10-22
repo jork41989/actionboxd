@@ -56,4 +56,10 @@
     outline: none;
 }
 
+.NavDivWidth{
+background-color: #14181c;
+}
 
+.nav-links button:hover, .profile-link{
+        color: #fff;
+}

@@ -1,0 +1,26 @@
+.Profile-photo{
+  height: 110px;
+  width: 110px;
+  border-radius: 55px;
+  background-image: linear-gradient(blue, green) ;
+  margin-right: 10px;
+}
+
+.profileHeader{
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+}
+
+.Profile-username{
+  font-family:'Graphik Semibold';
+  font-weight: 400;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 450px;
+    padding: 3px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.69230769rem;
+}

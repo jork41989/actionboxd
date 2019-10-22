@@ -17,7 +17,10 @@ import MoviesShowContainer from './movies/movies_show_container';
 
 const App = () => (
   <div className={'mainDiv'}>
+    <div className={'NavDivWidth'}>
     <NavBarContainer />
+    </div>
+    <div className={'body'}> 
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
       <Route exact path ="/movies" component={MoviesIndexContainer} />
@@ -26,6 +29,7 @@ const App = () => (
      
     </Switch>
     <Modal />
+    </div>
   </div>
 );
 
