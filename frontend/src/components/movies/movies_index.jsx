@@ -1,5 +1,6 @@
 import React from 'react';
 import MoviesIndexItem from './movies_index_item';
+import './movies_index.css';
 
 class MoviesIndex extends React.Component{
     componentDidMount(){
