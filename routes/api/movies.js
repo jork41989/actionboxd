@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
     .then(movies => res.json(movies))
     .catch(err => res.status(404).json({ moviesnotfound: 'movies not found'}))
 });
-
 // router.get('/user/:user_id', (req, res) => {
 //   Movie.find({user: req.params.user_id})
 //     .sort({date: -1})
