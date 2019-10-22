@@ -15,9 +15,9 @@ export default class MoviesShow extends React.Component {
     }
 
     render() {
-        if (!this.props.movie) {
-            return <div>Loading...</div>;
-        }
+        // if (!this.props.movie) {
+        //     return <div>Loading...</div>;
+        // }
 
         // test vars for sticky implementation
         // let MovieShowScrollPos;
