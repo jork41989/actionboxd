@@ -12,15 +12,15 @@ class MoviesIndex extends React.Component{
             );
 
         if (moviesList.length === 0){
-            return <div>
+            return <div className="movies-index-container">
                 Loading...
             </div>
         }
 
         return(
-            <div className="photos-index-container">
+            <div className="movies-index-container">
                 <div>
-                    HI
+                    Movies
                 </div>
                 <ul className="movies-list">
                     {moviesList}

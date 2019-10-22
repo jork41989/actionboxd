@@ -12,6 +12,7 @@ import '../App.css'
 import './graphik-cufonfonts-webfont/style.css'
 
 import MoviesIndexContainer from './movies/movies_index_container';
+import MoviesShowContainer from './movies/movies_show_container';
 
 
 const App = () => (
@@ -20,6 +21,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
       <Route exact path ="/movies" component={MoviesIndexContainer} />
+      <Route exact path ="/movies/:movieId" component={MoviesShowContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
      
     </Switch>
