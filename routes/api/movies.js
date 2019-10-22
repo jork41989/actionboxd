@@ -15,9 +15,9 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   Movie.findById(req.params.id)
-    .then(movie => res.json(movie)
+    .then(movie => res.json(movie))
     .catch(err => 
-      res.status(404).json({movienotfound: 'Movie not found with that id'})))
+      res.status(404).json({movienotfound: 'Movie not found with that id'}))
 });
 
 
