@@ -11,20 +11,13 @@ class Profile extends React.Component {
         }
     }
     
-    componentWillMount() {
-        console.log(this.props.currentUser)
-        
-    }
-
-    componentWillReceiveProps(newState) {
-        
-    }   
+   
     
     render() {
       return ( <div>
           <div className={'profileHeader'}>
               <div className={'Profile-photo'}></div>
-              <p className={'Profile-username'}>{this.props.currentUser.username}</p>
+              <p className={'Profile-username'}>Username goes here</p>
             </div>
       </div>  )
     }
