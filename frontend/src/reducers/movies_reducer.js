@@ -1,7 +1,7 @@
 import {
     RECEIVE_MOVIE, 
     RECEIVE_MOVIES,
-    RECEIVE_USER_MOVIES
+    // RECEIVE_USER_MOVIES
 } from '../actions/movie_actions';
 import merge from 'lodash/merge'
 
