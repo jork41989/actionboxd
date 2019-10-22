@@ -1,4 +1,5 @@
 import React from 'react'
+import './movies_show.css'
 
 export default class MoviesShow extends React.Component {
     componentDidMount(){
@@ -13,12 +14,18 @@ export default class MoviesShow extends React.Component {
     }
 
     render() {
-        if (!this.props.movie) {
-            return <div>Loading...</div>;
-        }
+        // if (!this.props.movie) {
+        //     return <div>Loading...</div>;
+        // }
 
         return (
             <div className="movie-show-container">
+                <div className="movie-show-thumbnail">
+                    thumbnail here
+                </div>
+                <div>
+
+                </div>
                 {/* {this.props.movie.title}
                 {this.props.movie.year}
                 {this.props.movie.description} */}
