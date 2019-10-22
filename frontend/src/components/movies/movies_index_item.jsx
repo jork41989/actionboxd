@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 
 export default function MoviesIndexItem({movie}) {
     return (
-        <li className="movies-list-item">
-            <div className="movies-list-item-container">
-                <div className="index-thumbnail-container">
-                    <img 
-                        src={movie.poster_url} 
-                        alt=""
-                        className="index-thumbnail"
+        <Link to={`/movies/${movie._id}`} className="index-thumbnail-link">
+            <li className="movies-list-item">
+                <div className="movies-list-item-container">
+                    <div className="index-thumbnail-container">
+                        <img 
+                            src={movie.poster_url} 
+                            alt=""
+                            className="index-thumbnail"
                         />
-                </div>
-                <Link to={`/movies/${movie._id}`} className="index-thumbnail-link">
+                    </div>
                     {movie.title}
-                </Link>
-            </div>
-        </li>
+                </div>
+            </li>
+        </Link>
     )
 }
