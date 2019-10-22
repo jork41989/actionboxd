@@ -19,6 +19,12 @@ export default class MoviesShow extends React.Component {
         //     return <div>Loading...</div>;
         // }
 
+        // test vars for sticky implementation
+        // let MovieShowScrollPos;
+
+        // MovieShowScrollPos = window.scrollY < 380 ? 
+        //     "movie-show-poster-link-container" : "movie-show-poster-link-container-is-stuck" 
+
         return (
             <div className="movie-show-container">
                 <div className="background-image">
