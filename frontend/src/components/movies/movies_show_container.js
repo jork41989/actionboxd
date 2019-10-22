@@ -3,7 +3,7 @@ import MoviesShow from './movies_show';
 import { getMovie } from '../../actions/movie_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger;
+    // debugger;
     return({
         movie: state.entities.movies[ownProps.match.params.movieId]
     })

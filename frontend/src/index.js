@@ -6,6 +6,11 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 
+//test//
+import { getMovies } from './util/movies_api_util';
+import axios from 'axios';
+//test//
+
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (localStorage.jwtToken) {
@@ -24,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore({});
     }
     const root = document.getElementById('root');
-
+    //test
+    window.getMovies = getMovies(); 
+    window.axios = axios
+    //test
     ReactDOM.render(<Root store={store} />, root);
 });

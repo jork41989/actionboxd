@@ -1,0 +1,31 @@
+.movie-show-thumbnail{
+    display: block;
+    background: green;
+    position: absolute;
+    width: 230px;
+    height: 345px;
+        display: inline-block;
+    overflow: hidden;
+    position: relative;
+    -webkit-background-clip: padding-box;
+    border-radius: 4px;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    white-space: nowrap;
+    text-indent: 110%;
+    overflow: hidden;
+    -webkit-transition: -webkit-box-shadow .1s ease-in;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: inset 0 0 0 1px rgba(221,238,255,.35);
+    box-shadow: inset 0 0 0 1px rgba(221,238,255,.35);
+    background-image: -webkit-gradient(linear,left top,right top,from(hsla(0,0%,100%,0)),color-stop(50%,hsla(0,0%,100%,.5)),to(hsla(0,0%,100%,0)));
+    background-image: -o-linear-gradient(left,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,.5) 50%,hsla(0,0%,100%,0) 100%);
+    background-image: linear-gradient(90deg,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,.5) 50%,hsla(0,0%,100%,0));
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    background-size: 100% 1px;
+    border-radius: 4px;
+}
