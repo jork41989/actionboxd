@@ -149,11 +149,30 @@
 }
 
 
-.movie-show-info-reviews{
+.movie-show-info-reviews-container{
     display: block;
     position: relative;
+    background: green;
     margin-bottom: 30px;
     width: 100%;   
+}
+
+.movie-show-reviews-header{
+    font-family: Graphik-Regular-Web,sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #9ab;
+    text-transform: uppercase;
+    letter-spacing: .075em;
+    margin-top: 0;
+    margin-bottom: .76923077rem;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #9ab;
+}
+
+.movie-show-info-reviews{
+    /*placeholder height*/
+    height: 800px;
 }
 
 .temp{
