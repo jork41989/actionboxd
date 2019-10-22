@@ -13,7 +13,9 @@ export default function MoviesIndexItem({movie}) {
                             className="index-thumbnail"
                         />
                     </div>
-                    {movie.title}
+                    <div className="movies-list-item-title">
+                        {movie.title}
+                    </div>
                 </div>
             </li>
         </Link>
