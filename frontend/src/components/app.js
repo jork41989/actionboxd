@@ -10,14 +10,15 @@ import ProfileContainer from './profile/profile_container';
 import '../App.css'
 import './graphik-cufonfonts-webfont/style.css'
 
+import MoviesContainer from './movies/movies_container';
+
 
 const App = () => (
   <div className={'mainDiv'}>
     <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
-
-
+      <Route exact path ="/movies" ceomponent={MoviesContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
      
     </Switch>
