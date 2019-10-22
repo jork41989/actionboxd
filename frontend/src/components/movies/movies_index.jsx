@@ -8,7 +8,7 @@ class MoviesIndex extends React.Component{
 
     render(){
         let moviesList = this.props.movies.map(movie => 
-                <MoviesIndexItem key={movie.id} movie={movie} />
+                <MoviesIndexItem key={movie._id} movie={movie} />
             );
 
         if (moviesList.length === 0){

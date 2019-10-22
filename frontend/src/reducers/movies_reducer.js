@@ -12,10 +12,13 @@ const moviesReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_MOVIE:
             movie = action.movie.data
-            newState = merge({}, state, { [movie.id]: action.movie.data });
+            debugger;
+            newState = merge({}, state, { [movie._id]: movie });
             return newState;
         case RECEIVE_MOVIES:
-            newState = merge({}, state, action.movies.data);
+            debugger;
+            newState = merge({}, state, ...action.movies.data);
+            debugger;
             return newState; 
         case RECEIVE_USER_MOVIES:
             newState = merge({}, state, action.movies.data);
