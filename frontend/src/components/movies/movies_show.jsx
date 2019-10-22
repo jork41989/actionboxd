@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class movies_show extends React.Component {
+export default class MoviesShow extends React.Component {
     componentDidMount(){
         this.props.getMovie(this.props.match.params.movieId)
     }
