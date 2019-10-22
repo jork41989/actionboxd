@@ -114,4 +114,15 @@ router.patch('/:user_id', (req, res) => {
 
 })
 
+
+router.get('/:user_id', (req, res) => {
+  User.findById(req.params.user_id)
+   .then(user => res.json({
+      username: user.username,
+      watched_movies: user.watched_movies 
+    }))
+    .catch(err => 
+      res.status(404).json({nomoviesfound: 'no movies found for this user'}))
+})
+
 module.exports = router;
