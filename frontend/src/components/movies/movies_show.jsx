@@ -19,13 +19,19 @@ export default class MoviesShow extends React.Component {
             return <div>Loading...</div>;
         }
 
+        let posterAlt = `${this.props.movie.title} poster`;
+        // let coverAlt = `${this.props.movie.title} background`;
+
         return (
             <div className="movie-show-container">
                 <div className="background-image">
                     <div>
                         background image here 
                     </div>
-                    {/* {this.props.movie.backgroundUrl} */}
+                    {/* <img 
+                        src={this.props.movie.background_url}
+                        alt={coverAlt}
+                    /> */}
                 </div>
 
 
@@ -35,10 +41,9 @@ export default class MoviesShow extends React.Component {
                     <section className="movie-show-poster-link-container">
                         <div className="poster-panel">
                             <div className="poster-container">
-                                {/* <div></div> */}
                                 <img 
                                     src={this.props.movie.poster_url} 
-                                    alt="dark-knight-poster"
+                                    alt={posterAlt}
                                     className="poster"
                                 />
                             </div>
@@ -90,9 +95,9 @@ export default class MoviesShow extends React.Component {
 
                 </div>
 
-                <div className="temp">
+                {/* <div className="temp">
                     thing to enable scroll/sticky test here
-                </div>
+                </div> */}
 
             </div>
         )
