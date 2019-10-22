@@ -4,7 +4,6 @@ import './movies_show.css'
 
 export default class MoviesShow extends React.Component {
     componentDidMount(){
-        debugger;
         this.props.getMovie(this.props.match.params.movieId)
     }
 
@@ -31,6 +30,7 @@ export default class MoviesShow extends React.Component {
                     {/* <img 
                         src={this.props.movie.background_url}
                         alt={coverAlt}
+                        className="background-photo"
                     /> */}
                 </div>
 
@@ -94,11 +94,6 @@ export default class MoviesShow extends React.Component {
                     </section>
 
                 </div>
-
-                {/* <div className="temp">
-                    thing to enable scroll/sticky test here
-                </div> */}
-
             </div>
         )
     }
