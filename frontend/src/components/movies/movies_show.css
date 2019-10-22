@@ -42,14 +42,17 @@
     display: block;
 }
 
-.poster{
+.poster-container{
     position: abosolute;
-    background: green;
     height: 345px;
     border-radius: 4px; 
-    border: 1px solid #9ab;
     box-sizing: border-box;
     box-shadow: 0 1px 3px rgba(0,0,0,.35);
+}
+
+.poster{
+    border: 1px solid #9ab;
+    border-radius: 4px; 
 }
 
 .movie-stats{

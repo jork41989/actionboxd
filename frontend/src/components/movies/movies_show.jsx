@@ -34,9 +34,13 @@ export default class MoviesShow extends React.Component {
 
                     <section className="movie-show-poster-link-container">
                         <div className="poster-panel">
-                            <div className="poster">
+                            <div className="poster-container">
                                 {/* <div></div> */}
-                                <img src={this.props.movie.poster_url} alt="dark-knight-poster"/>
+                                <img 
+                                    src={this.props.movie.poster_url} 
+                                    alt="dark-knight-poster"
+                                    className="poster"
+                                />
                             </div>
                             <ul className="movie-stats">
                                 watched stats here
