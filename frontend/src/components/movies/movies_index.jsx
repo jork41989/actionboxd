@@ -20,9 +20,9 @@ class MoviesIndex extends React.Component{
 
         return(
             <div className="movies-index-container">
-                <div>
+                {/* <div>
                     Movies
-                </div>
+                </div> */}
                 <ul className="movies-list">
                     {moviesList}
                 </ul>
