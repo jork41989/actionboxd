@@ -8,18 +8,22 @@ const moviesReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState;
     let movie;
-    let movieArr;
-    let movieArr2;
+    let moviesArr;
+    let moviesObj;
     switch(action.type){
         case RECEIVE_MOVIE:
             movie = action.movie.data
             newState = merge({}, state, { [movie._id]: movie });
             return newState;
         case RECEIVE_MOVIES:
-            movieArr = action.movies.data;
+            moviesArr = action.movies.data;
+            moviesObj = {};
+            moviesArr.forEach(movie => {
+                moviesObj[movie._id] = movie
+            })
             // newState = merge({}, state);
             // movieArr2 = movieArr.map(movie => { [movie._id]: movie });
-            newState = merge({}, state, movieArr);
+            newState = merge({}, state, moviesObj);
             return newState; 
         default:
             return state;
