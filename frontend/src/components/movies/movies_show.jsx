@@ -20,15 +20,28 @@ export default class MoviesShow extends React.Component {
 
         return (
             <div className="movie-show-container">
-                <div className="movie-show-thumbnail">
-                    thumbnail here
-                </div>
-                <div>
+                <div className="movie-show-content">
 
+                    <div className="movie-show-poster-link-container">
+                        <div className="poster-panel">
+                            <div className="poster">
+                                <div>poster here</div>
+                                {/* {this.props.movie.posterUrl} */}
+                            </div>
+                            <ul className="movie-stats">
+                                watched stats here
+                                {/* {this.props.movie.watchedIds.length} */}
+                            </ul>
+                        </div>
+                        thumbnail here
+                    </div>
+                    <div>
+
+                    </div>
+                    {/* {this.props.movie.title}
+                    {this.props.movie.year}
+                    {this.props.movie.description} */}
                 </div>
-                {/* {this.props.movie.title}
-                {this.props.movie.year}
-                {this.props.movie.description} */}
             </div>
         )
     }
