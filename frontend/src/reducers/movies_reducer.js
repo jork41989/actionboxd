@@ -1,7 +1,6 @@
 import {
     RECEIVE_MOVIE, 
-    RECEIVE_MOVIES,
-    // RECEIVE_USER_MOVIES
+    RECEIVE_MOVIES
 } from '../actions/movie_actions';
 import merge from 'lodash/merge'
 
@@ -20,9 +19,6 @@ const moviesReducer = (state = {}, action) => {
             newState = merge({}, state, movieArr);
             debugger;
             return newState; 
-        // case RECEIVE_USER_MOVIES:
-        //     newState = merge({}, state, action.movies.data);
-        //     return newState;
         default:
             return state;
     }
