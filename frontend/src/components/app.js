@@ -25,7 +25,7 @@ const App = () => (
       <AuthRoute exact path="/" component={MainPage} />
       <Route exact path ="/movies" component={MoviesIndexContainer} />
       <Route exact path ="/movies/:movieId" component={MoviesShowContainer} />
-      <ProtectedRoute exact path="/profile" component={ProfileContainer} />
+      <Route path='/users/:id' component={ProfileContainer} />
      
     </Switch>
     <Modal />

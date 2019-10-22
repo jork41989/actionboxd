@@ -24,7 +24,7 @@ class Profile extends React.Component {
       return ( <div>
           <div className={'profileHeader'}>
               <div className={'Profile-photo'}></div>
-              <p className={'Profile-username'}>{this.props.currentUser.username}</p>
+              <p className={'Profile-username'}>Username goes here</p>
             </div>
       </div>  )
     }
