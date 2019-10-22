@@ -10,6 +10,7 @@ import MainPage from './main/main_page';
 import ProfileContainer from './profile/profile_container';
 import '../App.css'
 import './graphik-cufonfonts-webfont/style.css'
+import './tiempos-headline-cufonfonts-webfont/style.css'
 
 import MoviesIndexContainer from './movies/movies_index_container';
 import MoviesShowContainer from './movies/movies_show_container';
