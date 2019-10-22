@@ -1,0 +1,15 @@
+.movies-list{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+    list-style: none;
+    column-gap: 10px;
+
+}
+
+.movies-list li{
+    height: 300px;
+    width: 150px;
+    text-decoration: none;
+    color: #9ab;
+}
