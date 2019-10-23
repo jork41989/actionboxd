@@ -110,6 +110,9 @@
     font-size: 13px;
 }
 
+
+
+
 .fa-youtube{
     font-size: 16px;
     margin-right: 8px;
@@ -121,10 +124,14 @@
     align-items: center;
 }
 
-.trailer-link-container:hover, button:hover{
+.trailer-link-container:hover .fa-youtube, .trailer-link-container:hover .trailer-link{
     color: #FFFFFF;
     cursor: pointer;
 }
+
+
+
+
 
 
 .movie-show-info{
