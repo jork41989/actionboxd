@@ -25,12 +25,12 @@ export const getReview = id => dispatch => (
 )
 
 export const getRecentReviews = () => dispatch => (
-    ReviewsApiUtil.getReviews()
+    ReviewsApiUtil.getMostRecentReviews()
         .then(reviews => dispatch(receiveRecentReviews(reviews)))
 )
 
 export const getMovieReviews = (movieId) => dispatch => (
-    ReviewsApiUtil.getReviews(movieId)
+    ReviewsApiUtil.getMovieReviews(movieId)
         .then(reviews => dispatch(receiveMovieReviews(reviews)))
 )
 
