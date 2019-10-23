@@ -1,6 +1,6 @@
 import React from 'react'
 import './movies_show.css'
-// import ReviewIndexContainer from '../reviews/review_index_container'
+import ReviewIndexContainer from '../reviews/review_index_container'
 
 export default class MoviesShow extends React.Component {
     componentDidMount(){
@@ -100,7 +100,7 @@ export default class MoviesShow extends React.Component {
                                 </h2>
                                 <div className="movie-show-info-reviews"> 
                                     Review Index Component Here
-                                    {/* <ReviewIndexContainer movie={this.props.movie}/> */}
+                                    <ReviewIndexContainer movie={this.props.movie}/>
                                 </div>
                             </div>
                         </section>
