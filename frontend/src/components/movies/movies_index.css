@@ -52,6 +52,10 @@
     box-sizing: border-box;
     width: 150px;
     border-radius: 4px;
+    background: #455565;
+    border: 1px solid #788898;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .movies-list-item-container:hover{
@@ -59,5 +63,7 @@
 }
 
 .movies-list-item-title{
-    
+    padding: 2px 0 5px;
+    color: #bccbdd;
+    font-weight: 800;
 }
