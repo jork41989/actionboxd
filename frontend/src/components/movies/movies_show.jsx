@@ -67,7 +67,8 @@ export default class MoviesShow extends React.Component {
                                     <p>WATCH</p>
                                     <div className="trailer-link-container">
                                         <i className="fab fa-youtube"></i>
-                                        <a href={this.props.movie.trailer_url} className="trailer-link">Play Trailer</a>    
+                                        <a href={this.props.movie.trailer_url} className="trailer-link">Play Trailer</a> 
+                                        <button onClick={() => this.props.openModal('trailer')}>Play Trailer</button>   
                                     </div>
                                 </div>
                             </div>
