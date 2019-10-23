@@ -92,6 +92,9 @@ export default class MoviesShow extends React.Component {
                                     <i className="far fa-eye"></i>
                                     Watch
                                 </li>
+                                <li className="actions-panel-reviews-container">
+                                    <button onClick={() => this.props.openModal('review')}>Review</button>
+                                </li>
                             </ul>
 
                             <div className="movie-show-info-reviews-container">

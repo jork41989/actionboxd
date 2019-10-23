@@ -4,6 +4,8 @@ import { closeModal } from '../../actions/modal_actions';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import TrailerContainer from '../movies/trailer_container';
+import ReviewsCreateFormContainer from '../reviews/reviews_create_form_container';
+
 import './modal.css';
 
 
@@ -22,6 +24,9 @@ function Modal ({modal, closeModal}) {
       break;
     case 'trailer':
       component = <TrailerContainer />;
+      break;
+    case 'review':
+      component = <ReviewsCreateFormContainer />;
       break;
     default:
       return null;
