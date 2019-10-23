@@ -1,15 +1,38 @@
 .trailer-container{
+  position: relative;
+  top: 75px;
   background-color: #14181c;
   color: #678;
   padding: 10px 10px;
   border-radius: 3px;
-  min-width: 800px;
-  min-height: 800px;
+  max-width: 1280px;
+  max-height: 720px;
+  overflow: hidden;
 }
 
-.trailer{
-  min-width: 560px; 
-  min-height: 315px; 
-  width: 100%;
-  height: auto; 
-}
+@media only screen and (min-width: 768px) {
+    /* For mobile phones: */
+    .trailer-container {
+      height: 315px;
+      width: 560px;
+    }
+
+    .trailer{
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+@media only screen and (min-width: 1400px) {
+    /* For mobile phones: */
+    .trailer-container {
+      top: -90px;
+      height: 720px;
+      width: 1280px;
+    }
+
+    .trailer{
+      height: 100%;
+      width: 100%;
+    }
+  }
