@@ -14,6 +14,8 @@ export default class MoviesShow extends React.Component {
     }
 
     render() {
+        debugger; 
+        
         if (!this.props.movie) {
             return <div>Loading...</div>;
         }
