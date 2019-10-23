@@ -15,6 +15,7 @@ const moviesReducer = (state = {}, action) => {
     let moviesArr;
     let moviesObj;
     let review;
+    let movieId;
     switch(action.type){
         case RECEIVE_MOVIE:
             movie = action.movie.data

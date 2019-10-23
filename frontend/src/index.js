@@ -7,7 +7,7 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 
 //test//
-import { getMostRecentReviews, getMovieReviews, getReview } from './util/reviews_api_util';
+import { getMostRecentReviews, getReview } from './util/reviews_api_util';
 import axios from 'axios';
 //test//
 
@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
     //test
     window.getMostRecentReviews = getMostRecentReviews(); 
-    window.getMovieReviews = getMovieReviews(); 
     window.getReview = getReview(); 
     window.axios = axios
     //test
