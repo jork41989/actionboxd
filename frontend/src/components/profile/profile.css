@@ -9,6 +9,7 @@
 .profileHeader{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     color: #fff;
 }
 
@@ -23,4 +24,57 @@
     white-space: nowrap;
     overflow: hidden;
     font-size: 1.69230769rem;
+}
+.profileHeaderUserInfo{
+    display: flex;
+    flex-direction: row;
+}
+
+.profileHeaderCountsUpper{
+    color: #9ab;
+    font-family:'Graphik Light';
+    font-weight: 400;
+    font-size: 2rem;
+    letter-spacing: .03846154em;
+    display: block;
+    margin-bottom: .38461538rem;
+}
+
+.profileHeaderMovieCount:hover .profileHeaderCountsUpper{
+  color: #fff;
+}
+
+.profileHeaderMovieCount{
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px rgba(102, 119, 136, 0.281) solid;
+    padding: 5px 15px;
+}
+.profileHeaderMovieCountLabel{
+    color: #678;
+    font-family:'Graphik Regular';
+    font-size: .84615385rem;
+    line-height: 1;
+}
+
+
+.profileMain{
+  padding-top: 30px;
+}
+
+.profileWatchedLabel{
+    color: #678;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px rgba(102, 119, 136, 0.808);
+}
+
+.profileWatchedText:hover{
+  color: #fff;
+  
 }

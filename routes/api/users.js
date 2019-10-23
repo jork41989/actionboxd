@@ -78,7 +78,7 @@ router.post('/login', (req, res) => {
       bcrypt.compare(password, user.password)
         .then(isMatch => {
           if (isMatch) {
-            const payload = { id: user.id, username: user.username, email: user.email };
+            const payload = { id: user.id, username: user.username, email: user.email, watched_movies: user.watched_movies };
 
             jwt.sign(
               payload,
@@ -90,7 +90,8 @@ router.post('/login', (req, res) => {
                   success: true,
                   token: 'Bearer ' + token,
                   username: user.username,
-                  email: user.email
+                  email: user.email,
+                  watched_movies: user.watched_movies
                 });
               });
           } else {
@@ -118,10 +119,11 @@ router.patch('/:user_id', (req, res) => {
 
 
 router.get('/:user_id', (req, res) => {
-  User.findById(req.params.user_id)
+  User.findById(req.params.user_id).populate({ path: 'watched_movies', select: '_id title poster_url'})
    .then(user => res.json({
       username: user.username,
-      watched_movies: user.watched_movies 
+      watched_movies: user.watched_movies,
+      id: user.id,
     }))
     .catch(err => 
       res.status(404).json({nomoviesfound: 'no movies found for this user'}))
