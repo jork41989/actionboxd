@@ -1,6 +1,6 @@
 .trailer-container{
   position: relative;
-  top: 75px;
+  top: 180px;
   background-color: #14181c;
   color: #678;
   padding: 10px 10px;
@@ -13,6 +13,7 @@
 @media only screen and (min-width: 768px) {
     /* For mobile phones: */
     .trailer-container {
+      top: 90px;
       height: 315px;
       width: 560px;
     }
