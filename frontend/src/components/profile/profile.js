@@ -42,6 +42,12 @@ class Profile extends React.Component {
                   <p className={'profileHeaderMovieCountLabel'}>Films</p>
               </div>
             </div>
+          <div>
+              <div className={'profileWatchedLabel'}>
+                  <p className={'profileWatchedText'}>RECENTLY WATCHED</p>
+                  <p className={'profileWatchedText'} >ALL <i class="fas fa-film"></i></p>
+              </div>
+          </div>
       </div>  )
 
         } else {
@@ -61,7 +67,7 @@ class Profile extends React.Component {
                 <div>
                     <div>
                             <p>RECENTLY WATCHED</p>
-                            <p>ALL </p>
+                            <p>ALL <i class="fas fa-film"></i></p>
                     </div>
                 </div>
             </div>
