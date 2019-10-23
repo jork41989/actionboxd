@@ -126,6 +126,12 @@
     color: #FFFFFF;
 }
 
+/*
+.trailer-link-container button:hover{
+    color: #FFFFFF;
+}
+*/
+
 .movie-show-info{
     display: block;
     width: 670px;
