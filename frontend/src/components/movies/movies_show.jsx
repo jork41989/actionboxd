@@ -14,8 +14,6 @@ export default class MoviesShow extends React.Component {
     }
 
     render() {
-        debugger; 
-
         if (!this.props.movie) {
             return <div>Loading...</div>;
         }
@@ -69,7 +67,6 @@ export default class MoviesShow extends React.Component {
                                     <p>WATCH</p>
                                     <div className="trailer-link-container" onClick={() => this.props.openModal('trailer')}>
                                         <i className="fab fa-youtube"></i>
-                                        {/* <a href={this.props.movie.trailer_url} className="trailer-link">Play Trailer</a>  */}
                                         <button className="trailer-link" >Play Trailer</button>   
                                     </div>
                                 </div>

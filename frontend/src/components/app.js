@@ -29,7 +29,7 @@ const App = () => (
       <Route path='/users/:id' component={ProfileContainer} />
      
     </Switch>
-    <Modal />
+    <Route path="/" component={Modal} />
     </div>
   </div>
 );
