@@ -15,7 +15,7 @@ const ReviewSchema = new Schema({
     required: true
   },
   rating: {
-    type: Number,
+    type: Schema.Types.Decimal128,
     required: true
   },
   date: {

@@ -6,7 +6,7 @@ const passport = require('passport');
 const Review = require('../../models/Review');
 const validateReviewInput = require('../../validation/valid-text');
 
-
+//5 most recent reviews
 router.get('/', (req, res) => {
   Review.find()
     .sort({date: -1}).limit(5)
