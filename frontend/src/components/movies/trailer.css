@@ -1,0 +1,69 @@
+.trailer-container{
+  position: relative;
+  top: 180px;
+  /* background-color: #14181c; */
+  background: black;
+  color: #678;
+  padding: 10px 10px;
+  border-radius: 3px;
+  max-width: 1280px;
+  max-height: 720px;
+  overflow: hidden;
+  /* background: #345;
+  padding: 0; */
+}
+
+.trailer-close-button{
+  display: block;
+  background: #345; 
+  color: #9ab;
+  text-align: end;
+  padding: 2px;
+  font-family: Graphik-Regular-Web,sans-serif;
+  font-size: 10px;
+}
+
+.trailer-close-button:hover{
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+
+@media only screen and (min-width: 768px) {
+    /* For mobile phones: */
+    .trailer-container {
+      top: 90px;
+      height: 315px;
+      width: 560px;
+    }
+
+    .trailer{
+      height: 100%;
+      width: 100%;
+    }
+
+    .trailer-close-button{
+      font-size: 16px;
+      padding: 3px;
+    }
+  }
+
+@media only screen and (min-width: 1400px) {
+    /* For mobile phones: */
+    .trailer-container {
+      top: -90px;
+      height: 720px;
+      width: 1280px;
+    }
+
+    .trailer{
+      height: 100%;
+      width: 100%;
+    }
+
+     .trailer-close-button{
+      font-size: 19px;
+      padding: 4px;
+      padding-right: 8px;
+    }
+  }

@@ -110,6 +110,9 @@
     font-size: 13px;
 }
 
+
+
+
 .fa-youtube{
     font-size: 16px;
     margin-right: 8px;
@@ -119,12 +122,17 @@
     display: flex; 
     justify-content: space-between;
     align-items: center;
+}
+
+.trailer-link-container:hover .fa-youtube, .trailer-link-container:hover .trailer-link{
+    color: #FFFFFF;
     cursor: pointer;
 }
 
-.trailer-link-container:hover, a:hover{
-    color: #FFFFFF;
-}
+
+
+
+
 
 .movie-show-info{
     display: block;
@@ -240,12 +248,10 @@
     font-size: 12px;
     text-decoration: none;
     color: #9ab;
+    background: none;
+    border: none;
 }
 
-
-
-/* 
-.temp{
-    position: absolute;
-    top: 2000px;
-} */
+.trailer-link:focus{
+    outline: none;
+}
