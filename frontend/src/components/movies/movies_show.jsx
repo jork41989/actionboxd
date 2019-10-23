@@ -1,6 +1,6 @@
 import React from 'react'
 import './movies_show.css'
-import ReviewIndexContainer from '../reviews/review_index_container'
+import ReviewIndexContainer from '../reviews/reviews_index_container'
 
 export default class MoviesShow extends React.Component {
     componentDidMount(){

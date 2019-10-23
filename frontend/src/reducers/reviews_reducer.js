@@ -9,6 +9,7 @@ const reviewsReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState;
     let review;
+    let reviews;
     switch(action.type){
         case RECEIVE_REVIEW:
             review = action.review;
