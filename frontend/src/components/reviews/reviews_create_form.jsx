@@ -26,8 +26,13 @@ class ReviewsCreateForm extends React.Component {
 
 
     render() {
+        //add on change to radio buttons 
+        //limit selection to one 
+        //find how to turn into stars
+        //style modal 
+        
         return (
-            <div className="reviewsFormContainer">
+            <div className="reviews-form-container">
                 <form className="reviews-create-form" onSubmit={this.handleSubmit}>
 
                     <label htmlFor="date">Date</label>
@@ -39,7 +44,6 @@ class ReviewsCreateForm extends React.Component {
                         placeholder="Add a review..." 
                     />
                     
-//add on change to radio buttons 
 
                     <label htmlFor="1">1</label>
                     <input type="radio" id="1" value="1" />
