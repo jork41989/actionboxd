@@ -7,7 +7,7 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 
 //test//
-import { getMovies } from './util/movies_api_util';
+import { getMostRecentReviews, getMovieReviews, getReview } from './util/reviews_api_util';
 import axios from 'axios';
 //test//
 
@@ -30,7 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const root = document.getElementById('root');
     //test
-    window.getMovies = getMovies(); 
+    window.getMostRecentReviews = getMostRecentReviews(); 
+    window.getMovieReviews = getMovieReviews(); 
+    window.getReview = getReview(); 
     window.axios = axios
     //test
     ReactDOM.render(<Root store={store} />, root);
