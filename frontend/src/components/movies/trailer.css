@@ -1,3 +1,11 @@
 .trailer{
-    
+  background-color: #14181c;
+  color: #678;
+  padding: 90px 100px;
+  border-radius: 3px;
+}
+
+.trailer-temp{
+    display: block;
+    color: green;
 }

@@ -22,9 +22,11 @@ function Modal ({modal, closeModal}) {
       break;
     case 'trailer':
       component = <TrailerContainer />;
+      break;
     default:
       return null;
   }
+
   return (
     <div className="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
