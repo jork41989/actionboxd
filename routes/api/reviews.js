@@ -29,25 +29,25 @@ router.get('/movies/:movie_id', (req, res) => {
     res.status(404).json({nomoviereviews: 'No reviews for this movie yet'}))
 })
 
-router.post('/',
-  passport.authenticate('jwt', {session: false}),
-  (req, res) => {
-    // const {errors, isValid} = validateReviewInput(req.body);
+// router.post('/',
+//   passport.authenticate('jwt', {session: false}),
+//   (req, res) => {
+//     // const {errors, isValid} = validateReviewInput(req.body);
 
-    // if(!isValid){
-    //   return res.status(404).json(errors);
-    // }
+//     // if(!isValid){
+//     //   return res.status(404).json(errors);
+//     // }
 
-    const newReview = new Review({
-      user_id: req.user.id,
-      movie_id: req.movie.id,
-      text: req.body.text,
-      // rating: req.body.rating
-    });
-    console.log(newReview);
-    newReview.save().then(review => res.json({review})).catch(err => res.json(err))
-  }
-);
+//     const newReview = new Review({
+//       user_id: req.user.id,
+//       movie_id: req.movie.id,
+//       text: req.body.text,
+//       // rating: req.body.rating
+//     });
+//     console.log(newReview);
+//     newReview.save().then(review => res.json({review})).catch(err => res.json(err))
+//   }
+// );
 
 router.delete('/:id', (req, res) => {
   Review.findOneAndRemove({id: req.params.id}, 
