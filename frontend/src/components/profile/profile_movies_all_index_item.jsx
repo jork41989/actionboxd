@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReactTooltip from 'react-tooltip'
 
 
 class ProfileMoviesAllIndexItem extends React.Component {
@@ -10,10 +11,11 @@ class ProfileMoviesAllIndexItem extends React.Component {
   render() {
     console.log(this.props)
     return (
-      <div className={'ProfileMoviesAllIndexItem'}>
-        <div className={'profile-movies-all-item-title'}> <p>{this.props.movie.title}</p> 
-          <div className={'profile-movies-all-item-title-tri'}></div>
-        </div>
+      <div className={'ProfileMoviesAllIndexItem'} data-tip data-for={this.props.movie.title}>
+        <ReactTooltip id={this.props.movie.title} place="top" type="dark" effect="solid">
+          <span>{this.props.movie.title}</span>
+        </ReactTooltip>
+        
         
         <Link to={`/movies/${this.props.movie._id}`} className="index-thumbnail-link">
           <div className="profile-movies-all-item-container">
