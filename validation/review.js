@@ -15,6 +15,14 @@ module.exports = function validateReviewInput(data){
   }
 
 
+  if (!Validator.isFloat(data.rating, { min: 1.0, max: 5.0})){
+    errors.rating = 'Rating must be between 1 and 5 stars';
+  }
+
+  if (Validator.isEmpty(data.rating)){
+    errors.text = "Rating can't be blank";
+  }
+
   return {
     errors,
     isValid: Object.keys(errors).length === 0
