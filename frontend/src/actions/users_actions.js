@@ -1,4 +1,4 @@
-import { getUser } from '../util/user_api_util';
+import { getUser, updateUser } from '../util/user_api_util';
 
 
 export const RECEIVE_SINGLE_USER = 'RECEIVE_SINGLE_USER';
@@ -17,6 +17,6 @@ export const requestSingleUser = userId => (dispatch) => (
 
 
 
-// export const updateAuser = (userId, user) => (dispatch) => (
-//   updateUser(userId, user).then(user => dispatch(receiveAUser(user)))
-// )
+export const updateAuser = (userId, payload) => (dispatch) => (
+  updateUser(userId, payload).then(user => dispatch(receiveAUser(user)))
+)
