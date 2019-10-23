@@ -1,11 +1,15 @@
-.trailer{
+.trailer-container{
   background-color: #14181c;
   color: #678;
-  padding: 90px 100px;
+  padding: 10px 10px;
   border-radius: 3px;
+  min-width: 800px;
+  min-height: 800px;
 }
 
-.trailer-temp{
-    display: block;
-    color: green;
+.trailer{
+  min-width: 560px; 
+  min-height: 315px; 
+  width: 100%;
+  height: auto; 
 }
