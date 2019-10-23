@@ -62,8 +62,8 @@ router.delete('/:id', (req, res) => {
 
 router.patch('/:id', (req,res) => {
   passport.authenticate('jwt', { session: false }),
-  Review.findByIdAndUpdate({id: req.params.id},
-    {text: review.text, review: review.rating},
+  Review.findByIdAndUpdate({_id: req.params.id},
+    {$set: {text: req.body.text, rating: req.body.rating}},
     {new: true})
     .then((docs) => res.json(docs))
     .catch(err =>
