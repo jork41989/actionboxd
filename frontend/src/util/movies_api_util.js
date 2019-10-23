@@ -5,7 +5,7 @@ export const getMovies = () => {
 };
 
 export const getUserMovies = (id) => {
-  return axios.get(`/api/movies/user/${id}`)
+  return axios.get(`/api/users/${id}`)
 };
 
 export const getMovie = (id) => {
