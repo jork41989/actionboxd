@@ -1,6 +1,7 @@
 import React from 'react';
 import './profile.css'
 import ProfileMoviesSampleIndex from './profile_movies_sample_index'
+import ProfileMoviesAllIndex from './profile_movies_all_index'
 
 
 class Profile extends React.Component {
@@ -55,6 +56,9 @@ class Profile extends React.Component {
                 <p className={'profileBodyText'} onClick={this.profilehomeState}>Back to profile</p>
                 
             </div>
+                <div>
+                    <ProfileMoviesAllIndex movies={this.state.user.watched_movies} />
+                </div>
             </div>)
     }
 
