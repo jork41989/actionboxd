@@ -11,6 +11,10 @@ class ProfileMoviesAllIndexItem extends React.Component {
     console.log(this.props)
     return (
       <div className={'ProfileMoviesAllIndexItem'}>
+        <div className={'profile-movies-all-item-title'}> <p>{this.props.movie.title}</p> 
+          <div className={'profile-movies-all-item-title-tri'}></div>
+        </div>
+        
         <Link to={`/movies/${this.props.movie._id}`} className="index-thumbnail-link">
           <div className="profile-movies-all-item-container">
             <div className="profile-movies-all-thumbnail-container">
