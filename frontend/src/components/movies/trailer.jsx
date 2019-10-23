@@ -6,7 +6,7 @@ class Trailer extends React.Component {
         return (
             <div className="trailer-container">
                     <iframe className="trailer"
-                        src="https://www.youtube.com/embed/t433PEQGErc" 
+                    src="https://www.youtube.com/embed/akX3Is3qBpw" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
