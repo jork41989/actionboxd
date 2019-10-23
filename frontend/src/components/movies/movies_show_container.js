@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import MoviesShow from './movies_show';
 import { getMovie } from '../../actions/movie_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
     // debugger;
@@ -10,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    getMovie: (id) => dispatch(getMovie(id))
+    getMovie: (id) => dispatch(getMovie(id)),
+    openModal: (modal) => dispatch(openModal(modal))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesShow);
