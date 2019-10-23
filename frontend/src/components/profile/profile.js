@@ -15,6 +15,7 @@ class Profile extends React.Component {
         this.profilehome = this.profilehome.bind(this)
         this.MoviesAllState = this.MoviesAllState.bind(this)
         this.moviesAll = this.moviesAll.bind(this)
+        this.profilehomeState = this.profilehomeState.bind(this)
     }
     
     componentDidMount(e) {
@@ -37,8 +38,8 @@ class Profile extends React.Component {
         return (
             <div>
                 <div className={'profileTextLabel'}>
-                    <p className={'profileBodyText'}>RECENTLY WATCHED</p>
-                    <p className={'profileBodyText'} >ALL <i className="fas fa-film"></i></p>
+                    <p className={'profileBodyText'} onClick={this.MoviesAllState}>RECENTLY WATCHED</p>
+                    <p className={'profileBodyText'} onClick={this.MoviesAllState} >ALL <i className="fas fa-film"></i></p>
                 </div>
                 <div>
                     <ProfileMoviesSampleIndex movies={moviesSample} />
@@ -49,14 +50,20 @@ class Profile extends React.Component {
 
     moviesAll(){
         return (<div>
-                <p> Hello World123</p>
+            <div className={'profileTextLabel'}>
+                <p className={'profileBodyText'} >All Watched Films</p>
+                <p className={'profileBodyText'} onClick={this.profilehomeState}>Back to profile</p>
+                
+            </div>
             </div>)
     }
 
     MoviesAllState(){
         this.setState({ activeComponent: 'MoviesAll'})
     }
-
+    profilehomeState(){
+        this.setState({ activeComponent: 'profile' })
+    }
     renderComponent(){
         let component;
         switch (this.state.activeComponent) {
