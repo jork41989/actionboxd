@@ -48,6 +48,29 @@ router.get('/movies/:movie_id', (req, res) => {
 //     newReview.save().then(review => res.json({review})).catch(err => res.json(err))
 //   }
 // );
+router.post('/movies/:movie_id/:user_id',
+   passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateReviewInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    const newReview = new Review({
+      text: req.body.text,
+      user_id: req.params.user_id,
+      movie_id: req.params.movie_id,
+      text: req.body.text,
+      rating: req.body.rating
+
+    });
+
+    newReview.save()
+    .then(review => res.json(review))
+    .catch(err => res.json(err));
+  }
+);
 
 router.delete('/:id', (req, res) => {
   Review.findOneAndRemove({id: req.params.id}, 
