@@ -3,11 +3,7 @@ import { withRouter } from 'react-router-dom';
 import './trailer.css'
 
 class Trailer extends React.Component {    
-    
-    // let trailer_url = this.props.movie.trailer_url;
-    
     render() {
-        debugger;
         return (
             <div className="trailer-container">
                     <iframe className="trailer"
