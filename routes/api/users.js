@@ -115,7 +115,20 @@ router.patch('/:user_id', (req, res) => {
       }
     });
 
-})
+});
+
+router.patch('/:id/reviews', (req, res) => {
+  User.findOneAndUpdate(
+    {_id: req.params.user_id},
+    { $push: {authored_reviews: req.params.review_id }},
+    function(error, success){
+      if (error){
+        console.log(error);
+      } else {
+        console.log(success);
+      }
+    });
+});
 
 
 router.get('/:user_id', (req, res) => {

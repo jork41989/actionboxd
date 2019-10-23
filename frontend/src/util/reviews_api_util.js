@@ -14,8 +14,10 @@ export const getMovieReviews = (id) => {
 };
 
 export const writeReview = (data) => {
-  return axios.post('/api/reviews', data)
+  router.post('/api/reviews/movies/:movie_id/:user_id', data)
 };
+
+
 
 export const deleteReview = (id) => {
   return axios.delete(`api/reviews/${id}`) 
