@@ -23,11 +23,11 @@ export default class MoviesShow extends React.Component {
         let backgroundImageStyle = {
             display: "block",
             position: "absolute",
-            width: "100 %",
-            height: "99.95 %",
+            width: "1200px",
+            minHeight: "800px",
             backgroundRepeat: "no-repeat",
             backgroundSize: "100%",
-            backgroundPosition: "center 0px",
+            backgroundPosition: "center 72px",
             zIndex: "10",
             backgroundImage: `url(${this.props.movie.background_image_url})`
         }
