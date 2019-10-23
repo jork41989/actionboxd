@@ -5,7 +5,7 @@ export default class trailer extends React.Component {
     render() {
         return (
             <div className="trailer">
-                
+                hi. 
             </div>
         )
     }
