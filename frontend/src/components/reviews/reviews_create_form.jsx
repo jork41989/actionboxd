@@ -28,7 +28,18 @@ class ReviewsCreateForm extends React.Component {
     render() {
         return (
             <div className="reviewsFormContainer">
-                <form action="">
+                <form className="reviews-create-form" onSubmit={this.handleSubmit}>
+
+                    <label htmlFor="date">Date</label>
+                    <input type="radio" id="date" value={this.state.date} />
+
+                    <textarea  
+                        onChange={this.update("text")} 
+                        value={this.state.text} 
+                        placeholder="Add a review..." 
+                    />
+                    
+//add on change to radio buttons 
 
                     <label htmlFor="1">1</label>
                     <input type="radio" id="1" value="1" />
@@ -45,11 +56,8 @@ class ReviewsCreateForm extends React.Component {
                     <label htmlFor="5">5</label>
                     <input type="radio" id="5" value="5" />
 
-                    <textarea  
-                        onChange={this.update("text")} 
-                        value={this.state.text} 
-                        placeholder="Add a review..." 
-                    />
+
+                    <button>Save</button>
                 </form>    
             </div>
         )
