@@ -3,7 +3,6 @@ import { requestSingleUser } from '../../actions/users_actions'
 import Profile from './profile';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps)
   const userId = parseInt(ownProps.match.params.id);
   let user = state.entities.users[userId];
 

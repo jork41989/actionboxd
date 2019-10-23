@@ -11,6 +11,8 @@
     flex-direction: row;
     justify-content: space-between;
     color: #fff;
+    height: 110px;
+    align-items: center;
 }
 
 .Profile-username{
@@ -51,6 +53,7 @@
     justify-content: center;
     border-left: 1px rgba(102, 119, 136, 0.281) solid;
     padding: 5px 15px;
+    cursor: pointer;
 }
 .profileHeaderMovieCountLabel{
     color: #678;
@@ -64,7 +67,7 @@
   padding-top: 30px;
 }
 
-.profileWatchedLabel{
+.profileTextLabel{
     color: #678;
     display: flex;
     flex-direction: row;
@@ -74,7 +77,17 @@
     border-bottom: solid 1px rgba(102, 119, 136, 0.808);
 }
 
-.profileWatchedText:hover{
+.profileBodyText:hover{
   color: #fff;
-  
+  cursor: pointer;
+}
+
+.ProfileMoviesSampleIndex{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.ProfileMoviesSampleIndexItem{
+  padding: 10px;
 }
