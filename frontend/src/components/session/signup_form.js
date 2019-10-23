@@ -41,7 +41,7 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user, this.props.history); 
-    console.log(user)
+    
   }
 
   renderErrors() {
@@ -59,6 +59,7 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-login-bg">
+        <div onClick={this.props.closeModal} className="close-x">X</div>
         <form onSubmit={this.handleSubmit}>
           <div className="formCenter">
             <p className={'formHeader'}>Create Account</p>
