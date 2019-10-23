@@ -14,10 +14,10 @@ const ReviewSchema = new Schema({
     type: String,
     required: true
   },
-  rating: {
-    type: Schema.Types.Decimal128,
-    required: true
-  },
+  // rating: {
+  //   type: Schema.Types.Decimal128,
+  //   required: true
+  // },
   date: {
     type: Date,
     default: Date.now

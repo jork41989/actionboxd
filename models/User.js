@@ -18,7 +18,8 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  watched_movies: [{ type: Schema.Types.ObjectId, ref: 'movie' }]
+  watched_movies: [{ type: Schema.Types.ObjectId, ref: 'movie' }],
+  authored_reviews: [{ type: Schema.Types.ObjectId, ref: 'review'}]
 })
 
 const User = mongoose.model('users', UserSchema);

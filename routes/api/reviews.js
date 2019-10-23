@@ -4,12 +4,12 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const Review = require('../../models/Review');
-const validateReviewInput = require('../../validation/valid-text');
+const validateReviewInput = require('../../validation/review');
 
 //5 most recent reviews
 router.get('/', (req, res) => {
-  Review.find()
-    .sort({date: -1}).limit(5)
+  Review.find().limit(5)
+    .sort({date: -1})//.populate({path: 'movie_id', select: '_id title poster_url' })
     .then(reviews => res.json(reviews))
     .catch(err => res.status(404).json({reviewsnotfound: 'No reviews to display'}))
 });
@@ -32,19 +32,20 @@ router.get('/movies/:movie_id', (req, res) => {
 router.post('/',
   passport.authenticate('jwt', {session: false}),
   (req, res) => {
-    const {errors, isValid} = validateReviewInput(req.body);
+    // const {errors, isValid} = validateReviewInput(req.body);
 
-    if(!isValid){
-      return res.status(404).json(errors);
-    }
+    // if(!isValid){
+    //   return res.status(404).json(errors);
+    // }
 
     const newReview = new Review({
       user_id: req.user.id,
       movie_id: req.movie.id,
       text: req.body.text,
-      rating: req.body.rating
+      // rating: req.body.rating
     });
-    newReview.save().then(review => res.json({review}))
+    console.log(newReview);
+    newReview.save().then(review => res.json({review})).catch(err => res.json(err))
   }
 );
 
@@ -61,7 +62,7 @@ router.delete('/:id', (req, res) => {
 
 router.patch('/:id', (req,res) => {
   Review.findByIdAndUpdate({id: req.params.id},
-    {$set: {text: review.text}},
+    {text: review.text, review: review.rating},
     {new: true})
     .then((docs) => res.json(docs))
     .catch(err =>
