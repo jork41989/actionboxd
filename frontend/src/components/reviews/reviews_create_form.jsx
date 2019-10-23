@@ -45,7 +45,7 @@ class ReviewsCreateForm extends React.Component {
                     <label htmlFor="5">5</label>
                     <input type="radio" id="5" value="5" />
 
-                    <textArea  
+                    <textarea  
                         onChange={this.update("text")} 
                         value={this.state.text} 
                         placeholder="Add a review..." 
@@ -55,3 +55,5 @@ class ReviewsCreateForm extends React.Component {
         )
     }
 }
+
+export default ReviewsCreateForm;
