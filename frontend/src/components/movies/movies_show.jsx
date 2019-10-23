@@ -4,7 +4,6 @@ import './movies_show.css'
 
 export default class MoviesShow extends React.Component {
     componentDidMount(){
-        debugger;
         this.props.getMovie(this.props.match.params.movieId)
     }
 
@@ -15,104 +14,99 @@ export default class MoviesShow extends React.Component {
     }
 
     render() {
-        // if (!this.props.movie) {
-        //     return <div>Loading...</div>;
-        // }
+        if (!this.props.movie) {
+            return <div>Loading...</div>;
+        }
 
-        // test vars for sticky implementation
-        // let MovieShowScrollPos;
+        let posterAlt = `${this.props.movie.title} poster`;
+        let coverAlt = `${this.props.movie.title} background`;
+        let backgroundImageStyle = {
+            display: "block",
+            position: "absolute",
+            width: "1200px",
+            minHeight: "800px",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "100%",
+            backgroundPosition: "center 72px",
+            zIndex: "10",
+            backgroundImage: `url(${this.props.movie.background_image_url})`
+        }
 
-        // MovieShowScrollPos = window.scrollY < 380 ? 
-        //     "movie-show-poster-link-container" : "movie-show-poster-link-container-is-stuck" 
 
         return (
-            <div className="movie-show-container">
-                <div className="background-image">
-                    <div>
-                        background image here 
+            <div className="movie-show-body">
+
+                <div className="movie-show-container">
+                    <div className="background-image-container">
+                        <div style={backgroundImageStyle}></div>
+                        {/* <img 
+                            // src={this.props.movie.background_image_url}
+                            style={backgroundImageStyle}
+                            alt={coverAlt}
+                            className="background-image"
+                        /> */}
+                        <div className="fade"></div>
                     </div>
-                    {/* {this.props.movie.backgroundUrl} */}
-                </div>
 
+                    <div className="movie-show-content">
 
-
-                <div className="movie-show-content">
-
-                    <section className="movie-show-poster-link-container">
-                        <div className="poster-panel">
-                            <div className="poster">
-                                <div>poster here</div>
-                                {/* {this.props.movie.posterUrl} */}
+                        <section className="movie-show-poster-link-container">
+                            <div className="poster-panel">
+                                <div className="poster-container">
+                                    <img 
+                                        src={this.props.movie.poster_url} 
+                                        alt={posterAlt}
+                                        className="poster"
+                                        />
+                                </div>
+                                <ul className="movie-stats">
+                                    watched stats here
+                                    {/* {this.props.movie.watchedIds.length} */}
+                                </ul>
+                                <div className="watch-panel">
+                                    <p>WATCH</p>
+                                    <div className="trailer-link-container">
+                                        <i className="fab fa-youtube"></i>
+                                        <a href={this.props.movie.trailer_url} className="trailer-link">Play Trailer</a>    
+                                    </div>
+                                </div>
                             </div>
-                            <ul className="movie-stats">
-                                watched stats here
-                                {/* {this.props.movie.watchedIds.length} */}
+                        </section>
+
+                        <section className="movie-show-info">
+                            <div className="movie-show-info-header">
+                                <h1 className="movie-show-title">
+                                    {this.props.movie.title}
+                                </h1>
+                                <p className="movie-show-year">
+                                    {this.props.movie.year}
+                                </p>
+                            </div>
+
+                            <div className="movie-show-info-description">
+                                {this.props.movie.description}
+                            </div>
+
+                            <ul className="actions-panel">
+                                <li className="actions-panel-watch-container">
+                                    <i className="far fa-eye"></i>
+                                    Watch
+                                </li>
                             </ul>
-                            <div className="watch-panel">
-                                trailer link here
-                                {/* this.props.movie.trailerUrl */}
+
+                            <div className="movie-show-info-reviews-container">
+                                <h2 className="movie-show-reviews-header">
+                                    REVIEWS
+                                </h2>
+                                <div className="movie-show-info-reviews"> 
+                                    Review Index Component Here
+                                    {/* <ReviewIndexContainer movie={this.props.movie}/> */}
+                                </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    <section className="movie-show-info">
-                        <div className="movie-show-info-header">
-                            <h1 className="movie-show-title">
-                                TITLE HERE
-                                {/* {this.props.movie.title} */}
-                            </h1>
-                            <p className="movie-show-year">
-                                year here
-                                {/* {this.props.movie.year} */}
-                            </p>
-                        </div>
-
-                        <div className="movie-show-info-description">
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here 
-                            description here description here description here  
-                            {/* {this.props.movie.description} */}
-                        </div>
-
-                        <ul className="actions-panel">
-                            <li className="actions-panel-watch-container">
-                                <i className="far fa-eye"></i>
-                                Watch
-                            </li>
-                        </ul>
-
-                        <div className="movie-show-info-reviews-container">
-                            <h2 className="movie-show-reviews-header">
-                                REVIEWS
-                            </h2>
-                            <div className="movie-show-info-reviews"> 
-                                Review Index Component Here
-                                {/* <ReviewIndexContainer movie={this.props.movie}/> */}
-                            </div>
-                        </div>
-                    </section>
-
+                    </div>
                 </div>
-
-                <div className="temp">
-                    thing to enable scroll/sticky test here
-                </div>
-
             </div>
         )
     }

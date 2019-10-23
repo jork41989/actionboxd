@@ -1,5 +1,6 @@
 import React from 'react';
 import MoviesIndexItem from './movies_index_item';
+import './movies_index.css';
 
 class MoviesIndex extends React.Component{
     componentDidMount(){
@@ -8,7 +9,7 @@ class MoviesIndex extends React.Component{
 
     render(){
         let moviesList = this.props.movies.map(movie => 
-                <MoviesIndexItem key={movie.id} movie={movie} />
+                <MoviesIndexItem key={movie._id} movie={movie} />
             );
 
         if (moviesList.length === 0){
@@ -19,8 +20,8 @@ class MoviesIndex extends React.Component{
 
         return(
             <div className="movies-index-container">
-                <div>
-                    Movies
+                <div className="movies-index-header">
+                    POPULAR ON ACTIONBOXD
                 </div>
                 <ul className="movies-list">
                     {moviesList}

@@ -1,7 +1,6 @@
 import {
     RECEIVE_MOVIE, 
-    RECEIVE_MOVIES,
-    RECEIVE_USER_MOVIES
+    RECEIVE_MOVIES
 } from '../actions/movie_actions';
 import merge from 'lodash/merge'
 
@@ -9,17 +8,21 @@ const moviesReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState;
     let movie;
+    let moviesArr;
+    let moviesObj;
     switch(action.type){
         case RECEIVE_MOVIE:
             movie = action.movie.data
-            newState = merge({}, state, { [movie.id]: action.movie.data });
+            newState = merge({}, state, { [movie._id]: movie });
             return newState;
         case RECEIVE_MOVIES:
-            newState = merge({}, state, action.movies.data);
+            moviesArr = action.movies.data;
+            moviesObj = {};
+            moviesArr.forEach(movie => {
+                moviesObj[movie._id] = movie
+            })
+            newState = merge({}, state, moviesObj);
             return newState; 
-        case RECEIVE_USER_MOVIES:
-            newState = merge({}, state, action.movies.data);
-            return newState;
         default:
             return state;
     }
