@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import Trailer from './trailer';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     debugger;
     return({
 
@@ -11,9 +11,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
+    debugger;
     return {
         closeModal: () => dispatch(closeModal())
     };
 }
 
-export default connect(null, mapDispatchToProps)(Trailer);
+export default connect(mapStateToProps, mapDispatchToProps)(Trailer);
