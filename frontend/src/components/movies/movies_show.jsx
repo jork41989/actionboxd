@@ -19,24 +19,35 @@ export default class MoviesShow extends React.Component {
         }
 
         let posterAlt = `${this.props.movie.title} poster`;
-        // let coverAlt = `${this.props.movie.title} background`;
+        let coverAlt = `${this.props.movie.title} background`;
+        let backgroundImageStyle = {
+            display: "block",
+            position: "absolute",
+            width: "100 %",
+            height: "99.95 %",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "100%",
+            backgroundPosition: "center 0px",
+            zIndex: "10",
+            backgroundImage: `url(${this.props.movie.background_image_url})`
+        }
+
 
         return (
             <div className="movie-show-body">
 
                 <div className="movie-show-container">
-                    <div className="background-image">
-                        <div>
-                            background image here 
+                    <div className="background-image-container">
+                        <div style={backgroundImageStyle}>
+                            
                         </div>
                         {/* <img 
-                            src={this.props.movie.background_url}
+                            // src={this.props.movie.background_image_url}
+                            style={backgroundImageStyle}
                             alt={coverAlt}
-                            className="background-photo"
+                            className="background-image"
                         /> */}
                     </div>
-
-
 
                     <div className="movie-show-content">
 
