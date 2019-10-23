@@ -6,12 +6,30 @@
 }
 
 .logo{
+    margin: 22px 0 0;
+    width: 68px;
+    height: 25px;
+    position: relative;
+    background: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-size: 800px 1000px;
+    background-position: -350px 0px;
+}
+
+.logoText{
     position: relative;
     margin: 22px 0 0;
     float: left;
     font-size: 24px;
     color: #fff;
     font-family:'Graphik Bold';
+}
+
+
+.logoDiv{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
 }
 
 .NavBar{
