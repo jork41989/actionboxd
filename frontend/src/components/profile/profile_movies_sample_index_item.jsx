@@ -9,7 +9,7 @@ class ProfileMoviesSampleIndexItem extends React.Component {
   
 
   render (){
-    console.log(this.props.movie)
+    
     return (
       <div className={'ProfileMoviesSampleIndexItem'}>
         <Link to={`/movies/${this.props.movie._id}`} className="index-thumbnail-link">
