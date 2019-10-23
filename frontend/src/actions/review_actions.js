@@ -9,13 +9,8 @@ const receiveReview = review => ({
     review
 });
 
-const receiveRecentReviews = reviews => ({
+const receiveMostRecentReviews = reviews => ({
     type: RECEIVE_RECENT_REVIEWS,
-    reviews
-});
-
-const receiveMovieReviews = reviews => ({
-    type: RECEIVE_MOVIE_REVIEWS,
     reviews
 });
 
@@ -24,14 +19,10 @@ export const getReview = id => dispatch => (
         .then(review => dispatch(receiveReview(review)))
 )
 
-export const getRecentReviews = () => dispatch => (
+export const getMostRecentReviews = () => dispatch => (
     ReviewsApiUtil.getMostRecentReviews()
-        .then(reviews => dispatch(receiveRecentReviews(reviews)))
+        .then(reviews => dispatch(receiveMostRecentReviews(reviews)))
 )
 
-export const getMovieReviews = (movieId) => dispatch => (
-    ReviewsApiUtil.getMovieReviews(movieId)
-        .then(reviews => dispatch(receiveMovieReviews(reviews)))
-)
 
 //still need post, delete, patch
