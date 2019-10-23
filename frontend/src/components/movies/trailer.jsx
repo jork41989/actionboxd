@@ -1,12 +1,16 @@
 import React from 'react'
 import './trailer.css'
 
-export default class trailer extends React.Component {    
+class Trailer extends React.Component {    
     render() {
         return (
             <div className="trailer">
-                hi. 
+                <div className="trailer-temp">
+                    HELLO I AM IN A MODAL
+                </div> 
             </div>
         )
     }
 }
+
+export default Trailer;

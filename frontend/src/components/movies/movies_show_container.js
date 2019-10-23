@@ -4,7 +4,6 @@ import { getMovie } from '../../actions/movie_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    // debugger;
     return({
         movie: state.entities.movies[ownProps.match.params.movieId]
     })
