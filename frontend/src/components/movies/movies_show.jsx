@@ -38,15 +38,14 @@ export default class MoviesShow extends React.Component {
 
                 <div className="movie-show-container">
                     <div className="background-image-container">
-                        <div style={backgroundImageStyle}>
-                            
-                        </div>
+                        <div style={backgroundImageStyle}></div>
                         {/* <img 
                             // src={this.props.movie.background_image_url}
                             style={backgroundImageStyle}
                             alt={coverAlt}
                             className="background-image"
                         /> */}
+                        <div className="fade"></div>
                     </div>
 
                     <div className="movie-show-content">
