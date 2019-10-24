@@ -1,0 +1,43 @@
+.reviews-list{
+    margin:0;
+    padding:0;
+}
+
+.review-item-container{
+    display: flex;
+    padding-top: 5px;
+    border-color: #2c3440;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #456;
+    overflow: hidden;
+    padding: 15px 0 18px;
+}
+
+.review-item-avatar{
+    display: block;
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-right: 22px;
+    border: 1px solid hsla(0,0%,100%,.25);
+}
+
+.review-item-info-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.review-item-header{
+    font-family: Graphik-Regular-Web,sans-serif;
+    font-size: 13px;
+    color: #667788;
+    margin-bottom: 10px;
+}
+
+.review-item-body{
+    font-family: Tiempos Headline Regular;
+    font-size: 15px;
+    color: #99AABB;
+    margin-bottom: 10px;
+}
