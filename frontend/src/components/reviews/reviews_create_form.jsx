@@ -1,4 +1,5 @@
 import React from 'react'
+import './reviews_form.css'
 
 class ReviewsCreateForm extends React.Component {
     constructor(props){
@@ -33,6 +34,10 @@ class ReviewsCreateForm extends React.Component {
         
         return (
             <div className="reviews-form-container">
+                <div className="form-thumbnail">
+                    image
+                </div>
+
                 <form className="reviews-create-form" onSubmit={this.handleSubmit}>
 
                     <label htmlFor="date">Date</label>
@@ -44,24 +49,26 @@ class ReviewsCreateForm extends React.Component {
                         placeholder="Add a review..." 
                     />
                     
+                    <div className="review-stars">
+                        <label htmlFor="1">1</label>
+                        <input type="radio" id="1" value="1" />
 
-                    <label htmlFor="1">1</label>
-                    <input type="radio" id="1" value="1" />
+                        <label htmlFor="2">2</label>
+                        <input type="radio" id="2" value="2" />
 
-                    <label htmlFor="2">2</label>
-                    <input type="radio" id="2" value="2" />
+                        <label htmlFor="3">3</label>
+                        <input type="radio" id="3" value="3" />
 
-                    <label htmlFor="3">3</label>
-                    <input type="radio" id="3" value="3" />
+                        <label htmlFor="4">4</label>
+                        <input type="radio" id="4" value="4" />
 
-                    <label htmlFor="4">4</label>
-                    <input type="radio" id="4" value="4" />
+                        <label htmlFor="5">5</label>
+                        <input type="radio" id="5" value="5" />
+                    </div>
 
-                    <label htmlFor="5">5</label>
-                    <input type="radio" id="5" value="5" />
-
-
-                    <button>Save</button>
+                    <div className="submit-row">
+                        <button className="reviews-submit">Save</button>
+                    </div>
                 </form>    
             </div>
         )
