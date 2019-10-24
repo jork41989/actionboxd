@@ -4,9 +4,13 @@ function ReviewsIndexItem({review, movie}) {
     debugger;
     return (
         <div>
-            {review.text}
-            {review.rating.$numberDecimal}
-            {review.date}
+            <div>
+                {review.text}
+            </div>
+            <div>
+                {review.date}
+            </div>
+            {/* {review.rating.$numberDecimal} */}
         </div>
     )
 }
