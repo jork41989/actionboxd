@@ -5,8 +5,8 @@ export const RECEIVE_RECENT_REVIEWS = "RECEIVE_RECENT_REVIEWS";
 export const RECEIVE_MOVIE_REVIEWS = "RECEIVE_MOVIE_REVIEWS";
 
 const receiveReview = review => ({
-    type: RECEIVE_REVIEW,
-    review
+        type: RECEIVE_REVIEW,
+        review
 });
 
 const receiveMostRecentReviews = reviews => ({
@@ -26,7 +26,7 @@ export const getMostRecentReviews = () => dispatch => (
 
 export const writeReview = (review, movieId, userId) => dispatch => (
     ReviewsApiUtil.writeReview(review, movieId, userId)
-        .then(review => dispatch(receiveReview(review)))
+        .then(review => dispatch(receiveReview(review.data)))
 )
 
 //still need post, delete, patch
