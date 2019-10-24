@@ -1,6 +1,7 @@
 import React from 'react';
 import './reviews_index_item.css';
 
+<<<<<<< HEAD
 class ReviewsIndexItem extends React.Component{
     constructor(props){
         super(props)
@@ -25,6 +26,17 @@ class ReviewsIndexItem extends React.Component{
                         {this.props.review.text}
                     </div>
                 </div>
+=======
+function ReviewsIndexItem({review, movie}) {
+ 
+    return (
+        <div>
+            <div>
+                {review.text}
+            </div>
+            <div>
+                {review.date}
+>>>>>>> master
             </div>
         )
     }

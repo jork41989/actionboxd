@@ -8,7 +8,7 @@ export default class MoviesShow extends React.Component {
         this.watched = this.watched.bind(this)
         this.addWatch = this.addWatch.bind(this)
         this.removeWatch = this.removeWatch.bind(this)
-    
+        this.actionSignIn = this.actionSignIn.bind(this)
     }
 
 
@@ -56,7 +56,17 @@ export default class MoviesShow extends React.Component {
     }
         // 
     }
-
+    actionSignIn(){
+        if (this.props.currentUser) {
+            if (!this.props.currentUser.watched_movies){
+                return (
+                    <div className={'actionSignIn'}>
+                        <p onClick={() => this.props.openModal({ modal: 'login' })} className={'actionSignIn'}>Sign in to log, rate or review</p>
+                    </div>
+                )
+            }
+        }
+    }
     render() {
         if (!this.props.movie) {
             return <div>Loading...</div>;
@@ -109,7 +119,7 @@ export default class MoviesShow extends React.Component {
                                 </ul>
                                 <div className="watch-panel">
                                     <p>WATCH</p>
-                                    <div className="trailer-link-container" onClick={() => this.props.openModal('trailer')}>
+                                    <div className="trailer-link-container" onClick={() => this.props.openModal({ modal: 'trailer'})}>
                                         <i className="fab fa-youtube"></i>
                                         <button className="trailer-link" >Play Trailer</button>   
                                     </div>
@@ -133,10 +143,11 @@ export default class MoviesShow extends React.Component {
 
                             <ul className="actions-panel">
                                 {this.watched()}
+                                {this.actionSignIn()}
                                 <li className="actions-panel-reviews-container">
                                     <button 
                                         className="review-button"
-                                        onClick={() => this.props.openModal('review')}
+                                        onClick={() => this.props.openModal({ modal: 'review'})}
                                     >Review</button>
                                 </li>
                             </ul>

@@ -298,3 +298,16 @@ color: #ffff;
     outline: none;
 }
 
+.actionSignIn{
+    color: #bcd;
+    text-decoration: none;
+    font-family:'Graphik Regular';
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.actionSignIn:hover{
+    color: white;
+}

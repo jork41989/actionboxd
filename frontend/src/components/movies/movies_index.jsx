@@ -3,13 +3,20 @@ import MoviesIndexItem from './movies_index_item';
 import './movies_index.css';
 
 class MoviesIndex extends React.Component{
+    constructor(props) {
+        super(props);
+        console.log(this.props, 'index')
+    }
+
+
+
     componentDidMount(){
         this.props.getMovies();
     }
 
     render(){
         let moviesList = this.props.movies.map(movie => 
-                <MoviesIndexItem key={movie._id} movie={movie} />
+            <MoviesIndexItem key={movie._id} movie={movie} openModal={this.props.openModal} watchAMovie={this.props.watchAMovie} unwatchAMovie={this.props.unwatchAMovie} currentUser={this.props.currentUser}/>
             );
 
         if (moviesList.length === 0){
