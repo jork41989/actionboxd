@@ -91,7 +91,8 @@ router.post('/login', (req, res) => {
                   token: 'Bearer ' + token,
                   username: user.username,
                   email: user.email,
-                  watched_movies: user.watched_movies
+                  watched_movies: user.watched_movies,
+                  authored_reviews: user.authored_reviews
                 });
               });
           } else {
