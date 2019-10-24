@@ -72,6 +72,9 @@ class ReviewsCreateForm extends React.Component {
                         />
                         
                         <div className="review-stars">
+                            <input className="rating-slider" type="range" min="0" max="10" step="1"/>
+                            <div className="rating-slider-render"></div>
+
                             <label htmlFor="1">1</label>
                             <input onClick={this.update("rating")} type="radio" id="1" value="1.0" />
 

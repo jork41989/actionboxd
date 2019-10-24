@@ -53,3 +53,17 @@
     display: flex;
     flex-direction: row;
 }
+
+.rating-slider{
+    /* display: none; */
+}
+.rating-slider:hover{
+    background: red;
+}
+
+.rating-slider-render{
+    display: block;
+    background: teal;
+    width: 130px;
+    height: 26px;
+}
