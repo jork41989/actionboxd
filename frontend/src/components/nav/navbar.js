@@ -25,8 +25,8 @@ class NavBar extends React.Component {
       } else {
         return (
             <div className="nav-links">
-              <button onClick={() => this.props.openModal('login')}>Login</button>
-              <button onClick={() => this.props.openModal('signup')}>Create account</button>
+              <button onClick={() => this.props.openModal({modal: 'login'})}>Login</button>
+            <button onClick={() => this.props.openModal({modal: 'signup'})}>Create account</button>
             </div>
         );
       }
