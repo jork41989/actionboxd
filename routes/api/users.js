@@ -104,22 +104,24 @@ router.post('/login', (req, res) => {
 
 router.patch('/:user_id', passport.authenticate('jwt', { session: false }), async  (req, res) => {
   const userId = req.params.user_id ;
-  const newMovie = req.params.movie_id
+  const newMovie = req.body.movie_id
+  
   let updatedUser = await User.findOneAndUpdate(
-    { _id: userId},
-    { $push: { watched_movies: newMovie } },
-    function (error, success) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log(success);
-      }
+      { _id: userId },
+      { $addToSet: { watched_movies: newMovie } },
+      { upsert: true, new: true },
+      function (error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(success);
+        }
+      });
+    return res.json({
+      id: updatedUser.id,
+      watched_movies: updatedUser.watched_movies
     });
-
-  return res.json({
-    id: updatedUser.id,
-    watched_movies: updatedUser.watched_movies
-  });
+    
 })
 
 
