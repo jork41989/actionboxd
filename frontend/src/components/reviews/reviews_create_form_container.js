@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
     let movieId = ownProps.location.pathname.split("/")[2];
     return({
         movie: state.entities.movies[movieId],
-        currentUser: state.session.user
+        currentUser: state.session.user,
+        errors: state.errors.reviews
     })
 
 }
