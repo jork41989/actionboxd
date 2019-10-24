@@ -8,7 +8,8 @@ import ReviewsCreateForm from './reviews_create_form';
 const mapStateToProps = (state, ownProps) => {
     let movieId = ownProps.location.pathname.split("/")[2];
     return({
-        movie: state.entities.movies[movieId]
+        movie: state.entities.movies[movieId],
+        currentUser: state.session.user
     })
 
 }
@@ -16,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
 //errors
     closeModal: () => dispatch(closeModal()),
-    writeReview: review => dispatch(writeReview(review))
+    writeReview: (review, movieId, userId) => dispatch(writeReview(review, movieId, userId))
 })
 
 
