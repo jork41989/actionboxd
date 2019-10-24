@@ -23,8 +23,7 @@ const App = () => (
     </div>
     <div className={'body'}> 
     <Switch>
-      <AuthRoute exact path="/" component={MainPage} />
-      <Route exact path ="/movies" component={MoviesIndexContainer} />
+      <Route exact path="/" component={MoviesIndexContainer} />
       <Route exact path ="/movies/:movieId" component={MoviesShowContainer} />
       <Route path='/users/:id' component={ProfileContainer} />
      

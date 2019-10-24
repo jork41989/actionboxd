@@ -1,5 +1,4 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom';
 import './trailer.css'
 
 class Trailer extends React.Component {    
@@ -22,4 +21,4 @@ class Trailer extends React.Component {
     }
 }
 
-export default withRouter(Trailer);
+export default Trailer;

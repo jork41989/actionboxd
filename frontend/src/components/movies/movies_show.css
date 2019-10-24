@@ -203,6 +203,8 @@
     margin: 0 auto;
     cursor: pointer;
     color: #9ab;
+    border-bottom: 1px solid #0d1218;
+    padding-bottom: 10px;
 }
 
 .not-watched{
@@ -234,11 +236,33 @@
     font-size: 30px;
 }
 
+.actions-panel-reviews-container{
+    padding-top: 10px;
+    text-align: center;
+}
+
+.review-button{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: Graphik-Regular-Web,sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #9ab;
+}
+
+.review-button:hover{
+color: #ffff;
+}
+
+.review-button:focus{
+    outline: none;
+}
 
 .movie-show-info-reviews-container{
     display: block;
     position: relative;
-    background: green;
+    /* background: green; */
     margin-bottom: 30px;
     width: 100%;   
 }
