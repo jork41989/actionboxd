@@ -7,7 +7,7 @@ class ReviewsIndex extends React.Component {
     }
 
     render() {
-        debugger;
+       
         if(!this.props.movie.reviews){
             return <div>Loading...</div>
         }
