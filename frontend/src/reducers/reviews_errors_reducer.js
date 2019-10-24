@@ -2,7 +2,7 @@ import { RECEIVE_REVIEW_ERRORS, RECEIVE_REVIEW } from '../actions/review_actions
 
 const _nullErrors = [];
 
-const reviewErrorsReducer = (state = _nullErrors, action) => {
+const ReviewErrorsReducer = (state = _nullErrors, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_REVIEW_ERRORS:
@@ -14,4 +14,4 @@ const reviewErrorsReducer = (state = _nullErrors, action) => {
     }
 };
 
-export default reviewErrorsReducer;
+export default ReviewErrorsReducer;
