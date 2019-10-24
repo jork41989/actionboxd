@@ -9,13 +9,13 @@ import ReviewsCreateFormContainer from '../reviews/reviews_create_form_container
 import './modal.css';
 
 
-function Modal ({modal, closeModal}) {
-  if (!modal) {
+function Modal ({payload, closeModal}) {
+  if (!payload) {
     return null;
   }
 
   let component;
-  switch(modal){
+  switch(payload.modal){
     case 'login':
       component = <LoginFormContainer />;
       break;
@@ -23,10 +23,12 @@ function Modal ({modal, closeModal}) {
       component = <SignupFormContainer />;
       break;
     case 'trailer':
+      
       component = <TrailerContainer />;
       break;
     case 'review':
-      component = <ReviewsCreateFormContainer />;
+      debugger
+      component = <ReviewsCreateFormContainer  />;
       break;
     default:
       return null;
@@ -43,7 +45,7 @@ function Modal ({modal, closeModal}) {
 
 const mapStateToProps = (state) => {
   return {
-    modal: state.ui.modal
+    payload: state.ui.modal
   };
 };
 

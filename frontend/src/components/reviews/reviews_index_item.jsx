@@ -1,7 +1,7 @@
 import React from 'react';
 
 function ReviewsIndexItem({review, movie}) {
-    debugger;
+ 
     return (
         <div>
             <div>

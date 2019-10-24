@@ -55,6 +55,7 @@
 .index-thumbnail-container{
     max-width: 150px;
     height: auto;
+    position: relative;
 }
 
 .index-thumbnail{
@@ -65,4 +66,73 @@
     padding: 2px 0 5px;
     color: #bccbdd;
     font-weight: 800;
+}
+
+.index-item-actions{
+    margin-left: -42px;
+    background: rgba(0,0,0,.8);
+    padding: 0;
+    width: 84px;
+    height: 28px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 86px;
+    left: 46%; 
+    display: none;
+}
+
+.watched-index{
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-size: 800px 1000px;
+    background-position: -710px -700px;
+    width: 25px;
+    height: 27px;
+    cursor: pointer;
+   
+}
+
+.watched-index-container{
+    width: 25px !important;
+    height: 27px !important;
+    margin-left: 10px;
+}
+
+.not-watched-index{
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-size: 800px 1000px;
+    background-position: -650px -700px;
+    width: 25px;
+    height: 27px;
+    cursor: pointer;
+}
+
+.index-thumbnail-div:hover .index-item-actions{
+    display: flex;
+    flex-direction: row;
+}
+
+.index-thumbnail-div{
+    position: relative;
+}
+
+.review-index-container{
+    width: 25px !important;
+    height: 27px !important;
+    margin-left: 10px;
+}
+
+.review-index{
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-size: 800px 1000px;
+    background-position: -624px -124px;
+    width: 25px;
+    height: 27px;
+    cursor: pointer;
+}
+
+.review-index:hover{
+    background-position: -646px -125px;
 }
