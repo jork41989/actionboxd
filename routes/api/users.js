@@ -103,7 +103,7 @@ router.post('/login', (req, res) => {
 })
 
 
-router.patch('/:user_id', passport.authenticate('jwt', { session: false }), async  (req, res) => {
+router.patch('/:user_id/watch', passport.authenticate('jwt', { session: false }), async  (req, res) => {
   const userId = req.params.user_id ;
   const newMovie = req.body.movie_id
   
@@ -124,6 +124,7 @@ router.patch('/:user_id', passport.authenticate('jwt', { session: false }), asyn
     });
 
 });
+
 
 //update users reviews array (insertion of new id)
 router.patch('/:user_id/reviews/:review_id', (req, res) => {

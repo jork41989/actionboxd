@@ -24,7 +24,6 @@ class ProfileMoviesAllIndex extends React.Component {
   }
 
   render() {
-    console.log('hello')
     return (
       <div className={'ProfileMoviesAllIndex'}>
         {this.hasMoviesAll()}
