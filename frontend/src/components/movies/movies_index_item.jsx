@@ -1,23 +1,90 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function MoviesIndexItem({movie}) {
+export default class MoviesIndexItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.watched = this.watched.bind(this)
+        this.addWatch = this.addWatch.bind(this)
+        this.removeWatch = this.removeWatch.bind(this)
+        this.review = this.review.bind(this)
+    }
+
+    addWatch() {
+
+        this.props.watchAMovie(this.props.currentUser.id, { userId: this.props.currentUser.id, movie_id: this.props.movie._id })
+    }
+    removeWatch() {
+
+        this.props.unwatchAMovie(this.props.currentUser.id, { userId: this.props.currentUser.id, movie_id: this.props.movie._id })
+    }
+
+
+    watched() {
+
+        if (this.props.currentUser) {
+            if (this.props.currentUser.watched_movies) {
+                if (this.props.currentUser.watched_movies.includes(this.props.movie._id)) {
+                    return (
+                        <li className="watched-index-container" onClick={this.removeWatch}>
+                            <div className={'watched-index'}></div>
+
+                            
+                        </li>
+                    )
+                } else {
+                    return (
+                        <li className="watched-index-container" onClick={this.addWatch}>
+                            <div className={'not-watched-index'}></div>
+                           
+                    </li>
+                    )
+                }
+            }
+        }
+        // 
+    }
+
+    review(){
+        if (this.props.currentUser) {
+            if (this.props.currentUser.watched_movies) {
+                return (
+                    <li className="review-index-container" >
+                    <div className={'review-index'}></div>
+                </li>
+                )
+            }
+        }
+    }
+
+
+
+    render (){
     return (
-        <Link to={`/movies/${movie._id}`} className="index-thumbnail-link">
+            <div className="index-thumbnail-div" >
+        <Link to={`/movies/${this.props.movie._id}`} className="index-thumbnail-link">
             <li className="movies-list-item">
                 <div className="movies-list-item-container">
                     <div className="index-thumbnail-container">
                         <img 
-                            src={movie.poster_url} 
+                            src={this.props.movie.poster_url} 
                             alt=""
                             className="index-thumbnail"
                         />
+                        
                     </div>
+                    
                     <div className="movies-list-item-title">
-                        {movie.title}
+                        {this.props.movie.title}
                     </div>
                 </div>
             </li>
         </Link>
+            <div className="index-item-actions">
+                {this.watched()}
+                {this.review()}
+            </div>
+        </div>
     )
+    }
 }
