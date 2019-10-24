@@ -24,5 +24,9 @@ export const getMostRecentReviews = () => dispatch => (
         .then(reviews => dispatch(receiveMostRecentReviews(reviews)))
 )
 
+export const writeReview = review => dispatch => (
+    ReviewsApiUtil.writeReview(review)
+        .then(review => dispatch(receiveReview(review)))
+)
 
 //still need post, delete, patch
