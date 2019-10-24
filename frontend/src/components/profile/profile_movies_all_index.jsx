@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ProfileMoviesAllIndexItem from './profile_movies_sample_index_item'
+import ProfileMoviesAllIndexItem from './profile_movies_all_index_item'
 
 class ProfileMoviesAllIndex extends React.Component {
   constructor(props) {
