@@ -2,6 +2,10 @@ import {
     RECEIVE_MOVIE, 
     RECEIVE_MOVIES
 } from '../actions/movie_actions';
+import{
+    RECEIVE_REVIEW
+} from '../actions/review_actions';
+
 import merge from 'lodash/merge'
 
 const moviesReducer = (state = {}, action) => {
@@ -10,6 +14,8 @@ const moviesReducer = (state = {}, action) => {
     let movie;
     let moviesArr;
     let moviesObj;
+    let review;
+    let movieId;
     switch(action.type){
         case RECEIVE_MOVIE:
             movie = action.movie.data
@@ -23,6 +29,15 @@ const moviesReducer = (state = {}, action) => {
             })
             newState = merge({}, state, moviesObj);
             return newState; 
+        case RECEIVE_REVIEW:
+            review = action.review;
+            movieId = review.movie_id;
+            newState = merge({}, state);
+            movie = newState[movieId];
+            debugger;
+            movie.reviews.push(review._id);
+            return newState;
+        // case for deleting a movie review 
         default:
             return state;
     }
