@@ -157,7 +157,6 @@ export default class MoviesShow extends React.Component {
                                     REVIEWS
                                 </h2>
                                 <div className="movie-show-info-reviews"> 
-                                    Review Index Component Here
                                     <ReviewsIndexContainer movie={this.props.movie}/>
                                 </div>
                             </div>
