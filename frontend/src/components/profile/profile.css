@@ -46,6 +46,11 @@
   color: #fff;
 }
 
+.profileHeaderCountsDiv{
+  display: flex;
+  flex-direction: row;
+}
+
 .profileHeaderMovieCount{
     height: 52px;
     display: flex;
@@ -98,6 +103,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+   flex-wrap: wrap;
 }
 
 .ProfileMoviesAllIndexItem{
@@ -140,18 +146,12 @@
      padding-right: 10px;
 }
 
-
-.profile-movies-all-item-title-tri{
-  position: absolute;
-  left: 50%;
-  margin-left: -7px;
-  width: 0; 
-  height: 0; 
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #303c4898;
-
+.movie-tooltip{
+   background: #303c48 !important; 
+     color: #678 !important;
+ 
 }
+
 
 .ProfileMoviesAllIndexItem:hover > .profile-movies-all-item-title{
   display: block;
