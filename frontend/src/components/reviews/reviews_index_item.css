@@ -41,3 +41,15 @@
     color: #99AABB;
     margin-bottom: 10px;
 }
+
+.review-username{
+    font-family: Graphik-Semibold-Web,sans-serif;
+    font-weight: 800;
+    color: #abc;
+    padding-left: 4px;
+}
+
+.review-item-header-extended{
+    display: flex;
+    flex-direction: row;
+}

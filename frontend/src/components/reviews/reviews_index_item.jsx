@@ -14,8 +14,8 @@ class ReviewsIndexItem extends React.Component{
 
                 <div className="review-item-info-container">
                     <div className="review-item-header">
-                        <div>
-                            Review by {this.props.author}
+                        <div className="review-item-header-extended">
+                            Review by {this.props.author} <p className="review-username"> USERNAME HERE</p>
                         </div>
                         <div>
                         {/* {review.rating.$numberDecimal} */}
