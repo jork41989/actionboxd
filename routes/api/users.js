@@ -70,6 +70,8 @@ router.post('/login', (req, res) => {
   const password = req.body.password;
 
   User.findOne({ email })
+    .populate({ path: 'watched_movies', select: '_id title poster_url' })
+    .populate({ path: 'authored_reviews', select: '_id text rating date movie_id' })
     .then(user => {
       if (!user) {
         return res.status(404).json({ email: 'This user does not exist' });
@@ -78,7 +80,13 @@ router.post('/login', (req, res) => {
       bcrypt.compare(password, user.password)
         .then(isMatch => {
           if (isMatch) {
-            const payload = { id: user.id, username: user.username, email: user.email, watched_movies: user.watched_movies };
+            const payload = { 
+              id: user.id,
+               username: user.username,
+               email: user.email,
+                watched_movies: user.watched_movies,
+                authored_reviews: user.authored_reviews
+              };
 
             jwt.sign(
               payload,
@@ -91,7 +99,8 @@ router.post('/login', (req, res) => {
                   token: 'Bearer ' + token,
                   username: user.username,
                   email: user.email,
-                  watched_movies: user.watched_movies
+                  watched_movies: user.watched_movies,
+                  authored_reviews: user.authored_reviews
                 });
               });
           } else {
@@ -124,28 +133,6 @@ router.patch('/:user_id/watch', passport.authenticate('jwt', { session: false })
 
 });
 
-router.patch('/:user_id/unwatch', passport.authenticate('jwt', { session: false }), async (req, res) => {
-  const userId = req.params.user_id;
-  const newMovie = req.body.movie_id
-  console.log('Time to unwatch')
-  let updatedUser = await User.findOneAndUpdate(
-    { _id: userId },
-    { $pull: { watched_movies: newMovie } },
-    { upsert: true, new: true },
-    function (error, success) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log(success);
-      }
-    });
-  return res.json({
-    id: updatedUser.id,
-    watched_movies: updatedUser.watched_movies
-  });
-
-});
-
 
 //update users reviews array (insertion of new id)
 router.patch('/:user_id/reviews/:review_id', (req, res) => {
@@ -164,7 +151,8 @@ router.patch('/:user_id/reviews/:review_id', (req, res) => {
 router.delete('/:user_id/reviews/:review_id', (req, res) => {
   User.findOneAndUpdate(
     {_id: req.params.user_id},
-    { $pull: {authored_reviews: req.params.review_id}})
+    { $pull: {authored_reviews: req.params.review_id}},
+    {new: true})
     .then((docs) => res.json({
       authored_reviews: docs.authored_reviews
       }))
@@ -178,12 +166,14 @@ router.delete('/:user_id/reviews/:review_id', (req, res) => {
 
 
 
-
 router.get('/:user_id', (req, res) => {
-  User.findById(req.params.user_id).populate({ path: 'watched_movies', select: '_id title poster_url'})
+  User.findById(req.params.user_id)
+  .populate({ path: 'watched_movies', select: '_id title poster_url'})
+  .populate({path: 'authored_reviews', select: '_id text rating date movie_id'})
    .then(user => res.json({
       username: user.username,
       watched_movies: user.watched_movies,
+      authored_reviews: user.authored_reviews,
       id: user.id,
     }))
     .catch(err => 
