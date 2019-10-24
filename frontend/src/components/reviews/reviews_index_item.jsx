@@ -1,13 +1,12 @@
 import React from 'react';
 
 function ReviewsIndexItem({review, movie}) {
+    debugger;
     return (
         <div>
-           review author 
-           review content
-           {/* review.text */}
-           {/* {review.rating} */}
-           {/* {review.date} */}
+            {review.text}
+            {review.rating.$numberDecimal}
+            {review.date}
         </div>
     )
 }

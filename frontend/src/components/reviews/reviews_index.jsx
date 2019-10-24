@@ -7,7 +7,7 @@ class ReviewsIndex extends React.Component {
     }
 
     render() {
-        let reviewsList = this.props.reviews.map(review => 
+        let reviewsList = this.props.movie.reviews.map(review => 
             <ReviewsIndexItem key={review._id} movie={this.props.movie} review={review} />
             );
         return (
