@@ -6,6 +6,8 @@ export default class MoviesShow extends React.Component {
     constructor(props) {
         super(props);
         this.watched = this.watched.bind(this)
+        this.addWatch = this.addWatch.bind(this)
+    
     }
 
 
@@ -19,10 +21,15 @@ export default class MoviesShow extends React.Component {
         }
     }
 
+    addWatch(){
+        
+        this.props.updateAuser(this.props.currentUser.id, { userId: this.props.currentUser.id, movie_id: this.props.match.params.movieId })
+    }
+
+    
 
     watched(){
-        console.log(this.props.currentUser.watched_movies)
-        console.log(this.props.match.params.movieId)
+      
         if (this.props.currentUser){
         if (this.props.currentUser.watched_movies){
             if (this.props.currentUser.watched_movies.includes(this.props.match.params.movieId)){
@@ -35,7 +42,7 @@ export default class MoviesShow extends React.Component {
                 )
             } else {
                 return (
-                    <li className="actions-panel-watch-container">
+                    <li className="actions-panel-watch-container" onClick={this.addWatch}>
                         <div className={'not-watched'}></div>
                             Watch
                     </li>
