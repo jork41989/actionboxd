@@ -16,10 +16,10 @@ class ReviewsIndexItem extends React.Component{
                 <div className="review-item-info-container">
                     <div className="review-item-header">
                         <div className="review-item-header-extended">
-                            Review by <p className="review-username">{this.props.review.username}</p>
+                            Review by <p className="review-username">{this.props.review.username}</p>{this.props.review.rating.$numberDecimal}
                         </div>
                         <div>
-                        {/* {review.rating.$numberDecimal} */}
+                        
                         </div>
                     </div>
                     <div className="review-item-body">
