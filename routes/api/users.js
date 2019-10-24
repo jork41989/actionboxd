@@ -121,8 +121,37 @@ router.patch('/:user_id', passport.authenticate('jwt', { session: false }), asyn
       id: updatedUser.id,
       watched_movies: updatedUser.watched_movies
     });
-    
-})
+
+
+});
+
+//update users reviews array (insertion of new id)
+router.patch('/:user_id/reviews/:review_id', (req, res) => {
+  User.findOneAndUpdate(
+    {_id: req.params.user_id},
+    { $push: {authored_reviews: req.params.review_id }},
+    { new: true })
+     .then((docs) => res.json({
+       authored_reviews: docs.authored_reviews 
+      }))
+     .catch(err =>
+      res.status(404).json({ noreviewupdate: 'Not able to update array' }))
+});
+
+//update users review array (deletion of review id)
+router.delete('/:user_id/reviews/:review_id', (req, res) => {
+  User.findOneAndUpdate(
+    {_id: req.params.user_id},
+    { $pull: {authored_reviews: req.params.review_id}})
+    .then((docs) => res.json({
+      authored_reviews: docs.authored_reviews
+      }))
+    .catch(err =>
+      res.status(404).json({ noreviewupdate: 'Not able to update deletion in array' }))
+});
+
+
+
 
 
 
