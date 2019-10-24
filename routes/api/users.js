@@ -104,23 +104,54 @@ router.post('/login', (req, res) => {
 
 router.patch('/:user_id', passport.authenticate('jwt', { session: false }), async  (req, res) => {
   const userId = req.params.user_id ;
-  const newMovie = req.params.movie_id
+  const newMovie = req.body.movie_id
+  
   let updatedUser = await User.findOneAndUpdate(
-    { _id: userId},
-    { $push: { watched_movies: newMovie } },
-    function (error, success) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log(success);
-      }
+      { _id: userId },
+      { $addToSet: { watched_movies: newMovie } },
+      { upsert: true, new: true },
+      function (error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(success);
+        }
+      });
+    return res.json({
+      id: updatedUser.id,
+      watched_movies: updatedUser.watched_movies
     });
 
-  return res.json({
-    id: updatedUser.id,
-    watched_movies: updatedUser.watched_movies
-  });
-})
+
+});
+
+//update users reviews array (insertion of new id)
+router.patch('/:user_id/reviews/:review_id', (req, res) => {
+  User.findOneAndUpdate(
+    {_id: req.params.user_id},
+    { $push: {authored_reviews: req.params.review_id }},
+    { new: true })
+     .then((docs) => res.json({
+       authored_reviews: docs.authored_reviews 
+      }))
+     .catch(err =>
+      res.status(404).json({ noreviewupdate: 'Not able to update array' }))
+});
+
+//update users review array (deletion of review id)
+router.delete('/:user_id/reviews/:review_id', (req, res) => {
+  User.findOneAndUpdate(
+    {_id: req.params.user_id},
+    { $pull: {authored_reviews: req.params.review_id}})
+    .then((docs) => res.json({
+      authored_reviews: docs.authored_reviews
+      }))
+    .catch(err =>
+      res.status(404).json({ noreviewupdate: 'Not able to update deletion in array' }))
+});
+
+
+
 
 
 
