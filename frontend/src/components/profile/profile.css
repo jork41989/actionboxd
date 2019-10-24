@@ -46,6 +46,11 @@
   color: #fff;
 }
 
+.profileHeaderCountsDiv{
+  display: flex;
+  flex-direction: row;
+}
+
 .profileHeaderMovieCount{
     height: 52px;
     display: flex;
@@ -98,10 +103,12 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+   flex-wrap: wrap;
 }
 
 .ProfileMoviesAllIndexItem{
   padding: 5px;
+  position: relative;
 }
 
 .profile-movies-all-item-container{
@@ -120,4 +127,32 @@
 .profile-movies-all-thumbnail-container{
     max-width: 70px;
     height: auto;
+}
+
+.profile-movies-all-item-container:hover{
+ border: 2px solid green;
+}
+
+.profile-movies-all-item-title{
+    position: absolute;
+    top: -27px;
+    min-width: 100px;
+   width: max-content;
+    text-align: center;
+    right: -8px;
+    background: #303c4898;
+    display: none;
+    padding-left: 10px;
+     padding-right: 10px;
+}
+
+.movie-tooltip{
+   background: #303c48 !important; 
+     color: #678 !important;
+ 
+}
+
+
+.ProfileMoviesAllIndexItem:hover > .profile-movies-all-item-title{
+  display: block;
 }

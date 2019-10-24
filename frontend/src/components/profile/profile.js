@@ -11,12 +11,13 @@ class Profile extends React.Component {
         this.state = {
            
         }
-        this.count = this.count.bind(this);
+        this.MovieCount = this.MovieCount.bind(this);
         this.renderComponent = this.renderComponent.bind(this)
         this.profilehome = this.profilehome.bind(this)
         this.MoviesAllState = this.MoviesAllState.bind(this)
         this.moviesAll = this.moviesAll.bind(this)
         this.profilehomeState = this.profilehomeState.bind(this)
+        this.ReviewCount = this.ReviewCount.bind(this)
     }
     
     componentDidMount(e) {
@@ -26,10 +27,18 @@ class Profile extends React.Component {
             this.setState({ user: response.user.data, activeComponent: 'profile' });
         })
     }
-    count (){
+    MovieCount (){
         if (this.state.user.watched_movies){
             return (<p className={'profileHeaderCountsUpper'}>{this.state.user.watched_movies.length}</p>)
         }else {
+            return (<p className={'profileHeaderCountsUpper'}>0</p>)
+        }
+    }
+
+    ReviewCount() {
+        if (this.state.user.reviews) {
+            return (<p className={'profileHeaderCountsUpper'}>{this.state.user.reviews.length}</p>)
+        } else {
             return (<p className={'profileHeaderCountsUpper'}>0</p>)
         }
     }
@@ -95,9 +104,15 @@ class Profile extends React.Component {
                 <div className={'Profile-photo'}></div>
                 <p className={'Profile-username'}>{this.state.user.username}</p>
               </div>
+              <div className={'profileHeaderCountsDiv'}>
               <div className={'profileHeaderMovieCount'} onClick={this.MoviesAllState}>
-                {this.count()}
+                 {this.MovieCount()}
                   <p className={'profileHeaderMovieCountLabel'}>Films</p>
+              </div>
+              <div className={'profileHeaderMovieCount'} onClick={this.MoviesAllState}>
+                      {this.ReviewCount()}
+                  <p className={'profileHeaderMovieCountLabel'}>Reviews</p>
+              </div>
               </div>
             </div>
           <div>
