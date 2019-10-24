@@ -12,6 +12,7 @@ class ReviewsCreateForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    
 //errors 
 
     update(field){
@@ -22,7 +23,7 @@ class ReviewsCreateForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-//this.props.createReview
+        this.props.writeReview(this.state);
     }
 
 
