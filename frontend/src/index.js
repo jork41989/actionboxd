@@ -30,9 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const root = document.getElementById('root');
     //test
-    window.getMostRecentReviews = getMostRecentReviews(); 
-    window.getReview = getReview();
-    window.writeReview = writeReview(); 
     window.axios = axios
     //test
     ReactDOM.render(<Root store={store} />, root);

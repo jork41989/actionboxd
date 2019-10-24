@@ -4,6 +4,7 @@ import ReviewsIndex from './reviews_index';
 
 const mapStateToProps = state => ({
     reviews: Object.values(state.entities.reviews)
+    //this is wrong 
 })
 
 const mapDispatchToProps = dispatch => ({

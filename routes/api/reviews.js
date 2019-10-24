@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+const Movie = require('../../models/Movie');
 
 const Review = require('../../models/Review');
 const validateReviewInput = require('../../validation/review');
@@ -47,7 +48,20 @@ router.post('/movies/:movie_id/:user_id',
     });
 
     newReview.save()
-    .then(review => res.json(review))
+    .then(review => {
+      debugger;
+      Movie.findOneAndUpdate(
+        {_id: req.params.movie_id},
+        { $addToSet: { reviews: review._id } })
+        .then(movie => {
+          debugger;
+          res.json(review)}
+          )
+        .catch(err => {
+          debugger;
+          res.json(err)
+      });
+    })
     .catch(err => res.json(err));
   }
 );
