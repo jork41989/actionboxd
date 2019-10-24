@@ -13,8 +13,8 @@ export const getReview = (id) => {
 //   return axios.get(`/api/reviews/movies/${id}`)
 // };
 
-export const writeReview = (data) => {
-  return axios.post('/api/reviews', data)
+export const writeReview = (data, userId, movieId) => {
+  return axios.post(`/api/reviews/movies/${movieId}/${userId}`, data)
 };
 
 // export const deleteReview = (id) => {

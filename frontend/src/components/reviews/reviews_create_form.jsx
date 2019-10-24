@@ -7,8 +7,7 @@ class ReviewsCreateForm extends React.Component {
 
         this.state = {
             text: "",
-            rating: "",
-            date: ""
+            rating: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.confirmExit = this.confirmExit.bind(this);
@@ -24,7 +23,7 @@ class ReviewsCreateForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.writeReview(this.state);
+        this.props.writeReview(this.state, this.props.movie._id, this.props.currentUser.id);
     }
 
     confirmExit(e) {
@@ -57,13 +56,6 @@ class ReviewsCreateForm extends React.Component {
                     <p className="review-header">{this.props.movie.title}</p><p className="review-movie-year">{this.props.movie.year}</p>
                     <form className="reviews-create-form" onSubmit={this.handleSubmit}>
 
-                        <label htmlFor="date">Date</label>
-                        <input onChange={this.update("date")} 
-                            type="text" 
-                            id="date" 
-                            value={this.state.date}
-                        />
-
                         <textarea  
                             onChange={this.update("text")} 
                             value={this.state.text} 
@@ -72,19 +64,19 @@ class ReviewsCreateForm extends React.Component {
                         
                         <div className="review-stars">
                             <label htmlFor="1">1</label>
-                            <input onClick={this.update("rating")} type="radio" id="1" value="1" />
+                            <input onClick={this.update("rating")} type="radio" id="1" value="1.0" />
 
                             <label htmlFor="2">2</label>
-                            <input onClick={this.update("rating")} type="radio" id="2" value="2" />
+                            <input onClick={this.update("rating")} type="radio" id="2" value="2.0" />
 
                             <label htmlFor="3">3</label>
-                            <input onClick={this.update("rating")} type="radio" id="3" value="3" />
+                            <input onClick={this.update("rating")} type="radio" id="3" value="3.0" />
 
                             <label htmlFor="4">4</label>
-                            <input onClick={this.update("rating")} type="radio" id="4" value="4" />
+                            <input onClick={this.update("rating")} type="radio" id="4" value="4.0" />
 
                             <label htmlFor="5">5</label>
-                            <input onClick={this.update("rating")} type="radio" id="5" value="5" />
+                            <input onClick={this.update("rating")} type="radio" id="5" value="5.0" />
                         </div>
 
                         <div className="submit-row">
