@@ -24,8 +24,6 @@ class ReviewsCreateForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         let review = Object.assign({}, this.state);
-        // review.rating = parseFloat(review.rating);
-        debugger;
         this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id);
         this.props.closeModal();
     }
