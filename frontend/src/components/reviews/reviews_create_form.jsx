@@ -11,6 +11,7 @@ class ReviewsCreateForm extends React.Component {
             date: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.confirmExit = this.confirmExit.bind(this);
     }
 
 //errors 
@@ -26,6 +27,13 @@ class ReviewsCreateForm extends React.Component {
         this.props.writeReview(this.state);
     }
 
+    confirmExit(e) {
+        e.preventDefault();
+        let result = window.confirm("Are you sure you want to exit?");
+        if (result) {
+            this.props.closeModal();
+        }
+    }
 
     render() {
         //add on change to radio buttons 
@@ -87,7 +95,7 @@ class ReviewsCreateForm extends React.Component {
                 </div>
                 <div
                     className="review-close-button"
-                    onClick={this.props.closeModal}
+                    onClick={this.confirmExit}
                 >X</div> 
             </div>
         )
