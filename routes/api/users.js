@@ -159,10 +159,13 @@ router.delete('/:user_id/reviews/:review_id', (req, res) => {
 
 
 router.get('/:user_id', (req, res) => {
-  User.findById(req.params.user_id).populate({ path: 'watched_movies', select: '_id title poster_url'})
+  User.findById(req.params.user_id)
+  .populate({ path: 'watched_movies', select: '_id title poster_url'})
+  .populate({path: 'authored_reviews', select: '_id text rating date movie_id'})
    .then(user => res.json({
       username: user.username,
       watched_movies: user.watched_movies,
+      authored_reviews: user.authored_reviews,
       id: user.id,
     }))
     .catch(err => 
