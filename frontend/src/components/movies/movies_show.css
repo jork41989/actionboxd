@@ -252,19 +252,17 @@
 }
 
 .review-button:hover{
-    color: #ffff;
+color: #ffff;
 }
 
 .review-button:focus{
     outline: none;
 }
 
-.action
-
 .movie-show-info-reviews-container{
     display: block;
     position: relative;
-    background: green;
+    /* background: green; */
     margin-bottom: 30px;
     width: 100%;   
 }
