@@ -70,6 +70,8 @@ router.post('/login', (req, res) => {
   const password = req.body.password;
 
   User.findOne({ email })
+    .populate({ path: 'watched_movies', select: '_id title poster_url' })
+    .populate({ path: 'authored_reviews', select: '_id text rating date movie_id' })
     .then(user => {
       if (!user) {
         return res.status(404).json({ email: 'This user does not exist' });
