@@ -14,7 +14,6 @@ export const getReview = (id) => {
 // };
 
 export const writeReview = (data, movieId, userId) => {
-  debugger;
   return axios.post(`/api/reviews/movies/${movieId}/${userId}`, data)
 };
 
