@@ -23,7 +23,8 @@ class ReviewsCreateForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.writeReview(this.state, this.props.movie._id, this.props.currentUser.id);
+        let review = Object.assign({}, this.state);
+        this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id);
         this.props.closeModal();
     }
 
@@ -37,7 +38,6 @@ class ReviewsCreateForm extends React.Component {
 
     render() {
         //add on change to radio buttons 
-        //limit selection to one 
         //find how to turn into stars
         //style modal 
         let posterAlt = `${this.props.movie.title} poster`;
