@@ -37,7 +37,6 @@ class ReviewsCreateForm extends React.Component {
 
     render() {
         //add on change to radio buttons 
-        //limit selection to one 
         //find how to turn into stars
         //style modal 
         let posterAlt = `${this.props.movie.title} poster`;
