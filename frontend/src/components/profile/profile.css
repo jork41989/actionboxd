@@ -147,11 +147,15 @@
 }
 
 .movie-tooltip{
-   background: #303c48 !important; 
-     color: #678 !important;
- 
-}
+    background: #303c48 !important; 
+    color: #678 !important;
 
+}
+.movie-tooltip::after {
+  border-top-color:#303c48  !important;
+  border-top-style: solid !important;
+  border-top-width: 6px !important;
+}
 
 .ProfileMoviesAllIndexItem:hover > .profile-movies-all-item-title{
   display: block;

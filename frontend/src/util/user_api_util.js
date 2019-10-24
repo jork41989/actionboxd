@@ -4,6 +4,10 @@ export const getUser = (id) => {
   return axios.get(`/api/users/${id}`)
 }
 
-export const updateUser = (id, data) => {
-  return axios.patch(`/api/users/${id}`, data)
+export const watchMovie = (id, data) => {
+  return axios.patch(`/api/users/${id}/watch`, data)
+}
+
+export const unWatchMovie = (id, data) => {
+  return axios.patch(`/api/users/${id}/unwatch`, data)
 }

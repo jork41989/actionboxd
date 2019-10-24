@@ -9,7 +9,6 @@ class ProfileMoviesAllIndexItem extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className={'ProfileMoviesAllIndexItem'} data-tip data-for={this.props.movie.title}>
         <ReactTooltip id={this.props.movie.title} place="top" effect="solid" type="dark" className='movie-tooltip'>

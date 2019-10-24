@@ -1,12 +1,13 @@
 import React from 'react'
 import './movies_show.css'
-// import ReviewIndexContainer from '../reviews/review_index_container'
+import ReviewsIndexContainer from '../reviews/reviews_index_container'
 
 export default class MoviesShow extends React.Component {
     constructor(props) {
         super(props);
         this.watched = this.watched.bind(this)
         this.addWatch = this.addWatch.bind(this)
+        this.removeWatch = this.removeWatch.bind(this)
     
     }
 
@@ -23,9 +24,12 @@ export default class MoviesShow extends React.Component {
 
     addWatch(){
         
-        this.props.updateAuser(this.props.currentUser.id, { userId: this.props.currentUser.id, movie_id: this.props.match.params.movieId })
+        this.props.watchAMovie(this.props.currentUser.id, { userId: this.props.currentUser.id, movie_id: this.props.match.params.movieId })
     }
+    removeWatch() {
 
+        this.props.unwatchAMovie(this.props.currentUser.id, { userId: this.props.currentUser.id, movie_id: this.props.match.params.movieId })
+    }
     
 
     watched(){
@@ -34,7 +38,7 @@ export default class MoviesShow extends React.Component {
         if (this.props.currentUser.watched_movies){
             if (this.props.currentUser.watched_movies.includes(this.props.match.params.movieId)){
                 return (
-                    <li className="actions-panel-watch-container">
+                    <li className="actions-panel-watch-container" onClick={this.removeWatch}>
                         <div className={'watched'}></div>
                         
                         Watched
@@ -129,6 +133,12 @@ export default class MoviesShow extends React.Component {
 
                             <ul className="actions-panel">
                                 {this.watched()}
+                                <li className="actions-panel-reviews-container">
+                                    <button 
+                                        className="review-button"
+                                        onClick={() => this.props.openModal('review')}
+                                    >Review</button>
+                                </li>
                             </ul>
 
                             <div className="movie-show-info-reviews-container">
@@ -137,7 +147,7 @@ export default class MoviesShow extends React.Component {
                                 </h2>
                                 <div className="movie-show-info-reviews"> 
                                     Review Index Component Here
-                                    {/* <ReviewIndexContainer movie={this.props.movie}/> */}
+                                    <ReviewsIndexContainer movie={this.props.movie}/>
                                 </div>
                             </div>
                         </section>
