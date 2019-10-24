@@ -24,6 +24,7 @@ class ReviewsCreateForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         this.props.writeReview(this.state, this.props.movie._id, this.props.currentUser.id);
+        this.props.closeModal();
     }
 
     confirmExit(e) {
