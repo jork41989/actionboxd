@@ -136,3 +136,19 @@
 .review-index:hover{
     background-position: -646px -125px;
 }
+
+.actionSignIn-Index{
+    color: #bcd;
+    text-decoration: none;
+    font-family:'Graphik Regular';
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 11px;
+    margin-top: 4px;
+}
+
+.actionSignIn-Index:hover{
+    color: white;
+}
