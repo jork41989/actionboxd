@@ -39,6 +39,7 @@
 .fade{
     display: block;
     position: absolute;
+    top: -120px;
     width: 1200px;
     height: 800px;
     z-index: 10;
