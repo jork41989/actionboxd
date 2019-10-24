@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     return({
         movie: state.entities.movies[movieId],
         currentUser: state.session.user,
-        errors: state.errors.reviews
+        errors: state.errors.review
     })
 
 }
