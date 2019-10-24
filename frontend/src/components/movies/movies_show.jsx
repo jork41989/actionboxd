@@ -123,7 +123,10 @@ export default class MoviesShow extends React.Component {
                             <ul className="actions-panel">
                                 {this.watched()}
                                 <li className="actions-panel-reviews-container">
-                                    <button onClick={() => this.props.openModal('review')}>Review</button>
+                                    <button 
+                                        className="review-button"
+                                        onClick={() => this.props.openModal('review')}
+                                    >Review</button>
                                 </li>
                             </ul>
 
