@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom';
 import './reviews_form.css'
 
 class ReviewsCreateForm extends React.Component {
@@ -12,7 +13,7 @@ class ReviewsCreateForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
+
 //errors 
 
     update(field){
@@ -42,7 +43,7 @@ class ReviewsCreateForm extends React.Component {
                 <form className="reviews-create-form" onSubmit={this.handleSubmit}>
 
                     <label htmlFor="date">Date</label>
-                    <input type="radio" id="date" value={this.state.date} />
+                    <input type="date" id="date" value={this.state.date} />
 
                     <textarea  
                         onChange={this.update("text")} 
@@ -76,4 +77,4 @@ class ReviewsCreateForm extends React.Component {
     }
 }
 
-export default ReviewsCreateForm;
+export default withRouter(ReviewsCreateForm);
