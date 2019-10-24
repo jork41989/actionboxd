@@ -35,42 +35,47 @@ class ReviewsCreateForm extends React.Component {
         
         return (
             <div className="reviews-form-container">
-                <div className="form-thumbnail">
+                <div className="form-thumbnail-panel">
                     image
                 </div>
 
-                <form className="reviews-create-form" onSubmit={this.handleSubmit}>
+                <div className="form-review-panel">
+                    <p className="review-intro">I WATCHED...</p>
+                    <p className="review-header">{this.props.movie.title}</p>
+                    <p className="review-movie-year">{this.props.movie.year}</p>
+                    <form className="reviews-create-form" onSubmit={this.handleSubmit}>
 
-                    <label htmlFor="date">Date</label>
-                    <input type="date" id="date" value={this.state.date} />
+                        <label htmlFor="date">Date</label>
+                        <input type="date" id="date" value={this.state.date} />
 
-                    <textarea  
-                        onChange={this.update("text")} 
-                        value={this.state.text} 
-                        placeholder="Add a review..." 
-                    />
-                    
-                    <div className="review-stars">
-                        <label htmlFor="1">1</label>
-                        <input type="radio" id="1" value="1" />
+                        <textarea  
+                            onChange={this.update("text")} 
+                            value={this.state.text} 
+                            placeholder="Add a review..." 
+                        />
+                        
+                        <div className="review-stars">
+                            <label htmlFor="1">1</label>
+                            <input type="radio" id="1" value="1" />
 
-                        <label htmlFor="2">2</label>
-                        <input type="radio" id="2" value="2" />
+                            <label htmlFor="2">2</label>
+                            <input type="radio" id="2" value="2" />
 
-                        <label htmlFor="3">3</label>
-                        <input type="radio" id="3" value="3" />
+                            <label htmlFor="3">3</label>
+                            <input type="radio" id="3" value="3" />
 
-                        <label htmlFor="4">4</label>
-                        <input type="radio" id="4" value="4" />
+                            <label htmlFor="4">4</label>
+                            <input type="radio" id="4" value="4" />
 
-                        <label htmlFor="5">5</label>
-                        <input type="radio" id="5" value="5" />
-                    </div>
+                            <label htmlFor="5">5</label>
+                            <input type="radio" id="5" value="5" />
+                        </div>
 
-                    <div className="submit-row">
-                        <button className="reviews-submit">Save</button>
-                    </div>
-                </form>    
+                        <div className="submit-row">
+                            <button className="reviews-submit">Save</button>
+                        </div>
+                    </form>    
+                </div>
             </div>
         )
     }

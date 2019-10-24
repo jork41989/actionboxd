@@ -44,11 +44,34 @@
     font-weight: 400;
     font-size: 12px;
     text-transform: uppercase;
-    font-family: graphik-semibold-web;
+    font-family: Graphik-Semibold-Web,sans-serif;
     border: none;
     border-radius: 3px;
 }
 
 .reviews-submit:focus{
     outline: none;
+}
+
+.review-intro{
+    font-size: 15px;
+    font-weight: 400;
+    color: #9ab;
+    letter-spacing: .075em;
+    margin-bottom: 15px;
+}
+
+.review-header{
+    font-family:Tiempos Headline Bold;
+    font-size: 22px;
+    color: #ffff;
+    text-shadow: #345 0 1px 0;
+}
+
+.review-movie-year{
+    font-family: Graphik-Light-Web,sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #bcd;
+    text-shadow: #345 0 1px 0;
 }
