@@ -3,6 +3,12 @@ import './movies_show.css'
 // import ReviewIndexContainer from '../reviews/review_index_container'
 
 export default class MoviesShow extends React.Component {
+    constructor(props) {
+        super(props);
+        this.watched = this.watched.bind(this)
+    }
+
+
     componentDidMount(){
         this.props.getMovie(this.props.match.params.movieId)
     }
@@ -11,6 +17,33 @@ export default class MoviesShow extends React.Component {
         if (prevProps.match.params.movieId !== this.props.match.params.movieId){
             this.props.getMovie(this.props.match.params.movieId)
         }
+    }
+
+
+    watched(){
+        console.log(this.props.currentUser.watched_movies)
+        console.log(this.props.match.params.movieId)
+        if (this.props.currentUser){
+        if (this.props.currentUser.watched_movies){
+            if (this.props.currentUser.watched_movies.includes(this.props.match.params.movieId)){
+                return (
+                    <li className="actions-panel-watch-container">
+                        <div className={'watched'}></div>
+                        
+                        Watched
+                    </li>
+                )
+            } else {
+                return (
+                    <li className="actions-panel-watch-container">
+                        <div className={'not-watched'}></div>
+                            Watch
+                    </li>
+                )
+            }
+        }
+    }
+        // 
     }
 
     render() {
@@ -65,9 +98,9 @@ export default class MoviesShow extends React.Component {
                                 </ul>
                                 <div className="watch-panel">
                                     <p>WATCH</p>
-                                    <div className="trailer-link-container">
+                                    <div className="trailer-link-container" onClick={() => this.props.openModal('trailer')}>
                                         <i className="fab fa-youtube"></i>
-                                        <a href={this.props.movie.trailer_url} className="trailer-link">Play Trailer</a>    
+                                        <button className="trailer-link" >Play Trailer</button>   
                                     </div>
                                 </div>
                             </div>
@@ -88,10 +121,7 @@ export default class MoviesShow extends React.Component {
                             </div>
 
                             <ul className="actions-panel">
-                                <li className="actions-panel-watch-container">
-                                    <i className="far fa-eye"></i>
-                                    Watch
-                                </li>
+                                {this.watched()}
                             </ul>
 
                             <div className="movie-show-info-reviews-container">

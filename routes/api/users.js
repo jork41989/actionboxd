@@ -102,11 +102,12 @@ router.post('/login', (req, res) => {
 })
 
 
-router.patch('/:user_id', (req, res) => {
-
-  User.findOneAndUpdate(
-    { _id: req.params.user_id },
-    { $push: { watched_movies: req.params.movie_id } },
+router.patch('/:user_id', passport.authenticate('jwt', { session: false }), async  (req, res) => {
+  const userId = req.params.user_id ;
+  const newMovie = req.params.movie_id
+  let updatedUser = await User.findOneAndUpdate(
+    { _id: userId},
+    { $push: { watched_movies: newMovie } },
     function (error, success) {
       if (error) {
         console.log(error);
@@ -141,6 +142,9 @@ router.delete('/:user_id/reviews/:review_id', (req, res) => {
     .catch(err =>
       res.status(404).json({ noreviewupdate: 'Not able to update deletion in array' }))
 });
+
+
+
 
 
 
