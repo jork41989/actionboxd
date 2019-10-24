@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import ReviewsIndexItem from './reviews_index_item';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger;
     return({
         author: state.entities.users[ownProps.review.user_id]
     })

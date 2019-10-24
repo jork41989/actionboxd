@@ -7,7 +7,8 @@ class ReviewsCreateForm extends React.Component {
 
         this.state = {
             text: "",
-            rating: ""
+            rating: "",
+            username: this.props.currentUser.username
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.confirmExit = this.confirmExit.bind(this);
