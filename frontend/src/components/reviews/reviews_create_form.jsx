@@ -41,6 +41,12 @@ class ReviewsCreateForm extends React.Component {
         //find how to turn into stars
         //style modal 
         let posterAlt = `${this.props.movie.title} poster`;
+        let errorsList = (this.props.errors) ? (
+            this.props.errors.map((error, index) => (
+                <li className="errors" key={index}>{error}</li>
+            ))) : (
+                <div></div>
+            );
 
         return (
             <div className="reviews-form-container">
@@ -53,6 +59,7 @@ class ReviewsCreateForm extends React.Component {
                 </div>
 
                 <div className="form-review-panel">
+                    {errorsList}
                     <p className="review-intro">I WATCHED...</p>
                     <p className="review-header">{this.props.movie.title}</p><p className="review-movie-year">{this.props.movie.year}</p>
                     <form className="reviews-create-form" onSubmit={this.handleSubmit}>
