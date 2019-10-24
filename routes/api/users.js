@@ -135,7 +135,8 @@ router.patch('/:user_id/reviews/:review_id', (req, res) => {
 router.delete('/:user_id/reviews/:review_id', (req, res) => {
   User.findOneAndUpdate(
     {_id: req.params.user_id},
-    { $pull: {authored_reviews: req.params.review_id}})
+    { $pull: {authored_reviews: req.params.review_id}},
+    {new: true})
     .then((docs) => res.json({
       authored_reviews: docs.authored_reviews
       }))
