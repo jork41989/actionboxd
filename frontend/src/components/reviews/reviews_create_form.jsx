@@ -1,5 +1,4 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom';
 import './reviews_form.css'
 
 class ReviewsCreateForm extends React.Component {
@@ -77,4 +76,4 @@ class ReviewsCreateForm extends React.Component {
     }
 }
 
-export default withRouter(ReviewsCreateForm);
+export default ReviewsCreateForm;
