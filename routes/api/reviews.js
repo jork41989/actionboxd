@@ -9,7 +9,7 @@ const validateReviewInput = require('../../validation/review');
 //5 most recent reviews
 router.get('/', (req, res) => {
   Review.find().limit(5)
-    .sort({date: -1})//.populate({path: 'movie_id', select: '_id title poster_url' })
+    .sort({date: -1}).populate({path: 'movie_id', select: '_id title poster_url' })
     .then(reviews => res.json(reviews))
     .catch(err => res.status(404).json({reviewsnotfound: 'No reviews to display'}))
 });
@@ -44,7 +44,6 @@ router.post('/movies/:movie_id/:user_id',
       movie_id: req.params.movie_id,
       text: req.body.text,
       rating: req.body.rating
-
     });
 
     newReview.save()

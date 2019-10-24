@@ -117,18 +117,32 @@ router.patch('/:user_id', (req, res) => {
 
 });
 
-router.patch('/:id/reviews', (req, res) => {
+//update users reviews array (insertion of new id)
+router.patch('/:user_id/reviews/:review_id', (req, res) => {
   User.findOneAndUpdate(
     {_id: req.params.user_id},
     { $push: {authored_reviews: req.params.review_id }},
-    function(error, success){
-      if (error){
-        console.log(error);
-      } else {
-        console.log(success);
-      }
-    });
+    { new: true })
+     .then((docs) => res.json({
+       authored_reviews: docs.authored_reviews 
+      }))
+     .catch(err =>
+      res.status(404).json({ noreviewupdate: 'Not able to update array' }))
 });
+
+//update users review array (deletion of review id)
+router.delete('/:user_id/reviews/:review_id', (req, res) => {
+  User.findOneAndUpdate(
+    {_id: req.params.user_id},
+    { $pull: {authored_reviews: req.params.review_id}})
+    .then((docs) => res.json({
+      authored_reviews: docs.authored_reviews
+      }))
+    .catch(err =>
+      res.status(404).json({ noreviewupdate: 'Not able to update deletion in array' }))
+});
+
+
 
 
 router.get('/:user_id', (req, res) => {
