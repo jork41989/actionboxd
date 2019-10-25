@@ -13,7 +13,6 @@ export default class MoviesShow extends React.Component {
 
 
     componentDidMount(){
-        debugger;
         this.props.getMovie(this.props.match.params.movieId)
     }
 
