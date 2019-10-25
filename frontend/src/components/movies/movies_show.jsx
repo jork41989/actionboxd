@@ -57,7 +57,6 @@ export default class MoviesShow extends React.Component {
         // 
     }
     actionSignIn(){
-        debugger
         if ((!this.props.currentUser) || (this.props.currentUser && Object.keys(this.props.currentUser).length === 0)){
                 return (
                     <div className={'actionSignIn'}>
