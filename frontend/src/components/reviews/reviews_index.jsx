@@ -8,8 +8,8 @@ class ReviewsIndex extends React.Component {
 
     componentDidUpdate(prevProps){
         if (this.props.movie.reviews.length !== prevProps.movie.reviews.length){
-            debugger;
-            this.props.getMostRecentReviews();
+            // this.props.getMostRecentReviews();
+            this.props.getMovie();
         }
     }
 
