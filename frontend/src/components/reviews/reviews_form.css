@@ -181,3 +181,18 @@ div.review-stars-5:hover ~ .review-stars-color{
     background-position: 1px -924px;
     width: 185px;
 }
+
+.review-star-radios{
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    z-index: 20;
+    top: -25px;
+    width: 180px;
+}
+
+.review-star-radios input{
+    box-sizing: border-box;
+    padding: 5px;
+    cursor: pointer;
+}
