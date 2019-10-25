@@ -5,8 +5,8 @@ import ReviewsIndex from './reviews_index';
 
 
 const mapDispatchToProps = dispatch => ({
-    getMovie: (id) => dispatch(getMovie(id)),
-    getMostRecentReviews: () => dispatch(getMostRecentReviews)
+    getMovie: (id) => dispatch(getMovie(id))
+    // getMostRecentReviews: () => dispatch(getMostRecentReviews)
 })
 
 export default connect(null, mapDispatchToProps)(ReviewsIndex);
