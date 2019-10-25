@@ -1,50 +1,55 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import { getMovieList } from 'mongoose';
+import axios from 'axios'
+import Suggestions from 'components/Suggestions'
 
-class SearchBar extends React.Component {
+// const { API_KEY } = process.env
+// const API_URL = 'http://api.musicgraph.com/api/v2/artist/suggest'
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      term: '',
-      autoCompleteResults: [],
-      itemSelected: {},
-      showItemSelected: false
-    };
-
-    getMovieList({term: this.state.term})
-    .then(response => this.setState({ autoCompleteResults: response.movies }))
+class Search extends Component {
+  state = {
+    query: '',
+    results: []
   }
 
-  getAutoCompleteResults(e) {
+  getInfo = () => {
+    axios.get(`${API_URL}?api_key=${API_KEY}&prefix=${this.state.query}&limit=7`)
+      .then(({ data }) => {
+        this.setState({
+          results: data.data
+        })
+      })
+  }
+
+  handleInputChange = () => {
     this.setState({
-      term: e.target.value
+      query: this.search.value
     }, () => {
-      getMovieList(this.state.term)
-        .then(response => this.setState({ autoCompleteResults: response.movies }))
-    });
+      if (this.state.query && this.state.query.length > 1) {
+        if (this.state.query.length % 2 === 0) {
+          this.getInfo()
+        }
+      } else if (!this.state.query) {
+      }
+    })
   }
 
   render() {
-    let autoCompleteList = this.state.autoCompleteResults.map((response, index) => {
-      return <div key={index}>
-        <h2>{response.title}</h2>
-      </div>
-    });
-
+   
+    const options = this.state.results.map(r => {
+       return <li key={r.id}>
+          {r.name}
+        </li>
+    }); 
+      
     return (
-      <div>
-        <input ref={(input) => 
-          { this.searchBar = input }} 
-          value={this.state.term} 
-          onChange={this.getAutoCompleteResults.bind(this)} 
-          type='text' placeholder='Search...' />
-        {autoCompleteList}
-      </div>
+      <form>
+        <input
+          placeholder="Search for..."
+          ref={input => this.search = input}
+          onChange={this.handleInputChange}
+        />
+      <ul>{options}</ul>
+      </form>
     )
   }
 }
-
-export default SearchBar;
