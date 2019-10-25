@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
 
 
   errorCheck() {
-    console.log(this.props)
+    
     
     if (this.props.currentUser && Object.keys(this.props.currentUser).length > 0) {
       this.props.closeModal()
@@ -48,7 +48,7 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
-    console.log(Object.keys(this.state.errors))
+    
     if (Object.keys(this.state.errors).includes('email')){
      let emailFeild = document.getElementById('email')
       emailFeild.style.border = '3px solid red'

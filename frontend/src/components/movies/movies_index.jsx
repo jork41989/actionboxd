@@ -5,7 +5,7 @@ import './movies_index.css';
 class MoviesIndex extends React.Component{
     constructor(props) {
         super(props);
-        console.log(this.props, 'index')
+       
     }
 
 
