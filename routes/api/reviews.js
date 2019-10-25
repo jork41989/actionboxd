@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const Movie = require('../../models/Movie');
+const User = require('../../models/User');
 
 const Review = require('../../models/Review');
 const validateReviewInput = require('../../validation/review');
@@ -54,6 +55,17 @@ router.post('/movies/:movie_id/:user_id',
         {_id: req.params.movie_id},
         { $addToSet: { reviews: review._id } })
         .then(movie => {
+          res.json(review)}
+          )
+        .catch(err => {
+          res.json(err)
+      });
+    })
+    .then(review => {
+      User.findOneAndUpdate(
+        {_id: req.params.user_id},
+        { $addToSet: { authored_reviews: review._id } })
+        .then(user => {
           res.json(review)}
           )
         .catch(err => {
