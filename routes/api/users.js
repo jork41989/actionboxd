@@ -56,7 +56,6 @@ router.post('/register', (req, res) => {
 
 
 
-
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
@@ -132,6 +131,32 @@ router.patch('/:user_id/watch', passport.authenticate('jwt', { session: false })
     });
 
 });
+
+
+
+
+router.patch('/:user_id/unwatch', passport.authenticate('jwt', { session: false }), async (req, res) => {
+  const userId = req.params.user_id;
+  const newMovie = req.body.movie_id
+  console.log('Time to unwatch')
+  let updatedUser = await User.findOneAndUpdate(
+    { _id: userId },
+    { $pull: { watched_movies: newMovie } },
+    { upsert: true, new: true },
+    function (error, success) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(success);
+      }
+    });
+  return res.json({
+    id: updatedUser.id,
+    watched_movies: updatedUser.watched_movies
+  });
+
+});
+
 
 
 //update users reviews array (insertion of new id)
