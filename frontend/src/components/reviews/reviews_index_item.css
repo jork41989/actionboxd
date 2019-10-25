@@ -1,3 +1,7 @@
+li {
+    list-style-type: none;
+}
+
 .reviews-list{
     margin:0;
     padding:0;
