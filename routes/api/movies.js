@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
     .sort({title: -1})
     .then(movies => res.json(movies))
     .catch(err => res.status(404).json({ moviesnotfound: 'movies not found'}))
-});
-
+  });
+  
 
 router.get('/:id', (req, res) => {
   Movie.findById(req.params.id).populate({ path: 'reviews', select: '_id user_id text rating date' })
@@ -19,6 +19,16 @@ router.get('/:id', (req, res) => {
     .catch(err => 
       res.status(404).json({movienotfound: 'Movie not found with that id'}))
 });
+
+
+
+// router.get("/search", (req, res) => {
+//   Movie.find({ $text: { $search: req.body.term } }).limit(5)
+//     .sort({title: -1})
+//     .then(movies => res.json(movies))
+//     .catch(err => res.status(404).json({ moviesnotfound: 'movies not found'})) 
+// });
+
 
 
 module.exports = router;
