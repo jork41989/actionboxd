@@ -7,7 +7,8 @@ class ReviewsCreateForm extends React.Component {
 
         this.state = {
             text: "",
-            rating: ""
+            rating: "",
+            username: this.props.currentUser.username
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.confirmExit = this.confirmExit.bind(this);
@@ -41,6 +42,12 @@ class ReviewsCreateForm extends React.Component {
         //find how to turn into stars
         //style modal 
         let posterAlt = `${this.props.movie.title} poster`;
+        let errorsList = (this.props.errors) ? (
+            this.props.errors.map((error, index) => (
+                <li className="errors" key={index}>{error}</li>
+            ))) : (
+                <div></div>
+            );
 
         return (
             <div className="reviews-form-container">
@@ -53,6 +60,7 @@ class ReviewsCreateForm extends React.Component {
                 </div>
 
                 <div className="form-review-panel">
+                    {errorsList}
                     <p className="review-intro">I WATCHED...</p>
                     <p className="review-header">{this.props.movie.title}</p><p className="review-movie-year">{this.props.movie.year}</p>
                     <form className="reviews-create-form" onSubmit={this.handleSubmit}>
@@ -64,7 +72,17 @@ class ReviewsCreateForm extends React.Component {
                         />
                         
                         <div className="review-stars">
-                            <label htmlFor="1">1</label>
+
+                            <div className={'review-stars-1'}></div>
+                            <div className={'review-stars-2'}></div>
+                            <div className={'review-stars-3'}></div>
+                            <div className={'review-stars-4'}></div>
+                            <div className={'review-stars-5'}></div>
+                            <div className="review-stars-color">
+                            {/* <input className="rating-slider" type="range" min="0" max="10" step="1"/>
+                            <div className="rating-slider-render"></div> */}
+
+                            {/* <label htmlFor="1">1</label>
                             <input onClick={this.update("rating")} type="radio" id="1" value="1.0" />
 
                             <label htmlFor="2">2</label>
@@ -77,7 +95,10 @@ class ReviewsCreateForm extends React.Component {
                             <input onClick={this.update("rating")} type="radio" id="4" value="4.0" />
 
                             <label htmlFor="5">5</label>
-                            <input onClick={this.update("rating")} type="radio" id="5" value="5.0" />
+                            <input onClick={this.update("rating")} type="radio" id="5" value="5.0" /> */}
+                            
+                            </div>
+                            
                         </div>
 
                         <div className="submit-row">

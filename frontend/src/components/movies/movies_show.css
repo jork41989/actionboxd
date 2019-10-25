@@ -1,6 +1,6 @@
 .movie-show-body{
-    display: absolute;
     position:fixed;
+    overflow: scroll;
     height: 100%;
     width: 100%;
     padding:0;
@@ -39,6 +39,7 @@
 .fade{
     display: block;
     position: absolute;
+    top: -120px;
     width: 1200px;
     height: 800px;
     z-index: 10;
@@ -275,7 +276,6 @@ color: #ffff;
     text-transform: uppercase;
     letter-spacing: .075em;
     margin-top: 0;
-    margin-bottom: .76923077rem;
     padding-bottom: 5px;
     border-bottom: 1px solid #9ab;
 }
