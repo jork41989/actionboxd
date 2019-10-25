@@ -15,7 +15,6 @@ class ReviewsCreateForm extends React.Component {
     }
 
     updateRating(num){
-        //on click, set display to block, grab width from review-starts-x 
         return e => {
             this.setState({ rating: num })
         };
