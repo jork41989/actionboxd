@@ -17,6 +17,7 @@ class LoginForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
     if (nextProps.isAuthenticated === true) {
       this.props.closeModal()
     }
@@ -68,7 +69,7 @@ class LoginForm extends React.Component {
                   onChange={this.update('email')}
                 placeholder="Email" 
                 className={'formInput'}
-                id={'password'}
+                id={'email'}
                 />
               <br/>
                 <input type="password"
