@@ -14,17 +14,15 @@ class ReviewsCreateForm extends React.Component {
         this.confirmExit = this.confirmExit.bind(this);
     }
 
-//errors 
-
     updateRating(num){
         return e => {
             this.setState({ rating: num })
         };
     }
 
-    update(field) {
+    updateText() {
         return e => {
-            this.setState({ [field]: e.currentTarget.value })
+            this.setState({ text: e.currentTarget.value })
         };
     }
 
@@ -44,9 +42,6 @@ class ReviewsCreateForm extends React.Component {
     }
 
     render() {
-        //add on change to radio buttons 
-        //find how to turn into stars
-        //style modal 
         let posterAlt = `${this.props.movie.title} poster`;
         let errorsList = (this.props.errors) ? (
             this.props.errors.map((error, index) => (
@@ -72,7 +67,7 @@ class ReviewsCreateForm extends React.Component {
                     <form className="reviews-create-form" onSubmit={this.handleSubmit}>
 
                         <textarea  
-                            onChange={this.update("text")} 
+                            onChange={this.updateText()} 
                             value={this.state.text} 
                             placeholder="Add a review..." 
                         />
