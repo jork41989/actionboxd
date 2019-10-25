@@ -56,3 +56,9 @@ html, body, h2, p, h1, h3 {
   border: none;
   background: transparent;
 }
+
+html, body, .root{
+  min-height: 100%;
+  background: #14181c url(/content-bg.png) 0 -1px repeat-x;
+  background-attachment: fixed;
+}
