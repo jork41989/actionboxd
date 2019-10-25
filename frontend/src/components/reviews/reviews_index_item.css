@@ -68,3 +68,36 @@
     width: 130px;
     height: 26px;
 }
+
+.green1{
+ background-image: url(/sprite.c71fa7b3.svg);
+background-repeat: no-repeat;
+background-position: -450px -50px;
+}
+
+.green2{
+
+}
+
+.green3{
+
+}
+
+.green4{
+    background-image: url(/sprite.c71fa7b3.svg);
+background-repeat: no-repeat;
+background-position: -388px -130px;
+height: 15px;
+width: 65px;
+margin-left: 6px;
+    
+}
+
+.green5{
+background-image: url(/sprite.c71fa7b3.svg);
+background-repeat: no-repeat;
+background-position: -450px -50px;
+height: 15px;
+width: 65px;
+margin-left: 6px;
+}
