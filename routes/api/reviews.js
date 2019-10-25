@@ -56,13 +56,11 @@ router.post('/movies/:movie_id/:user_id',
         { $addToSet: { reviews: review._id } },
         {new: true})
         .then(movie => {
-          debugger
             User.findOneAndUpdate(
               {_id: req.params.user_id},
               { $addToSet: { authored_reviews: review._id } },
               {new: true})
           .then(user => {
-            debugger
             res.json(review)
           }
         )})
