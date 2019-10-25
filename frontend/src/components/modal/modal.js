@@ -27,7 +27,6 @@ function Modal ({payload, closeModal}) {
       component = <TrailerContainer />;
       break;
     case 'review':
-      debugger
       component = <ReviewsCreateFormContainer  />;
       break;
     default:
