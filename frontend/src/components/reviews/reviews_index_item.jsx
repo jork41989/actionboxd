@@ -58,11 +58,10 @@ class ReviewsIndexItem extends React.Component{
                         <div className="review-item-header-extended">
                             
                             Review by <p className="review-username">{this.props.review.username}</p>{rating}
+                        </div>
+                        <div className="review-item-delete">
                             {trash}
-                        </div>
-                        <div>
-                            
-                        </div>
+                        </div>    
                     </div>
                     <div className="review-item-body">
                         {this.props.review.text}
