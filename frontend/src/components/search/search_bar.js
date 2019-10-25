@@ -5,6 +5,11 @@ import Suggestions from 'components/Suggestions'
 // const { API_KEY } = process.env
 // const API_URL = 'http://api.musicgraph.com/api/v2/artist/suggest'
 
+// export const getMovieList = (term) => {
+//   return axios.get(`/api/movies/search/${term}`)
+// };
+
+
 class Search extends Component {
   state = {
     query: '',
