@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-
+//hi
 const Movie = require('../../models/Movie');
 
 router.get('/', (req, res) => {
   Movie.find()
     .sort({title: -1})
+    .populate({ path: 'reviews', select: 'rating' })
     .then(movies => res.json(movies))
     .catch(err => res.status(404).json({ moviesnotfound: 'movies not found'}))
 });
