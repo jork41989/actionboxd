@@ -14,11 +14,15 @@ class ReviewsCreateForm extends React.Component {
         this.confirmExit = this.confirmExit.bind(this);
     }
 
-//errors 
-
-    update(field){
+    updateRating(num){
         return e => {
-            this.setState({[field]: e.currentTarget.value})
+            this.setState({ rating: num })
+        };
+    }
+
+    updateText() {
+        return e => {
+            this.setState({ text: e.currentTarget.value })
         };
     }
 
@@ -38,9 +42,6 @@ class ReviewsCreateForm extends React.Component {
     }
 
     render() {
-        //add on change to radio buttons 
-        //find how to turn into stars
-        //style modal 
         let posterAlt = `${this.props.movie.title} poster`;
         let errorsList = (this.props.errors) ? (
             this.props.errors.map((error, index) => (
@@ -48,6 +49,28 @@ class ReviewsCreateForm extends React.Component {
             ))) : (
                 <div></div>
             );
+
+        let ratingSelect;
+        
+        switch(this.state.rating){
+            case "1.0":
+                ratingSelect = "one";
+                break;
+            case "2.0":
+                ratingSelect = "two";
+                break;
+            case "3.0":
+                ratingSelect = "three";
+                break;
+            case "4.0":
+                ratingSelect = "four";
+                break;
+            case "5.0":
+                ratingSelect = "five";
+                break;
+            default: 
+                ratingSelect = "";
+        }
 
         return (
             <div className="reviews-form-container">
@@ -66,38 +89,22 @@ class ReviewsCreateForm extends React.Component {
                     <form className="reviews-create-form" onSubmit={this.handleSubmit}>
 
                         <textarea  
-                            onChange={this.update("text")} 
+                            onChange={this.updateText()} 
                             value={this.state.text} 
                             placeholder="Add a review..." 
                         />
                         
                         <div className="review-stars">
 
-                            <div className={'review-stars-1'}></div>
-                            <div className={'review-stars-2'}></div>
-                            <div className={'review-stars-3'}></div>
-                            <div className={'review-stars-4'}></div>
-                            <div className={'review-stars-5'}></div>
-                            <div className="review-stars-color">
-                            {/* <input className="rating-slider" type="range" min="0" max="10" step="1"/>
-                            <div className="rating-slider-render"></div> */}
+                            <div className={'review-stars-1'} onClick={this.updateRating("1.0")}></div>
+                            <div className={'review-stars-2'} onClick={this.updateRating("2.0")}></div>
+                            <div className={'review-stars-3'} onClick={this.updateRating("3.0")}></div>
+                            <div className={'review-stars-4'} onClick={this.updateRating("4.0")}></div>
+                            <div className={'review-stars-5'} onClick={this.updateRating("5.0")}></div>
+                            <div className={`review-stars-color ${ratingSelect}`}></div>
 
-                            {/* <label htmlFor="1">1</label>
-                            <input onClick={this.update("rating")} type="radio" id="1" value="1.0" />
-
-                            <label htmlFor="2">2</label>
-                            <input onClick={this.update("rating")} type="radio" id="2" value="2.0" />
-
-                            <label htmlFor="3">3</label>
-                            <input onClick={this.update("rating")} type="radio" id="3" value="3.0" />
-
-                            <label htmlFor="4">4</label>
-                            <input onClick={this.update("rating")} type="radio" id="4" value="4.0" />
-
-                            <label htmlFor="5">5</label>
-                            <input onClick={this.update("rating")} type="radio" id="5" value="5.0" /> */}
                             
-                            </div>
+                            
                             
                         </div>
 

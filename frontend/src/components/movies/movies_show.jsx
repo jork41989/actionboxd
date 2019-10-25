@@ -19,6 +19,10 @@ export default class MoviesShow extends React.Component {
     componentDidUpdate(prevProps){
         if (prevProps.match.params.movieId !== this.props.match.params.movieId){
             this.props.getMovie(this.props.match.params.movieId)
+        } else if(prevProps.movie){
+            if(this.props.movie.reviews.length !== prevProps.movie.reviews.length){
+                this.props.getMovie(this.props.match.params.movieId);
+            }
         }
     }
 
@@ -92,12 +96,6 @@ export default class MoviesShow extends React.Component {
                 <div className="movie-show-container">
                     <div className="background-image-container">
                         <div style={backgroundImageStyle}></div>
-                        {/* <img 
-                            // src={this.props.movie.background_image_url}
-                            style={backgroundImageStyle}
-                            alt={coverAlt}
-                            className="background-image"
-                        /> */}
                         <div className="fade"></div>
                     </div>
 
