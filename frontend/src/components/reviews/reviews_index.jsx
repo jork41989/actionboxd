@@ -11,7 +11,6 @@ class ReviewsIndex extends React.Component {
         if(!this.props.movie.reviews){
             return <div>Loading...</div>
         }
-        debugger;
 
         let reviewsList = this.props.movie.reviews.map(review => 
             <li key={review._id}>
