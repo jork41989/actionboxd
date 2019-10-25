@@ -1,8 +1,20 @@
 import React from 'react'
 import './trailer.css'
 
-class Trailer extends React.Component {    
+class Trailer extends React.Component { 
+    
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount (){
+        if (!this.props.movie){
+            this.props.getMovie(this.props.movieId)
+        }
+    }
+
     render() {
+       
         return (
             <div className="trailer-container">
                 <div 
@@ -18,7 +30,7 @@ class Trailer extends React.Component {
                 </iframe>
             </div>
         )
-    }
+        }
 }
 
 export default Trailer;
