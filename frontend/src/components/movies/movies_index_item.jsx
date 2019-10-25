@@ -8,6 +8,7 @@ export default class MoviesIndexItem extends React.Component {
         this.addWatch = this.addWatch.bind(this)
         this.removeWatch = this.removeWatch.bind(this)
         this.review = this.review.bind(this)
+        this.actionSignIn = this.actionSignIn.bind(this)
     }
 
     addWatch() {
@@ -43,6 +44,18 @@ export default class MoviesIndexItem extends React.Component {
             }
         }
         // 
+    }
+
+    actionSignIn() {
+        if (this.props.currentUser) {
+            if (!this.props.currentUser.watched_movies) {
+                return (
+                    <div className={'actionSignIn-Index'}>
+                        <p onClick={() => this.props.openModal({ modal: 'login' })} className={'actionSignIn-Index'}>Sign in</p>
+                    </div>
+                )
+            }
+        }
     }
 
     review(){
@@ -83,6 +96,7 @@ export default class MoviesIndexItem extends React.Component {
             <div className="index-item-actions">
                 {this.watched()}
                 {this.review()}
+                {this.actionSignIn()}
             </div>
         </div>
     )
