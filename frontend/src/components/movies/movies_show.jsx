@@ -92,7 +92,7 @@ export default class MoviesShow extends React.Component {
         }
 
         let reviewPanel;
-        reviewPanel = this.props.currentUser.id ? 
+        reviewPanel = !((!this.props.currentUser) || (this.props.currentUser && Object.keys(this.props.currentUser).length === 0)) ? 
             <li className="actions-panel-reviews-container">
                 <button
                     className="review-button"
