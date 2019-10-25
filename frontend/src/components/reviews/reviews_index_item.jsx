@@ -1,13 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './reviews_index_item.css';
 
 class ReviewsIndexItem extends React.Component{
     constructor(props){
         super(props)
+
+        this.confirmDelete = this.confirmDelete.bind(this);
+    }
+
+    confirmDelete(){
+        let result = window.confirm("Delete this review permanently?")
+        if (result){
+            this.props.deleteReview(this.props.review, this.props.review._id)
+        }
     }
 
     render(){
         let rating;
+        let trash;
 
         if (this.props.review.rating){
             switch (this.props.review.rating.$numberDecimal){
@@ -31,6 +42,13 @@ class ReviewsIndexItem extends React.Component{
             }
         }
 
+        trash = this.props.currentUser.username === this.props.review.username ?
+            <i 
+                onClick={this.confirmDelete}
+                className="far fa-trash-alt"
+            ></i> : 
+            <div></div>;
+
         return (
             <div className="review-item-container">
                 <div className="review-item-avatar">
@@ -40,12 +58,11 @@ class ReviewsIndexItem extends React.Component{
                     <div className="review-item-header">
                         <div className="review-item-header-extended">
                             
-                            Review by <p className="review-username">{this.props.review.username}</p>{rating}
-                            <i className="far fa-trash-alt"></i>
+                            Review by <Link to={`/users/${this.props.review.user_id}`}> <p className="review-username">{this.props.review.username}</p></Link> {rating}
                         </div>
-                        <div>
-                            
-                        </div>
+                        <div className="review-item-delete">
+                            {trash}
+                        </div>    
                     </div>
                     <div className="review-item-body">
                         {this.props.review.text}

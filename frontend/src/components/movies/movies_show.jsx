@@ -39,27 +39,29 @@ export default class MoviesShow extends React.Component {
     watched(){
       
         if (this.props.currentUser){
-        if (this.props.currentUser.watched_movies){
-            if (this.props.currentUser.watched_movies.includes(this.props.match.params.movieId)){
-                return (
-                    <li className="actions-panel-watch-container" onClick={this.removeWatch}>
-                        <div className={'watched'}></div>
-                        
-                        Watched
-                    </li>
-                )
-            } else {
-                return (
-                    <li className="actions-panel-watch-container" onClick={this.addWatch}>
-                        <div className={'not-watched'}></div>
-                            Watch
-                    </li>
-                )
+            if (this.props.currentUser.watched_movies){
+                if (this.props.currentUser.watched_movies.includes(this.props.match.params.movieId)){
+                    return (
+                        <li className="actions-panel-watch-container" onClick={this.removeWatch}>
+                            <div className={'watched'}></div>
+                            
+                            Watched
+                        </li>
+                    )
+                } else {
+                    return (
+                        <li className="actions-panel-watch-container" onClick={this.addWatch}>
+                            <div className={'not-watched'}></div>
+                                Watch
+                        </li>
+                    )
+                }
             }
         }
-    }
         // 
     }
+
+
     actionSignIn(){
         if ((!this.props.currentUser) || (this.props.currentUser && Object.keys(this.props.currentUser).length === 0)){
                 return (
@@ -88,6 +90,16 @@ export default class MoviesShow extends React.Component {
             zIndex: "10",
             backgroundImage: `url(${this.props.movie.background_image_url})`
         }
+
+        let reviewPanel;
+        reviewPanel = !((!this.props.currentUser) || (this.props.currentUser && Object.keys(this.props.currentUser).length === 0)) ? 
+            <li className="actions-panel-reviews-container">
+                <button
+                    className="review-button"
+                    onClick={() => this.props.openModal({ modal: 'review', movieId: this.props.match.params.movieId })}
+                >Review</button>
+            </li>
+        : <div></div>
 
 
         return (
@@ -141,12 +153,7 @@ export default class MoviesShow extends React.Component {
                             <ul className="actions-panel">
                                 {this.watched()}
                                 {this.actionSignIn()}
-                                <li className="actions-panel-reviews-container">
-                                    <button 
-                                        className="review-button"
-                                        onClick={() => this.props.openModal({ modal: 'review', movieId: this.props.match.params.movieId })}
-                                    >Review</button>
-                                </li>
+                                {reviewPanel}
                             </ul>
 
                             <div className="movie-show-info-reviews-container">
@@ -154,7 +161,7 @@ export default class MoviesShow extends React.Component {
                                     REVIEWS
                                 </h2>
                                 <div className="movie-show-info-reviews"> 
-                                    <ReviewsIndexContainer movie={this.props.movie} />
+                                    <ReviewsIndexContainer />
                                 </div>
                             </div>
                         </section>

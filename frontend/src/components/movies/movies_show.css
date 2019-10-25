@@ -12,6 +12,7 @@
 
 .background-image-container{
     position: absolute;
+    background: #14181d;
     z-index: 0;
     top: 0;
     left: 0;
