@@ -17,8 +17,8 @@ class LoginForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      this.props.history.push('/tweets');
+    if (nextProps.isAuthenticated === true) {
+      this.props.closeModal()
     }
 
     this.setState({errors: nextProps.errors})
@@ -38,10 +38,11 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user).then(this.props.closeModal);
+    this.props.login(user)
   }
 
   renderErrors() {
+
     return(
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
@@ -67,13 +68,15 @@ class LoginForm extends React.Component {
                   onChange={this.update('email')}
                 placeholder="Email" 
                 className={'formInput'}
+                id={'password'}
                 />
               <br/>
                 <input type="password"
                   value={this.state.password}
                   onChange={this.update('password')}
                   placeholder="Password"
-                className={'formInput'}
+                  className={'formInput'}
+                  id={'password'}
                 />
               <br/>
               <input type="submit" value="Sign In" className={'submit'}/>
