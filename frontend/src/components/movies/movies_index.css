@@ -161,18 +161,28 @@
     padding-left: 5px;
 }
 
-
-
-.ratingFour{
+.ratingFive{
+    color:transparent;
     height: 21px;
-    width: 50px;
+    width: 69px;
+    background-position: -286px -90px;
+    background-image: url(/sprite.c71fa7b3.svg);
+}
+
+
+
+.ratingFourHlf{
+    color:transparent;
+    height: 21px;
+    width: 69px;
     background-position: -303px -90px;
     background-image: url(/sprite.c71fa7b3.svg);
 }
 
-.ratingFourHlf{
+.ratingFour{
+    color:transparent;
     height: 21px;
-    width: 69px;
+    width: 52px;
     background-position: -303px -90px;
     background-image: url(/sprite.c71fa7b3.svg);
 }
@@ -188,7 +198,7 @@
 .ratingThree{
     color:transparent;
     height: 21px;
-    width: 56px;
+    width: 38px;
     background-position: -315px -90px;
     background-image: url(/sprite.c71fa7b3.svg);
 }

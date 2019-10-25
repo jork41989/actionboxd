@@ -87,7 +87,7 @@ export default class MoviesIndexItem extends React.Component {
     }
 
     ratingStar(){
-        let rating = 3;
+        let rating = this.rating()
         if (rating > 0 && rating < 1){
             return (
                 <div className={'ratingHlf'}>1/2</div>
@@ -124,7 +124,7 @@ export default class MoviesIndexItem extends React.Component {
             
             return (<div className={'ratingFourHlf'}></div>)
 
-        } else if (rating > 5) {
+        } else if (rating >= 5) {
             
             return (<div className={'ratingFive'}>5</div>)
 
