@@ -46,7 +46,7 @@ class SignupForm extends React.Component {
   }
 
   renderErrors() {
-    console.log(Object.keys(this.state.errors))
+
     if (Object.keys(this.state.errors).includes('email')) {
       let emailFeild = document.getElementById('email')
       emailFeild.style.border = '3px solid red'
