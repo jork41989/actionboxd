@@ -11,10 +11,10 @@ const receiveReview = review => ({
         review
 });
 
-const receiveMostRecentReviews = reviews => ({
-    type: RECEIVE_RECENT_REVIEWS,
-    reviews
-});
+// const receiveMostRecentReviews = reviews => ({
+//     type: RECEIVE_RECENT_REVIEWS,
+//     reviews
+// });
 
 const receiveReviewErrors = errors => ({
     type: RECEIVE_REVIEW_ERRORS,
@@ -31,10 +31,10 @@ export const getReview = id => dispatch => (
         .then(review => dispatch(receiveReview(review)))
 )
 
-export const getMostRecentReviews = () => dispatch => (
-    ReviewsApiUtil.getMostRecentReviews()
-        .then(reviews => dispatch(receiveMostRecentReviews(reviews)))
-)
+// export const getMostRecentReviews = () => dispatch => (
+//     ReviewsApiUtil.getMostRecentReviews()
+//         .then(reviews => dispatch(receiveMostRecentReviews(reviews)))
+// )
 
 export const writeReview = (review, movieId, userId) => dispatch => (
     ReviewsApiUtil.writeReview(review, movieId, userId)
