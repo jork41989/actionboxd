@@ -1,6 +1,5 @@
 .movie-show-body{
-    display: absolute;
-    position:fixed;
+
     height: 100%;
     width: 100%;
     padding:0;
@@ -8,7 +7,7 @@
     top:0;
     left:0;
     /* background: #13191d; */
-    background: #14181d;
+    
 }
 
 .background-image-container{
@@ -39,6 +38,7 @@
 .fade{
     display: block;
     position: absolute;
+    top: -120px;
     width: 1200px;
     height: 800px;
     z-index: 10;
@@ -275,7 +275,6 @@ color: #ffff;
     text-transform: uppercase;
     letter-spacing: .075em;
     margin-top: 0;
-    margin-bottom: .76923077rem;
     padding-bottom: 5px;
     border-bottom: 1px solid #9ab;
 }

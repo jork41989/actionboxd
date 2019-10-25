@@ -23,12 +23,10 @@ function Modal ({payload, closeModal}) {
       component = <SignupFormContainer />;
       break;
     case 'trailer':
-      
-      component = <TrailerContainer />;
+      component = <TrailerContainer movieId={payload.movieId} />;
       break;
     case 'review':
-      debugger
-      component = <ReviewsCreateFormContainer  />;
+      component = <ReviewsCreateFormContainer movieId={payload.movieId} />;
       break;
     default:
       return null;
