@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './forms.css'
+import ReactTooltip from 'react-tooltip'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -45,14 +46,35 @@ class SignupForm extends React.Component {
   }
 
   renderErrors() {
-    return(
-      <ul>
+    console.log(Object.keys(this.state.errors))
+    if (Object.keys(this.state.errors).includes('email')) {
+      let emailFeild = document.getElementById('email')
+      emailFeild.style.border = '3px solid red'
+    }
+    if (Object.keys(this.state.errors).includes('password')) {
+      let pwFeild = document.getElementById('password')
+      pwFeild.style.border = '3px solid red'
+    }
+    if (Object.keys(this.state.errors).includes('username')) {
+      let pwFeild = document.getElementById('username')
+      pwFeild.style.border = '3px solid red'
+    }
+    if (Object.keys(this.state.errors).includes('password2')) {
+      let pwFeild = document.getElementById('password2')
+      pwFeild.style.border = '3px solid red'
+    }
+
+
+    return (
+      <div>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
+          <div id={i}>
+            <ReactTooltip id={error} place="top" type="error" effect="solid">
+              <span>{this.state.errors[error]}</span>
+            </ReactTooltip>
+          </div>
         ))}
-      </ul>
+      </div>
     );
   }
 
@@ -69,6 +91,8 @@ class SignupForm extends React.Component {
                 onChange={this.update('email')}
                 placeholder="Email"
               className={'formInput'}
+              id={'email'}
+              data-tip data-for={'email'}
               />
             <br/>
               <input type="text"
@@ -76,6 +100,8 @@ class SignupForm extends React.Component {
                 onChange={this.update('username')}
                 placeholder="Username"
               className={'formInput'}
+              id={'username'}
+              data-tip data-for={'username'}
               />
             <br/>
               <input type="password"
@@ -83,6 +109,8 @@ class SignupForm extends React.Component {
                 onChange={this.update('password')}
                 placeholder="Password"
               className={'formInput'}
+              id={'password'}
+              data-tip data-for={'password'}
               />
             <br/>
               <input type="password"
@@ -90,6 +118,8 @@ class SignupForm extends React.Component {
                 onChange={this.update('password2')}
                 placeholder="Confirm Password"
               className={'formInput'}
+              id={'password2'}
+              data-tip data-for={'password2'}
               />
             <br/>
             <input type="submit" value="Sign Up" className={'submit'} />
