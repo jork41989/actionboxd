@@ -6,6 +6,13 @@ class ReviewsIndex extends React.Component {
         super(props)
     }
 
+    componentDidUpdate(prevProps){
+        if (this.props.movie.reviews.length !== prevProps.movie.reviews.length){
+            // this.props.getMostRecentReviews();
+            this.props.getMovie();
+        }
+    }
+
     render() {
        
         if(!this.props.movie.reviews){

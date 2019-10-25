@@ -9,7 +9,7 @@
     border-color: #2c3440;
     padding-bottom: 15px;
     border-bottom: 1px solid #456;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding: 15px 0 18px;
 }
 
@@ -47,6 +47,7 @@
     font-weight: 800;
     color: #abc;
     padding-left: 4px;
+    padding-right: 4px;
 }
 
 .review-item-header-extended{
@@ -66,4 +67,50 @@
     background: teal;
     width: 130px;
     height: 26px;
+}
+
+.green1{
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-position: -388px -130px;
+    height: 15px;
+    width: 16px;
+    margin-left: 6px;
+}
+
+.green2{
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-position: -388px -130px;
+    height: 15px;
+    width: 32px;
+    margin-left: 6px;
+}
+
+.green3{
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-position: -388px -130px;
+    height: 15px;
+    width: 48px;
+    margin-left: 6px;
+}
+
+.green4{
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-position: -388px -130px;
+    height: 15px;
+    width: 65px;
+    margin-left: 6px;
+    
+}
+
+.green5{
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-position: -450px -50px;
+    height: 15px;
+    width: 65px;
+    margin-left: 6px;
 }

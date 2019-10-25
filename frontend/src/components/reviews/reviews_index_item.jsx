@@ -7,6 +7,29 @@ class ReviewsIndexItem extends React.Component{
     }
 
     render(){
+        let rating;
+
+        if (this.props.review.rating){
+            switch (this.props.review.rating.$numberDecimal){
+                case "1.0":
+                    rating = <span className="green1"></span>
+                    break;
+                case "2.0":
+                    rating = <span className="green2"></span>
+                    break;
+                case "3.0": 
+                    rating = <span className="green3"></span>
+                    break;
+                case "4.0": 
+                    rating = <span className="green4"></span>
+                    break;
+                case "5.0":
+                    rating = <span className="green5"></span>
+                    break;
+                default: 
+                    rating = "";
+            }
+        }
 
         return (
             <div className="review-item-container">
@@ -16,10 +39,10 @@ class ReviewsIndexItem extends React.Component{
                 <div className="review-item-info-container">
                     <div className="review-item-header">
                         <div className="review-item-header-extended">
-                            Review by <p className="review-username">{this.props.review.username}</p>
+                            Review by <p className="review-username">{this.props.review.username}</p>{rating}
                         </div>
                         <div>
-                        {/* {review.rating.$numberDecimal} */}
+                        
                         </div>
                     </div>
                     <div className="review-item-body">
