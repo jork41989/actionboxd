@@ -30,7 +30,7 @@
 
 
 .movies-list li{
-    height: 300px;
+    height: 250px;
     width: 150px;
     border-radius: 4px;
 }
@@ -76,7 +76,7 @@
     height: 28px;
     border-radius: 4px;
     position: absolute;
-    bottom: 86px;
+    bottom: 109px;
     left: 46%; 
     display: none;
 }
@@ -115,6 +115,7 @@
 
 .index-thumbnail-div{
     position: relative;
+    height: 321px;
 }
 
 .review-index-container{
@@ -136,3 +137,99 @@
 .review-index:hover{
     background-position: -646px -125px;
 }
+
+.actionSignIn-Index{
+    color: #bcd;
+    text-decoration: none;
+    font-family:'Graphik Regular';
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 11px;
+    margin-top: 4px;
+}
+
+.actionSignIn-Index:hover{
+    color: white;
+}
+
+.rating{
+    margin-top: 5px;
+    height: 21px;
+    width: 140px;
+    padding-left: 5px;
+}
+
+
+
+.ratingFour{
+    height: 21px;
+    width: 50px;
+    background-position: -303px -90px;
+    background-image: url(/sprite.c71fa7b3.svg);
+}
+
+.ratingFourHlf{
+    height: 21px;
+    width: 69px;
+    background-position: -303px -90px;
+    background-image: url(/sprite.c71fa7b3.svg);
+}
+
+.ratingThreeHlf{
+    color:transparent;
+    height: 21px;
+    width: 56px;
+    background-position: -315px -90px;
+    background-image: url(/sprite.c71fa7b3.svg);
+}
+
+.ratingThree{
+    color:transparent;
+    height: 21px;
+    width: 56px;
+    background-position: -315px -90px;
+    background-image: url(/sprite.c71fa7b3.svg);
+}
+
+.ratingTwoHlf{
+    color:transparent;
+    height: 21px;
+    width: 39px;
+    background-position: -329px -90px;
+    background-image: url(/sprite.c71fa7b3.svg);
+}
+
+.ratingTwo{
+    color:transparent;
+    height: 21px;
+    width: 25px;
+    background-position: -329px -90px;
+    background-image: url(/sprite.c71fa7b3.svg);
+}
+
+.ratingOneHlf{
+    color:transparent;
+    height: 21px;
+    width: 29px;
+    background-position: -341px -90px;
+    background-image: url(/sprite.c71fa7b3.svg);
+}
+
+.ratingOne{
+    color:transparent;
+    height: 21px;
+    width: 14px;
+    background-position: -341px -90px;
+    background-image: url(/sprite.c71fa7b3.svg);
+}
+
+.ratingHlf{
+    color:transparent;
+    height: 21px;
+    width: 14px;
+    background-position: -355px -90px;
+    background-image: url(/sprite.c71fa7b3.svg);
+}
+

@@ -108,3 +108,107 @@
     color: #bcd;
     text-shadow: #345 0 1px 0;
 }
+
+.review-stars{
+    position: relative;
+    margin-top: 15px;
+    height: 32px;
+    width: 180px;
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-size: 800px 1000px;
+    background-position: 1px -890px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+
+.review-stars-1{
+    width: 36px;
+    height: 32px;
+}
+.review-stars-2{
+    width: 36px;
+    height: 32px;
+}
+.review-stars-3{
+    width: 36px;
+    height: 32px;
+}
+.review-stars-4{
+    width: 36px;
+    height: 32px;
+}
+.review-stars-5{
+    width: 36px;
+    height: 32px;
+}
+
+.review-stars-color{
+    height: 32px;
+    width: 180px;
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-size: 800px 1000px;
+    position: absolute;
+    top: 0px;
+    display: none;
+    pointer-events: none;
+}
+
+div.review-stars-1:hover ~ .review-stars-color{
+    display: block !important;
+    background-position: 1px -959px;
+    width: 35px;
+}
+
+div.review-stars-2:hover ~ .review-stars-color{
+    display: block !important;
+    background-position: 1px -959px;
+    width: 70px;
+}
+div.review-stars-3:hover ~ .review-stars-color{
+    display: block !important;
+    background-position: 1px -959px;
+    width: 109px;
+}
+div.review-stars-4:hover ~ .review-stars-color{
+    display: block !important;
+    background-position: 1px -959px;
+    width: 144px;
+}
+div.review-stars-5:hover ~ .review-stars-color{
+    display: block !important;
+    background-position: 1px -959px;
+    width: 185px;
+}
+
+.review-stars-color.one{
+    display: block !important;
+    background-position: 1px -924px;
+    width: 35px;
+}
+
+.review-stars-color.two{
+    display: block !important;
+    background-position: 1px -924px;
+    width: 70px;
+}
+
+.review-stars-color.three{
+    display: block !important;
+    background-position: 1px -924px;
+    width: 109px;
+}
+
+.review-stars-color.four{
+    display: block !important;
+    background-position: 1px -924px;
+    width: 144px;
+}
+.review-stars-color.five{
+    display: block !important;
+    background-position: 1px -924px;
+    width: 185px;
+}

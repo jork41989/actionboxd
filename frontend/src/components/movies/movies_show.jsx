@@ -19,6 +19,10 @@ export default class MoviesShow extends React.Component {
     componentDidUpdate(prevProps){
         if (prevProps.match.params.movieId !== this.props.match.params.movieId){
             this.props.getMovie(this.props.match.params.movieId)
+        } else if(prevProps.movie){
+            if(this.props.movie.reviews.length !== prevProps.movie.reviews.length){
+                this.props.getMovie(this.props.match.params.movieId);
+            }
         }
     }
 
@@ -57,15 +61,14 @@ export default class MoviesShow extends React.Component {
         // 
     }
     actionSignIn(){
-        if (this.props.currentUser) {
-            if (!this.props.currentUser.watched_movies){
+        if ((!this.props.currentUser) || (this.props.currentUser && Object.keys(this.props.currentUser).length === 0)){
                 return (
                     <div className={'actionSignIn'}>
                         <p onClick={() => this.props.openModal({ modal: 'login' })} className={'actionSignIn'}>Sign in to log, rate or review</p>
                     </div>
                 )
             }
-        }
+        
     }
     render() {
         if (!this.props.movie) {
@@ -93,12 +96,6 @@ export default class MoviesShow extends React.Component {
                 <div className="movie-show-container">
                     <div className="background-image-container">
                         <div style={backgroundImageStyle}></div>
-                        {/* <img 
-                            // src={this.props.movie.background_image_url}
-                            style={backgroundImageStyle}
-                            alt={coverAlt}
-                            className="background-image"
-                        /> */}
                         <div className="fade"></div>
                     </div>
 
@@ -119,7 +116,7 @@ export default class MoviesShow extends React.Component {
                                 </ul>
                                 <div className="watch-panel">
                                     <p>WATCH</p>
-                                    <div className="trailer-link-container" onClick={() => this.props.openModal({ modal: 'trailer'})}>
+                                    <div className="trailer-link-container" onClick={() => this.props.openModal({ modal: 'trailer', movieId: this.props.match.params.movieId})}>
                                         <i className="fab fa-youtube"></i>
                                         <button className="trailer-link" >Play Trailer</button>   
                                     </div>
@@ -147,7 +144,7 @@ export default class MoviesShow extends React.Component {
                                 <li className="actions-panel-reviews-container">
                                     <button 
                                         className="review-button"
-                                        onClick={() => this.props.openModal({ modal: 'review'})}
+                                        onClick={() => this.props.openModal({ modal: 'review', movieId: this.props.match.params.movieId })}
                                     >Review</button>
                                 </li>
                             </ul>
@@ -157,8 +154,7 @@ export default class MoviesShow extends React.Component {
                                     REVIEWS
                                 </h2>
                                 <div className="movie-show-info-reviews"> 
-                                    Review Index Component Here
-                                    <ReviewsIndexContainer movie={this.props.movie}/>
+                                    <ReviewsIndexContainer movie={this.props.movie} />
                                 </div>
                             </div>
                         </section>

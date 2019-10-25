@@ -6,10 +6,11 @@ import ReviewsCreateForm from './reviews_create_form';
 
 
 const mapStateToProps = (state, ownProps) => {
-    let movieId = ownProps.location.pathname.split("/")[2];
+    let movieId = ownProps.movieId;
     return({
         movie: state.entities.movies[movieId],
-        currentUser: state.session.user
+        currentUser: state.session.user,
+        errors: state.errors.review
     })
 
 }
