@@ -8,6 +8,7 @@ class ReviewsIndexItem extends React.Component{
 
     render(){
         let rating;
+        let trash;
 
         if (this.props.review.rating){
             switch (this.props.review.rating.$numberDecimal){
@@ -31,6 +32,10 @@ class ReviewsIndexItem extends React.Component{
             }
         }
 
+        debugger;
+        trash = this.props.currentUser.username === this.props.review.username ?
+            <i className="far fa-trash-alt"></i> : <div></div>;
+
         return (
             <div className="review-item-container">
                 <div className="review-item-avatar">
@@ -41,7 +46,7 @@ class ReviewsIndexItem extends React.Component{
                         <div className="review-item-header-extended">
                             
                             Review by <p className="review-username">{this.props.review.username}</p>{rating}
-                            <i className="far fa-trash-alt"></i>
+                            {trash}
                         </div>
                         <div>
                             

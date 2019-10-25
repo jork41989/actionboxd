@@ -3,7 +3,8 @@ import ReviewsIndexItem from './reviews_index_item';
 
 const mapStateToProps = (state, ownProps) => {
     return({
-        author: state.entities.users[ownProps.review.user_id]
+        // author: state.entities.users[ownProps.review.user_id],
+        currentUser: state.session.user
     })
 }
 
