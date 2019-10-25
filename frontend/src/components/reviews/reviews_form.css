@@ -187,12 +187,23 @@ div.review-stars-5:hover ~ .review-stars-color{
     justify-content: space-around;
     position: relative;
     z-index: 20;
-    top: -25px;
+    top: -32px;
     width: 180px;
+    /*opacity 0 */
+
+    /*test */
+    /* position: fixed; */
+    /* top: 487px; */
+    /* opacity: 0; */
+}
+
+.review-star-radios label{
+    box-sizing: border-box;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .review-star-radios input{
-    box-sizing: border-box;
-    padding: 5px;
+    margin: 0px;
     cursor: pointer;
 }
