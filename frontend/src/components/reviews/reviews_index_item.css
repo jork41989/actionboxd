@@ -117,3 +117,7 @@ li {
     font-size: 12px;
     cursor: pointer;
 }
+
+.review-username:hover{
+    color: #ffffff;
+}
