@@ -16,9 +16,15 @@ class ReviewsCreateForm extends React.Component {
 
 //errors 
 
-    update(field){
+    updateRating(num){
         return e => {
-            this.setState({[field]: e.currentTarget.value})
+            this.setState({ rating: num })
+        };
+    }
+
+    update(field) {
+        return e => {
+            this.setState({ [field]: e.currentTarget.value })
         };
     }
 
@@ -73,11 +79,11 @@ class ReviewsCreateForm extends React.Component {
                         
                         <div className="review-stars">
 
-                            <div className={'review-stars-1'}></div>
-                            <div className={'review-stars-2'}></div>
-                            <div className={'review-stars-3'}></div>
-                            <div className={'review-stars-4'}></div>
-                            <div className={'review-stars-5'}></div>
+                            <div className={'review-stars-1'} onClick={this.updateRating("1.0")}></div>
+                            <div className={'review-stars-2'} onClick={this.updateRating("2.0")}></div>
+                            <div className={'review-stars-3'} onClick={this.updateRating("3.0")}></div>
+                            <div className={'review-stars-4'} onClick={this.updateRating("4.0")}></div>
+                            <div className={'review-stars-5'} onClick={this.updateRating("5.0")}></div>
                             <div className="review-stars-color"></div>
 
                             
@@ -85,22 +91,28 @@ class ReviewsCreateForm extends React.Component {
                             
                         </div>
                         {/* <input className="review-star-radios" type="range" min="0" max="5" step="1"/> */}
-                            <div className="review-star-radios">
-                                
-                                <input onClick={this.update("rating")} name="rating" type="radio" id="1" value="1.0" />
+                            {/* <div className="review-star-radios">
+                            
+                                <label htmlFor="1">
+                                    <input onClick={this.update("rating")} name="rating" type="radio" id="1" value="1.0" />
+                                </label>
 
-                                
-                                <input onClick={this.update("rating")} name="rating" type="radio" id="2" value="2.0" />
+                                <label htmlFor="2">
+                                    <input onClick={this.update("rating")} name="rating" type="radio" id="2" value="2.0" />
+                                </label>
 
-                                
-                                <input onClick={this.update("rating")} name="rating" type="radio" id="3" value="3.0" />
+                                <label htmlFor="3">
+                                    <input onClick={this.update("rating")} name="rating" type="radio" id="3" value="3.0" />
+                                </label>
 
-                                    
-                                <input onClick={this.update("rating")} name="rating" type="radio" id="4" value="4.0" />
+                                <label htmlFor="4">
+                                    <input onClick={this.update("rating")} name="rating" type="radio" id="4" value="4.0" />
+                                </label>
 
-                                
-                                <input onClick={this.update("rating")} name="rating" type="radio" id="5" value="5.0" />
-                            </div>
+                                <label htmlFor="5">
+                                    <input onClick={this.update("rating")} name="rating" type="radio" id="5" value="5.0" />
+                                </label> 
+                            </div> */}
 
                         <div className="submit-row">
                             <button className="reviews-submit">Save</button>
