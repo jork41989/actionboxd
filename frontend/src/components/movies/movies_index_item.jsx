@@ -87,7 +87,7 @@ export default class MoviesIndexItem extends React.Component {
     }
 
     ratingStar(){
-        let rating = 3
+        let rating = 3;
         if (rating > 0 && rating < 1){
             return (
                 <div className={'ratingHlf'}>1/2</div>
