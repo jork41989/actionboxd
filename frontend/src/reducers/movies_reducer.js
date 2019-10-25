@@ -17,8 +17,6 @@ const moviesReducer = (state = {}, action) => {
     let moviesObj;
     let review;
     let movieId;
-    let reviewsArr;
-    let reviewsObj;
     switch(action.type){
         case RECEIVE_MOVIE:
             movie = action.movie.data
@@ -44,13 +42,7 @@ const moviesReducer = (state = {}, action) => {
             movieId = review.movie_id;
             newState = merge({}, state);
             movie = newState[movieId];
-            reviewsObj = {};
-            reviewsArr = movie.reviews;
-            reviewsArr.forEach(review => {
-                reviewsObj[review._id] = review
-            });
-            delete reviewsObj[review._id];
-            movie.reviews = Object.values(reviewsObj);
+            movie.reviews = movie.reviews.filter(rev => rev._id !== review._id);
             return newState;
         default:
             return state;
