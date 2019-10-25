@@ -17,7 +17,6 @@ export default class MoviesShow extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        debugger;
         if (prevProps.match.params.movieId !== this.props.match.params.movieId){
             this.props.getMovie(this.props.match.params.movieId)
             // .then(() => this.props.getMostRecentReviews());
