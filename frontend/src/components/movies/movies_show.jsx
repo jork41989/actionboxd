@@ -119,7 +119,7 @@ export default class MoviesShow extends React.Component {
                                 </ul>
                                 <div className="watch-panel">
                                     <p>WATCH</p>
-                                    <div className="trailer-link-container" onClick={() => this.props.openModal({ modal: 'trailer'})}>
+                                    <div className="trailer-link-container" onClick={() => this.props.openModal({ modal: 'trailer', movieId: this.props.match.params.movieId})}>
                                         <i className="fab fa-youtube"></i>
                                         <button className="trailer-link" >Play Trailer</button>   
                                     </div>
@@ -147,7 +147,7 @@ export default class MoviesShow extends React.Component {
                                 <li className="actions-panel-reviews-container">
                                     <button 
                                         className="review-button"
-                                        onClick={() => this.props.openModal({ modal: 'review'})}
+                                        onClick={() => this.props.openModal({ modal: 'review', movieId: this.props.match.params.movieId })}
                                     >Review</button>
                                 </li>
                             </ul>
@@ -157,7 +157,7 @@ export default class MoviesShow extends React.Component {
                                     REVIEWS
                                 </h2>
                                 <div className="movie-show-info-reviews"> 
-                                    <ReviewsIndexContainer movie={this.props.movie}/>
+                                    <ReviewsIndexContainer movie={this.props.movie} />
                                 </div>
                             </div>
                         </section>

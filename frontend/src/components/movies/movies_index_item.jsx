@@ -63,7 +63,7 @@ export default class MoviesIndexItem extends React.Component {
             if (this.props.currentUser.watched_movies) {
                 return (
                     <li className="review-index-container" >
-                    <div className={'review-index'}></div>
+                        <div className={'review-index'} onClick={() => this.props.openModal({ modal: 'review', movieId: this.props.movie._id })}></div>
                 </li>
                 )
             }
