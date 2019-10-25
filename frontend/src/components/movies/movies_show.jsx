@@ -57,15 +57,15 @@ export default class MoviesShow extends React.Component {
         // 
     }
     actionSignIn(){
-        if (this.props.currentUser) {
-            if (!this.props.currentUser.watched_movies){
+        debugger
+        if ((!this.props.currentUser) || (this.props.currentUser && Object.keys(this.props.currentUser).length === 0)){
                 return (
                     <div className={'actionSignIn'}>
                         <p onClick={() => this.props.openModal({ modal: 'login' })} className={'actionSignIn'}>Sign in to log, rate or review</p>
                     </div>
                 )
             }
-        }
+        
     }
     render() {
         if (!this.props.movie) {

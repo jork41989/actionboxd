@@ -10,3 +10,7 @@ code {
 }
 
 
+html, body, .root{
+  min-height: 100%;
+  background-image: linear-gradient(#1D232B, #13171C);
+}
