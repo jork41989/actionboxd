@@ -111,6 +111,7 @@
 
 .review-stars{
     position: relative;
+    margin-top: 15px;
     height: 32px;
     width: 180px;
     background-image: url(/sprite.c71fa7b3.svg);
@@ -158,28 +159,28 @@
 
 div.review-stars-1:hover ~ .review-stars-color{
     display: block !important;
-    background-position: 1px -960px;
+    background-position: 1px -959px;
     width: 35px;
 }
 
 div.review-stars-2:hover ~ .review-stars-color{
     display: block !important;
-    background-position: 1px -960px;
+    background-position: 1px -959px;
     width: 70px;
 }
 div.review-stars-3:hover ~ .review-stars-color{
     display: block !important;
-    background-position: 1px -960px;
+    background-position: 1px -959px;
     width: 109px;
 }
 div.review-stars-4:hover ~ .review-stars-color{
     display: block !important;
-    background-position: 1px -960px;
+    background-position: 1px -959px;
     width: 144px;
 }
 div.review-stars-5:hover ~ .review-stars-color{
     display: block !important;
-    background-position: 1px -960px;
+    background-position: 1px -959px;
     width: 185px;
 }
 

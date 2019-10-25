@@ -70,7 +70,6 @@ class ReviewsCreateForm extends React.Component {
                 ratingSelect = "five";
                 break;
             default: 
-                debugger;
                 ratingSelect = "";
         }
 
