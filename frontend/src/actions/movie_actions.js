@@ -22,3 +22,4 @@ export const getMovies = () => dispatch => (
     MoviesApiUtil.getMovies()
         .then(movies => dispatch(receiveMovies(movies)))
 )
+
