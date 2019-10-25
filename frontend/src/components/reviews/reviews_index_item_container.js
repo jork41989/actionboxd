@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { deleteReview } from '../../actions/review_actions';
 import ReviewsIndexItem from './reviews_index_item';
 
 const mapStateToProps = (state, ownProps) => {
@@ -9,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-
+    deleteReview: (review, id) => dispatch(deleteReview(review, id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewsIndexItem);

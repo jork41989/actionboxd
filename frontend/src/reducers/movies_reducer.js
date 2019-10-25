@@ -3,7 +3,8 @@ import {
     RECEIVE_MOVIES
 } from '../actions/movie_actions';
 import{
-    RECEIVE_REVIEW
+    RECEIVE_REVIEW,
+    REMOVE_REVIEW
 } from '../actions/review_actions';
 
 import merge from 'lodash/merge'
@@ -36,7 +37,15 @@ const moviesReducer = (state = {}, action) => {
             movie = newState[movieId];
             movie.reviews.push(review._id);
             return newState;
-        // case for deleting a movie review 
+        case REMOVE_REVIEW:
+            review = action.review;
+            movieId = review.movie_id;
+            newState = merge({}, state);
+            movie = newState[movieId];
+            debugger;
+            delete movie.reviews[review._id];
+            return newState;
+        //add case for remove review 
         default:
             return state;
     }
