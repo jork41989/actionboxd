@@ -15,6 +15,7 @@ class ReviewsCreateForm extends React.Component {
     }
 
     updateRating(num){
+        //on click, set display to block, grab width from review-starts-x 
         return e => {
             this.setState({ rating: num })
         };
@@ -50,6 +51,29 @@ class ReviewsCreateForm extends React.Component {
                 <div></div>
             );
 
+        let ratingSelect;
+        
+        switch(this.state.rating){
+            case "1.0":
+                ratingSelect = "one";
+                break;
+            case "2.0":
+                ratingSelect = "two";
+                break;
+            case "3.0":
+                ratingSelect = "three";
+                break;
+            case "4.0":
+                ratingSelect = "four";
+                break;
+            case "5.0":
+                ratingSelect = "five";
+                break;
+            default: 
+                debugger;
+                ratingSelect = "";
+        }
+
         return (
             <div className="reviews-form-container">
                 <div className="form-thumbnail-panel">
@@ -79,35 +103,12 @@ class ReviewsCreateForm extends React.Component {
                             <div className={'review-stars-3'} onClick={this.updateRating("3.0")}></div>
                             <div className={'review-stars-4'} onClick={this.updateRating("4.0")}></div>
                             <div className={'review-stars-5'} onClick={this.updateRating("5.0")}></div>
-                            <div className="review-stars-color"></div>
+                            <div className={`review-stars-color ${ratingSelect}`}></div>
 
                             
                             
                             
                         </div>
-                        {/* <input className="review-star-radios" type="range" min="0" max="5" step="1"/> */}
-                            {/* <div className="review-star-radios">
-                            
-                                <label htmlFor="1">
-                                    <input onClick={this.update("rating")} name="rating" type="radio" id="1" value="1.0" />
-                                </label>
-
-                                <label htmlFor="2">
-                                    <input onClick={this.update("rating")} name="rating" type="radio" id="2" value="2.0" />
-                                </label>
-
-                                <label htmlFor="3">
-                                    <input onClick={this.update("rating")} name="rating" type="radio" id="3" value="3.0" />
-                                </label>
-
-                                <label htmlFor="4">
-                                    <input onClick={this.update("rating")} name="rating" type="radio" id="4" value="4.0" />
-                                </label>
-
-                                <label htmlFor="5">
-                                    <input onClick={this.update("rating")} name="rating" type="radio" id="5" value="5.0" />
-                                </label> 
-                            </div> */}
 
                         <div className="submit-row">
                             <button className="reviews-submit">Save</button>

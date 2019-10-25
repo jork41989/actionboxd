@@ -158,30 +158,60 @@
 
 div.review-stars-1:hover ~ .review-stars-color{
     display: block !important;
-    background-position: 1px -924px;
+    background-position: 1px -960px;
     width: 35px;
 }
 
 div.review-stars-2:hover ~ .review-stars-color{
     display: block !important;
-    background-position: 1px -924px;
+    background-position: 1px -960px;
     width: 70px;
 }
 div.review-stars-3:hover ~ .review-stars-color{
     display: block !important;
-    background-position: 1px -924px;
+    background-position: 1px -960px;
     width: 109px;
 }
 div.review-stars-4:hover ~ .review-stars-color{
     display: block !important;
-    background-position: 1px -924px;
+    background-position: 1px -960px;
     width: 144px;
 }
 div.review-stars-5:hover ~ .review-stars-color{
     display: block !important;
+    background-position: 1px -960px;
+    width: 185px;
+}
+
+.review-stars-color.one{
+    display: block !important;
+    background-position: 1px -924px;
+    width: 35px;
+}
+
+.review-stars-color.two{
+    display: block !important;
+    background-position: 1px -924px;
+    width: 70px;
+}
+
+.review-stars-color.three{
+    display: block !important;
+    background-position: 1px -924px;
+    width: 109px;
+}
+
+.review-stars-color.four{
+    display: block !important;
+    background-position: 1px -924px;
+    width: 144px;
+}
+.review-stars-color.five{
+    display: block !important;
     background-position: 1px -924px;
     width: 185px;
 }
+
 
 .review-star-radios{
     display: flex;
