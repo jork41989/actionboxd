@@ -22,9 +22,6 @@ const App = () => (
     <div className={'NavDivWidth'}>
     <NavBarContainer />
     </div>
-    <div>
-      <Search />
-    </div>
     <div className={'body'}> 
     <Switch>
       <Route exact path="/" component={MoviesIndexContainer} />
