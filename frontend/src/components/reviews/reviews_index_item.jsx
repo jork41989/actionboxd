@@ -31,8 +31,6 @@ class ReviewsIndexItem extends React.Component{
             }
         }
 
-        debugger;
-        debugger;
         return (
             <div className="review-item-container">
                 <div className="review-item-avatar">
