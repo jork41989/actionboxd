@@ -1,23 +1,18 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import Suggestions from 'components/Suggestions'
-
-// const { API_KEY } = process.env
-// const API_URL = 'http://api.musicgraph.com/api/v2/artist/suggest'
-
-// export const getMovieList = (term) => {
-//   return axios.get(`/api/movies/search/${term}`)
-// };
+import React, { Component } from 'react';
+import axios from 'axios';
 
 
-class Search extends Component {
-  state = {
-    query: '',
-    results: []
+class SearchBar extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      query: '',
+      results: []
+    }
   }
 
-  getInfo = () => {
-    axios.get(`${API_URL}?api_key=${API_KEY}&prefix=${this.state.query}&limit=7`)
+  getInfo = (term) => {
+    axios.get(`/api/movies/search/${term}`)
       .then(({ data }) => {
         this.setState({
           results: data.data
@@ -26,25 +21,23 @@ class Search extends Component {
   }
 
   handleInputChange = () => {
-    this.setState({
-      query: this.search.value
-    }, () => {
-      if (this.state.query && this.state.query.length > 1) {
-        if (this.state.query.length % 2 === 0) {
-          this.getInfo()
-        }
-      } else if (!this.state.query) {
-      }
-    })
+    debugger
+          this.getInfo(this.search.value);
+      
   }
 
   render() {
-   
-    const options = this.state.results.map(r => {
+    debugger
+    let options; 
+   if (!this.state.results){
+     return options = <div>hi</div>
+    } else {
+     options = this.state.results.map(r => {
        return <li key={r.id}>
           {r.name}
         </li>
-    }); 
+    })
+  }
       
     return (
       <form>
@@ -58,3 +51,5 @@ class Search extends Component {
     )
   }
 }
+
+export default SearchBar;
