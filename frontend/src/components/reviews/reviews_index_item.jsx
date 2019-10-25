@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './reviews_index_item.css';
 
 class ReviewsIndexItem extends React.Component{
@@ -57,7 +58,7 @@ class ReviewsIndexItem extends React.Component{
                     <div className="review-item-header">
                         <div className="review-item-header-extended">
                             
-                            Review by <p className="review-username">{this.props.review.username}</p>{rating}
+                            Review by <Link to={`/users/${this.props.review.user_id}`}> <p className="review-username">{this.props.review.username}</p></Link> {rating}
                         </div>
                         <div className="review-item-delete">
                             {trash}
