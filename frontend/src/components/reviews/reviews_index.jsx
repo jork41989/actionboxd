@@ -6,13 +6,6 @@ class ReviewsIndex extends React.Component {
         super(props)
     }
 
-    componentDidUpdate(prevProps){
-        if (this.props.movie.reviews.length !== prevProps.movie.reviews.length){
-            // this.props.getMostRecentReviews();
-            this.props.getMovie();
-        }
-    }
-
     render() {
        
         if(!this.props.movie.reviews){
@@ -20,7 +13,9 @@ class ReviewsIndex extends React.Component {
         }
 
         let reviewsList = this.props.movie.reviews.map(review => 
-            <ReviewsIndexItemContainer key={review._id} movie={this.props.movie} review={review} />
+            <li key={review._id}>
+                <ReviewsIndexItemContainer key={review.id} movie={this.props.movie} review={review} />
+            </li>
             );
         return (
             <div className="reviews-index-container">

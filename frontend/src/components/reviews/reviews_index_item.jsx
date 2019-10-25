@@ -39,10 +39,12 @@ class ReviewsIndexItem extends React.Component{
                 <div className="review-item-info-container">
                     <div className="review-item-header">
                         <div className="review-item-header-extended">
+                            
                             Review by <p className="review-username">{this.props.review.username}</p>{rating}
+                            <i className="far fa-trash-alt"></i>
                         </div>
                         <div>
-                        
+                            
                         </div>
                     </div>
                     <div className="review-item-body">
