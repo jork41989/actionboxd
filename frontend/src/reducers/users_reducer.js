@@ -15,6 +15,8 @@ export default (state = {}, action) => {
       return Object.assign({}, state, { [action.user.data.id]: action.user.data })
     case UNWATCH_MOVIE:
       return Object.assign({}, state, { [action.user.data.id]: action.user.data })
+      //add case for remove review 
+      // add case for receive review 
     default:
       return state;
   }

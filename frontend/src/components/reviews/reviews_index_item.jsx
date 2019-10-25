@@ -4,6 +4,15 @@ import './reviews_index_item.css';
 class ReviewsIndexItem extends React.Component{
     constructor(props){
         super(props)
+
+        this.confirmDelete = this.confirmDelete.bind(this);
+    }
+
+    confirmDelete(){
+        let result = window.confirm("Delete this review permanently?")
+        if (result){
+            this.props.deleteReview(this.props.review, this.props.review._id)
+        }
     }
 
     render(){
@@ -32,9 +41,12 @@ class ReviewsIndexItem extends React.Component{
             }
         }
 
-        debugger;
         trash = this.props.currentUser.username === this.props.review.username ?
-            <i className="far fa-trash-alt"></i> : <div></div>;
+            <i 
+                onClick={this.confirmDelete}
+                className="far fa-trash-alt"
+            ></i> : 
+            <div></div>;
 
         return (
             <div className="review-item-container">

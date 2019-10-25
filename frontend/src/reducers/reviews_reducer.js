@@ -1,7 +1,9 @@
 import { 
     RECEIVE_REVIEW, 
-    RECEIVE_RECENT_REVIEWS 
+    RECEIVE_RECENT_REVIEWS, 
+    REMOVE_REVIEW
 } from '../actions/review_actions';
+import { RECEIVE_MOVIE } from '../actions/movie_actions'
 import merge from 'lodash/merge';
 
 
@@ -10,6 +12,8 @@ const reviewsReducer = (state = {}, action) => {
     let newState;
     let review;
     let reviews;
+    let reviewsArr;
+    let reviewsObj;
     switch(action.type){
         case RECEIVE_REVIEW:
             review = action.review;
@@ -19,6 +23,19 @@ const reviewsReducer = (state = {}, action) => {
             reviews = action.reviews;
             newState = merge({}, state, reviews)
             //check not being returned as array like movies was;
+            return newState;
+        case RECEIVE_MOVIE:
+            reviewsArr = action.movie.data.reviews;
+            reviewsObj = {};
+            reviewsArr.forEach(review => {
+                reviewsObj[review._id] = review
+            });
+            newState = merge({}, state, reviewsObj);
+            return newState;
+        case REMOVE_REVIEW:
+            review = action.review;
+            newState = merge({}, state);
+            delete newState[review._id];
             return newState;
         default: 
             return state;
