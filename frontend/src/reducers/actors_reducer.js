@@ -1,7 +1,7 @@
 import { RECEIVE_ACTOR } from '../actions/actor_actions';
 import merge from 'lodash/merge'
 
-const actorsReducer = (state, action) => {
+const actorsReducer = (state = {}, action) => {
     Object.freeze(state);
     let actor;
     switch(action.type){
