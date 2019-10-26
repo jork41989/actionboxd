@@ -16,9 +16,25 @@ class ReviewsIndexItem extends React.Component{
         }
     }
 
+
+    trash(){ 
+        if ((!this.props.currentUser) || (this.props.currentUser && Object.keys(this.props.currentUser).length === 0)) {
+            if(this.props.currentUser.username === this.props.review.username){
+           return ( <i
+                onClick={this.confirmDelete}
+                className="far fa-trash-alt"
+           ></i> )
+            } else {
+                return ( <div></div> )
+            }
+        } else {
+            return (<div></div>)
+        }
+    
+}
     render(){
         let rating;
-        let trash;
+        
 
         if (this.props.review.rating){
             switch (this.props.review.rating.$numberDecimal){
@@ -42,12 +58,7 @@ class ReviewsIndexItem extends React.Component{
             }
         }
 
-        trash = this.props.currentUser.username === this.props.review.username ?
-            <i 
-                onClick={this.confirmDelete}
-                className="far fa-trash-alt"
-            ></i> : 
-            <div></div>;
+        
 
         return (
             <div className="review-item-container">
@@ -61,7 +72,7 @@ class ReviewsIndexItem extends React.Component{
                             Review by <Link to={`/users/${this.props.review.user_id}`}> <p className="review-username">{this.props.review.username}</p></Link> {rating}
                         </div>
                         <div className="review-item-delete">
-                            {trash}
+                            {this.trash}
                         </div>    
                     </div>
                     <div className="review-item-body">
