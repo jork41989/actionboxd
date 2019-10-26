@@ -9,5 +9,5 @@ const receiveActor = actor => ({
 
 export const getActor = id => dispatch => (
     ActorApiUtil.getActor(id)
-        .then((actor) => dispatch(receiveActor(actor)))
+        .then(actor => dispatch(receiveActor(actor.data)))
 )
