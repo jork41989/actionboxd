@@ -7,6 +7,7 @@ class ReviewsIndexItem extends React.Component{
         super(props)
 
         this.confirmDelete = this.confirmDelete.bind(this);
+        this.trash = this.trash.bind(this);
     }
 
     confirmDelete(){
@@ -18,7 +19,7 @@ class ReviewsIndexItem extends React.Component{
 
 
     trash(){ 
-        if ((!this.props.currentUser) || (this.props.currentUser && Object.keys(this.props.currentUser).length === 0)) {
+        if (this.props.currentUser && Object.keys(this.props.currentUser).length !== 0) {
             if(this.props.currentUser.username === this.props.review.username){
            return ( <i
                 onClick={this.confirmDelete}
@@ -58,7 +59,7 @@ class ReviewsIndexItem extends React.Component{
             }
         }
 
-        
+        debugger;
 
         return (
             <div className="review-item-container">
@@ -72,7 +73,7 @@ class ReviewsIndexItem extends React.Component{
                             Review by <Link to={`/users/${this.props.review.user_id}`}> <p className="review-username">{this.props.review.username}</p></Link> {rating}
                         </div>
                         <div className="review-item-delete">
-                            {this.trash}
+                            {this.trash()}
                         </div>    
                     </div>
                     <div className="review-item-body">
