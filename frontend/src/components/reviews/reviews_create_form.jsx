@@ -18,11 +18,9 @@ class ReviewsCreateForm extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        debugger;
         if (Object.keys(nextProps.errors).length === 0) {
             this.props.closeModal()
         }
-debugger;
         this.setState({ errors: nextProps.errors })
     }  
 
