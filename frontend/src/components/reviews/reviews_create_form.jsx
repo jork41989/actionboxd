@@ -43,7 +43,6 @@ class ReviewsCreateForm extends React.Component {
             rating: this.state.rating,
             username: this.state.username
         }
-        debugger;
         this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id);
         // this.props.closeModal();
     }
@@ -59,12 +58,12 @@ class ReviewsCreateForm extends React.Component {
     renderErrors() {
 
         if (Object.keys(this.state.errors).includes('text')) {
-            let textFeild = document.getElementById('text')
-            textFeild.style.border = '3px solid red'
+            let textField = document.getElementById('text')
+            textField.style.border = '3px solid red'
         }
         if (Object.keys(this.state.errors).includes('rating')) {
-            let pwFeild = document.getElementById('rating')
-            pwFeild.style.border = '3px solid red'
+            let ratingField = document.getElementById('rating-input')
+            ratingField.style.border = '3px solid red'
         }
 
         return (
@@ -122,12 +121,14 @@ class ReviewsCreateForm extends React.Component {
                     <form className="reviews-create-form" onSubmit={this.handleSubmit}>
 
                         <textarea  
+                            id="text"
+                            data-tip data-for="text"
                             onChange={this.updateText()} 
                             value={this.state.text} 
                             placeholder="Add a review..." 
                         />
                         
-                        <div className="review-stars">
+                        <div id="rating-input" className="review-stars" data-tip data-for="rating">
 
                             <div className={'review-stars-1'} onClick={this.updateRating("1.0")}></div>
                             <div className={'review-stars-2'} onClick={this.updateRating("2.0")}></div>
