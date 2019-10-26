@@ -35,7 +35,7 @@ router.post('/movies/:movie_id/:user_id',
    passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateReviewInput(req.body);
-
+    
     if (!isValid) {
       return res.status(400).json(errors);
     }
@@ -48,7 +48,7 @@ router.post('/movies/:movie_id/:user_id',
       rating: req.body.rating,
       username: req.body.username
     });
-
+    
     newReview.save()
     .then(review => {
       Movie.findOneAndUpdate(
