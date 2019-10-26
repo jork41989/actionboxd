@@ -164,7 +164,7 @@ export default class MoviesShow extends React.Component {
                             </ul>
 
                             <div className="movie-show-cast-container">
-                                <h2 className="movie-show-reviews-header">
+                                <h2 className="movie-show-cast-header">
                                     CAST
                                 </h2>
                                 <div className="movie-show-cast">
