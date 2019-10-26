@@ -15,16 +15,17 @@ class ReviewsCreateForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.confirmExit = this.confirmExit.bind(this);
         this.clearedErrors = false;
+        this.errorCheck = this.errorCheck.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (Object.keys(nextProps.errors).length === 0) {
+    errorCheck() {
+        if (Object.keys(this.props.errors).length === 0) {
             this.props.closeModal()
         }
-        this.setState({ errors: nextProps.errors })
+        this.setState({ errors: this.props.errors })
     }  
 
-    updateRating(num){
+    updateRating(num) {
         return e => {
             this.setState({ rating: num })
         };
@@ -36,14 +37,15 @@ class ReviewsCreateForm extends React.Component {
         };
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault();
         let review = {
             text: this.state.text,
             rating: this.state.rating,
             username: this.state.username
         }
-        this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id);
+        this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id)
+            .then(this.errorCheck);
         // this.props.closeModal();
     }
 
