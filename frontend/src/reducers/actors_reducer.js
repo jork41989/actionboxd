@@ -7,7 +7,7 @@ const actorsReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_ACTOR:
             actor = action.actor;
-            return merge({}, state, {[actor.id]: actor});
+            return merge({}, state, {[actor._id]: actor});
         default: 
             return state;
     }
