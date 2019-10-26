@@ -72,12 +72,37 @@ router.post('/movies/:movie_id/:user_id',
   }
 );
 
-router.delete('/:id', (req, res) => {
+
+router.patch('/:id', (req, res) => {
+  const reviewId = req.params.id;
+  const userId = req.body.user_id;
+  const movieId = req.body.movie_id;
   passport.authenticate('jwt', { session: false }),
-  Review.findByIdAndDelete({_id: req.params.id})
-    .then((docs)=> res.json({deletion: 'successful deletion'}))
-    .catch(err => res.json({nodeletion: 'no deletion made'})) 
+    Review.findByIdAndDelete({ _id: reviewId })
+      .then(
+        Movie.findOneAndUpdate(
+          {_id: movieId},
+          { $pull: { reviews: reviewId } },
+          // { $pull: { reviews: review._id } },
+          { upsert: true, new: true})
+        )
+        .then(
+          User.findOneAndUpdate(
+            { _id: userId },
+            { $pull: { authored_reviews: reviewId } },
+            // { $pull: { reviews: review._id } },
+            { new: true })
+        )
+      .then((docs) => res.json({ deletion: 'successful deletion' }))
+      .catch(err => res.json({ nodeletion: 'no deletion made' }))
 });
+
+// router.delete('/:id', (req, res) => {
+//   passport.authenticate('jwt', { session: false }),
+//   Review.findByIdAndDelete({_id: req.params.id})
+//     .then((docs)=> res.json({deletion: 'successful deletion'}))
+//     .catch(err => res.json({nodeletion: 'no deletion made'})) 
+// });
 
 router.patch('/:id', (req,res) => {
   passport.authenticate('jwt', { session: false }),
