@@ -16,9 +16,12 @@ class ActorsShow extends React.Component {
     } 
 
     render() {
+        if (!this.props.actor){
+            return <div>Loading...</div>
+        }
         return (
             <div>
-                hello this belongs to an actor
+                {this.props.actor.name}
             </div>
         )
     }
