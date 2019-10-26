@@ -24,8 +24,8 @@ router.get('/:id', (req, res) => {
 
     router.get('/search/:term', (req, res) => {
         Movie.find({ title: new RegExp(req.params.term, 'i') })
-        .limit(5)
-        .sort({title: 1})
+        // .limit(5)
+        // .sort({title: 1})
         .then(movies => res.json(movies))
         .catch(err => res.status(404).json({ moviesnotfound: 'movies not found'})) 
     });
