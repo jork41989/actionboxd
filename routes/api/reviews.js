@@ -53,21 +53,17 @@ router.post('/movies/:movie_id/:user_id',
     .then(review => {
       Movie.findOneAndUpdate(
         {_id: req.params.movie_id},
-        { $addToSet: { reviews: review._id } })
+        { $addToSet: { reviews: review._id } },
+        {new: true})
         .then(movie => {
-          res.json(review)}
-          )
-        .catch(err => {
-          res.json(err)
-      });
-    })
-    .then(review => {
-      User.findOneAndUpdate(
-        {_id: req.params.user_id},
-        { $addToSet: { authored_reviews: review._id } })
-        .then(user => {
-          res.json(review)}
-          )
+            User.findOneAndUpdate(
+              {_id: req.params.user_id},
+              { $addToSet: { authored_reviews: review._id } },
+              {new: true})
+          .then(user => {
+            res.json(review)
+          }
+        )})
         .catch(err => {
           res.json(err)
       });
