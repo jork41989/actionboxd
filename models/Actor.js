@@ -10,6 +10,10 @@ const ActorSchema = new Schema({
         type: String,
         required: true
     },
+    photo_url: {
+        type: String,
+        required: false
+    },
     movies: [{ type: Schema.Types.ObjectId, ref: 'movie' }]
 })
 

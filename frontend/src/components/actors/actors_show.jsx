@@ -22,6 +22,8 @@ class ActorsShow extends React.Component {
         return (
             <div>
                 {this.props.actor.name}
+                {this.props.actor.bio}
+                <img src={this.props.actor.photo_url} alt=""/>
             </div>
         )
     }
