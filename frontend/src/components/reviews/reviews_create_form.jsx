@@ -1,5 +1,6 @@
 import React from 'react'
 import './reviews_form.css'
+import ReactTooltip from 'react-tooltip'
 
 class ReviewsCreateForm extends React.Component {
     constructor(props){
@@ -8,11 +9,22 @@ class ReviewsCreateForm extends React.Component {
         this.state = {
             text: "",
             rating: "",
-            username: this.props.currentUser.username
+            username: this.props.currentUser.username,
+            errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.confirmExit = this.confirmExit.bind(this);
+        this.clearedErrors = false;
     }
+
+    componentWillReceiveProps(nextProps) {
+        debugger;
+        if (Object.keys(nextProps.errors).length === 0) {
+            this.props.closeModal()
+        }
+debugger;
+        this.setState({ errors: nextProps.errors })
+    }  
 
     updateRating(num){
         return e => {
@@ -28,9 +40,14 @@ class ReviewsCreateForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        let review = Object.assign({}, this.state);
+        let review = {
+            text: this.state.text,
+            rating: this.state.rating,
+            username: this.state.username
+        }
+        debugger;
         this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id);
-        this.props.closeModal();
+        // this.props.closeModal();
     }
 
     confirmExit(e) {
@@ -41,15 +58,34 @@ class ReviewsCreateForm extends React.Component {
         }
     }
 
+    renderErrors() {
+
+        if (Object.keys(this.state.errors).includes('text')) {
+            let textFeild = document.getElementById('text')
+            textFeild.style.border = '3px solid red'
+        }
+        if (Object.keys(this.state.errors).includes('rating')) {
+            let pwFeild = document.getElementById('rating')
+            pwFeild.style.border = '3px solid red'
+        }
+
+        return (
+            <div>
+                {Object.keys(this.state.errors).map((error, i) => (
+                    <div id={i}>
+                        <ReactTooltip id={error} place="top" type="error" effect="solid">
+                            <span>{this.state.errors[error]}</span>
+                        </ReactTooltip>
+                    </div>
+                ))}
+            </div>
+        );
+    }
+
+
+
     render() {
         let posterAlt = `${this.props.movie.title} poster`;
-        let errorsList = (this.props.errors) ? (
-            this.props.errors.map((error, index) => (
-                <li className="errors" key={index}>{error}</li>
-            ))) : (
-                <div></div>
-            );
-
         let ratingSelect;
         
         switch(this.state.rating){
@@ -83,7 +119,6 @@ class ReviewsCreateForm extends React.Component {
                 </div>
 
                 <div className="form-review-panel">
-                    {errorsList}
                     <p className="review-intro">I WATCHED...</p>
                     <p className="review-header">{this.props.movie.title}</p><p className="review-movie-year">{this.props.movie.year}</p>
                     <form className="reviews-create-form" onSubmit={this.handleSubmit}>
@@ -107,7 +142,7 @@ class ReviewsCreateForm extends React.Component {
                             
                             
                         </div>
-
+                        {this.renderErrors()}
                         <div className="submit-row">
                             <button className="reviews-submit">Save</button>
                         </div>
