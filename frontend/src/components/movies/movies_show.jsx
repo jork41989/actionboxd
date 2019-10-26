@@ -102,10 +102,11 @@ export default class MoviesShow extends React.Component {
             </li>
         : <div></div>
 
-        // let castList; 
-        // castList = this.props.movie.actors.forEach(actor => {
-        //         <Link to 
-        //     })
+        let castList = this.props.movie.actors.map(actor => {
+                return <Link to={`/actors/${actor}`}>
+                    {actor}
+                </Link>
+        });
 
 
         return (
@@ -167,7 +168,7 @@ export default class MoviesShow extends React.Component {
                                     CAST
                                 </h2>
                                 <div className="movie-show-cast">
-                                    {this.props.movie.actors}
+                                    {castList}
                                 </div>
                             </div>
 
