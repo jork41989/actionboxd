@@ -1,13 +1,14 @@
-import {RECEIVE_LIST} from '../actions/search_actions';
+import {RECEIVE_LIST, EMPTY_LIST} from '../actions/search_actions';
 
 const SearchReducer = (state= [], action) =>{
+  debugger
   Object.freeze(state);
-  let newState;
   switch(action.type){
     case RECEIVE_LIST:
       debugger
-      newState = action.list.data.map(ele => ele);
-      return newState;
+      return action.list.data;
+    case EMPTY_LIST:
+      return state;
     default:
       return state;
   }

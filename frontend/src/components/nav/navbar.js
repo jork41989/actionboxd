@@ -41,9 +41,9 @@ class NavBar extends React.Component {
               <Link to={'/'} className={'logoDiv'} ><h1 className="logo"></h1> <h1 className={'logoText'}>ACTIONBOXED</h1></Link>
             </div>
               { this.getLinks() }
-            {/* <div>
+            <div>
               <Search />
-            </div> */}
+            </div>
           </div>
         </div>
       );
