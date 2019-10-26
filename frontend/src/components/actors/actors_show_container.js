@@ -3,8 +3,8 @@ import { getActor } from '../../actions/actor_actions';
 import ActorsShow from './actors_show';
 
 
-const mapStateToProps = state => ({
-
+const mapStateToProps = (state, ownProps) => ({
+    actor: state.entities.actors[ownProps.match.params.actorId]
 })
 
 const mapDispatchToProps = dispatch => ({
