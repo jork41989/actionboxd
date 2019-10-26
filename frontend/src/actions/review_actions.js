@@ -38,7 +38,7 @@ export const getReview = id => dispatch => (
 
 export const writeReview = (review, movieId, userId) => dispatch => (
     ReviewsApiUtil.writeReview(review, movieId, userId)
-        .then(review => {debugger; dispatch(receiveReview(review.data))}, 
+        .then(review => { dispatch(receiveReview(review.data))}, 
             err => dispatch(receiveReviewErrors(err.response.data)))
 )
 
