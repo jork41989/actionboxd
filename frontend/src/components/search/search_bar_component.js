@@ -1,9 +1,14 @@
 import {connect} from 'react-redux';
-import SearchBar from './search';
-import {getMovieList} from '../../util/movies_api_util';
+import SearchBar from './search_bar';
+import {getMovieList} from '../../actions/search_actions';
+
+const mapStateToProps = (state) => ({
+  results: state.ui.searchResults
+}) 
+
 
 const mapDispatchToProps = dispatch => ({
   getMovieList: term => dispatch(getMovieList(term))
 });
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

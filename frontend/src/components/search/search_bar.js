@@ -1,38 +1,30 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
 
 
 class SearchBar extends Component {
   constructor(props){
     super(props)
     this.state = {
-      query: '',
-      results: []
+      search: ''
     }
   }
 
-  getInfo = (term) => {
-    axios.get(`/api/movies/search/${term}`)
-      .then(({ data }) => {
-        this.setState({
-          results: data.data
-        })
-      })
-  }
 
-  handleInputChange = () => {
+  handleInputChange = (e) => {
     debugger
-          this.getInfo(this.search.value);
-      
+    return (
+      this.props.getMovieList({term: e.target.value})     
+    )
   }
 
   render() {
     debugger
     let options; 
-   if (!this.state.results){
+   if (!this.props.results){
      return options = <div>hi</div>
     } else {
-     options = this.state.results.map(r => {
+     options = this.props.results.map(r => {
        return <li key={r.id}>
           {r.name}
         </li>
