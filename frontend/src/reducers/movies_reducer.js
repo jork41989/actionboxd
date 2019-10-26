@@ -35,7 +35,6 @@ const moviesReducer = (state = {}, action) => {
             movieId = review.movie_id;
             newState = merge({}, state);
             movie = newState[movieId];
-            debugger;
             movie.reviews.push(review._id);
             return newState;
         case REMOVE_REVIEW:

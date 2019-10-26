@@ -13,7 +13,8 @@ class ReviewsIndexItem extends React.Component{
     confirmDelete(){
         let result = window.confirm("Delete this review permanently?")
         if (result){
-            this.props.deleteReview(this.props.review, this.props.review._id)
+            // this.props.deleteReview(this.props.review, this.props.review._id)
+            this.props.deleteReview(this.props.review, {movie_id: this.props.review.movie_id, user_id: this.props.review.user_id})
         }
     }
 
@@ -58,8 +59,6 @@ class ReviewsIndexItem extends React.Component{
                     rating = "";
             }
         }
-
-        debugger;
 
         return (
             <div className="review-item-container">

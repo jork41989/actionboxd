@@ -43,8 +43,8 @@ export const getReview = id => dispatch => (
 //     .then(review => dispatch(receiveReview(review.data))).catch(err => dispatch(receiveReviewErrors(err))) 
 //     }
 
-export const deleteReview = (review, id) => dispatch => (
-    ReviewsApiUtil.deleteReview(id)
+export const deleteReview = (review, payload) => dispatch => (
+    ReviewsApiUtil.deleteReview(review._id, payload)
         .then(() => dispatch(removeReview(review)))
 )
 
