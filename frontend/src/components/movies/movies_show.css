@@ -90,6 +90,7 @@
 .poster{
     border: 1px solid #9ab;
     border-radius: 4px; 
+    width: 100%;
 }
 
 .movie-stats{

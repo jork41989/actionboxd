@@ -109,15 +109,18 @@ export default class MoviesShow extends React.Component {
             </Link>
         });
 
+        let backgroundDivs = this.props.movie.background_image_url ? 
+            <div className="background-image-container">
+                <div style={backgroundImageStyle}></div>
+                <div className="fade"></div>
+            </div>
+            : <div></div>
 
         return (
             <div className="movie-show-body">
 
                 <div className="movie-show-container">
-                    <div className="background-image-container">
-                        <div style={backgroundImageStyle}></div>
-                        <div className="fade"></div>
-                    </div>
+                    {backgroundDivs}
 
                     <div className="movie-show-content">
 
