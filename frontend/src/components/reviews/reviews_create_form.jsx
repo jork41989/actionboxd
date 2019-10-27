@@ -13,7 +13,7 @@ class ReviewsCreateForm extends React.Component {
             errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.confirmExit = this.confirmExit.bind(this);
+        // this.confirmExit = this.confirmExit.bind(this);
         this.clearedErrors = false;
         this.errorCheck = this.errorCheck.bind(this);
     }
@@ -49,13 +49,13 @@ class ReviewsCreateForm extends React.Component {
         // this.props.closeModal();
     }
 
-    confirmExit(e) {
-        e.preventDefault();
-        let result = window.confirm("Are you sure you want to exit?");
-        if (result) {
-            this.props.closeModal();
-        }
-    }
+    // confirmExit(e) {
+    //     e.preventDefault();
+    //     let result = window.confirm("Are you sure you want to exit?");
+    //     if (result) {
+    //         this.props.closeModal();
+    //     }
+    // }
 
     renderErrors() {
 
@@ -152,7 +152,8 @@ class ReviewsCreateForm extends React.Component {
                 </div>
                 <div
                     className="review-close-button"
-                    onClick={this.confirmExit}
+                    // onClick={this.confirmExit}
+                    onClick={this.props.closeModal}
                 >X</div> 
             </div>
         )
