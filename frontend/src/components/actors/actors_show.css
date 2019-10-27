@@ -1,0 +1,34 @@
+.actor-show-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 950px;
+    margin: 0 auto;
+}
+
+.actor-show-sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+}
+
+.actor-show-main{
+    width: 670px;
+}
+
+.actor-show-header{
+    font-family: Graphik-Regular-Web,sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    margin: 0 0 4px;
+    letter-spacing: .075em;
+    color: #9ab;
+}
+
+.actor-show-title{
+    font-size: 19px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: Graphik-Semibold-Web,sans-serif;
+    letter-spacing: .075px;
+}

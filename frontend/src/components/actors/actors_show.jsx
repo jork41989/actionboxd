@@ -1,4 +1,5 @@
 import React from 'react'
+import './actors_show.css'
 
 class ActorsShow extends React.Component {
     constructor(props) {
@@ -20,10 +21,17 @@ class ActorsShow extends React.Component {
             return <div>Loading...</div>
         }
         return (
-            <div>
-                {this.props.actor.name}
-                {this.props.actor.bio}
-                <img src={this.props.actor.photo_url} alt=""/>
+            <div className="actor-show-container">
+                <div className="actor-show-main">
+                    <h1>
+                        <p className="actor-show-header">FILMS STARRING</p>
+                        <p className="actor-show-title">{this.props.actor.name}</p>
+                    </h1>
+                </div>
+                <div className="actor-show-sidebar">
+                    <img src={this.props.actor.photo_url} alt=""/>
+                    {this.props.actor.bio}
+                </div>
             </div>
         )
     }
