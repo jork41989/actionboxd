@@ -13,16 +13,30 @@
     flex-direction: column;
     width: 330px;
     height: 315px;
+    justify-content: center;
 }
 
 .index-review-tile-header{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    padding-bottom: 20px;
 }
 
 .index-review-tile-header-info{
     display: flex;
     flex-direction: column;
+    padding-left: 20px;
+}
+
+.index-review-tile-header-info h1{
+    font-family:Tiempos Headline Bold;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.index-review-tile-header-info p{
+    padding: 0;
 }
 
 .index-reviews-thumbnail-container{
@@ -32,6 +46,7 @@
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
+    border: 1px solid #788898;
 }
 
 .index-reviews-thumbnail-container:hover{
@@ -42,4 +57,71 @@
 .index-reviews-thumbnail{
     width: 100%;
     height: auto;
+}
+
+.index-review-text{
+   padding-right: 30px;
+}
+
+.index-green1{
+    display: block;
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-position: -388px -130px;
+    height: 15px;
+    width: 16px;
+    margin-left: 0;
+    margin-top: 7px;
+}
+
+.index-green2{
+    display: block;
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-position: -388px -130px;
+    height: 15px;
+    width: 32px;
+    margin-left: 0;
+    margin-top: 7px;
+}
+
+.index-green3{
+    display: block;
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-position: -388px -130px;
+    height: 15px;
+    width: 48px;
+    margin-left: 0;
+    margin-top: 7px;
+}
+
+.index-green4{
+    display: block;
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-position: -388px -130px;
+    height: 15px;
+    width: 65px;
+    margin-left: 0;
+    margin-top: 7px;
+    
+}
+
+.index-green5{
+    display: block;
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-position: -450px -50px;
+    height: 15px;
+    width: 65px;
+    margin-left: 0;
+    margin-top: 7px;
+}
+
+.index-review-user-link{
+    font-size: 17px;
+    text-decoration: none;
+    color: #aabbcc;
+    margin-bottom: 13px;
 }
