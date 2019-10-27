@@ -4,10 +4,14 @@ import './actors_movie_index.css';
 class ActorsMovieIndex extends React.Component{
 
     render(){
+        let actorMovieList = this.props.movies.map(movie => 
+            <li className="actors-movies-grid-item">
+                <ActorsMovieIndexItem movie={movie}/>
+            </li>)
         return(
-            <div>
-                hey lol
-            </div>
+            <ul className="actors-movies-grid">
+                {actorMovieList}
+            </ul>
         )
     }
 }
