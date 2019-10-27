@@ -2,6 +2,8 @@ import React from 'react';
 import MoviesIndexItem from './movies_index_item';
 import './movies_index.css';
 
+import IndexPageReviewsItem from '../reviews/index_page_reviews_item';
+
 class MoviesIndex extends React.Component{
     constructor(props) {
         super(props);
@@ -27,7 +29,7 @@ class MoviesIndex extends React.Component{
         }
 
         let reviewsList = this.props.reviews.map(review => 
-            <p>hi there {review.text}</p>);
+            <IndexPageReviewsItem key={review._id} review={review}/>);
 
         return(
             <div>
