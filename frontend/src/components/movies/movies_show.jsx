@@ -20,7 +20,7 @@ export default class MoviesShow extends React.Component {
     componentDidUpdate(prevProps){
         if (prevProps.match.params.movieId !== this.props.match.params.movieId){
             this.props.getMovie(this.props.match.params.movieId)
-        } else if(prevProps.movie){
+        } else if(prevProps.movie && this.props.movie.reviews && prevProps.movie.reviews){
             if(this.props.movie.reviews.length !== prevProps.movie.reviews.length){
                 this.props.getMovie(this.props.match.params.movieId);
             }
@@ -74,7 +74,7 @@ export default class MoviesShow extends React.Component {
         
     }
     render() {
-        if (!this.props.movie) {
+        if (!this.props.movie || !this.props.movie.actors) {
             return <div>Loading...</div>;
         }
 
