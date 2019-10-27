@@ -16,6 +16,11 @@
     width: 670px;
 }
 
+.actor-show-header-container{
+    margin: 0 0 15px;
+    border-bottom: 1px solid #456;
+}
+
 .actor-show-header{
     font-family: Graphik-Regular-Web,sans-serif;
     font-size: 11px;
@@ -31,4 +36,24 @@
     color: #ffffff;
     font-family: Graphik-Semibold-Web,sans-serif;
     letter-spacing: .075px;
+    margin-bottom: 20px;
+}
+
+.actor-image-container{
+    margin: 0 0 30px;
+    width: 230px;
+    height: 345px;
+}
+
+.actor-image{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border: 1px solid hsla(0,0%,100%,.25);
+    transition: all .5s;
+}
+
+.actor-image:hover{
+    border: 1px solid rgb(143, 143, 143);
+    transition: all .5s;
 }

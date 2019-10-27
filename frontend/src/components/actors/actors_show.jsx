@@ -23,13 +23,15 @@ class ActorsShow extends React.Component {
         return (
             <div className="actor-show-container">
                 <div className="actor-show-main">
-                    <h1>
+                    <h1 className="actor-show-header-container">
                         <p className="actor-show-header">FILMS STARRING</p>
                         <p className="actor-show-title">{this.props.actor.name}</p>
                     </h1>
                 </div>
                 <div className="actor-show-sidebar">
-                    <img src={this.props.actor.photo_url} alt=""/>
+                    <div className="actor-image-container">
+                        <img className="actor-image" src={this.props.actor.photo_url} alt=""/>
+                    </div>
                     {this.props.actor.bio}
                 </div>
             </div>
