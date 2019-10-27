@@ -103,7 +103,7 @@ export default class MoviesShow extends React.Component {
         : <div></div>
 
         let castList = this.props.movie.actors.map(actor => {
-                return <Link to={`/actors/${actor}`}>
+                return <Link to={`/actors/${actor}`} className="actor-show-link">
                     {actor}
                 </Link>
         });
