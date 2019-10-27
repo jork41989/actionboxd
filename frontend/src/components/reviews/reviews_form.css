@@ -2,7 +2,7 @@
     display: flex;
     position: relative;
     justify-content: space-between;
-    top: 250px;
+    top: 100px;
     width: 800px;
     /* height: 382px; */
     height: auto;
@@ -219,4 +219,41 @@ div.review-stars-5:hover ~ .review-stars-color{
 
 .rating-input{
 
+}
+
+
+/* transition test */
+.reviews-form-container{
+    animation: reviewopen .5s, reviewunstretch .5s alternate, reviewwiden .5s;
+    animation-timing-function: ease;
+    /* animation: reviewunstretch 1s alternate; */
+    /* animation-direction: reviewunstretch alternate; */
+    /* animation: reviewwiden 1s; */
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+.form-thumbnail-panel, .form-review-panel, .review-close-button{
+    animation: unhide .5s;
+    animation-delay: .5s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes reviewopen{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes reviewunstretch{
+    0% { height: 380px }
+    100% { height: 290.08px }
+}
+
+@keyframes reviewwiden{
+    0% { width: 672px }
+    100% { width: 800px }
+}
+
+@keyframes unhide{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
