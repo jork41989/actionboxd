@@ -1,5 +1,6 @@
 import React from 'react'
 import './actors_show.css'
+import ActorsMovieIndexContainer from './actors_movie_index_container';
 
 class ActorsShow extends React.Component {
     constructor(props) {
@@ -27,6 +28,9 @@ class ActorsShow extends React.Component {
                         <p className="actor-show-header">FILMS STARRING</p>
                         <p className="actor-show-title">{this.props.actor.name}</p>
                     </h1>
+                    <div>
+                        <ActorsMovieIndexContainer />
+                    </div>
                 </div>
                 <div className="actor-show-sidebar">
                     <div className="actor-image-container">
