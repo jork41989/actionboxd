@@ -33,7 +33,8 @@ function Modal ({payload, closeModal}) {
   }
 
   return (
-    <div className="modal-background" onClick={closeModal}>
+    // <div className="modal-background">
+    <div className="modal-background" onClick={closeModal}> 
       <div className="modal-child" onClick={e => e.stopPropagation()}>
         {component}
       </div>

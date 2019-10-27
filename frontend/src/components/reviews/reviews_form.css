@@ -2,7 +2,7 @@
     display: flex;
     position: relative;
     justify-content: space-between;
-    top: 60px;
+    top: 0px;
     width: 800px;
     /* height: 382px; */
     height: auto;
@@ -12,7 +12,8 @@
 }
 
 .review-close-button{
-    display: block;
+    display: inline-block;
+    height: 25px;
     color: #9ab;
     text-align: end;
     padding: 2px;
@@ -268,10 +269,15 @@ div.review-stars-5:hover ~ .review-stars-color{
     animation-fill-mode: forwards;
 } */
 
-#text:focus{
+/* #text:target{
     transition: .5s;
     height: 300px;
-}
-#text{
-    transition: all .5s;
-}
+    /* max-height: 30vh; */
+/* } */
+/* #text{ */
+    /* transition: all .5s; */
+/* } */
+
+/* .reviews-form-container{
+    max-height: 80vh;
+} */
