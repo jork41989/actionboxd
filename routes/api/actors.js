@@ -6,7 +6,7 @@ const Actor = require('../../models/Actor');
 
 router.get('/:id', (req, res) => {
     Actor.findById(req.params.id)
-        .populate({ path: 'movies', select: '_id title poster_url' })
+        .populate({ path: 'movies', select: '_id title poster_url reviews' })
         .then(actor => res.json(actor))
         .catch(err =>
             res.status(404).json({ actornotfound: 'Actor not found with that id' }))
