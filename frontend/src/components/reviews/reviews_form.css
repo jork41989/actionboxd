@@ -278,7 +278,7 @@ div.review-stars-5:hover ~ .review-stars-color{
 
  .reviews-form-container{
     position: relative;
-    left: 25%;
+    margin: 0 auto;
     top: 150px;
  }
 
