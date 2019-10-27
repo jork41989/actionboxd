@@ -17,5 +17,5 @@ const ActorSchema = new Schema({
     movies: [{ type: Schema.Types.ObjectId, ref: 'movie' }]
 })
 
-const Actor = mongoose.model('actors', ActorSchema);
+const Actor = mongoose.model('actor', ActorSchema);
 module.exports = Actor
