@@ -6,10 +6,12 @@ export const RECEIVE_MOVIE_REVIEWS = "RECEIVE_MOVIE_REVIEWS";
 export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 export const REMOVE_REVIEW = "REMOVE_REVIEW";
 
-const receiveReview = review => ({
+const receiveReview = review => {
+    return({
         type: RECEIVE_REVIEW,
         review
-});
+    })
+};
 
 // const receiveMostRecentReviews = reviews => ({
 //     type: RECEIVE_RECENT_REVIEWS,
@@ -36,15 +38,18 @@ export const getReview = id => dispatch => (
 //         .then(reviews => dispatch(receiveMostRecentReviews(reviews)))
 // )
 
-export const writeReview = (review, movieId, userId) => dispatch => (
-    ReviewsApiUtil.writeReview(review, movieId, userId)
-        .then(review => { dispatch(receiveReview(review.data))}, 
-            err => dispatch(receiveReviewErrors(err.response.data)))
-)
+// export const writeReview = (review, movieId, userId) => dispatch => {
+//     return ReviewsApiUtil.writeReview(review, movieId, userId)
+//     .then(review => dispatch(receiveReview(review.data))).catch(err => dispatch(receiveReviewErrors(err))) 
+//     }
 
-export const deleteReview = (review, id) => dispatch => (
-    ReviewsApiUtil.deleteReview(id)
+export const deleteReview = (review, payload) => dispatch => (
+    ReviewsApiUtil.deleteReview(review._id, payload)
         .then(() => dispatch(removeReview(review)))
 )
 
-//still need post, delete, patch
+export const writeReview = (review, movieId, userId) => dispatch => {
+    return ReviewsApiUtil.writeReview(review, movieId, userId)
+        .then(review => dispatch(receiveReview(review.data)),
+            err => dispatch(receiveReviewErrors(err.response.data)))
+}

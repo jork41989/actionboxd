@@ -137,7 +137,7 @@ router.patch('/:user_id/watch', passport.authenticate('jwt', { session: false })
 
 router.patch('/:user_id/unwatch', passport.authenticate('jwt', { session: false }), async (req, res) => {
   const userId = req.params.user_id;
-  const newMovie = req.body.movie_id
+  const newMovie = req.body.movie_id;
   console.log('Time to unwatch')
   let updatedUser = await User.findOneAndUpdate(
     { _id: userId },
