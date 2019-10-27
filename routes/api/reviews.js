@@ -79,20 +79,18 @@ router.patch('/:id', (req, res) => {
   const movieId = req.body.movie_id;
   passport.authenticate('jwt', { session: false }),
     Review.findByIdAndDelete({ _id: reviewId })
-      .then(
-        Movie.findOneAndUpdate(
+      .then(() => {
+        return Movie.findOneAndUpdate(
           {_id: movieId},
           { $pull: { reviews: reviewId } },
-          // { $pull: { reviews: review._id } },
           { upsert: true, new: true})
-        )
-        .then(
-          User.findOneAndUpdate(
+        })
+        .then(() => {
+          return User.findOneAndUpdate(
             { _id: userId },
             { $pull: { authored_reviews: reviewId } },
-            // { $pull: { reviews: review._id } },
             { new: true })
-        )
+          })
       .then((docs) => res.json({ deletion: 'successful deletion' }))
       .catch(err => res.json({ nodeletion: 'no deletion made' }))
 });

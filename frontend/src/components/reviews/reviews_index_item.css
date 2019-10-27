@@ -48,6 +48,9 @@ li {
     font-size: 15px;
     color: #99AABB;
     margin-bottom: 10px;
+    word-break: break-word;
+    max-width: 570px;
+    line-height: 1.5;
 }
 
 .review-username{
