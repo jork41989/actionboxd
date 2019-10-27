@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './movies_show.css'
 import ReviewsIndexContainer from '../reviews/reviews_index_container'
 
@@ -102,6 +103,13 @@ export default class MoviesShow extends React.Component {
         : <div></div>
 
 
+        let castList = this.props.movie.actors.map(actor => {
+            return <Link to={`/actors/${actor._id}`} className="actor-show-link">
+                {actor.name}
+            </Link>
+        });
+
+
         return (
             <div className="movie-show-body">
 
@@ -155,6 +163,15 @@ export default class MoviesShow extends React.Component {
                                 {this.actionSignIn()}
                                 {reviewPanel}
                             </ul>
+
+                            <div className="movie-show-cast-container">
+                                <h2 className="movie-show-cast-header">
+                                    CAST
+                                </h2>
+                                <div className="movie-show-cast">
+                                    {castList}
+                                </div>
+                            </div>
 
                             <div className="movie-show-info-reviews-container">
                                 <h2 className="movie-show-reviews-header">
