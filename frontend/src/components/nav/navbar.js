@@ -38,7 +38,7 @@ class NavBar extends React.Component {
         <div className="navbar-section">
           <div className="NavBar">
             <div className={'logoDiv'}>
-              <Link to={'/'} className={'logoDiv'} ><h1 className="logo"></h1> <h1 className={'logoText'}>ACTIONBOXED</h1></Link>
+              <Link to={'/'} className={'logoDiv'} ><h1 className="logo"></h1> <h1 className={'logoText'}>ActionBoxd</h1></Link>
             </div>
               { this.getLinks() }
           </div>
