@@ -10,8 +10,6 @@ class MoviesIndex extends React.Component{
        
     }
 
-
-
     componentDidMount(){
         this.props.getMovies();
         this.props.getMostRecentReviews();
@@ -28,7 +26,8 @@ class MoviesIndex extends React.Component{
             </div>
         }
 
-        let reviewsList = this.props.reviews.map(review => 
+        let firstFive = this.props.reviews.slice(0,5);
+        let reviewsList = firstFive.map(review => 
             <IndexPageReviewsItem key={review._id} review={review}/>);
 
         return(

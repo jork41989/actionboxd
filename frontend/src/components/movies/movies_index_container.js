@@ -8,7 +8,7 @@ import { openModal } from '../../actions/modal_actions';
 const mapStateToProps = (state) => {{
     return ({    
         movies: Object.values(state.entities.movies),
-        reviews: Object.values(state.entities.reviews),
+        reviews: Object.values(state.entities.reviews).sort((a, b) => (a.date < b.date) ? 1 : -1),
         currentUser: state.session.user
         
     })
