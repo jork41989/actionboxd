@@ -68,3 +68,35 @@
       padding-right: 8px;
     }
   }
+
+
+
+
+  /* transition test */
+
+.modal-background-trailer{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  animation: darken .5s;
+  animation-fill-mode: forwards;
+}
+
+.trailer-container{
+  animation: trailer .5s
+}
+
+@keyframes trailer{
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes darken{
+  0% {background: rgba(0, 0, 0, 0.7);}
+  100% {background: rgba(0, 0, 0, 0.98);}
+}
+

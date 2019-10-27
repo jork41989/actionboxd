@@ -90,6 +90,7 @@
 .poster{
     border: 1px solid #9ab;
     border-radius: 4px; 
+    width: 100%;
 }
 
 .movie-stats{
@@ -326,6 +327,8 @@ cursor: pointer;
 .actor-show-link{
     display: inline-block;
     padding: 3px 6px;
+    margin-right: 4px;
+    margin-bottom: 4px;
     border-radius: 3px;
     background: #242c34;
     color: #9ab;

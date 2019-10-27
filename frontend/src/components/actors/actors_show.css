@@ -42,7 +42,7 @@
 .actor-image-container{
     margin: 0 0 30px;
     width: 230px;
-    height: 345px;
+    max-height: 345px;
     box-sizing: border-box;
 }
 
