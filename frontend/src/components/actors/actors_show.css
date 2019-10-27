@@ -43,6 +43,7 @@
     margin: 0 0 30px;
     width: 230px;
     height: 345px;
+    box-sizing: border-box;
 }
 
 .actor-image{
@@ -51,9 +52,18 @@
     overflow: hidden;
     border: 1px solid hsla(0,0%,100%,.25);
     transition: all .5s;
+    box-sizing: border-box;
 }
 
 .actor-image:hover{
     border: 1px solid rgb(143, 143, 143);
     transition: all .5s;
+    box-sizing: border-box;
+}
+
+.actor-bio{
+    letter-spacing: .5px;
+    font-size: 12px;
+    color: #8899aa;
+    line-height: 1.5;
 }

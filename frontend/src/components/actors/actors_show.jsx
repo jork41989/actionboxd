@@ -32,7 +32,9 @@ class ActorsShow extends React.Component {
                     <div className="actor-image-container">
                         <img className="actor-image" src={this.props.actor.photo_url} alt=""/>
                     </div>
-                    {this.props.actor.bio}
+                    <div className="actor-bio">
+                        {this.props.actor.bio}
+                    </div>
                 </div>
             </div>
         )
