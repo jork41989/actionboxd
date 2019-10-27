@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    deleteReview: (review, id) => dispatch(deleteReview(review, id))
+    deleteReview: (review, payload) => dispatch(deleteReview(review, payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewsIndexItem);

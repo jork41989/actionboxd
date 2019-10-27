@@ -254,6 +254,7 @@
 
 .review-button:hover{
 color: #ffff;
+cursor: pointer;
 }
 
 .review-button:focus{

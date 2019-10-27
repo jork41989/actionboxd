@@ -1,5 +1,6 @@
 import React from 'react'
 import './reviews_form.css'
+import ReactTooltip from 'react-tooltip'
 
 class ReviewsCreateForm extends React.Component {
     constructor(props){
@@ -8,13 +9,23 @@ class ReviewsCreateForm extends React.Component {
         this.state = {
             text: "",
             rating: "",
-            username: this.props.currentUser.username
+            username: this.props.currentUser.username,
+            errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.confirmExit = this.confirmExit.bind(this);
+        this.clearedErrors = false;
+        this.errorCheck = this.errorCheck.bind(this);
     }
 
-    updateRating(num){
+    errorCheck() {
+        if (Object.keys(this.props.errors).length === 0) {
+            this.props.closeModal()
+        }
+        this.setState({ errors: this.props.errors })
+    }  
+
+    updateRating(num) {
         return e => {
             this.setState({ rating: num })
         };
@@ -26,11 +37,16 @@ class ReviewsCreateForm extends React.Component {
         };
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault();
-        let review = Object.assign({}, this.state);
-        this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id);
-        this.props.closeModal();
+        let review = {
+            text: this.state.text,
+            rating: this.state.rating,
+            username: this.state.username
+        }
+        this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id)
+            .then(this.errorCheck);
+        // this.props.closeModal();
     }
 
     confirmExit(e) {
@@ -41,15 +57,34 @@ class ReviewsCreateForm extends React.Component {
         }
     }
 
+    renderErrors() {
+
+        if (Object.keys(this.state.errors).includes('text')) {
+            let textField = document.getElementById('text')
+            textField.style.border = '3px solid red'
+        }
+        if (Object.keys(this.state.errors).includes('rating')) {
+            let ratingField = document.getElementById('rating-input')
+            ratingField.style.border = '3px solid red'
+        }
+
+        return (
+            <div>
+                {Object.keys(this.state.errors).map((error, i) => (
+                    <div id={i}>
+                        <ReactTooltip id={error} place="top" type="error" effect="solid">
+                            <span>{this.state.errors[error]}</span>
+                        </ReactTooltip>
+                    </div>
+                ))}
+            </div>
+        );
+    }
+
+
+
     render() {
         let posterAlt = `${this.props.movie.title} poster`;
-        let errorsList = (this.props.errors) ? (
-            this.props.errors.map((error, index) => (
-                <li className="errors" key={index}>{error}</li>
-            ))) : (
-                <div></div>
-            );
-
         let ratingSelect;
         
         switch(this.state.rating){
@@ -83,18 +118,19 @@ class ReviewsCreateForm extends React.Component {
                 </div>
 
                 <div className="form-review-panel">
-                    {errorsList}
                     <p className="review-intro">I WATCHED...</p>
                     <p className="review-header">{this.props.movie.title}</p><p className="review-movie-year">{this.props.movie.year}</p>
                     <form className="reviews-create-form" onSubmit={this.handleSubmit}>
 
                         <textarea  
+                            id="text"
+                            data-tip data-for="text"
                             onChange={this.updateText()} 
                             value={this.state.text} 
                             placeholder="Add a review..." 
                         />
                         
-                        <div className="review-stars">
+                        <div id="rating-input" className="review-stars" data-tip data-for="rating">
 
                             <div className={'review-stars-1'} onClick={this.updateRating("1.0")}></div>
                             <div className={'review-stars-2'} onClick={this.updateRating("2.0")}></div>
@@ -107,7 +143,7 @@ class ReviewsCreateForm extends React.Component {
                             
                             
                         </div>
-
+                        {this.renderErrors()}
                         <div className="submit-row">
                             <button className="reviews-submit">Save</button>
                         </div>

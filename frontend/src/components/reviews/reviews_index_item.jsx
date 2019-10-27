@@ -7,18 +7,20 @@ class ReviewsIndexItem extends React.Component{
         super(props)
 
         this.confirmDelete = this.confirmDelete.bind(this);
+        this.trash = this.trash.bind(this);
     }
 
     confirmDelete(){
         let result = window.confirm("Delete this review permanently?")
         if (result){
-            this.props.deleteReview(this.props.review, this.props.review._id)
+            // this.props.deleteReview(this.props.review, this.props.review._id)
+            this.props.deleteReview(this.props.review, {movie_id: this.props.review.movie_id, user_id: this.props.review.user_id})
         }
     }
 
 
     trash(){ 
-        if ((!this.props.currentUser) || (this.props.currentUser && Object.keys(this.props.currentUser).length === 0)) {
+        if (this.props.currentUser && Object.keys(this.props.currentUser).length !== 0) {
             if(this.props.currentUser.username === this.props.review.username){
            return ( <i
                 onClick={this.confirmDelete}
@@ -58,8 +60,6 @@ class ReviewsIndexItem extends React.Component{
             }
         }
 
-        
-
         return (
             <div className="review-item-container">
                 <div className="review-item-avatar">
@@ -72,7 +72,7 @@ class ReviewsIndexItem extends React.Component{
                             Review by <Link to={`/users/${this.props.review.user_id}`}> <p className="review-username">{this.props.review.username}</p></Link> {rating}
                         </div>
                         <div className="review-item-delete">
-                            {this.trash}
+                            {this.trash()}
                         </div>    
                     </div>
                     <div className="review-item-body">
