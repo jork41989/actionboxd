@@ -31,12 +31,11 @@ function Modal ({payload, closeModal}) {
     default:
       return null;
   }
-// debugger;
+
   let modalClass = payload.modal === 'trailer' ? "modal-background-trailer" : "modal-background"
 
   return (
     <div className={modalClass} onClick={closeModal}>
-    {/* // <div className="modal-background" onClick={closeModal}>  */}
       <div className="modal-child" onClick={e => e.stopPropagation()}>
         {component}
       </div>
