@@ -12,6 +12,7 @@ class MoviesIndex extends React.Component{
 
     componentDidMount(){
         this.props.getMovies();
+        this.props.getMostRecentReviews();
     }
 
     render(){
@@ -25,7 +26,13 @@ class MoviesIndex extends React.Component{
             </div>
         }
 
+        let reviewsList = this.props.reviews.map(review => 
+            <p>hi there {review.text}</p>);
+
         return(
+            <div>
+
+            
             <div className="movies-index-container">
                 <div className="movies-index-header">
                     POPULAR ON ACTIONBOXD
@@ -33,6 +40,8 @@ class MoviesIndex extends React.Component{
                 <ul className="movies-list">
                     {moviesList}
                 </ul>
+            </div>
+                {reviewsList}
             </div>
         );
     }
