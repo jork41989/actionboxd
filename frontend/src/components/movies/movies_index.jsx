@@ -33,17 +33,17 @@ class MoviesIndex extends React.Component{
 
         return(
             <div>
-
-            
-            <div className="movies-index-container">
-                <div className="movies-index-header">
-                    POPULAR ON ACTIONBOXD
+                <div className="movies-index-container">
+                    <div className="movies-index-header">
+                        POPULAR ON ACTIONBOXD
+                    </div>
+                    <ul className="movies-list">
+                        {moviesList}
+                    </ul>
                 </div>
-                <ul className="movies-list">
-                    {moviesList}
-                </ul>
-            </div>
-                {reviewsList}
+                <div className="index-reviews-container">
+                    {reviewsList}
+                </div>
             </div>
         );
     }
