@@ -42,7 +42,6 @@ const moviesReducer = (state = {}, action) => {
         case RECEIVE_REVIEW:
             review = action.review;
             movieId = review.movie_id;
-            debugger;
             newState = merge({}, state);
             movie = newState[movieId];
             movie.reviews.push(review._id);

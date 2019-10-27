@@ -77,7 +77,7 @@ export default class MoviesIndexItem extends React.Component {
         let count = 0
         this.props.movie.reviews.forEach(review => {
             
-            if (review){
+            if (review.rating){
                 count += 1
                 sum += parseInt(review.rating.$numberDecimal)
             }
