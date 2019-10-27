@@ -20,7 +20,6 @@ const reviewsReducer = (state = {}, action) => {
             newState = merge({}, state, { [review._id]: review });
             return newState;
         case RECEIVE_RECENT_REVIEWS:
-            debugger;
             reviewsArr = action.reviews;
             reviewsObj = {};
             reviewsArr.forEach(review => {
