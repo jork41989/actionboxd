@@ -1,7 +1,8 @@
 .movies-index-container{
     display: block;
     position: relative;
-    top: 150px;
+    /* top: 150px; */
+    top: 50px;
 }
 
 .movies-index-header{
