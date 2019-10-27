@@ -68,3 +68,20 @@
       padding-right: 8px;
     }
   }
+
+
+
+
+  /* transition test */
+
+.trailer-container{
+  animation: trailer .5s;
+  /* animation-timing-function: backwards; */
+}
+
+@keyframes trailer{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+

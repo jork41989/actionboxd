@@ -224,13 +224,13 @@ div.review-stars-5:hover ~ .review-stars-color{
 
 
 /* transition test */
+
+
+
+
 .reviews-form-container{
     animation: reviewopen .5s, reviewunstretch .5s alternate, reviewwiden .5s;
     animation-timing-function: ease;
-    /* animation: reviewunstretch 1s alternate; */
-    /* animation-direction: reviewunstretch alternate; */
-    /* animation: reviewwiden 1s; */
-    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
 .form-thumbnail-panel, .form-review-panel, .review-close-button{
@@ -258,6 +258,15 @@ div.review-stars-5:hover ~ .review-stars-color{
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
+
+@keyframes traileropen{
+
+}
+
+
+
+
+
 
 /* @keyframes textstretch{
     0%{ height: 106px; }
