@@ -12,18 +12,8 @@
 .actors-movies-grid-item{
     width: 152.5px;
     height: 230px;
-    border-radius: 3px;
-}
-
-.actors-movie-thumbnail-overlay{
-     
-}
-
-.actors-movie-thumbnail-overlay:hover{
-   transition: border .1s linear;
-    border: 1px solid #00e054;
-    border-radius: 3px;
-    
+    box-sizing: border-box;
+    /* border-radius: 3px; */
 }
 
 .actors-movie-thumbnail{
@@ -31,7 +21,14 @@
     height: auto;
     overflow: hidden;
     border-radius: 4px;
-   box-shadow: 0 0 0 1px rgba(221,238,255,.35);
-   box-sizing: border-box;
+    box-shadow: 0 0 0 1px rgba(221,238,255,.35);
+    box-sizing: border-box;
+    transition: all .3s;
 }
 
+.actors-movie-thumbnail:hover{
+    transition: .5s;
+    box-shadow: 0 0 0 3px #00e054;
+    /* outline: 1.5px solid #00e054; */
+    border-radius: 3px;
+}
