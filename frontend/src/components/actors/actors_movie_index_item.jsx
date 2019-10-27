@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 class ActorsMovieIndexItem extends React.Component{
     render(){
         return(
-            <div>
-                hey hey
-            </div>
+            <Link to={`/movies/${this.props.movie._id}`}>
+                <img src={this.props.movie.poster_url} alt=""/>
+            </Link>
         )
     }
 }

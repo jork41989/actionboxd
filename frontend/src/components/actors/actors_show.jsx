@@ -29,7 +29,7 @@ class ActorsShow extends React.Component {
                         <p className="actor-show-title">{this.props.actor.name}</p>
                     </h1>
                     <div>
-                        <ActorsMovieIndexContainer />
+                        <ActorsMovieIndexContainer movies={this.props.actor.movies}/>
                     </div>
                 </div>
                 <div className="actor-show-sidebar">
