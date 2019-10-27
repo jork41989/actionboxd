@@ -108,6 +108,13 @@ export default class MoviesShow extends React.Component {
                 </Link>
         });
 
+        // commented out til I can figure out the populate issue
+        // let castList = this.props.movie.actors.map(actor => {
+        //     return <Link to={`/actors/${actor._id}`} className="actor-show-link">
+        //         {actor.name}
+        //     </Link>
+        // });
+
 
         return (
             <div className="movie-show-body">
