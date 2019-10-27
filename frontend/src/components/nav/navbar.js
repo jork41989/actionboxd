@@ -15,9 +15,11 @@ class NavBar extends React.Component {
       this.props.logout();
   }
 
+ 
+
   admin(){
     if (this.props.loggedIn && this.props.currentUser.admin ){
-      return (<button>Admin</button>)
+      return (<button> <Link to={'/admin'} className={'nav-Link'}>Admin</Link></button>)
     } 
   }
 
