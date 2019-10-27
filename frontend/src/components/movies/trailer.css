@@ -74,9 +74,19 @@
 
   /* transition test */
 
-.trailer-container{
-  animation: trailer .5s;
-  /* animation-timing-function: backwards; */
+.modal-background-trailer{
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   background: rgba(0, 0, 0, 0.7);
+   z-index: 999;
+}
+
+.trailer-container, .modal-background-trailer{
+  animation: trailer .5s, darken .5s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes trailer{
@@ -84,4 +94,8 @@
     100% { opacity: 1; }
 }
 
+@keyframes darken{
+  0% {background: rgba(0, 0, 0, 0.7);}
+  100% {background: rgba(0, 0, 0, 0.95);}
+}
 
