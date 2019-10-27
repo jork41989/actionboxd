@@ -36,7 +36,8 @@
 }
 
 .movies-list-item-container:hover{
-    border: 2px solid green;
+    transition: .1s;
+    box-shadow: 0 0 0 2px #00e054;
 }
 
 .movies-list-item-container{
@@ -61,6 +62,7 @@
 .index-thumbnail{
     max-width: 100%;
 }
+
 
 .movies-list-item-title{
     padding: 2px 0 5px;
