@@ -36,7 +36,8 @@
 }
 
 .movies-list-item-container:hover{
-    border: 2px solid green;
+       transition: .2s;
+        box-shadow: 0 0 0 2px #00e054;
 }
 
 .movies-list-item-container{
