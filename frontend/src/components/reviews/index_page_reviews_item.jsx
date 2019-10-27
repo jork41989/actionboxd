@@ -6,7 +6,11 @@ function IndexPageReviewsItem({review}){
     return(
         <div className="index-review-tile">
             <div className="index-review-tile-header">
-                <img src={review.movie_id.poster_url} alt={`${review.movie_id.title} poster`}/>
+                <div className="index-reviews-thumbnail-container">
+                    <img
+                        className="index-reviews-thumbnail" 
+                        src={review.movie_id.poster_url} alt={`${review.movie_id.title} poster`}/>
+                </div>
                 <div className="index-review-tile-header-info">
                     {/* <Link to={`/users/`}> */}
                     <p>{review.username}</p>
