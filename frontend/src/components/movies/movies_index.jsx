@@ -41,8 +41,13 @@ class MoviesIndex extends React.Component{
                         {moviesList}
                     </ul>
                 </div>
-                <div className="index-reviews-container">
-                    {reviewsList}
+                <div>
+                    <div className="index-reviews-header">
+                        RECENT REVIEWS
+                    </div>
+                    <div className="index-reviews-container">
+                        {reviewsList}
+                    </div>
                 </div>
             </div>
         );
