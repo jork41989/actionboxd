@@ -27,13 +27,15 @@ router.get('/:id', (req, res) => {
 });
 
 
-router.post('/newMovie', (req, res) => {
-
+router.post('/newMovie',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
   const { errors, isValid } = validateMovieInput(req.body);
 
   if (!isValid) {
     return res.status(400).json(errors);
   }
+
   const newMovie = new Movie({
     title: req.body.title,
     year: req.body.year,

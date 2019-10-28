@@ -1,5 +1,6 @@
 import React from 'react';
 import './admin.css'
+import { openModal } from '../../actions/modal_actions';
 
 class AdminPortal extends React.Component {
   constructor(props) {
@@ -9,7 +10,6 @@ class AdminPortal extends React.Component {
 
 
   componentDidMount(){
-    console.log(this.props)
     if (!this.props.currentUser.admin) {
       this.props.history.push('/')
     }
@@ -22,7 +22,7 @@ class AdminPortal extends React.Component {
         
         <p className={'Admin-welcome'}> Hello {this.props.currentUser.username}</p>
         <div className={'Admin-Buttons-div'}>
-          <button className={'Admin-Buttons'}>Add Movie</button>
+          <button className={'Admin-Buttons'} onClick={() => this.props.openModal({ modal: 'movie' })}>Add Movie</button>
           <button className={'Admin-Buttons'} >Add Actor</button>  
         </div>
       </div>
