@@ -31,10 +31,9 @@ router.post('/newActor',
             return res.status(400).json(errors);
         }
 
-        const newActor = new Movie({
+        const newActor = new Actor({
             name: req.body.name,
             bio: req.body.bio,
-            description: req.body.description,
             photo_url: req.body.photo_url
         })
 

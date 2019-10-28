@@ -23,7 +23,7 @@ class AdminPortal extends React.Component {
         <p className={'Admin-welcome'}> Hello {this.props.currentUser.username}</p>
         <div className={'Admin-Buttons-div'}>
           <button className={'Admin-Buttons'} onClick={() => this.props.openModal({ modal: 'movie' })}>Add Movie</button>
-          <button className={'Admin-Buttons'} >Add Actor</button>  
+          <button className={'Admin-Buttons'} onClick={() => this.props.openModal({ modal: 'actor' })}>Add Actor</button>  
         </div>
       </div>
     )
