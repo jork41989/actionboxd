@@ -5,7 +5,7 @@ import {
 import{
     RECEIVE_REVIEW,
     REMOVE_REVIEW,
-    // UPDATE_REVIEW
+    UPDATE_REVIEW
 } from '../actions/review_actions';
 import { RECEIVE_ACTOR } from '../actions/actor_actions';
 
@@ -51,12 +51,14 @@ const moviesReducer = (state = {}, action) => {
             movie = newState[movieId];
             movie.reviews.push(review._id);
             return newState;
-        // case UPDATE_REVIEW:
-        //     review = action.review;
-        //     movieId = review.movie_id;
-        //     newState = merge({}, state);
-        //     movie = newState[movieId];
-
+        case UPDATE_REVIEW:
+            review = action.review;
+            movieId = review.movie_id;
+            newState = merge({}, state);
+            movie = newState[movieId];
+            movie.reviews = movie.reviews.filter(rev => rev._id !== review._id);
+            movie.reviews.push(review);
+            return newState;
         case REMOVE_REVIEW:
             review = action.review;
             movieId = review.movie_id;

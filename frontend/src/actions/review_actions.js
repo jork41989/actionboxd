@@ -5,7 +5,7 @@ export const RECEIVE_RECENT_REVIEWS = "RECEIVE_RECENT_REVIEWS";
 export const RECEIVE_MOVIE_REVIEWS = "RECEIVE_MOVIE_REVIEWS";
 export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 export const REMOVE_REVIEW = "REMOVE_REVIEW";
-// export const UPDATE_REVIEW = "UPDATE_REVIEW";
+export const UPDATE_REVIEW = "UPDATE_REVIEW";
 
 const receiveReview = review => {
     return({
@@ -29,10 +29,10 @@ const removeReview = review => ({
     review
 })
 
-// const updateReview = review => ({
-//     type: UPDATE_REVIEW,
-//     review
-// })
+const updateAReview = review => ({
+    type: UPDATE_REVIEW,
+    review
+})
 
 export const getReview = id => dispatch => (
     ReviewsApiUtil.getReview(id)
@@ -46,7 +46,7 @@ export const getMostRecentReviews = () => dispatch => (
 
 export const updateReview = (review) => dispatch => (
     ReviewsApiUtil.updateReview(review)
-        .then(review => dispatch(receiveReview(review.data)))
+        .then(review => dispatch(updateAReview(review.data)))
 )
 
 export const deleteReview = (review, payload) => dispatch => (
