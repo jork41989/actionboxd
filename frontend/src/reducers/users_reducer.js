@@ -2,8 +2,6 @@
 import { RECEIVE_SINGLE_USER, WATCH_MOVIE, UNWATCH_MOVIE } from "../actions/users_actions"
 
 
-
-
 export default (state = {}, action) => {
   Object.freeze(state);
 

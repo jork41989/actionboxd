@@ -15,7 +15,8 @@ import './tiempos-headline-cufonfonts-webfont/style.css'
 
 import MoviesIndexContainer from './movies/movies_index_container';
 import MoviesShowContainer from './movies/movies_show_container';
-
+import ActorsShowContainer from './actors/actors_show_container';
+import AdminPortalContainer from './admin-portal/admin_portal_container';
 
 const App = () => (
   <div className={'mainDiv'}>
@@ -26,8 +27,9 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={MoviesIndexContainer} />
       <Route exact path ="/movies/:movieId" component={MoviesShowContainer} />
+      <Route exact path ="/actors/:actorId" component={ActorsShowContainer} />
       <Route path='/users/:id' component={ProfileContainer} />
-     
+      <Route path='/admin' component={AdminPortalContainer} />
     </Switch>
     <Modal />
     </div>

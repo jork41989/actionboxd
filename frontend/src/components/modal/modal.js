@@ -5,6 +5,8 @@ import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import TrailerContainer from '../movies/trailer_container';
 import ReviewsCreateFormContainer from '../reviews/reviews_create_form_container';
+import MovieFormContainer from '../movie-form/movie_form_container';
+
 
 import './modal.css';
 
@@ -28,13 +30,19 @@ function Modal ({payload, closeModal}) {
     case 'review':
       component = <ReviewsCreateFormContainer movieId={payload.movieId} />;
       break;
+    case 'movie':
+      component = <MovieFormContainer />;
+      break;
     default:
       return null;
   }
 
+  let modalBackgroundClass = payload.modal === 'trailer' ? "modal-background-trailer" : "modal-background";
+  let modalChildClass = payload.modal === 'review' ? "modal-child-review" : "modal-child";
+
   return (
-    <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
+    <div className={modalBackgroundClass} onClick={closeModal}>
+      <div className={modalChildClass} onClick={e => e.stopPropagation()}>
         {component}
       </div>
     </div>

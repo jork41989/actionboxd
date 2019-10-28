@@ -82,3 +82,21 @@ background-color: #14181c;
 .nav-links button:hover, .profile-link{
     color: #fff;
 }
+
+.nav-Link{
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 800;
+    padding-left: 10px;
+    color: #9ab;
+    text-transform: uppercase;
+    font-family: Graphik-Semibold-Web,sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+
+.nav-Link:hover{
+ color: #fff;
+}

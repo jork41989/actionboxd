@@ -7,11 +7,20 @@ class NavBar extends React.Component {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
+    this.admin = this.admin.bind(this);
   }
 
   logoutUser(e) {
       e.preventDefault();
       this.props.logout();
+  }
+
+ 
+
+  admin(){
+    if (this.props.loggedIn && this.props.currentUser.admin ){
+      return (<button> <Link to={'/admin'} className={'nav-Link'}>Admin</Link></button>)
+    } 
   }
 
   getLinks() {
@@ -21,6 +30,7 @@ class NavBar extends React.Component {
             <Link to={`/users/${this.props.currentUser.id}`} className="profile-link">{this.props.currentUser.username}</Link>
               <button onClick={this.logoutUser}>Logout</button>
             <Search />
+            {this.admin()}
           </div>
         );
       } else {
@@ -29,6 +39,7 @@ class NavBar extends React.Component {
               <button onClick={() => this.props.openModal({modal: 'login'})}>Login</button>
             <button onClick={() => this.props.openModal({modal: 'signup'})}>Create account</button>
             <Search />
+             
             </div>
         );
       }
@@ -40,7 +51,7 @@ class NavBar extends React.Component {
         <div className="navbar-section">
           <div className="NavBar">
             <div className={'logoDiv'}>
-              <Link to={'/'} className={'logoDiv'} ><h1 className="logo"></h1> <h1 className={'logoText'}>ACTIONBOXED</h1></Link>
+              <Link to={'/'} className={'logoDiv'} ><h1 className="logo"></h1> <h1 className={'logoText'}>ActionBoxd</h1></Link>
             </div>
               { this.getLinks() }
               {/* <Search /> */}

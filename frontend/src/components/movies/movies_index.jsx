@@ -2,21 +2,34 @@ import React from 'react';
 import MoviesIndexItem from './movies_index_item';
 import './movies_index.css';
 
+import IndexPageReviewsItem from '../reviews/index_page_reviews_item';
+
 class MoviesIndex extends React.Component{
     constructor(props) {
         super(props);
-        console.log(this.props, 'index')
+       
     }
-
-
 
     componentDidMount(){
         this.props.getMovies();
+        this.props.getMostRecentReviews();
+    }
+
+    componentDidUpdate(prevProps){
+        if (prevProps.reviews[0] !== this.props.reviews[0]){
+            this.props.getMostRecentReviews();
+        }
     }
 
     render(){
         let moviesList = this.props.movies.map(movie => 
-            <MoviesIndexItem key={movie._id} movie={movie} openModal={this.props.openModal} watchAMovie={this.props.watchAMovie} unwatchAMovie={this.props.unwatchAMovie} currentUser={this.props.currentUser}/>
+            <MoviesIndexItem key={movie._id} 
+                movie={movie} 
+                openModal={this.props.openModal} 
+                watchAMovie={this.props.watchAMovie} 
+                unwatchAMovie={this.props.unwatchAMovie} 
+                currentUser={this.props.currentUser}
+                />
             );
 
         if (moviesList.length === 0){
@@ -25,14 +38,28 @@ class MoviesIndex extends React.Component{
             </div>
         }
 
+        let firstFive = this.props.reviews.slice(0,5);
+        let reviewsList = firstFive.map(review => 
+            <IndexPageReviewsItem key={review._id} review={review}/>);
+
         return(
-            <div className="movies-index-container">
-                <div className="movies-index-header">
-                    POPULAR ON ACTIONBOXD
+            <div>
+                <div className="movies-index-container">
+                    <div className="movies-index-header">
+                        POPULAR ON ACTIONBOXD
+                    </div>
+                    <ul className="movies-list">
+                        {moviesList}
+                    </ul>
                 </div>
-                <ul className="movies-list">
-                    {moviesList}
-                </ul>
+                <div className="index-reviews-section-container">
+                    <div className="index-reviews-header">
+                        RECENT REVIEWS
+                    </div>
+                    <div className="index-reviews-container">
+                        {reviewsList}
+                    </div>
+                </div>
             </div>
         );
     }

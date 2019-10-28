@@ -8,7 +8,7 @@ const ReviewSchema = new Schema({
   },
   movie_id: {
     type: Schema.Types.ObjectId,
-    ref: 'movies'
+    ref: 'movie'
   },
   username: {
     type: String,
