@@ -1,0 +1,24 @@
+.searchbar {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    float: left;
+    font-size: 1rem;
+    line-height: 1.3;
+    padding: 6px 30px 6px 10px;
+    border-radius: 15px;
+    color: #89a;
+    /* box-shadow: 0 1px 0 #414d5e; */
+    margin-top: 12px;
+}
+#searchbar-result{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 1px;
+    background-color: #414d5e;
+}
+
+/* .results {
+    display: block;
+} */
