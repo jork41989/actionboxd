@@ -12,7 +12,8 @@ class ReviewsIndex extends React.Component {
             return <div>Loading...</div>
         }
 
-        let reviewsList = this.props.movie.reviews.map(review => 
+        let sortedReviews = this.props.movie.reviews.sort((a, b) => (a.date < b.date) ? 1 : -1);
+        let reviewsList = sortedReviews.map(review => 
             <li key={review._id}>
                 <ReviewsIndexItemContainer key={review.id} movie={this.props.movie} review={review} />
             </li>
