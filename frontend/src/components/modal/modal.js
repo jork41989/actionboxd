@@ -35,13 +35,10 @@ function Modal ({payload, closeModal}) {
     case 'movie':
       component = <MovieFormContainer />;
       break;
-<<<<<<< HEAD
     case 'edit':
       component = <ReviewsEditFormContainer movieId={payload.movieId} reviewId={payload.reviewId}/>;
-=======
     case 'actor':
       component = <ActorFormContainer />;
->>>>>>> master
       break;
     default:
       return null;
