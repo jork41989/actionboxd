@@ -7,11 +7,18 @@ class NavBar extends React.Component {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
+    this.admin = this.admin.bind(this);
   }
 
   logoutUser(e) {
       e.preventDefault();
       this.props.logout();
+  }
+
+  admin(){
+    if (this.props.loggedIn && this.props.currentUser.admin ){
+      return (<button>Admin</button>)
+    } 
   }
 
   getLinks() {
@@ -20,6 +27,7 @@ class NavBar extends React.Component {
           <div className="nav-links">
             <Link to={`/users/${this.props.currentUser.id}`} className="profile-link">{this.props.currentUser.username}</Link>
               <button onClick={this.logoutUser}>Logout</button>
+            {this.admin()}
           </div>
         );
       } else {
@@ -27,6 +35,7 @@ class NavBar extends React.Component {
             <div className="nav-links">
               <button onClick={() => this.props.openModal({modal: 'login'})}>Login</button>
             <button onClick={() => this.props.openModal({modal: 'signup'})}>Create account</button>
+             
             </div>
         );
       }

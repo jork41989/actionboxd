@@ -27,6 +27,7 @@ const App = () => (
       <Route exact path ="/movies/:movieId" component={MoviesShowContainer} />
       <Route exact path ="/actors/:actorId" component={ActorsShowContainer} />
       <Route path='/users/:id' component={ProfileContainer} />
+      
     </Switch>
     <Modal />
     </div>
