@@ -23,7 +23,7 @@ module.exports = function validateMovieInput(data) {
     errors.title = 'Title field is required';
   }
 
-  if (Validator.isEmpty(data.year)) {
+  if (Validator.isEmpty(String(data.year))) {
     errors.year = 'Year field is required';
   }
 
