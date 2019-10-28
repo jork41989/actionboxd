@@ -107,7 +107,9 @@ router.patch('/:id', (req,res) => {
   passport.authenticate('jwt', { session: false }),
   Review.findByIdAndUpdate({_id: req.params.id},
     {$set: {text: req.body.text, rating: req.body.rating}},
-    {new: true})
+    {new: true},
+    { runValidators: true }
+    )
     .then((docs) => res.json(docs))
     .catch(err =>
       res.status(404).json({ noreviewupdate: 'Not able to update' }))
