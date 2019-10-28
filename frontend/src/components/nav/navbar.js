@@ -20,6 +20,7 @@ class NavBar extends React.Component {
           <div className="nav-links">
             <Link to={`/users/${this.props.currentUser.id}`} className="profile-link">{this.props.currentUser.username}</Link>
               <button onClick={this.logoutUser}>Logout</button>
+            <Search />
           </div>
         );
       } else {
@@ -27,6 +28,7 @@ class NavBar extends React.Component {
             <div className="nav-links">
               <button onClick={() => this.props.openModal({modal: 'login'})}>Login</button>
             <button onClick={() => this.props.openModal({modal: 'signup'})}>Create account</button>
+            <Search />
             </div>
         );
       }
@@ -41,9 +43,7 @@ class NavBar extends React.Component {
               <Link to={'/'} className={'logoDiv'} ><h1 className="logo"></h1> <h1 className={'logoText'}>ACTIONBOXED</h1></Link>
             </div>
               { this.getLinks() }
-            <div>
-              <Search />
-            </div>
+              {/* <Search /> */}
           </div>
         </div>
       );
