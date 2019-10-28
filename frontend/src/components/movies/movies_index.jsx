@@ -16,7 +16,6 @@ class MoviesIndex extends React.Component{
     }
 
     componentDidUpdate(prevProps){
-        debugger;
         if (prevProps.reviews.length > 0 && this.props.reviews.length > 0){
             if (prevProps.reviews[0]._id !== this.props.reviews[0]._id){
                 this.props.getMostRecentReviews();
