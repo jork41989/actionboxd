@@ -23,7 +23,10 @@ class SearchBar extends React.Component {
   }
 
   render() {
+    
     let options; 
+    // debugger
+    let style =  this.props.results ?  { display: 'none' } : { display: 'block' };
    if (!this.props.results){
      return options = <div></div>
     } else {
@@ -39,7 +42,7 @@ class SearchBar extends React.Component {
           ref={input => this.search = input}
           onChange={this.handleInputChange}
         />
-        <div className="results">
+        <div className="results" style={style} >
           {options}
         </div>
       </form>
