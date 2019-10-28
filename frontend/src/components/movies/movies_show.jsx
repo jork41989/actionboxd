@@ -41,7 +41,7 @@ export default class MoviesShow extends React.Component {
       
         if (this.props.currentUser){
             if (this.props.currentUser.watched_movies){
-                if (this.props.currentUser.watched_movies.includes(this.props.match.params.movieId)){
+                if (Object.keys(this.props.currentUser.watched_movies).includes(this.props.match.params.movieId)){
                     return (
                         <li className="actions-panel-watch-container" onClick={this.removeWatch}>
                             <div className={'watched'}></div>
