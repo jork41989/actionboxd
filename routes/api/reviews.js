@@ -73,8 +73,8 @@ router.post('/movies/:movie_id/:user_id',
   }
 );
 
-
-router.patch('/:id', (req, res) => {
+ 
+router.patch('/movies/:movie_id/:id', (req, res) => {
   const reviewId = req.params.id;
   const userId = req.body.user_id;
   const movieId = req.body.movie_id;
