@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './reviews_index_item.css';
+import './reviews_edit.css';
 
 class ReviewsIndexItem extends React.Component{
     constructor(props){
@@ -26,7 +27,7 @@ class ReviewsIndexItem extends React.Component{
                     <div
                         onClick={() => this.props.openModal({ modal: 'edit-review', reviewId: this.props.review._id, movieId: this.props.review.movie_id})}
                         className="edit-pen"
-                    >edit
+                    >
                     </div>)
             } else {
                 return (<div></div>)

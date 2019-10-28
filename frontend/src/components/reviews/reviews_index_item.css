@@ -124,3 +124,7 @@ li {
 .review-username:hover{
     color: #ffffff;
 }
+
+.review-item-actions{
+    display: flex;
+}
