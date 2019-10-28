@@ -9,10 +9,6 @@ export const getReview = (id) => {
   return axios.get(`/api/reviews/${id}`)
 };
 
-// export const getMovieReviews = (id) => {
-//   return axios.get(`/api/reviews/movies/${id}`)
-// };
-
 export const writeReview = (data, movieId, userId) => {
   return axios.post(`/api/reviews/movies/${movieId}/${userId}`, data)
 };
@@ -26,5 +22,5 @@ export const deleteReview = (movie_id, id, data) => {
 }
 
 export const updateReview = (data) => {
-  return axios.patch(`api/reviews/${data.id}`, data)
+  return axios.patch(`api/reviews/${data._id}`, data)
 }

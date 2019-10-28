@@ -6,6 +6,7 @@ import SignupFormContainer from '../session/signup_form_container';
 import TrailerContainer from '../movies/trailer_container';
 import ReviewsCreateFormContainer from '../reviews/reviews_create_form_container';
 import MovieFormContainer from '../movie-form/movie_form_container';
+import ReviewsEditFormContainer from '../reviews/reviews_edit_form_container';
 import ActorFormContainer from '../actor-form/actor_form_container';
 
 
@@ -33,6 +34,9 @@ function Modal ({payload, closeModal}) {
       break;
     case 'movie':
       component = <MovieFormContainer />;
+      break;
+    case 'edit-review':
+      component = <ReviewsEditFormContainer movieId={payload.movieId} reviewId={payload.reviewId}/>;
       break;
     case 'actor':
       component = <ActorFormContainer />;
