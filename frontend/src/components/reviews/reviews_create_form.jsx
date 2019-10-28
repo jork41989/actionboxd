@@ -49,14 +49,6 @@ class ReviewsCreateForm extends React.Component {
         // this.props.closeModal();
     }
 
-    // confirmExit(e) {
-    //     e.preventDefault();
-    //     let result = window.confirm("Are you sure you want to exit?");
-    //     if (result) {
-    //         this.props.closeModal();
-    //     }
-    // }
-
     renderErrors() {
 
         if (Object.keys(this.state.errors).includes('text')) {

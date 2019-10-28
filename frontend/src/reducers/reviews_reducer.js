@@ -19,10 +19,14 @@ const reviewsReducer = (state = {}, action) => {
             review = action.review;
             newState = merge({}, state, { [review._id]: review });
             return newState;
-        // case RECEIVE_RECENT_REVIEWS:
-        //     reviews = action.reviews;
-        //     newState = merge({}, state, reviews)
-        //     return newState;
+        case RECEIVE_RECENT_REVIEWS:
+            reviewsArr = action.reviews;
+            reviewsObj = {};
+            reviewsArr.forEach(review => {
+                reviewsObj[review._id] = review
+            });
+            newState = merge({}, state, reviewsObj)
+            return newState;
         case RECEIVE_MOVIE:
             reviewsArr = action.movie.data.reviews;
             reviewsObj = {};
