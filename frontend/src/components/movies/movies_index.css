@@ -69,6 +69,11 @@
     padding: 2px 0 5px;
     color: #bccbdd;
     font-weight: 800;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    max-width: 115px;
 }
 
 .index-item-actions{
