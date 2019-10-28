@@ -6,13 +6,17 @@ class SearchBar extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      showsearch: false
+      val: ''
     }
+    this.resetState = this.resetState.bind(this);
   }
 
 
   handleInputChange = (e) => {
     let target = e.target.value;
+    debugger
+    this.setState({val: target});
+
     if (target){
       return (
         this.props.getMovieList(target)
@@ -23,20 +27,28 @@ class SearchBar extends React.Component {
         this.props.getMovieList('null')     
     }
   }
+  resetState(){
+    debugger
+    // this.props.getMovieList('null'); 
+    return (
+      this.setState({val: ''})
+    )
+
+  }
 
   render() {
     
     let options; 
-    let style =  this.props.results.length === 0 ?  { display: 'none' } : { display: 'block' };
+    let style =  !(this.props.results && this.state.val) ?  { display: 'none' } : { display: 'block' };
    if (!this.props.results){
      return options = <div></div>
     } else {
      options = this.props.results.map(result => {
        
        if (result.hasOwnProperty('title')){
-         return <Link id="searchbar-result" to={`/movies/${result._id}`}>{result.title}</Link>
+         return <Link onClick={this.resetState} id="searchbar-result" to={`/movies/${result._id}`}>{result.title}</Link>
         } else {
-          return <Link id="searchbar-result-actor" to={`/actors/${result._id}`}>{result.name}</Link>
+         return <Link onClick={this.resetState} id="searchbar-result-actor" to={`/actors/${result._id}`}>{result.name}</Link>
        }
     })
   }
@@ -45,7 +57,7 @@ class SearchBar extends React.Component {
       <form className='navbar-links'>
         <input className='searchbar'
           placeholder="Search for..."
-          ref={input => this.search = input}
+          value={this.state.val}
           onChange={this.handleInputChange}
         />
         <div className="results" style={style} >
