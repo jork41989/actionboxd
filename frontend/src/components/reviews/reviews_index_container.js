@@ -13,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
     getMovie: (id) => dispatch(getMovie(id))
-    // getMostRecentReviews: () => dispatch(getMostRecentReviews)
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ReviewsIndex));

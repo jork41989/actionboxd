@@ -5,15 +5,9 @@ import ReactTooltip from 'react-tooltip'
 class ReviewsCreateForm extends React.Component {
     constructor(props){
         super(props)
-
-        this.state = {
-            text: "",
-            rating: "",
-            username: this.props.currentUser.username,
-            errors: {}
-        }
+        let newReviewProps = Object.assign({}, this.props.review, {username: this.props.currentUser.username, errors: {}})
+        this.state = newReviewProps;
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.confirmExit = this.confirmExit.bind(this);
         this.clearedErrors = false;
         this.errorCheck = this.errorCheck.bind(this);
     }
@@ -44,8 +38,14 @@ class ReviewsCreateForm extends React.Component {
             rating: this.state.rating,
             username: this.state.username
         }
-        this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id)
-            .then(this.errorCheck);
+        if (this.props.action === 'create'){
+            this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id)
+                .then(this.errorCheck);
+        } else {
+            review = Object.assign({}, {["_id"]: this.state._id}, review);
+            this.props.updateReview(review)
+                .then(this.errorCheck);
+        }
         // this.props.closeModal();
     }
 
