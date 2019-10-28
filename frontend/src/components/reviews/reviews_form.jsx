@@ -38,8 +38,14 @@ class ReviewsCreateForm extends React.Component {
             rating: this.state.rating,
             username: this.state.username
         }
-        this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id)
-            .then(this.errorCheck);
+        if (this.props.action === 'create'){
+            this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id)
+                .then(this.errorCheck);
+        } else {
+            review = Object.assign({}, {["_id"]: this.state._id}, review);
+            this.props.updateReview(review)
+                .then(this.errorCheck);
+        }
         // this.props.closeModal();
     }
 

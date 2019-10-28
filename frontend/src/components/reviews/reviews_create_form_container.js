@@ -15,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
                 text: "",
                 rating: "",
         },
+        action: 'create'
     })
 
 }

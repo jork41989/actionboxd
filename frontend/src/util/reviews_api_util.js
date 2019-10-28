@@ -22,5 +22,5 @@ export const deleteReview = (movie_id, id, data) => {
 }
 
 export const updateReview = (data) => {
-  return axios.patch(`api/reviews/${data.id}`, data)
+  return axios.patch(`api/reviews/${data._id}`, data)
 }
