@@ -55,6 +55,7 @@ router.post('/newMovie',
   })
 
   newMovie.save()
+    .then(movie => res.json(movie))
     .catch(err => res.json(err));
 
 });
