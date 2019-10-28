@@ -35,11 +35,15 @@ const moviesReducer = (state = {}, action) => {
         case RECEIVE_ACTOR: 
             moviesArr = action.actor.movies;
             moviesObj = {};
-            moviesArr.forEach(movie => {
-                moviesObj[movie._id] = movie
-            })
-            newState = merge({}, state, moviesObj);
-            return newState;
+            if (moviesArr){
+                moviesArr.forEach(movie => {
+                    moviesObj[movie._id] = movie
+                })
+                newState = merge({}, state, moviesObj);
+                return newState;
+            } else {
+                return state
+            }
         case RECEIVE_REVIEW:
             review = action.review;
             movieId = review.movie_id;
