@@ -1,4 +1,4 @@
-import { getUser, watchMovie, unWatchMovie } from '../util/user_api_util';
+import { getUser, watchMovie, unWatchMovie, getCurUser } from '../util/user_api_util';
 
 
 export const RECEIVE_SINGLE_USER = 'RECEIVE_SINGLE_USER';
@@ -38,3 +38,8 @@ export const watchAMovie = (userId, payload) => (dispatch) => (
 export const unwatchAMovie = (userId, payload) => (dispatch) => (
   unWatchMovie(userId, payload).then(user => dispatch(unwatchAOldMovie(user)))
 )
+
+export const getTheCurUser = () => (dispatch) => {
+  
+  return (getCurUser().then(user => dispatch(receiveAUser(user))))
+}
