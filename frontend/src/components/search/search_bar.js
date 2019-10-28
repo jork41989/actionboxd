@@ -14,7 +14,6 @@ class SearchBar extends React.Component {
 
   handleInputChange = (e) => {
     let target = e.target.value;
-    debugger
     this.setState({val: target});
 
     if (target){
@@ -28,8 +27,6 @@ class SearchBar extends React.Component {
     }
   }
   resetState(){
-    debugger
-    // this.props.getMovieList('null'); 
     return (
       this.setState({val: ''})
     )
