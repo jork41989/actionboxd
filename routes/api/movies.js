@@ -9,7 +9,7 @@ const Movie = require('../../models/Movie');
 
 router.get('/', (req, res) => {
   Movie.find()
-    .limit(8)
+    // .limit(8)
     .sort({title: -1})
     .populate({ path: 'reviews', select: 'rating' })
     .then(movies => res.json(movies))

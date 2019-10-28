@@ -27,14 +27,14 @@ class MoviesIndex extends React.Component{
         let movieLimit = this.props.movies.slice(0, 8);
         let moviesList = movieLimit.map(movie => 
             <MoviesIndexItem key={movie._id} 
-                movie={movie} 
-                openModal={this.props.openModal} 
-                watchAMovie={this.props.watchAMovie} 
-                unwatchAMovie={this.props.unwatchAMovie} 
-                currentUser={this.props.currentUser}
-                />
+            movie={movie} 
+            openModal={this.props.openModal} 
+            watchAMovie={this.props.watchAMovie} 
+            unwatchAMovie={this.props.unwatchAMovie} 
+            currentUser={this.props.currentUser}
+            />
             );
-
+            
         if (moviesList.length === 0){
             return <div className="movies-index-container">
                 Loading...
