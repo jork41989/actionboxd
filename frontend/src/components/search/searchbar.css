@@ -8,9 +8,8 @@
     padding: 6px 30px 6px 10px;
     border-radius: 15px;
     color: #89a;
-    /* box-shadow: 0 1px 0 #414d5e; */
-
 }
+
 #searchbar-result{
     display: block;
     text-decoration: none;
@@ -26,7 +25,6 @@
 }
 
 .results{
-    /* display: none; */
     position: absolute;
     top: 58px;
     right: 89px;

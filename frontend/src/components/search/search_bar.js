@@ -12,9 +12,11 @@ class SearchBar extends React.Component {
 
 
   handleInputChange = (e) => {
-    if (e.target.value){
+    let target = e.target.value;
+    if (target){
       return (
-        this.props.getMovieList(e.target.value)     
+        this.props.getMovieList(target)
+        .then(() => this.props.getActorsList(target))     
         )
       } else {
   
@@ -29,8 +31,13 @@ class SearchBar extends React.Component {
    if (!this.props.results){
      return options = <div></div>
     } else {
-     options = this.props.results.map(movie => {
-       return <Link id="searchbar-result" to={`/movies/${movie._id}`}>{movie.title}</Link>
+     options = this.props.results.map(result => {
+       
+       if (result.hasOwnProperty('title')){
+         return <Link id="searchbar-result" to={`/movies/${result._id}`}>{result.title}</Link>
+        } else {
+          return <Link id="searchbar-result" to={`/actors/${result._id}`}>{result.name}</Link>
+       }
     })
   }
       

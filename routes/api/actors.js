@@ -12,5 +12,13 @@ router.get('/:id', (req, res) => {
             res.status(404).json({ actornotfound: 'Actor not found with that id' }))
 });
 
+router.get('/search/:term', (req, res) => {
+    Actor.find({ name: new RegExp(req.params.term, 'i') })
+        .limit(2)
+        .sort({ title: 1 })
+        .then(actors => res.json(actors))
+        .catch(err => res.status(404).json({ noactorfound: 'actor not found' }))
+});
+
 
 module.exports = router;
