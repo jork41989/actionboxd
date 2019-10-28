@@ -17,6 +17,12 @@
     padding: 1px;
     
 }
+#searchbar-result-actor{
+    display: block;
+    text-decoration: none;
+    color: rgb(133, 151, 152);
+    padding: 1px;
+}
 
 
 .navbar-links{
