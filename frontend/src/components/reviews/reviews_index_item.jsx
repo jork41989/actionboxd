@@ -24,7 +24,7 @@ class ReviewsIndexItem extends React.Component{
             if (this.props.currentUser.username === this.props.review.username) {
                 return (
                     <div
-                        onClick={() => this.props.openModal({ modal: 'edit', reviewId: this.props.review._id, movieId: this.props.review.movie_id})}
+                        onClick={() => this.props.openModal({ modal: 'edit-review', reviewId: this.props.review._id, movieId: this.props.review.movie_id})}
                         className="edit-pen"
                     >edit
                     </div>)

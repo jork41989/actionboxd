@@ -35,8 +35,9 @@ function Modal ({payload, closeModal}) {
     case 'movie':
       component = <MovieFormContainer />;
       break;
-    case 'edit':
+    case 'edit-review':
       component = <ReviewsEditFormContainer movieId={payload.movieId} reviewId={payload.reviewId}/>;
+      break;
     case 'actor':
       component = <ActorFormContainer />;
       break;
@@ -45,7 +46,7 @@ function Modal ({payload, closeModal}) {
   }
 
   let modalBackgroundClass = payload.modal === 'trailer' ? "modal-background-trailer" : "modal-background";
-  let modalChildClass = payload.modal === 'review' || 'edit' ? "modal-child-review" : "modal-child";
+  let modalChildClass = payload.modal === 'review' ? "modal-child-review" : "modal-child";
 
   return (
     <div className={modalBackgroundClass} onClick={closeModal}>
