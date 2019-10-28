@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { closeModal } from '../../actions/modal_actions';
 import { writeReview } from '../../actions/review_actions';
-import ReviewsCreateForm from './reviews_create_form';
+import ReviewsForm from './reviews_form';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,7 +10,11 @@ const mapStateToProps = (state, ownProps) => {
     return({
         movie: state.entities.movies[movieId],
         currentUser: state.session.user,
-        errors: state.errors.review
+        errors: state.errors.review,
+        review: {
+                text: "",
+                rating: "",
+        },
     })
 
 }
@@ -22,4 +26,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ReviewsCreateForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ReviewsForm));

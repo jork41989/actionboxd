@@ -6,7 +6,7 @@ import SignupFormContainer from '../session/signup_form_container';
 import TrailerContainer from '../movies/trailer_container';
 import ReviewsCreateFormContainer from '../reviews/reviews_create_form_container';
 import MovieFormContainer from '../movie-form/movie_form_container';
-import ReviewsEditContainer from '../reviews/reviews_edit_container';
+import ReviewsEditFormContainer from '../reviews/reviews_edit_form_container';
 
 import './modal.css';
 
@@ -34,7 +34,7 @@ function Modal ({payload, closeModal}) {
       component = <MovieFormContainer />;
       break;
     case 'edit':
-      component = <ReviewsEditContainer />;
+      component = <ReviewsEditFormContainer />;
       break;
     default:
       return null;
