@@ -8,14 +8,6 @@ const validateMovieInput = require('../../validation/movie');
 const Movie = require('../../models/Movie');
 
 router.get('/', (req, res) => {
-<<<<<<< HEAD
-    Movie.find()
-      .sort({title: -1})
-      .then(movies => res.json(movies))
-      .catch(err => res.status(404).json({ moviesnotfound: 'movies not found'}))
-  });
-  
-=======
   Movie.find()
     .sort({title: -1})
     .populate({ path: 'reviews', select: 'rating' })
@@ -23,7 +15,6 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({ moviesnotfound: 'movies not found'}))
 });
 
->>>>>>> master
 
 router.get('/:id', (req, res) => {
   Movie.findById(req.params.id)
