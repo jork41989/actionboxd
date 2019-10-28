@@ -8,6 +8,7 @@ class ReviewsIndexItem extends React.Component{
 
         this.confirmDelete = this.confirmDelete.bind(this);
         this.trash = this.trash.bind(this);
+        this.edit = this.edit.bind(this);
     }
 
     confirmDelete(){
@@ -18,6 +19,23 @@ class ReviewsIndexItem extends React.Component{
         }
     }
 
+    edit(){
+        if (this.props.currentUser && Object.keys(this.props.currentUser).length !== 0) {
+            if (this.props.currentUser.username === this.props.review.username) {
+                return (
+                    <div
+                        onClick={() => this.props.openModal({ modal: 'edit', reviewId: this.props.review._id})}
+                        className="edit-pen"
+                    >edit
+                    </div>)
+            } else {
+                return (<div></div>)
+            }
+        } else {
+            return (<div></div>)
+        }
+
+    }
 
     trash(){ 
         if (this.props.currentUser && Object.keys(this.props.currentUser).length !== 0) {
@@ -71,8 +89,9 @@ class ReviewsIndexItem extends React.Component{
                             
                             Review by <Link to={`/users/${this.props.review.user_id}`}> <p className="review-username">{this.props.review.username}</p></Link> {rating}
                         </div>
-                        <div className="review-item-delete">
+                        <div className="review-item-actions">
                             {this.trash()}
+                            {this.edit()}
                         </div>    
                     </div>
                     <div className="review-item-body">
