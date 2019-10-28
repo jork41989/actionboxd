@@ -7,6 +7,8 @@ import TrailerContainer from '../movies/trailer_container';
 import ReviewsCreateFormContainer from '../reviews/reviews_create_form_container';
 import MovieFormContainer from '../movie-form/movie_form_container';
 import ReviewsEditFormContainer from '../reviews/reviews_edit_form_container';
+import ActorFormContainer from '../actor-form/actor_form_container';
+
 
 import './modal.css';
 
@@ -33,8 +35,13 @@ function Modal ({payload, closeModal}) {
     case 'movie':
       component = <MovieFormContainer />;
       break;
+<<<<<<< HEAD
     case 'edit':
       component = <ReviewsEditFormContainer movieId={payload.movieId} reviewId={payload.reviewId}/>;
+=======
+    case 'actor':
+      component = <ActorFormContainer />;
+>>>>>>> master
       break;
     default:
       return null;
