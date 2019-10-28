@@ -8,9 +8,11 @@
     padding: 6px 30px 6px 10px;
     border-radius: 15px;
     color: #89a;
-    /* box-shadow: 0 1px 0 #414d5e; */
-
+    outline: none;
 }
+
+
+
 #searchbar-result{
     display: block;
     text-decoration: none;
@@ -18,10 +20,17 @@
     padding: 1px;
     
 }
-
-/* .results {
+#searchbar-result-actor{
     display: block;
-} */
+    text-decoration: none;
+    color: rgb(133, 151, 152);
+    padding: 1px;
+}
+
+#searchbar-result:hover, #searchbar-result-actor:hover {
+    color:white;
+}
+
 
 .navbar-links{
     align-self: center;
@@ -35,5 +44,6 @@
     border-radius: 15px;
     background-color: #414d5e;
     border: 1px solid #414d5e;
-    padding: 5px; 
+    padding: 5px;
+    width: 17%; 
 }
