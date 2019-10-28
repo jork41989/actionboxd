@@ -14,7 +14,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.get('/search/:term', (req, res) => {
-    Actor.find({ name: new RegExp(req.params.term, 'i') })
+    Actor.find({ name: new RegExp(`^${req.params.term}`, 'i') })
         .limit(2)
         .sort({ title: 1 })
         .then(actors => res.json(actors))
