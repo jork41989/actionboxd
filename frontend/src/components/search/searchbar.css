@@ -9,7 +9,7 @@
     border-radius: 15px;
     color: #89a;
     /* box-shadow: 0 1px 0 #414d5e; */
-    margin-top: 12px;
+
 }
 #searchbar-result{
     display: block;
@@ -22,3 +22,8 @@
 /* .results {
     display: block;
 } */
+
+.navbar-links{
+    align-self: center;
+    margin-left: 10px;
+}
