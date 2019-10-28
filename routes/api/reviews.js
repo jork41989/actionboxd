@@ -108,7 +108,7 @@ router.patch('/:id', (req,res) => {
   Review.findByIdAndUpdate({_id: req.params.id},
     {$set: {text: req.body.text, rating: req.body.rating}},
     {new: true},
-    { runValidators: true }
+    // { runValidators: true }
     )
     .then((docs) => res.json(docs))
     .catch(err =>
