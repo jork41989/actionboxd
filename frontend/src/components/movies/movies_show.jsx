@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './movies_show.css'
 import ReviewsIndexContainer from '../reviews/reviews_index_container'
 
@@ -19,6 +20,10 @@ export default class MoviesShow extends React.Component {
     componentDidUpdate(prevProps){
         if (prevProps.match.params.movieId !== this.props.match.params.movieId){
             this.props.getMovie(this.props.match.params.movieId)
+        } else if(prevProps.movie && this.props.movie.reviews && prevProps.movie.reviews){
+            if(this.props.movie.reviews.length !== prevProps.movie.reviews.length){
+                this.props.getMovie(this.props.match.params.movieId);
+            }
         }
     }
 
@@ -35,40 +40,41 @@ export default class MoviesShow extends React.Component {
     watched(){
       
         if (this.props.currentUser){
-        if (this.props.currentUser.watched_movies){
-            if (this.props.currentUser.watched_movies.includes(this.props.match.params.movieId)){
-                return (
-                    <li className="actions-panel-watch-container" onClick={this.removeWatch}>
-                        <div className={'watched'}></div>
-                        
-                        Watched
-                    </li>
-                )
-            } else {
-                return (
-                    <li className="actions-panel-watch-container" onClick={this.addWatch}>
-                        <div className={'not-watched'}></div>
-                            Watch
-                    </li>
-                )
+            if (this.props.currentUser.watched_movies){
+                if (this.props.currentUser.watched_movies.includes(this.props.match.params.movieId)){
+                    return (
+                        <li className="actions-panel-watch-container" onClick={this.removeWatch}>
+                            <div className={'watched'}></div>
+                            
+                            Watched
+                        </li>
+                    )
+                } else {
+                    return (
+                        <li className="actions-panel-watch-container" onClick={this.addWatch}>
+                            <div className={'not-watched'}></div>
+                                Watch
+                        </li>
+                    )
+                }
             }
         }
-    }
         // 
     }
+
+
     actionSignIn(){
-        if (this.props.currentUser) {
-            if (!this.props.currentUser.watched_movies){
+        if ((!this.props.currentUser) || (this.props.currentUser && Object.keys(this.props.currentUser).length === 0)){
                 return (
                     <div className={'actionSignIn'}>
                         <p onClick={() => this.props.openModal({ modal: 'login' })} className={'actionSignIn'}>Sign in to log, rate or review</p>
                     </div>
                 )
             }
-        }
+        
     }
     render() {
-        if (!this.props.movie) {
+        if (!this.props.movie || !this.props.movie.actors) {
             return <div>Loading...</div>;
         }
 
@@ -86,21 +92,35 @@ export default class MoviesShow extends React.Component {
             backgroundImage: `url(${this.props.movie.background_image_url})`
         }
 
+        let reviewPanel;
+        reviewPanel = !((!this.props.currentUser) || (this.props.currentUser && Object.keys(this.props.currentUser).length === 0)) ? 
+            <li className="actions-panel-reviews-container">
+                <button
+                    className="review-button"
+                    onClick={() => this.props.openModal({ modal: 'review', movieId: this.props.match.params.movieId })}
+                >Review</button>
+            </li>
+        : <div></div>
+
+
+        let castList = this.props.movie.actors.map(actor => {
+            return <Link to={`/actors/${actor._id}`} className="actor-show-link">
+                {actor.name}
+            </Link>
+        });
+
+        let backgroundDivs = this.props.movie.background_image_url ? 
+            <div className="background-image-container">
+                <div style={backgroundImageStyle}></div>
+                <div className="fade"></div>
+            </div>
+            : <div></div>
 
         return (
             <div className="movie-show-body">
 
                 <div className="movie-show-container">
-                    <div className="background-image-container">
-                        <div style={backgroundImageStyle}></div>
-                        {/* <img 
-                            // src={this.props.movie.background_image_url}
-                            style={backgroundImageStyle}
-                            alt={coverAlt}
-                            className="background-image"
-                        /> */}
-                        <div className="fade"></div>
-                    </div>
+                    {backgroundDivs}
 
                     <div className="movie-show-content">
 
@@ -144,20 +164,24 @@ export default class MoviesShow extends React.Component {
                             <ul className="actions-panel">
                                 {this.watched()}
                                 {this.actionSignIn()}
-                                <li className="actions-panel-reviews-container">
-                                    <button 
-                                        className="review-button"
-                                        onClick={() => this.props.openModal({ modal: 'review', movieId: this.props.match.params.movieId })}
-                                    >Review</button>
-                                </li>
+                                {reviewPanel}
                             </ul>
+
+                            <div className="movie-show-cast-container">
+                                <h2 className="movie-show-cast-header">
+                                    CAST
+                                </h2>
+                                <div className="movie-show-cast">
+                                    {castList}
+                                </div>
+                            </div>
 
                             <div className="movie-show-info-reviews-container">
                                 <h2 className="movie-show-reviews-header">
                                     REVIEWS
                                 </h2>
                                 <div className="movie-show-info-reviews"> 
-                                    <ReviewsIndexContainer movie={this.props.movie} />
+                                    <ReviewsIndexContainer />
                                 </div>
                             </div>
                         </section>

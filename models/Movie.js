@@ -22,10 +22,18 @@ const MovieSchema = new Schema({
   trailer_url: {
     type: String,
     required: false
+  }, 
+  background_image_url: {
+    type: String,
+    required: false
   },
   reviews: [{
     type: Schema.Types.ObjectId,
     ref: 'review'
+  }],
+  actors: [{
+    type: Schema.Types.ObjectId,
+    ref: 'actor'
   }]
 });
 

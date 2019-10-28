@@ -1,6 +1,5 @@
 .movie-show-body{
-    position:fixed;
-    overflow: scroll;
+
     height: 100%;
     width: 100%;
     padding:0;
@@ -8,11 +7,12 @@
     top:0;
     left:0;
     /* background: #13191d; */
-    background: #14181d;
+    
 }
 
 .background-image-container{
     position: absolute;
+    background: #14181d;
     z-index: 0;
     top: 0;
     left: 0;
@@ -90,6 +90,7 @@
 .poster{
     border: 1px solid #9ab;
     border-radius: 4px; 
+    width: 100%;
 }
 
 .movie-stats{
@@ -254,6 +255,7 @@
 
 .review-button:hover{
 color: #ffff;
+cursor: pointer;
 }
 
 .review-button:focus{
@@ -268,7 +270,7 @@ color: #ffff;
     width: 100%;   
 }
 
-.movie-show-reviews-header{
+.movie-show-reviews-header, .movie-show-cast-header{
     font-family: Graphik-Regular-Web,sans-serif;
     font-weight: 400;
     font-size: 13px;
@@ -310,4 +312,32 @@ color: #ffff;
 
 .actionSignIn:hover{
     color: white;
+}
+
+.movie-show-cast-container{
+    width: 390px;
+}
+
+.movie-show-cast{
+    width: 390px;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+.actor-show-link{
+    display: inline-block;
+    padding: 3px 6px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    border-radius: 3px;
+    background: #242c34;
+    color: #9ab;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 hsla(0,0%,100%,.1);
+    transition: all .2s;
+}
+
+.actor-show-link:hover{
+    color: #def;
+    transition: all .2s;
 }

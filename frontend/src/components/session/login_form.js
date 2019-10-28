@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import './forms.css'
+import './forms.css';
+import ReactTooltip from 'react-tooltip'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -14,15 +15,19 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.errorCheck = this.errorCheck.bind(this)
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
-    if (nextProps.isAuthenticated === true) {
+
+  errorCheck() {
+    
+    
+    if (this.props.currentUser && Object.keys(this.props.currentUser).length > 0) {
       this.props.closeModal()
     }
-
-    this.setState({errors: nextProps.errors})
+    
+    this.setState({ errors: this.props.errors })
+    
   }
 
   update(field) {
@@ -39,19 +44,31 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user)
+    this.props.login(user).then(this.errorCheck)
   }
 
   renderErrors() {
+    
+    if (Object.keys(this.state.errors).includes('email')){
+     let emailFeild = document.getElementById('email')
+      emailFeild.style.border = '3px solid red'
+    } 
+    if (Object.keys(this.state.errors).includes('password')) {
+      let pwFeild = document.getElementById('password')
+      pwFeild.style.border = '3px solid red'
+    }
+
 
     return(
-      <ul>
+      <div>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
+            <div  id={i}>
+            <ReactTooltip id={error}  place="top" type="error" effect="solid">
+              <span>{this.state.errors[error]}</span>
+            </ReactTooltip>
+          </div>
         ))}
-      </ul>
+      </div>
     );
   }
 
@@ -64,13 +81,17 @@ class LoginForm extends React.Component {
             <div className={'formCenter'}>
               <p className={'formHeader'}>Sign In</p>
               <br/>
+              {this.renderErrors()}
+         
                 <input type="text"
                   value={this.state.email}
                   onChange={this.update('email')}
                 placeholder="Email" 
                 className={'formInput'}
-                id={'email'}
+                  id={'email'}
+                  data-tip data-for={'email'}
                 />
+                
               <br/>
                 <input type="password"
                   value={this.state.password}
@@ -78,10 +99,11 @@ class LoginForm extends React.Component {
                   placeholder="Password"
                   className={'formInput'}
                   id={'password'}
+                data-tip data-for={'password'}
                 />
               <br/>
               <input type="submit" value="Sign In" className={'submit'}/>
-              {this.renderErrors()}
+             
             </div>
           </form>
         </div>

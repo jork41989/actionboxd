@@ -1,5 +1,6 @@
 import React from 'react'
 import './reviews_form.css'
+import ReactTooltip from 'react-tooltip'
 
 class ReviewsCreateForm extends React.Component {
     constructor(props){
@@ -8,46 +9,95 @@ class ReviewsCreateForm extends React.Component {
         this.state = {
             text: "",
             rating: "",
-            username: this.props.currentUser.username
+            username: this.props.currentUser.username,
+            errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.confirmExit = this.confirmExit.bind(this);
+        // this.confirmExit = this.confirmExit.bind(this);
+        this.clearedErrors = false;
+        this.errorCheck = this.errorCheck.bind(this);
     }
 
-//errors 
+    errorCheck() {
+        if (Object.keys(this.props.errors).length === 0) {
+            this.props.closeModal()
+        }
+        this.setState({ errors: this.props.errors })
+    }  
 
-    update(field){
+    updateRating(num) {
         return e => {
-            this.setState({[field]: e.currentTarget.value})
+            this.setState({ rating: num })
         };
     }
 
-    handleSubmit(e){
-        e.preventDefault();
-        let review = Object.assign({}, this.state);
-        this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id);
-        this.props.closeModal();
+    updateText() {
+        return e => {
+            this.setState({ text: e.currentTarget.value })
+        };
     }
 
-    confirmExit(e) {
+    handleSubmit(e) {
         e.preventDefault();
-        let result = window.confirm("Are you sure you want to exit?");
-        if (result) {
-            this.props.closeModal();
+        let review = {
+            text: this.state.text,
+            rating: this.state.rating,
+            username: this.state.username
         }
+        this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id)
+            .then(this.errorCheck);
+        // this.props.closeModal();
     }
+
+    renderErrors() {
+
+        if (Object.keys(this.state.errors).includes('text')) {
+            let textField = document.getElementById('text')
+            textField.style.border = '3px solid red'
+        }
+        if (Object.keys(this.state.errors).includes('rating')) {
+            let ratingField = document.getElementById('rating-input')
+            ratingField.style.border = '3px solid red'
+        }
+
+        return (
+            <div>
+                {Object.keys(this.state.errors).map((error, i) => (
+                    <div id={i}>
+                        <ReactTooltip id={error} place="top" type="error" effect="solid">
+                            <span>{this.state.errors[error]}</span>
+                        </ReactTooltip>
+                    </div>
+                ))}
+            </div>
+        );
+    }
+
+
 
     render() {
-        //add on change to radio buttons 
-        //find how to turn into stars
-        //style modal 
         let posterAlt = `${this.props.movie.title} poster`;
-        let errorsList = (this.props.errors) ? (
-            this.props.errors.map((error, index) => (
-                <li className="errors" key={index}>{error}</li>
-            ))) : (
-                <div></div>
-            );
+        let ratingSelect;
+        
+        switch(this.state.rating){
+            case "1.0":
+                ratingSelect = "one";
+                break;
+            case "2.0":
+                ratingSelect = "two";
+                break;
+            case "3.0":
+                ratingSelect = "three";
+                break;
+            case "4.0":
+                ratingSelect = "four";
+                break;
+            case "5.0":
+                ratingSelect = "five";
+                break;
+            default: 
+                ratingSelect = "";
+        }
 
         return (
             <div className="reviews-form-container">
@@ -60,47 +110,32 @@ class ReviewsCreateForm extends React.Component {
                 </div>
 
                 <div className="form-review-panel">
-                    {errorsList}
                     <p className="review-intro">I WATCHED...</p>
                     <p className="review-header">{this.props.movie.title}</p><p className="review-movie-year">{this.props.movie.year}</p>
                     <form className="reviews-create-form" onSubmit={this.handleSubmit}>
 
                         <textarea  
-                            onChange={this.update("text")} 
+                            id="text"
+                            data-tip data-for="text"
+                            onChange={this.updateText()} 
                             value={this.state.text} 
                             placeholder="Add a review..." 
                         />
                         
-                        <div className="review-stars">
+                        <div id="rating-input" className="review-stars" data-tip data-for="rating">
 
-                            <div className={'review-stars-1'}></div>
-                            <div className={'review-stars-2'}></div>
-                            <div className={'review-stars-3'}></div>
-                            <div className={'review-stars-4'}></div>
-                            <div className={'review-stars-5'}></div>
-                            <div className="review-stars-color">
-                            {/* <input className="rating-slider" type="range" min="0" max="10" step="1"/>
-                            <div className="rating-slider-render"></div> */}
+                            <div className={'review-stars-1'} onClick={this.updateRating("1.0")}></div>
+                            <div className={'review-stars-2'} onClick={this.updateRating("2.0")}></div>
+                            <div className={'review-stars-3'} onClick={this.updateRating("3.0")}></div>
+                            <div className={'review-stars-4'} onClick={this.updateRating("4.0")}></div>
+                            <div className={'review-stars-5'} onClick={this.updateRating("5.0")}></div>
+                            <div className={`review-stars-color ${ratingSelect}`}></div>
 
-                            {/* <label htmlFor="1">1</label>
-                            <input onClick={this.update("rating")} type="radio" id="1" value="1.0" />
-
-                            <label htmlFor="2">2</label>
-                            <input onClick={this.update("rating")} type="radio" id="2" value="2.0" />
-
-                            <label htmlFor="3">3</label>
-                            <input onClick={this.update("rating")} type="radio" id="3" value="3.0" />
-
-                            <label htmlFor="4">4</label>
-                            <input onClick={this.update("rating")} type="radio" id="4" value="4.0" />
-
-                            <label htmlFor="5">5</label>
-                            <input onClick={this.update("rating")} type="radio" id="5" value="5.0" /> */}
                             
-                            </div>
+                            
                             
                         </div>
-
+                        {this.renderErrors()}
                         <div className="submit-row">
                             <button className="reviews-submit">Save</button>
                         </div>
@@ -109,7 +144,8 @@ class ReviewsCreateForm extends React.Component {
                 </div>
                 <div
                     className="review-close-button"
-                    onClick={this.confirmExit}
+                    // onClick={this.confirmExit}
+                    onClick={this.props.closeModal}
                 >X</div> 
             </div>
         )
