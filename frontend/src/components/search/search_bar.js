@@ -36,7 +36,7 @@ class SearchBar extends React.Component {
        if (result.hasOwnProperty('title')){
          return <Link id="searchbar-result" to={`/movies/${result._id}`}>{result.title}</Link>
         } else {
-          return <Link id="searchbar-result" to={`/actors/${result._id}`}>{result.name}</Link>
+          return <Link id="searchbar-result-actor" to={`/actors/${result._id}`}>{result.name}</Link>
        }
     })
   }
