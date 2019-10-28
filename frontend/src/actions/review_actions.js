@@ -44,7 +44,7 @@ export const getMostRecentReviews = () => dispatch => (
 //     }
 
 export const deleteReview = (review, payload) => dispatch => (
-    ReviewsApiUtil.deleteReview(review._id, payload)
+    ReviewsApiUtil.deleteReview(review.movie_id, review._id, payload)
         .then(() => dispatch(removeReview(review)))
 )
 
