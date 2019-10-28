@@ -12,3 +12,6 @@ export const unWatchMovie = (id, data) => {
   return axios.patch(`/api/users/${id}/unwatch`, data)
 }
 
+export const getCurUser = (id) => {
+  return axios.get(`/api/users/current`)
+}

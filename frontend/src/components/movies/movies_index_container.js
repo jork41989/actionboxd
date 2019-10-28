@@ -6,10 +6,11 @@ import { watchAMovie, unwatchAMovie } from '../../actions/users_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {{
+    let currentUser = state.session.user ? state.entities.users[state.session.user.id] : {}
     return ({    
         movies: Object.values(state.entities.movies),
         reviews: Object.values(state.entities.reviews).sort((a, b) => (a.date < b.date) ? 1 : -1),
-        currentUser: state.session.user
+        currentUser: currentUser
         
     })
     }

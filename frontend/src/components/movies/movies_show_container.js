@@ -6,9 +6,11 @@ import { watchAMovie, unwatchAMovie } from '../../actions/users_actions'
 
 
 const mapStateToProps = (state, ownProps) => {
+    let currentUser = state.session.user ? state.entities.users[state.session.user.id] : {}
+
     return({
         movie: state.entities.movies[ownProps.match.params.movieId],
-        currentUser: state.session.user
+        currentUser: currentUser
     })
 }
 

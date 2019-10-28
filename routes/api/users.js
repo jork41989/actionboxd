@@ -12,12 +12,25 @@ const validateLoginInput = require('../../validation/login');
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-  res.json({
-    id: req.user.id,
-    username: req.user.username,
-    email: req.user.email
-  });
-})
+  User.findOne({ _id: req.user.id })
+    .populate({ path: 'watched_movies', select: '_id title poster_url' })
+    .populate({ path: 'authored_reviews', select: '_id text rating date movie_id' })
+    .then(user => {
+      let watchedMovieObj = {}
+      user.watched_movies.forEach(movie => {
+        watchedMovieObj[movie._id] = movie
+      });
+       res.json({
+        username: user.username,
+        watched_movies: watchedMovieObj,
+        authored_reviews: user.authored_reviews,
+        id: user.id,
+      })})
+    .catch(err => res.status(404).json({ moviesnotfound: 'Yo dog there is no user!' })) 
+});
+
+
+
 
 router.post('/register', (req, res) => {
   
@@ -69,8 +82,7 @@ router.post('/login', (req, res) => {
   const password = req.body.password;
 
   User.findOne({ email })
-    .populate({ path: 'watched_movies', select: '_id title poster_url' })
-    .populate({ path: 'authored_reviews', select: '_id text rating date movie_id' })
+
     .then(user => {
       if (!user) {
         return res.status(404).json({ email: 'This user does not exist' });
@@ -83,9 +95,7 @@ router.post('/login', (req, res) => {
               id: user.id,
                username: user.username,
                email: user.email,
-                watched_movies: user.watched_movies,
-                authored_reviews: user.authored_reviews,
-                admin: user.admin
+              admin: user.admin
               };
 
             jwt.sign(
@@ -99,8 +109,6 @@ router.post('/login', (req, res) => {
                   token: 'Bearer ' + token,
                   username: user.username,
                   email: user.email,
-                  watched_movies: user.watched_movies,
-                  authored_reviews: user.authored_reviews,
                   admin: user.admin
                 });
               });
@@ -126,13 +134,19 @@ router.patch('/:user_id/watch', passport.authenticate('jwt', { session: false })
         } else {
           console.log(success);
         }
+      })
+      .populate({ path: 'watched_movies', select: '_id title poster_url' })
+      .then( user => {
+      let watchedMovieObj = {}
+      user.watched_movies.forEach(movie => {
+        watchedMovieObj[movie._id] = movie
       });
-    return res.json({
-      id: updatedUser.id,
-      watched_movies: updatedUser.watched_movies
-    });
 
-});
+    res.json({
+      id: user.id,
+      watched_movies: watchedMovieObj
+  })
+})});
 
 
 
@@ -151,11 +165,19 @@ router.patch('/:user_id/unwatch', passport.authenticate('jwt', { session: false 
       } else {
         console.log(success);
       }
-    });
-  return res.json({
-    id: updatedUser.id,
-    watched_movies: updatedUser.watched_movies
-  });
+    })
+    .populate({ path: 'watched_movies', select: '_id title poster_url' })
+    .then( user => {
+      let watchedMovieObj = {}
+      user.watched_movies.forEach(movie => {
+        watchedMovieObj[movie._id] = movie
+      });
+
+    res.json({
+      id: user.id,
+      watched_movies: watchedMovieObj
+  })
+});
 
 });
 
@@ -197,12 +219,20 @@ router.get('/:user_id', (req, res) => {
   User.findById(req.params.user_id)
   .populate({ path: 'watched_movies', select: '_id title poster_url'})
   .populate({path: 'authored_reviews', select: '_id text rating date movie_id'})
-   .then(user => res.json({
+  
+   .then(user => {
+     let watchedMovieObj = {}
+      user.watched_movies.forEach(movie => {
+       watchedMovieObj[movie._id] = movie
+     });
+    
+    res.json({
+     
       username: user.username,
-      watched_movies: user.watched_movies,
+      watched_movies: watchedMovieObj,
       authored_reviews: user.authored_reviews,
       id: user.id,
-    }))
+    })})
     .catch(err => 
       res.status(404).json({nomoviesfound: 'no movies found for this user'}))
 })

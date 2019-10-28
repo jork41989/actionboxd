@@ -5,7 +5,7 @@ import Profile from './profile';
 const mapStateToProps = (state, ownProps) => {
   const userId = parseInt(ownProps.match.params.id);
   let user = state.entities.users[userId];
-
+  let currentUser = state.session.user ? state.entities.users[state.session.user.id] : {};
   if (user) {
     user = Object.assign({}, user)
   }
@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     user: user,
     errors: state.errors,
-    currentUser: state.session.user
+    currentUser: currentUser
   };
 };
 
