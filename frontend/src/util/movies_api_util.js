@@ -12,3 +12,6 @@ export const getMovie = (id) => {
   return axios.get(`/api/movies/${id}`)
 }
 
+export const newMovie = (data) => {
+  return axios.post(`/newMovie`, data)
+}

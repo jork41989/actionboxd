@@ -10,6 +10,9 @@ class AdminPortal extends React.Component {
 
   componentDidMount(){
     console.log(this.props)
+    if (!this.props.currentUser.admin) {
+      this.props.history.push('/')
+    }
   }
 
   render(){
@@ -18,9 +21,9 @@ class AdminPortal extends React.Component {
       <div>
         
         <p className={'Admin-welcome'}> Hello {this.props.currentUser.username}</p>
-        <div>
-        <button>Add Movie</button>
-        <button>Add Actor</button>  
+        <div className={'Admin-Buttons-div'}>
+          <button className={'Admin-Buttons'}>Add Movie</button>
+          <button className={'Admin-Buttons'} >Add Actor</button>  
         </div>
       </div>
     )

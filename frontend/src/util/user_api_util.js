@@ -11,3 +11,4 @@ export const watchMovie = (id, data) => {
 export const unWatchMovie = (id, data) => {
   return axios.patch(`/api/users/${id}/unwatch`, data)
 }
+
