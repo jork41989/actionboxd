@@ -9,16 +9,31 @@
     border-radius: 15px;
     color: #89a;
     /* box-shadow: 0 1px 0 #414d5e; */
-    margin-top: 12px;
+
 }
 #searchbar-result{
     display: block;
     text-decoration: none;
     color: inherit;
     padding: 1px;
-    background-color: #414d5e;
+    
 }
 
 /* .results {
     display: block;
 } */
+
+.navbar-links{
+    align-self: center;
+    margin-left: 10px;
+}
+
+.results{
+    position: absolute;
+    top: 58px;
+    right: 89px;
+    border-radius: 15px;
+    background-color: #414d5e;
+    border: 1px solid #414d5e;
+    padding: 5px; 
+}
