@@ -11,11 +11,11 @@ module.exports = function validateMovieInput(data) {
   data.poster_url= validText(data.poster_url) ? data.poster_url : '';
   data.trailer_url = validText(data.trailer_url) ? data.trailer_url : '';
 
-  if (!Validator.isLength(data.title, { min: 2, max: 30 })) {
+  if (!Validator.isLength(data.title, { min: 2, max: 50 })) {
     errors.title = 'Title must be between 2 and 30 characters';
   }
 
-  if (!Validator.isLength(data.description, { min: 5, max: 300 })) {
+  if (!Validator.isLength(data.description, { min: 5, max: 1000 })) {
     errors.description = 'Description must be between 2 and 30 characters';
   }
 
