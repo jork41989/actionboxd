@@ -77,7 +77,7 @@ export default class MoviesIndexItem extends React.Component {
         let count = 0
         this.props.movie.reviews.forEach(review => {
             
-            if (review){
+            if (review.rating){
                 count += 1
                 sum += parseInt(review.rating.$numberDecimal)
             }
@@ -137,28 +137,28 @@ export default class MoviesIndexItem extends React.Component {
     render (){
         
     return (
-            <div className="index-thumbnail-div" >
-        <Link to={`/movies/${this.props.movie._id}`} className="index-thumbnail-link">
-            <li className="movies-list-item">
-                <div className="movies-list-item-container">
-                    <div className="index-thumbnail-container">
-                        <img 
-                            src={this.props.movie.poster_url} 
-                            alt=""
-                            className="index-thumbnail"
-                        />
+        <div className="index-thumbnail-div" >
+            <Link to={`/movies/${this.props.movie._id}`} className="index-thumbnail-link">
+                <li className="movies-list-item">
+                    <div className="movies-list-item-container">
+                        <div className="index-thumbnail-container">
+                            <img 
+                                src={this.props.movie.poster_url} 
+                                alt=""
+                                className="index-thumbnail"
+                            />
+                            
+                        </div>
                         
+                        <div className="movies-list-item-title">
+                            {this.props.movie.title}
+                        </div>
                     </div>
-                    
-                    <div className="movies-list-item-title">
-                        {this.props.movie.title}
-                    </div>
-                </div>
-            </li>
-        </Link>
-        <div className={'rating'}>
-            {this.ratingStar()}
-        </div>
+                </li>
+            </Link>
+            <div className={'rating'}>
+                {this.ratingStar()}
+            </div>
             <div className="index-item-actions">
                 {this.watched()}
                 {this.review()}
