@@ -38,10 +38,10 @@ export const getMostRecentReviews = () => dispatch => (
         .then(reviews => dispatch(receiveMostRecentReviews(reviews.data)))
 )
 
-// export const writeReview = (review, movieId, userId) => dispatch => {
-//     return ReviewsApiUtil.writeReview(review, movieId, userId)
-//     .then(review => dispatch(receiveReview(review.data))).catch(err => dispatch(receiveReviewErrors(err))) 
-//     }
+export const updateReview = (review) => dispatch => (
+    ReviewsApiUtil.updateReview(review)
+        .then(review => dispatch(receiveReview(review.data)))
+)
 
 export const deleteReview = (review, payload) => dispatch => (
     ReviewsApiUtil.deleteReview(review.movie_id, review._id, payload)
