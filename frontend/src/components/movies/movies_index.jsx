@@ -15,6 +15,12 @@ class MoviesIndex extends React.Component{
         this.props.getMostRecentReviews();
     }
 
+    componentDidUpdate(prevProps){
+        if (prevProps.reviews[0] !== this.props.reviews[0]){
+            this.props.getMostRecentReviews();
+        }
+    }
+
     render(){
         let moviesList = this.props.movies.map(movie => 
             <MoviesIndexItem key={movie._id} 
