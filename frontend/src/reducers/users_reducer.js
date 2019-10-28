@@ -1,6 +1,7 @@
 
 import { RECEIVE_SINGLE_USER, WATCH_MOVIE, UNWATCH_MOVIE } from "../actions/users_actions"
 import { REMOVE_REVIEW, RECEIVE_REVIEW } from "../actions/review_actions"
+import { RECEIVE_CURRENT_USER } from '../actions/session_actions'
 import merge from 'lodash/merge'
 
 export default (state = {}, action) => {
