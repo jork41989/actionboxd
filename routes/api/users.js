@@ -84,7 +84,8 @@ router.post('/login', (req, res) => {
                username: user.username,
                email: user.email,
                 watched_movies: user.watched_movies,
-                authored_reviews: user.authored_reviews
+                authored_reviews: user.authored_reviews,
+                admin: user.admin
               };
 
             jwt.sign(
@@ -99,7 +100,8 @@ router.post('/login', (req, res) => {
                   username: user.username,
                   email: user.email,
                   watched_movies: user.watched_movies,
-                  authored_reviews: user.authored_reviews
+                  authored_reviews: user.authored_reviews,
+                  admin: user.admin
                 });
               });
           } else {
