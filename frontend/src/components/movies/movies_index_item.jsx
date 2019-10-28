@@ -30,7 +30,7 @@ export default class MoviesIndexItem extends React.Component {
 
         if (this.props.currentUser) {
             if (this.props.currentUser.watched_movies) {
-                console.log(this.props.currentUser.watched_movies)
+               
                 if (Object.keys(this.props.currentUser.watched_movies).includes(this.props.movie._id)) {
                     return (
                         <li className="watched-index-container" onClick={this.removeWatch}>
@@ -53,6 +53,7 @@ export default class MoviesIndexItem extends React.Component {
     }
 
     actionSignIn() {
+        console.log(this.props.currentUser)
         if (this.props.currentUser) {
             if (!this.props.currentUser.watched_movies) {
                 return (
@@ -61,10 +62,17 @@ export default class MoviesIndexItem extends React.Component {
                     </div>
                 )
             }
+        } else if (!this.props.currentUser){
+            return (
+                <div className={'actionSignIn-Index'}>
+                    <p onClick={() => this.props.openModal({ modal: 'login' })} className={'actionSignIn-Index'}>Sign in</p>
+                </div>
+            )
         }
     }
 
     review(){
+
         if (this.props.currentUser) {
             if (this.props.currentUser.watched_movies) {
                 return (
