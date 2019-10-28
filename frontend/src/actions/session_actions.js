@@ -1,5 +1,6 @@
 import * as APIUtil from '../util/session_api_util';
 import jwt_decode from 'jwt-decode';
+import { getTheCurUser } from './users_actions';
 
 
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
@@ -41,9 +42,8 @@ export const login = user => dispatch => {
     localStorage.setItem('jwtToken', token); 
     APIUtil.setAuthToken(token);
     const decoded = jwt_decode(token);
-    
     dispatch(receiveCurrentUser(decoded))
-  })
+  }).then(() => dispatch(getTheCurUser()))
     .catch(err => {
       dispatch(receiveErrors(err.response.data))
     }))

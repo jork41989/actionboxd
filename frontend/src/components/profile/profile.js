@@ -29,7 +29,7 @@ class Profile extends React.Component {
     }
     MovieCount (){
         if (this.state.user.watched_movies){
-            return (<p className={'profileHeaderCountsUpper'}>{this.state.user.watched_movies.length}</p>)
+            return (<p className={'profileHeaderCountsUpper'}>{Object.values(this.state.user.watched_movies).length}</p>)
         }else {
             return (<p className={'profileHeaderCountsUpper'}>0</p>)
         }
@@ -44,7 +44,7 @@ class Profile extends React.Component {
     }
 
     profilehome(){
-        let moviesSample = this.state.user.watched_movies.slice(0, 5)
+        let moviesSample = Object.values(this.state.user.watched_movies).slice(0, 5)
         return (
             <div>
                 <div className={'profileTextLabel'}>
@@ -66,7 +66,7 @@ class Profile extends React.Component {
                 
             </div>
                 <div>
-                    <ProfileMoviesAllIndex movies={this.state.user.watched_movies} />
+                <ProfileMoviesAllIndex movies={Object.values(this.state.user.watched_movies)} />
                 </div>
             </div>)
     }
