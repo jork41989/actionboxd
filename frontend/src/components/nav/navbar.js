@@ -17,6 +17,12 @@ class NavBar extends React.Component {
 
  
 
+  componentDidMount(){
+    if (this.props.loggedIn && this.props.currentUser){
+      this.props.getTheCurUser()
+    }
+  }
+
   admin(){
     if (this.props.loggedIn && this.props.currentUser.admin ){
       return (<button> <Link to={'/admin'} className={'nav-Link'}>Admin</Link></button>)

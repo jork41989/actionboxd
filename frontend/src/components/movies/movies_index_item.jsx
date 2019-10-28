@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export default class MoviesIndexItem extends React.Component {
     constructor(props) {
         super(props);
+
         this.watched = this.watched.bind(this)
         this.addWatch = this.addWatch.bind(this)
         this.removeWatch = this.removeWatch.bind(this)
@@ -12,6 +13,8 @@ export default class MoviesIndexItem extends React.Component {
         this.rating = this.rating.bind(this)
         this.ratingStar = this.ratingStar.bind(this)
     }
+
+   
 
     addWatch() {
 
@@ -27,7 +30,8 @@ export default class MoviesIndexItem extends React.Component {
 
         if (this.props.currentUser) {
             if (this.props.currentUser.watched_movies) {
-                if (this.props.currentUser.watched_movies.includes(this.props.movie._id)) {
+                console.log(this.props.currentUser.watched_movies)
+                if (Object.keys(this.props.currentUser.watched_movies).includes(this.props.movie._id)) {
                     return (
                         <li className="watched-index-container" onClick={this.removeWatch}>
                             <div className={'watched-index'}></div>

@@ -38,23 +38,6 @@ export default function (state = initialState, action) {
                 ...state,
                 isSignedIn: true
             }
-        case WATCH_MOVIE:
-            return  merge({}, state, {user: action.user.data} )
-        case UNWATCH_MOVIE:
-            updatedUser = Object.assign({}, state.user)
-            updatedUser.watched_movies = action.user.data.watched_movies
-            newU =  Object.assign({}, state, { user: updatedUser })
-            return newU
-        case RECEIVE_REVIEW: 
-            updatedUser = Object.assign({}, state.user)
-            updatedUser.authored_reviews.push(action.review)
-            return merge({}, state, {user: updatedUser})
-        case REMOVE_REVIEW:
-            updatedUser = merge({}, state.user);
-            updatedUser.authored_reviews = updatedUser.authored_reviews.filter(rev => rev._id !== action.review._id);
-            newState = merge({}, state);
-            newState.user = updatedUser;
-            return newState;
         default:
             return state;
     }
