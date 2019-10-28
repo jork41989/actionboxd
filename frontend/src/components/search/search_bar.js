@@ -25,8 +25,7 @@ class SearchBar extends React.Component {
   render() {
     
     let options; 
-    // debugger
-    let style =  this.props.results ?  { display: 'none' } : { display: 'block' };
+    let style =  this.props.results.length === 0 ?  { display: 'none' } : { display: 'block' };
    if (!this.props.results){
      return options = <div></div>
     } else {

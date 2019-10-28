@@ -26,7 +26,7 @@
 }
 
 .results{
-    display: none;
+    /* display: none; */
     position: absolute;
     top: 58px;
     right: 89px;
