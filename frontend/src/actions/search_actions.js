@@ -13,7 +13,6 @@ const emptyList = () => ({
 })
 
 export const getMovieList = term => dispatch => {
-  
   return (SearchApiUtil.getMovieList(term)
     .then(list => dispatch(receiveMovieList(list))))
 }
