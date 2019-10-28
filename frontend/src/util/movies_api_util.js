@@ -10,7 +10,7 @@ export const getUserMovies = (id) => {
 
 export const getMovie = (id) => {
   return axios.get(`/api/movies/${id}`)
-}
+};
 
 export const newMovie = (data) => {
   return axios.post(`/api/movies/newMovie`, data)
