@@ -14,7 +14,7 @@ module.exports = function validateActorInput(data) {
     errors.name = 'Name must be between 2 and 30 characters';
   }
 
-  if (!Validator.isLength(data.bio, { min: 2, max: 50 })) {
+  if (!Validator.isLength(data.bio, { min: 2, max: 1000 })) {
     errors.bio = 'Bio must be between 2 and 30 characters';
   }
 
