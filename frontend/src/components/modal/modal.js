@@ -34,7 +34,7 @@ function Modal ({payload, closeModal}) {
       component = <MovieFormContainer />;
       break;
     case 'edit':
-      component = <ReviewsEditFormContainer />;
+      component = <ReviewsEditFormContainer movieId={payload.movieId} reviewId={payload.reviewId}/>;
       break;
     default:
       return null;

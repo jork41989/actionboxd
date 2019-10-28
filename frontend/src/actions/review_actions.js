@@ -5,6 +5,7 @@ export const RECEIVE_RECENT_REVIEWS = "RECEIVE_RECENT_REVIEWS";
 export const RECEIVE_MOVIE_REVIEWS = "RECEIVE_MOVIE_REVIEWS";
 export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 export const REMOVE_REVIEW = "REMOVE_REVIEW";
+// export const UPDATE_REVIEW = "UPDATE_REVIEW";
 
 const receiveReview = review => {
     return({
@@ -27,6 +28,11 @@ const removeReview = review => ({
     type: REMOVE_REVIEW,
     review
 })
+
+// const updateReview = review => ({
+//     type: UPDATE_REVIEW,
+//     review
+// })
 
 export const getReview = id => dispatch => (
     ReviewsApiUtil.getReview(id)

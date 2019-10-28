@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
         movie: state.entities.movies[movieId],
         currentUser: state.session.user,
         errors: state.errors.review,
-        review: state.entities.reviews[ownProps.reviewId]
+        review: state.entities.reviews[ownProps.reviewId],
+        action: 'edit'
     })
 
 }
