@@ -8,6 +8,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  border-radius: 10px;
 }
 
 
@@ -40,4 +41,8 @@
 
 .-actor-movie{
   display: inline !important;
+}
+
+.-actorFormInput{
+  width: 300px;
 }
