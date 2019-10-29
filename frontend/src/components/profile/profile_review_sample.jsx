@@ -56,7 +56,7 @@ class ProfileReviewsSample extends React.Component {
 
   
   render (){
-    console.log(this.props.review)
+
     let rating;
 
 
