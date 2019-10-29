@@ -2,7 +2,7 @@ import React from 'react'
 import './reviews_form.css'
 import ReactTooltip from 'react-tooltip'
 
-class ReviewsCreateForm extends React.Component {
+class ReviewsForm extends React.Component {
     constructor(props){
         super(props)
         let newReviewProps = Object.assign({}, this.props.review, {username: this.props.currentUser.username, errors: {}})
@@ -42,11 +42,14 @@ class ReviewsCreateForm extends React.Component {
             username: this.state.username
         }
         if (this.props.action === 'create'){
+            debugger;
             this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id)
                 .then(this.errorCheck);
         } else {
             review = Object.assign({}, {["_id"]: this.state._id}, review);
-            review.rating = review.rating.$numberDecimal;
+            if(review.rating.$numberDecimal){
+                review.rating = review.rating.$numberDecimal;
+            }
             this.props.updateReview(review)
                 .then(this.errorCheck);
         }
@@ -178,4 +181,4 @@ class ReviewsCreateForm extends React.Component {
     }
 }
 
-export default ReviewsCreateForm;
+export default ReviewsForm;
