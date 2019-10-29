@@ -7,11 +7,13 @@ import ReviewsForm from './reviews_form';
 
 const mapStateToProps = (state, ownProps) => {
     let movieId = ownProps.movieId;
+    let review = state.entities.reviews[ownProps.reviewId];
+    // review.rating = review.rating.$numberDecimal;
     return ({
         movie: state.entities.movies[movieId],
         currentUser: state.session.user,
         errors: state.errors.review,
-        review: state.entities.reviews[ownProps.reviewId],
+        review: review,
         action: 'edit'
     })
 

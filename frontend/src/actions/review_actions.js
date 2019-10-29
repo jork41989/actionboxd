@@ -46,7 +46,8 @@ export const getMostRecentReviews = () => dispatch => (
 
 export const updateReview = (review) => dispatch => (
     ReviewsApiUtil.updateReview(review)
-        .then(review => dispatch(updateAReview(review.data)))
+        .then(review => dispatch(updateAReview(review.data)),
+            err => dispatch(receiveReviewErrors(err.response.data)))
 )
 
 export const deleteReview = (review, payload) => dispatch => (
