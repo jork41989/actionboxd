@@ -38,7 +38,7 @@ class Profile extends React.Component {
     }
 
     ReviewCount() {
-        console.log(this.state.user)
+       
         if (this.state.user.authored_reviews) {
             return (<p className={'profileHeaderCountsUpper'}>{this.state.user.authored_reviews.length}</p>)
         } else {

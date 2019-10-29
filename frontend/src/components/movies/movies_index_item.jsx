@@ -53,7 +53,6 @@ export default class MoviesIndexItem extends React.Component {
     }
 
     actionSignIn() {
-        console.log(this.props.currentUser)
         if (this.props.currentUser) {
             if (!this.props.currentUser.watched_movies) {
                 return (
