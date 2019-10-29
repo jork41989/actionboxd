@@ -55,6 +55,9 @@ A movie review platform that allows users to collect, share and discover top act
 
 * Admin users can add movies or actors via forms locates on the Admin page. 
 
+### Errors
+
+![alt Text](http://g.recordit.co/3lnEShWV1Z.gif)
 
 
 ## Technologies & Challenges
