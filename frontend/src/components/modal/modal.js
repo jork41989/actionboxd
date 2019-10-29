@@ -45,7 +45,7 @@ function Modal ({payload, closeModal}) {
       return null;
   }
 
-  let modalBackgroundClass = payload.modal === 'trailer' ? "modal-background-trailer" : "modal-background";
+  let modalBackgroundClass = payload.modal === ('trailer' || 'actor') ? "modal-background-trailer" : "modal-background";
   let modalChildClass = payload.modal === 'review' ? "modal-child-review" : "modal-child";
 
   return (
