@@ -41,9 +41,12 @@ class MoviesIndex extends React.Component{
             </div>
         }
 
-        let firstSix = this.props.reviews.slice(0,6);
-        let reviewsList = firstSix.map(review => 
+        let firstThree = this.props.reviews.slice(0,3);
+        let secondThree = this.props.reviews.slice(3, 6);
+        let reviewsList1 = firstThree.map(review => 
             <IndexPageReviewsItem key={review._id} review={review}/>);
+        let reviewsList2 = secondThree.map(review =>
+            <IndexPageReviewsItem key={review._id} review={review} />);
 
         return(
             <div>
@@ -59,8 +62,13 @@ class MoviesIndex extends React.Component{
                     <div className="index-reviews-header">
                         RECENT REVIEWS
                     </div>
-                    <div className="index-reviews-container">
-                        {reviewsList}
+                    <div className="index-grids-container">
+                        <div className="index-reviews-container-1">
+                            {reviewsList1}
+                        </div>
+                        <div className="index-reviews-container-2">
+                            {reviewsList2}
+                        </div>
                     </div>
                 </div>
             </div>
