@@ -7,6 +7,9 @@ class ReviewsForm extends React.Component {
         super(props)
         let newReviewProps = Object.assign({}, this.props.review, {username: this.props.currentUser.username, errors: {}})
         this.state = newReviewProps;
+        if (this.props.action === 'edit'){
+            this.state.rating = this.props.review.rating.$numberDecimal;
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearedErrors = false;
         this.errorCheck = this.errorCheck.bind(this);
@@ -21,9 +24,6 @@ class ReviewsForm extends React.Component {
 
     updateRating(num) {
         return e => {
-            if (this.props.review.rating.$numberDecimal){
-                this.props.review.rating.$numberDecimal = num;
-            }
             this.setState({ rating: num });
         };
     }
@@ -42,18 +42,13 @@ class ReviewsForm extends React.Component {
             username: this.state.username
         }
         if (this.props.action === 'create'){
-            debugger;
             this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id)
                 .then(this.errorCheck);
         } else {
             review = Object.assign({}, {["_id"]: this.state._id}, review);
-            if(review.rating.$numberDecimal){
-                review.rating = review.rating.$numberDecimal;
-            }
             this.props.updateReview(review)
                 .then(this.errorCheck);
         }
-        // this.props.closeModal();
     }
 
     renderErrors() {
@@ -86,46 +81,24 @@ class ReviewsForm extends React.Component {
         let posterAlt = `${this.props.movie.title} poster`;
         let ratingSelect;
 
-        if (this.props.review.rating.$numberDecimal){
-            switch (this.props.review.rating.$numberDecimal) {
-                case "1.0":
-                    ratingSelect = "one";
-                    break;
-                case "2.0":
-                    ratingSelect = "two";
-                    break;
-                case "3.0":
-                    ratingSelect = "three";
-                    break;
-                case "4.0":
-                    ratingSelect = "four";
-                    break;
-                case "5.0":
-                    ratingSelect = "five";
-                    break;
-                default:
-                    ratingSelect = "";
-            }
-        } else {
-            switch(this.state.rating){
-                case "1.0":
-                    ratingSelect = "one";
-                    break;
-                case "2.0":
-                    ratingSelect = "two";
-                    break;
-                case "3.0":
-                    ratingSelect = "three";
-                    break;
-                case "4.0":
-                    ratingSelect = "four";
-                    break;
-                case "5.0":
-                    ratingSelect = "five";
-                    break;
-                default: 
-                    ratingSelect = "";
-            }
+        switch(this.state.rating){
+            case "1.0":
+                ratingSelect = "one";
+                break;
+            case "2.0":
+                ratingSelect = "two";
+                break;
+            case "3.0":
+                ratingSelect = "three";
+                break;
+            case "4.0":
+                ratingSelect = "four";
+                break;
+            case "5.0":
+                ratingSelect = "five";
+                break;
+            default: 
+                ratingSelect = "";
         }
 
         return (
@@ -173,7 +146,6 @@ class ReviewsForm extends React.Component {
                 </div>
                 <div
                     className="review-close-button"
-                    // onClick={this.confirmExit}
                     onClick={this.props.closeModal}
                 >X</div> 
             </div>
