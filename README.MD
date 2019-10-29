@@ -4,43 +4,59 @@
 
 [Visit Us!](https://actionboxd.herokuapp.com/#/)
 
+
+Created by
+
+[Jordan Ackerman](https://github.com/jork41989) 
+
+[Gabriel Antonio Barrios Hernandez](https://github.com/gbarrios212)
+
+[Frida Pulido](https://github.com/FridaPolished)
+
 A movie review platform that allows users to collect, share and discover top action movies from across history.
 
 ## Functionality & MVP
 
-User Auth
+### User Auth
 
-User profiles
+* Users can sign up and sign in
 
-Users Watched movies
+### User profiles
 
-Users Reviewed films
+* Users can see their watched films/ reviews
 
-Basic bio info
+### Users Watched movies
 
-Movie Show Pages
+* Users can mark a movie as watched
 
-Reviews
+### Users Reviewed films
 
-Movie info
-
-Review form
-
-Watched form/button
-
-Movie Review Form
-
-Movie watched functionality
-
-Movie search
-
-Actors table/info
-
-Ratings
+* Users can write a review on a film
+* Users can see other users reviews
 
 
+### Movie Show Pages
 
- 
+* Movies have show pages where users can see the actors who were in the film and a list of reviews. It also has a modal which can display the trailer and the movies poster. 
+
+### Ratings
+
+* Part of the review form is a raiting, the raiting is used seperatly on the index page to calculate the average star raiting for the film. 
+
+### Movie Actors search
+
+* Users can search via the nav bar.
+
+### Actors table/info
+
+* Actors have show pages that list their bio, a photo and a list of films they have been in. 
+
+### Admin Page
+
+* Admin users can add movies or actors via forms locates on the Admin page. 
+
+
+
 ## Technologies & Challenges
  
 ### Architecture
