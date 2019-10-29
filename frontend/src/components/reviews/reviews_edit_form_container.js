@@ -1,29 +1,27 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { closeModal } from '../../actions/modal_actions';
-import { writeReview } from '../../actions/review_actions';
+import { updateReview } from '../../actions/review_actions';
 import ReviewsForm from './reviews_form';
 
 
 const mapStateToProps = (state, ownProps) => {
     let movieId = ownProps.movieId;
-    return({
+    let review = state.entities.reviews[ownProps.reviewId];
+    // review.rating = review.rating.$numberDecimal;
+    return ({
         movie: state.entities.movies[movieId],
         currentUser: state.session.user,
         errors: state.errors.review,
-        review: {
-                text: "",
-                rating: "",
-        },
-        action: 'create'
+        review: review,
+        action: 'edit'
     })
 
 }
 
 const mapDispatchToProps = dispatch => ({
-//errors
     closeModal: () => dispatch(closeModal()),
-    writeReview: (review, movieId, userId) => dispatch(writeReview(review, movieId, userId))
+    updateReview: (review) => dispatch(updateReview(review))
 })
 
 

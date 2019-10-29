@@ -6,6 +6,7 @@ import SignupFormContainer from '../session/signup_form_container';
 import TrailerContainer from '../movies/trailer_container';
 import ReviewsCreateFormContainer from '../reviews/reviews_create_form_container';
 import MovieFormContainer from '../movie-form/movie_form_container';
+import ReviewsEditFormContainer from '../reviews/reviews_edit_form_container';
 import ActorFormContainer from '../actor-form/actor_form_container';
 
 
@@ -34,6 +35,9 @@ function Modal ({payload, closeModal}) {
     case 'movie':
       component = <MovieFormContainer />;
       break;
+    case 'edit-review':
+      component = <ReviewsEditFormContainer movieId={payload.movieId} reviewId={payload.reviewId}/>;
+      break;
     case 'actor':
       component = <ActorFormContainer />;
       break;
@@ -41,7 +45,7 @@ function Modal ({payload, closeModal}) {
       return null;
   }
 
-  let modalBackgroundClass = payload.modal === 'trailer' ? "modal-background-trailer" : "modal-background";
+  let modalBackgroundClass = payload.modal === ('trailer' || 'actor') ? "modal-background-trailer" : "modal-background";
   let modalChildClass = payload.modal === 'review' ? "modal-child-review" : "modal-child";
 
   return (

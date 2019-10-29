@@ -70,7 +70,7 @@ export default class MoviesIndexItem extends React.Component {
             )
         }
     }
-
+ 
     review(){
 
         if (this.props.currentUser) {

@@ -121,6 +121,15 @@ li {
     cursor: pointer;
 }
 
+.fa-trash-alt:hover{
+    color: #ffffff;
+}
+
 .review-username:hover{
     color: #ffffff;
+}
+
+.review-item-actions{
+    display: flex;
+    height: 15px;
 }

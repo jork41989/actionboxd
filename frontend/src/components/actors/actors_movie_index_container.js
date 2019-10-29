@@ -5,9 +5,15 @@ import { watchAMovie, unwatchAMovie } from '../../actions/users_actions';
 import { openModal } from '../../actions/modal_actions';
 
 
-const mapStateToProps = state => ({
-    currentUser: state.session.user
-})
+const mapStateToProps = state => {
+    {
+        let currentUser = state.session.user ? state.entities.users[state.session.user.id] : {}
+        return ({
+            currentUser: currentUser
+
+        })
+    }
+} 
 
 const mapDispatchToProps = dispatch => ({
     getMovies: () => dispatch(getMovies()),
