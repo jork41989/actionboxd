@@ -69,7 +69,7 @@ Styling and workload, the bonus features are a bit tedious and so we are a littl
 
 ![alt text](https://i.imgur.com/8STKHwk.png)
 
-* form
+* On opting to review a movie, an animated modal will provide users a text bubble to fill out their opinions of the film.  Users may also provide a rating for the movie, which will get added to the movie’s overall rating display in the index and user profile pages.  Errors display should a reviewer forget to add a rating or write a review that does not fit between 5 and 500 characters.  In order to prevent accidental loss of data, users can only exit out of this modal by clicking on the -x button.
 
 * movie local
 
@@ -95,7 +95,11 @@ Styling and workload, the bonus features are a bit tedious and so we are a littl
 
 * Hovering over each thumbnail provides an outline effect and displays additional possible actions dependent on current logged in status.  If logged out, users are provided with an option to sign in.  If logged in, users can opt to both mark a movie as watched and write up a review.
 
+### Movies Show Page
 
+![alt text](https://i.imgur.com/Ohx3lYr.png)
+
+* Users can view detailed information on selected movies.  Here, they can view a movie’s title, year, and description.  A cast section provides links to profile pages for major actors in the movie.  An action panel to the right provides users another option to sign in if logged out, as well as an opportunity to watch and review a movie.  To the left, below the poster, users can view an embedded trailer from the show page itself.
 
 
 ### Admin Page 
