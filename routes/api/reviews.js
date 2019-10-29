@@ -103,16 +103,23 @@ router.patch('/movies/:movie_id/:id', (req, res) => {
 //     .catch(err => res.json({nodeletion: 'no deletion made'})) 
 // });
 
-router.patch('/:id', (req,res) => {
+router.patch('/:id',
   passport.authenticate('jwt', { session: false }),
-  Review.findByIdAndUpdate({_id: req.params.id},
-    {$set: {text: req.body.text, rating: req.body.rating}},
-    {new: true},
-    // { runValidators: true }
-    )
-    .then((docs) => res.json(docs))
-    .catch(err =>
-      res.status(404).json({ noreviewupdate: 'Not able to update' }))
+  (req,res) => {
+
+    const { errors, isValid } = validateReviewInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    Review.findOneAndUpdate({_id: req.params.id},
+      {$set: {text: req.body.text, rating: req.body.rating}},
+      { runValidators: true, new: true }
+      )
+      .then((docs) => res.json(docs))
+      .catch(err =>
+        res.status(404).json(err))
 });
 
 
