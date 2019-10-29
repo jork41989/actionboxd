@@ -109,18 +109,17 @@ router.patch('/:id',
 
     const { errors, isValid } = validateReviewInput(req.body);
 
-    // if (!isValid) {
-    //   return res.status(400).json(errors);
-    // }
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
 
     Review.findOneAndUpdate({_id: req.params.id},
       {$set: {text: req.body.text, rating: req.body.rating}},
       { runValidators: true, new: true }
-      // {new: true}
       )
       .then((docs) => res.json(docs))
       .catch(err =>
-        res.status(404).json({ noreviewupdate: 'Not able to update' }))
+        res.status(404).json(err))
 });
 
 

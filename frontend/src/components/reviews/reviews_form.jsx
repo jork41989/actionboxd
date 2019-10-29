@@ -45,7 +45,6 @@ class ReviewsCreateForm extends React.Component {
             this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id)
                 .then(this.errorCheck);
         } else {
-            debugger;
             review = Object.assign({}, {["_id"]: this.state._id}, review);
             review.rating = review.rating.$numberDecimal;
             this.props.updateReview(review)
