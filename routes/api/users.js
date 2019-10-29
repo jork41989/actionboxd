@@ -14,7 +14,7 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
   User.findOne({ _id: req.user.id })
     .populate({ path: 'watched_movies', select: '_id title poster_url' })
-    .populate({ path: 'authored_reviews', select: '_id text rating date movie_id' })
+    .populate({ path: 'authored_reviews', select: '_id text rating date movie_id'})
     .then(user => {
       let watchedMovieObj = {}
       user.watched_movies.forEach(movie => {
@@ -51,7 +51,8 @@ router.post('/register', (req, res) => {
         const newUser = new User({
           username: req.body.username,
           email: req.body.email,
-          password: req.body.password
+          password: req.body.password,
+          admin: false
         })
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -218,7 +219,7 @@ router.delete('/:user_id/reviews/:review_id', (req, res) => {
 router.get('/:user_id', (req, res) => {
   User.findById(req.params.user_id)
   .populate({ path: 'watched_movies', select: '_id title poster_url'})
-  .populate({path: 'authored_reviews', select: '_id text rating date movie_id'})
+    .populate({ path: 'authored_reviews', select: '_id text rating date movie_id', populate: { path: 'movie_id ', select: '_id title poster_url'}})
   
    .then(user => {
      let watchedMovieObj = {}
