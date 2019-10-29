@@ -2,18 +2,12 @@ import React from 'react'
 import './reviews_form.css'
 import ReactTooltip from 'react-tooltip'
 
-class ReviewsCreateForm extends React.Component {
+class ReviewsForm extends React.Component {
     constructor(props){
         super(props)
-
-        this.state = {
-            text: "",
-            rating: "",
-            username: this.props.currentUser.username,
-            errors: {}
-        }
+        let newReviewProps = Object.assign({}, this.props.review, {username: this.props.currentUser.username, errors: {}})
+        this.state = newReviewProps;
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.confirmExit = this.confirmExit.bind(this);
         this.clearedErrors = false;
         this.errorCheck = this.errorCheck.bind(this);
     }
@@ -27,7 +21,10 @@ class ReviewsCreateForm extends React.Component {
 
     updateRating(num) {
         return e => {
-            this.setState({ rating: num })
+            if (this.props.review.rating.$numberDecimal){
+                this.props.review.rating.$numberDecimal = num;
+            }
+            this.setState({ rating: num });
         };
     }
 
@@ -44,8 +41,18 @@ class ReviewsCreateForm extends React.Component {
             rating: this.state.rating,
             username: this.state.username
         }
-        this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id)
-            .then(this.errorCheck);
+        if (this.props.action === 'create'){
+            debugger;
+            this.props.writeReview(review, this.props.movie._id, this.props.currentUser.id)
+                .then(this.errorCheck);
+        } else {
+            review = Object.assign({}, {["_id"]: this.state._id}, review);
+            if(review.rating.$numberDecimal){
+                review.rating = review.rating.$numberDecimal;
+            }
+            this.props.updateReview(review)
+                .then(this.errorCheck);
+        }
         // this.props.closeModal();
     }
 
@@ -78,25 +85,47 @@ class ReviewsCreateForm extends React.Component {
     render() {
         let posterAlt = `${this.props.movie.title} poster`;
         let ratingSelect;
-        
-        switch(this.state.rating){
-            case "1.0":
-                ratingSelect = "one";
-                break;
-            case "2.0":
-                ratingSelect = "two";
-                break;
-            case "3.0":
-                ratingSelect = "three";
-                break;
-            case "4.0":
-                ratingSelect = "four";
-                break;
-            case "5.0":
-                ratingSelect = "five";
-                break;
-            default: 
-                ratingSelect = "";
+
+        if (this.props.review.rating.$numberDecimal){
+            switch (this.props.review.rating.$numberDecimal) {
+                case "1.0":
+                    ratingSelect = "one";
+                    break;
+                case "2.0":
+                    ratingSelect = "two";
+                    break;
+                case "3.0":
+                    ratingSelect = "three";
+                    break;
+                case "4.0":
+                    ratingSelect = "four";
+                    break;
+                case "5.0":
+                    ratingSelect = "five";
+                    break;
+                default:
+                    ratingSelect = "";
+            }
+        } else {
+            switch(this.state.rating){
+                case "1.0":
+                    ratingSelect = "one";
+                    break;
+                case "2.0":
+                    ratingSelect = "two";
+                    break;
+                case "3.0":
+                    ratingSelect = "three";
+                    break;
+                case "4.0":
+                    ratingSelect = "four";
+                    break;
+                case "5.0":
+                    ratingSelect = "five";
+                    break;
+                default: 
+                    ratingSelect = "";
+            }
         }
 
         return (
@@ -152,4 +181,4 @@ class ReviewsCreateForm extends React.Component {
     }
 }
 
-export default ReviewsCreateForm;
+export default ReviewsForm;

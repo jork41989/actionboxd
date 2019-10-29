@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const validateActorInput = require('../../validation/actor');
 const Actor = require('../../models/Actor');
+const Movie = require('../../models/Movie')
 const passport = require('passport');
 
 router.get('/:id', (req, res) => {
@@ -26,19 +27,35 @@ router.post('/newActor',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validateActorInput(req.body);
-
+        
         if (!isValid) {
             return res.status(400).json(errors);
-        }
+        }  
+        let movies = [];
+        req.body.movies.forEach(movie => {
+           movies.push(mongoose.Types.ObjectId(movie))
+        });
 
         const newActor = new Actor({
             name: req.body.name,
             bio: req.body.bio,
-            photo_url: req.body.photo_url
+            photo_url: req.body.photo_url,
+            movies: movies
         })
 
         newActor.save()
-            .then(actor => res.json(actor))
+            .then(actor => {
+               
+                movies.forEach(movie => (Movie.findOneAndUpdate(
+                    { _id: movie },
+                    { $addToSet: { actors: actor._id } },
+                    {new: true}
+                        ) .then(movie => { })
+                            ) 
+                                )
+                res.json(actor)
+            
+                })
             .catch(err => res.json(err));
 
     });
