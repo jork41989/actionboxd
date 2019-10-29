@@ -127,4 +127,5 @@ li {
 
 .review-item-actions{
     display: flex;
+    height: 15px;
 }
