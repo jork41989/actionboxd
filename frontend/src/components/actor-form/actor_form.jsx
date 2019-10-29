@@ -53,7 +53,6 @@ class ActorForm extends React.Component {
   }
 
   addMovie(movie){
-    console.log(this.state.movies)
 
     return e => {
       this.setState({movies: merge(this.state.movies, {[movie._id]: movie } ) }
