@@ -2,7 +2,7 @@ import React from 'react';
 import './profile.css'
 import ProfileMoviesSampleIndex from './profile_movies_sample_index'
 import ProfileMoviesAllIndex from './profile_movies_all_index'
-
+import ProfileReviewSampleIndex from './profile_review_sample_index'
 
 class Profile extends React.Component {
     constructor(props) {
@@ -36,15 +36,17 @@ class Profile extends React.Component {
     }
 
     ReviewCount() {
-        if (this.state.user.reviews) {
-            return (<p className={'profileHeaderCountsUpper'}>{this.state.user.reviews.length}</p>)
+        console.log(this.state.user)
+        if (this.state.user.authored_reviews) {
+            return (<p className={'profileHeaderCountsUpper'}>{this.state.user.authored_reviews.length}</p>)
         } else {
             return (<p className={'profileHeaderCountsUpper'}>0</p>)
         }
     }
 
     profilehome(){
-        let moviesSample = Object.values(this.state.user.watched_movies).slice(0, 5)
+        let moviesSample = Object.values(this.state.user.watched_movies).slice(0, 5);
+        let reviewSample = this.state.user.authored_reviews.slice(0,5);
         return (
             <div>
                 <div className={'profileTextLabel'}>
@@ -53,7 +55,17 @@ class Profile extends React.Component {
                 </div>
                 <div>
                     <ProfileMoviesSampleIndex movies={moviesSample} />
+                    
                 </div>
+                <div className={'profileTextLabel'}>
+                    <p className={'profileBodyText'} onClick={this.MoviesAllState}>RECENTLY REVIEWED</p>
+                    <p className={'profileBodyText'} onClick={this.MoviesAllState} >ALL <i class="fas fa-comment"></i></p>
+                </div>
+                <div>
+
+                    <ProfileReviewSampleIndex reviews={reviewSample} />
+                </div>
+
             </div>
         )
     }
