@@ -11,12 +11,10 @@
     font-family: Graphik-Regular-Web,sans-serif;
 }
 
-
 .index-grids-container{
     display: flex;
 }
 
-/*flexwrap version */
 
 .index-reviews-container-1{
     display: flex;
