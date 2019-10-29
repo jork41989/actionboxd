@@ -20,28 +20,34 @@ class ActorsMovieIndexItem extends React.Component{
     removeWatch() {
         this.props.unwatchAMovie(this.props.currentUser.id, { userId: this.props.currentUser.id, movie_id: this.props.movie._id })
     }
-
     watched() {
+
         if (this.props.currentUser) {
             if (this.props.currentUser.watched_movies) {
-                if (this.props.currentUser.watched_movies.includes(this.props.movie._id)) {
+
+                if (Object.keys(this.props.currentUser.watched_movies).includes(this.props.movie._id)) {
                     return (
                         <li className="watched-index-container" onClick={this.removeWatch}>
                             <div className={'watched-index'}></div>
+
+
                         </li>
                     )
                 } else {
                     return (
                         <li className="watched-index-container" onClick={this.addWatch}>
                             <div className={'not-watched-index'}></div>
+
                         </li>
                     )
                 }
             }
         }
+        // 
     }
  
     actionSignIn() {
+        console.log(this.props.currentUser)
         if (this.props.currentUser) {
             if (!this.props.currentUser.watched_movies) {
                 return (
@@ -50,8 +56,14 @@ class ActorsMovieIndexItem extends React.Component{
                     </div>
                 )
             }
+        } else if (!this.props.currentUser) {
+            return (
+                <div className={'actionSignIn-Index'}>
+                    <p onClick={() => this.props.openModal({ modal: 'login' })} className={'actionSignIn-Index'}>Sign in</p>
+                </div>
+            )
         }
-    }   
+    }
 
     review() {
         if (this.props.currentUser) {
