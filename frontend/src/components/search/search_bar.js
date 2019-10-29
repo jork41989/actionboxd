@@ -30,7 +30,7 @@ class SearchBar extends React.Component {
     return (
       this.setState({val: ''})
     )
-
+ //s
   }
 
   render() {
