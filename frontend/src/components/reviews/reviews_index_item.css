@@ -121,6 +121,10 @@ li {
     cursor: pointer;
 }
 
+.fa-trash-alt:hover{
+    color: #ffffff;
+}
+
 .review-username:hover{
     color: #ffffff;
 }
