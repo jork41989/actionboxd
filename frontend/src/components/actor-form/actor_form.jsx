@@ -163,7 +163,7 @@ class ActorForm extends React.Component {
               value={this.state.name}
               onChange={this.update('name')}
               placeholder="Name"
-              className={'formInput'}
+              className={'formInput -actorFormInput'}
               id={'name'}
               data-tip data-for={'name'}
             />
@@ -174,7 +174,7 @@ class ActorForm extends React.Component {
               value={this.state.bio}
               onChange={this.update('bio')}
               placeholder="Bio"
-              className={'formInput'}
+              className={'formInput -actorFormInput'}
               id={'bio'}
               data-tip data-for={'bio'}
             />
@@ -183,7 +183,7 @@ class ActorForm extends React.Component {
               value={this.state.photo_url}
               onChange={this.update('photo_url')}
               placeholder="Photo Url"
-              className={'formInput'}
+              className={'formInput -actorFormInput'}
               id={'photo_url'}
               data-tip data-for={'photo_url'}
             />
