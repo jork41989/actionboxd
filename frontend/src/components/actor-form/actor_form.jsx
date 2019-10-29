@@ -12,9 +12,10 @@ class ActorForm extends React.Component {
       bio: "",
       photo_url: "",
       errors: {},
-      movies: {}
+      movies: {},
+      val: ''
     }
-
+    this.resetState = this.resetState.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.confirmExit = this.confirmExit.bind(this);
@@ -53,10 +54,11 @@ class ActorForm extends React.Component {
   }
 
   addMovie(movie){
-
+    
     return e => {
       this.setState({movies: merge(this.state.movies, {[movie._id]: movie } ) }
-          )
+      )
+      this.resetState()
     }
     
   }
@@ -120,6 +122,8 @@ class ActorForm extends React.Component {
 
   handleInputChange = (e) => {
     let target = e.target.value;
+    this.setState({ val: target });
+
     if (target) {
       return (
         this.props.getMovieList(target)
@@ -129,7 +133,13 @@ class ActorForm extends React.Component {
       this.props.getMovieList('null')
     }
   }
-
+  resetState() {
+    return (
+      this.setState({ val: '' }),
+      this.props.getMovieList('null')
+    )
+    //s
+  }
 
   render() {
     let options;
@@ -196,6 +206,7 @@ class ActorForm extends React.Component {
                 placeholder="Search for..."
                 ref={input => this.search = input}
                 onChange={this.handleInputChange}
+                 value={this.state.val}
               />
               <div className="results-actor-form" style={style} >
                 {options}
