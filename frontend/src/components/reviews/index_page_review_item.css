@@ -13,6 +13,7 @@
 
 .index-grids-container{
     display: flex;
+    justify-content: space-between;
 }
 
 
@@ -46,7 +47,7 @@
 .index-review-tile{
     display: flex;
     flex-direction: column;
-    width: 430px;
+    width: 450px;
     max-height: 315px;
     height: auto;
     /* justify-content: center; */
