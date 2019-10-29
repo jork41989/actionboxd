@@ -26,9 +26,9 @@ router.get('/:id', (req, res) => {
       res.status(404).json({movienotfound: 'Movie not found with that id'}))
     });
     
-
     router.get('/search/:term', (req, res) => {
-        Movie.find({ title: new RegExp(`^${req.params.term}`, 'i') })
+        Movie.find({ title: { $in: [new RegExp(`^${req.params.term}`, 'i'),
+         new RegExp(`the ${req.params.term}`, 'i')]}})
         .limit(5)
         .sort({title: 1})
         .then(movies => res.json(movies))
