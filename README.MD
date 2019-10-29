@@ -32,13 +32,13 @@ Movie Review Form
 
 Movie watched functionality
 
-
-### BONUS
-
 Movie search
+
 Actors table/info
+
 Ratings
-AWS hook for user profile photos
+
+
 
  
 ## Technologies & Challenges
