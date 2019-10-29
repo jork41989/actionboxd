@@ -35,15 +35,16 @@
 .navbar-links{
     align-self: center;
     margin-left: 10px;
+    position: relative;
 }
 
 .results{
     position: absolute;
-    top: 58px;
-    right: 89px;
+    top: 37px;
+    right: -11px;
     border-radius: 15px;
     background-color: #414d5e;
     border: 1px solid #414d5e;
     padding: 5px;
-    width: 17%; 
+    width: 100%;
 }
