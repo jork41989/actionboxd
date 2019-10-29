@@ -21,7 +21,10 @@ class ReviewsCreateForm extends React.Component {
 
     updateRating(num) {
         return e => {
-            this.setState({ rating: num })
+            if (this.props.review.rating.$numberDecimal){
+                this.props.review.rating.$numberDecimal = num;
+            }
+            this.setState({ rating: num });
         };
     }
 
@@ -78,25 +81,47 @@ class ReviewsCreateForm extends React.Component {
     render() {
         let posterAlt = `${this.props.movie.title} poster`;
         let ratingSelect;
-        
-        switch(this.state.rating){
-            case "1.0":
-                ratingSelect = "one";
-                break;
-            case "2.0":
-                ratingSelect = "two";
-                break;
-            case "3.0":
-                ratingSelect = "three";
-                break;
-            case "4.0":
-                ratingSelect = "four";
-                break;
-            case "5.0":
-                ratingSelect = "five";
-                break;
-            default: 
-                ratingSelect = "";
+
+        if (this.props.review.rating.$numberDecimal){
+            switch (this.props.review.rating.$numberDecimal) {
+                case "1.0":
+                    ratingSelect = "one";
+                    break;
+                case "2.0":
+                    ratingSelect = "two";
+                    break;
+                case "3.0":
+                    ratingSelect = "three";
+                    break;
+                case "4.0":
+                    ratingSelect = "four";
+                    break;
+                case "5.0":
+                    ratingSelect = "five";
+                    break;
+                default:
+                    ratingSelect = "";
+            }
+        } else {
+            switch(this.state.rating){
+                case "1.0":
+                    ratingSelect = "one";
+                    break;
+                case "2.0":
+                    ratingSelect = "two";
+                    break;
+                case "3.0":
+                    ratingSelect = "three";
+                    break;
+                case "4.0":
+                    ratingSelect = "four";
+                    break;
+                case "5.0":
+                    ratingSelect = "five";
+                    break;
+                default: 
+                    ratingSelect = "";
+            }
         }
 
         return (
