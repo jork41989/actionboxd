@@ -60,7 +60,7 @@ class Profile extends React.Component {
                     
                 </div>
                 <div className={'profileTextLabel'}>
-                    <p className={'profileBodyText'} onClick={this.MoviesAllState}>RECENTLY REVIEWED</p>
+                    <p className={'profileBodyText'} onClick={this.ReviewsAllState}>RECENTLY REVIEWED</p>
                     <p className={'profileBodyText'} onClick={this.ReviewsAllState} >ALL <i class="fas fa-comment"></i></p>
                 </div>
                 <div>
