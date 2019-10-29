@@ -15,7 +15,9 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-    this.errorCheck = this.errorCheck.bind(this)
+    this.errorCheck = this.errorCheck.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
+
   }
 
 
@@ -72,6 +74,20 @@ class LoginForm extends React.Component {
     );
   }
 
+
+  demoLogin(e) {
+    e.preventDefault();
+    let user = {
+      email: 'opinion@opinion.net',
+      password: 'opinion'
+    };
+    this.props.login(user).then(this.errorCheck)
+  }
+
+
+  
+
+
   render() {
     return (
       <div className={'signup-login-bg'}>
@@ -103,8 +119,11 @@ class LoginForm extends React.Component {
                 />
               <br/>
               <input type="submit" value="Sign In" className={'submit'}/>
-             
+
+              <button className="submit" onClick={this.demoLogin}>Demo User</button>
+
             </div>
+
           </form>
         </div>
       </div>
