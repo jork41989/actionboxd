@@ -1,6 +1,6 @@
 import React from 'react';
 import ProfileReviewSampleContainer from './profile_review_sample_container';
-
+import { Link } from 'react-router-dom';
 class ProfileReviewSampleIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -25,6 +25,7 @@ class ProfileReviewSampleIndex extends React.Component {
 
     return (
       <div className={'ProfileReviewSampleIndex'}>
+        
         {this.hasReviews()}
       </div>)
   }

@@ -18,6 +18,8 @@ class Profile extends React.Component {
         this.moviesAll = this.moviesAll.bind(this)
         this.profilehomeState = this.profilehomeState.bind(this)
         this.ReviewCount = this.ReviewCount.bind(this)
+        this.ReviewsAllState = this.ReviewsAllState.bind(this)
+        this.reviewsAll = this.reviewsAll.bind(this)
     }
     
     componentDidMount(e) {
@@ -46,7 +48,7 @@ class Profile extends React.Component {
 
     profilehome(){
         let moviesSample = Object.values(this.state.user.watched_movies).slice(0, 5);
-        let reviewSample = this.state.user.authored_reviews.slice(0,5);
+        let reviewSample = this.state.user.authored_reviews.slice(0,3);
         return (
             <div>
                 <div className={'profileTextLabel'}>
@@ -59,7 +61,7 @@ class Profile extends React.Component {
                 </div>
                 <div className={'profileTextLabel'}>
                     <p className={'profileBodyText'} onClick={this.MoviesAllState}>RECENTLY REVIEWED</p>
-                    <p className={'profileBodyText'} onClick={this.MoviesAllState} >ALL <i class="fas fa-comment"></i></p>
+                    <p className={'profileBodyText'} onClick={this.ReviewsAllState} >ALL <i class="fas fa-comment"></i></p>
                 </div>
                 <div>
 
@@ -83,8 +85,26 @@ class Profile extends React.Component {
             </div>)
     }
 
+    reviewsAll(){
+        return (<div>
+            <div className={'profileTextLabel'}>
+                <p className={'profileBodyText'} >All Reviews</p>
+                <p className={'profileBodyText'} onClick={this.profilehomeState}>Back to profile</p>
+
+            </div>
+            <div>
+                <ProfileReviewSampleIndex reviews={this.state.user.authored_reviews} />
+            </div>
+        </div>)
+    }
+
+
     MoviesAllState(){
         this.setState({ activeComponent: 'MoviesAll'})
+    }
+
+    ReviewsAllState() {
+        this.setState({ activeComponent: 'ReviewsAll' })
     }
     profilehomeState(){
         this.setState({ activeComponent: 'profile' })
@@ -97,6 +117,9 @@ class Profile extends React.Component {
                 break;
             case 'MoviesAll':
                 component = (this.moviesAll())
+                break;
+            case 'ReviewsAll':
+                component = (this.reviewsAll())
                 break;
             default:
                 return null;
@@ -121,7 +144,7 @@ class Profile extends React.Component {
                  {this.MovieCount()}
                   <p className={'profileHeaderMovieCountLabel'}>Films</p>
               </div>
-              <div className={'profileHeaderMovieCount'} onClick={this.MoviesAllState}>
+              <div className={'profileHeaderMovieCount'} onClick={this.ReviewsAllState}>
                       {this.ReviewCount()}
                   <p className={'profileHeaderMovieCountLabel'}>Reviews</p>
               </div>
