@@ -4,7 +4,7 @@
 
 .index-reviews-header{
     margin: 0 auto;
-    width: 860px;
+    width: 950px;
     padding-bottom: 5px;
     margin-top: 70px;
     border-bottom: 1px solid #456;
@@ -27,7 +27,7 @@
     flex-wrap: wrap;
     max-width: 884px;
     max-height: 925px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     overflow: hidden;
     align-items: center;
     flex-grow: 1
@@ -37,7 +37,7 @@
 .index-review-tile{
     display: flex;
     flex-direction: column;
-    width: 420px;
+    width: 475px;
     max-height: 315px;
     height: auto;
     /* justify-content: center; */

@@ -8,9 +8,9 @@ const User = require('../../models/User');
 const Review = require('../../models/Review');
 const validateReviewInput = require('../../validation/review');
 
-//5 most recent reviews
+//6 most recent reviews
 router.get('/', (req, res) => {
-  Review.find().limit(5)
+  Review.find().limit(6)
     .sort({date: -1})
     .populate({path: 'movie_id', select: '_id title poster_url' })
     .then(reviews => res.json(reviews))
