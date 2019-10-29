@@ -58,7 +58,7 @@ Styling and workload, the bonus features are a bit tedious and so we are a littl
 
 ---
 
-## Features
+## Features
 
 ### Users
 
