@@ -41,8 +41,8 @@ class MoviesIndex extends React.Component{
             </div>
         }
 
-        let firstFive = this.props.reviews.slice(0,5);
-        let reviewsList = firstFive.map(review => 
+        let firstSix = this.props.reviews.slice(0,6);
+        let reviewsList = firstSix.map(review => 
             <IndexPageReviewsItem key={review._id} review={review}/>);
 
         return(
