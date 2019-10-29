@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactTooltip from 'react-tooltip'
-
+import { merge } from 'lodash';
 
 class ActorForm extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class ActorForm extends React.Component {
       bio: "",
       photo_url: "",
       errors: {},
+      movies: {}
     }
 
     this.update = this.update.bind(this);
@@ -18,6 +19,7 @@ class ActorForm extends React.Component {
     // this.confirmExit = this.confirmExit.bind(this);
     this.clearedErrors = false;
     this.errorCheck = this.errorCheck.bind(this);
+    this.addMovie = this.addMovie.bind(this)
   }
 
   errorCheck() {
@@ -28,6 +30,7 @@ class ActorForm extends React.Component {
   }
 
   update(field) {
+    
     return e => this.setState({
       [field]: e.currentTarget.value
     });
@@ -40,11 +43,36 @@ class ActorForm extends React.Component {
       name: this.state.name,
       bio: this.state.bio,
       photo_url: this.state.photo_url,
-
+      movies: Object.keys(this.state.movies)
     }
     this.props.newActorAdd(actor)
       .then(this.errorCheck);
     // this.props.closeModal();
+  }
+
+  addMovie(movie){
+    console.log(this.state.movies)
+
+    return e => {
+      this.setState({movies: merge(this.state.movies, {[movie._id]: movie } ) }
+          )
+    }
+    
+  }
+
+  renderMovieTitles(){
+    let divMovies = []
+    if(this.state.movies){
+      Object.values(this.state.movies).forEach( movie => {
+       divMovies.push(<div> {movie.title} </div>)
+      }
+
+      )
+    } else {
+      return (<div> No movies yet!</div>)
+    }
+
+    return (divMovies)
   }
 
   renderErrors() {
@@ -79,7 +107,32 @@ class ActorForm extends React.Component {
   }
 
 
+  handleInputChange = (e) => {
+    let target = e.target.value;
+    if (target) {
+      return (
+        this.props.getMovieList(target)
+      )
+    } else {
+
+      this.props.getMovieList('null')
+    }
+  }
+
+
   render() {
+    let options;
+    let style = this.props.results.length === 0 ? { display: 'none' } : { display: 'block' };
+    if (!this.props.results) {
+      return options = <div></div>
+    } else {
+      options = this.props.results.map(result => {
+
+        if (result.hasOwnProperty('title')) {
+          return <div id="searchbar-result" onClick={this.addMovie(result)}>{result.title}</div>
+        } 
+      })
+    }
 
 
     return (
@@ -123,6 +176,19 @@ class ActorForm extends React.Component {
               data-tip data-for={'photo_url'}
             />
 
+            <div className={'addedMovies'}>
+              {this.renderMovieTitles()}
+
+            </div>
+
+              <input className='searchbar'
+                placeholder="Search for..."
+                ref={input => this.search = input}
+                onChange={this.handleInputChange}
+              />
+              <div className="results" style={style} >
+                {options}
+              </div>
 
 
             {this.renderErrors()}
