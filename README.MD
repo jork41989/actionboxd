@@ -2,21 +2,34 @@
 
 ![alt text](https://i.imgur.com/m7ZZwNu.png)
 
+[Visit Us!](https://actionboxd.herokuapp.com/#/)
+
 A movie review platform that allows users to collect, share and discover top action movies from across history.
 
 ## Functionality & MVP
 
 User Auth
+
 User profiles
+
 Users Watched movies
+
 Users Reviewed films
+
 Basic bio info
+
 Movie Show Pages
+
 Reviews
+
 Movie info
+
 Review form
+
 Watched form/button
+
 Movie Review Form
+
 Movie watched functionality
 
 
