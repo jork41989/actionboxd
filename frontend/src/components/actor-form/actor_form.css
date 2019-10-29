@@ -1,0 +1,43 @@
+.addedMovies{
+  min-height: 100px;
+  width: 300px;
+  background: whitesmoke;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+
+.results-actor-form {
+    position: absolute;
+    bottom: 96px;
+    left: 92px;
+    background: #456;
+    padding: 5px;
+    border-radius: 5px;
+    border: .5px solid white;
+}
+
+.searchbar-result-form {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 1px;
+    cursor: pointer;
+   
+}
+
+.form-titles{
+  background: lightblue;
+  padding: 2px;
+  margin: 5px;
+  height: 15px;
+  color: black;
+}
+
+.-actor-movie{
+  display: inline !important;
+}

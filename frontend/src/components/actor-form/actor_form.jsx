@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactTooltip from 'react-tooltip'
 import { merge } from 'lodash';
+import './actor_form.css'
 
 class ActorForm extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class ActorForm extends React.Component {
     this.clearedErrors = false;
     this.errorCheck = this.errorCheck.bind(this);
     this.addMovie = this.addMovie.bind(this)
+    this.removeMovie = this.removeMovie.bind(this)
   }
 
   errorCheck() {
@@ -60,11 +62,21 @@ class ActorForm extends React.Component {
     
   }
 
+  removeMovie(movie){
+    return e => {
+      let newMoviesState = merge({}, this.state.movies)
+      delete newMoviesState[movie._id]
+      this.setState({movies: newMoviesState})
+    }
+  }
+
   renderMovieTitles(){
     let divMovies = []
     if(this.state.movies){
       Object.values(this.state.movies).forEach( movie => {
-       divMovies.push(<div> {movie.title} </div>)
+        divMovies.push(<div className='form-titles'> <p>{movie.title} <i
+          className="far fa-trash-alt -actor-movie" onClick={this.removeMovie(movie)}
+        ></i></p>  </div>)
       }
 
       )
@@ -129,7 +141,7 @@ class ActorForm extends React.Component {
       options = this.props.results.map(result => {
 
         if (result.hasOwnProperty('title')) {
-          return <div id="searchbar-result" onClick={this.addMovie(result)}>{result.title}</div>
+          return <div className="searchbar-result-form" onClick={this.addMovie(result)}>{result.title}</div>
         } 
       })
     }
@@ -186,7 +198,7 @@ class ActorForm extends React.Component {
                 ref={input => this.search = input}
                 onChange={this.handleInputChange}
               />
-              <div className="results" style={style} >
+              <div className="results-actor-form" style={style} >
                 {options}
               </div>
 
