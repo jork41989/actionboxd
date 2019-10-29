@@ -24,7 +24,7 @@ class MoviesIndex extends React.Component{
     }
 
     render(){
-        let movieLimit = this.props.movies.slice(0, 8);
+        let movieLimit = this.props.movies.slice(0, 12);
         let moviesList = movieLimit.map(movie => 
             <MoviesIndexItem key={movie._id} 
             movie={movie} 

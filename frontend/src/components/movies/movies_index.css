@@ -7,7 +7,7 @@
 
 .movies-index-header{
     margin: 0 auto;
-    width: 664px;
+    width: 950px;
     padding-bottom: 5px;
     margin-bottom: 20px;
     border-bottom: 1px solid #456;
@@ -16,12 +16,12 @@
 
 .movies-list{
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 50% 50%;
     list-style: none;
     column-gap: 5px;
     margin: 0 auto;
-    width: 664px;
+    width: 950px;
     padding: 0px;
 }
 
