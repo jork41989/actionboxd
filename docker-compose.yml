@@ -5,8 +5,13 @@ services:
     build: .
     ports: 
       - 80:3000
+    depends_on:
+      - db
     environment:
+      - NODE_ENV=production
       - MONGO_URI=mongodb://mongo_db/gbbg123/actionboxd-node
+    env_file:
+      - .env
     networks: 
       - mernnodeapp
   db:
