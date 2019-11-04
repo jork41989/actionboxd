@@ -6,9 +6,4 @@ ENV NODE_ENV="production"
 COPY package.json package.json
 RUN npm run frontend-install
 COPY . .
-# ARG NODE_ENV=production
-# ENV PATH /usr/src/app/node_modules/.bin:$PATH
-# COPY package.json /usr/src/app/package.json
-# RUN npm install --silent
-# COPY . /usr/src/app
-# RUN npm run postinstall
+
