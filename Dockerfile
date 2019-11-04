@@ -6,4 +6,3 @@ ENV NODE_ENV="production"
 COPY package.json package.json
 RUN npm run frontend-install
 COPY . .
-
