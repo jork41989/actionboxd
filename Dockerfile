@@ -4,7 +4,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 ENV NODE_ENV="production"
 COPY package.json package.json
-RUN npm install && npm cache clean --force
+RUN npm run frontend-install
 COPY . .
 # ARG NODE_ENV=production
 # ENV PATH /usr/src/app/node_modules/.bin:$PATH
