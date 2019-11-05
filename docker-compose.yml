@@ -3,29 +3,8 @@ services:
   frontend:
     image: gbbg123/actionboxd-node
     build: .
-    command: ["npm","run","frontend"]
     ports: 
-      - 80:3000
-    depends_on:
-      - app
-    networks: 
-      - mernnodeapp
-  app:
-    image: gbbg123/actionboxd-node
-    build: .
-    command: ["npm","run","frontend"]
-    # ports: 
-      # - 80:3000
-    depends_on:
-      - db
-    environment:
-      - NODE_ENV=production
-      # - MONGO_URI=mongodb://mongo_db/gbbg123/actionboxd-node
+      - 5000:5000
     env_file:
       - .env
-    networks: 
-      - mernnodeapp
- 
-networks:
-  mernnodeapp:
-    driver: bridge
+
