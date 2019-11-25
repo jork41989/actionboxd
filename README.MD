@@ -130,7 +130,7 @@ Styling and workload, the bonus features are a bit tedious and so we are a littl
 
 The following is code we used to render the CSS for average raiting for each film displayed on the index page
 
-`rating(){
+` rating(){
         let sum = 0
         let count = 0
         this.props.movie.reviews.forEach(review => {
