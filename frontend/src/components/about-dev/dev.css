@@ -6,7 +6,7 @@
 }
 
 .devDivBody{
-  width: 600px;
+  width: 650px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,7 +14,7 @@
 
 .DevHead{
   font-size: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 .devMain{
   display: flex;

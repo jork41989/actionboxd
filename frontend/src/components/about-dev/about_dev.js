@@ -26,7 +26,7 @@ class AboutDev extends React.Component{
             <a href="https://www.linkedin.com/in/frida-pulido/" className="devLink"><i class="fab fa-linkedin devLink"> LinkedIn</i></a>
           </div>
           <div className="devIndi">
-            <p className="devName">Gabriel Antonio Barrios Hernandez</p>
+            <p className="devName">Gabriel Barrios</p>
             <a href="https://github.com/gbarrios212" className="devLink"><i class="fab fa-github devLink"> GitHub</i></a>
             <a href="https://www.linkedin.com/in/gabriel-antonio-barrios" className="devLink"><i class="fab fa-linkedin devLink"> LinkedIn</i></a>
           </div>
