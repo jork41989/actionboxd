@@ -6,11 +6,41 @@
 }
 
 .devDivBody{
-  width: 400px;
+  width: 600px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .DevHead{
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.devMain{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.devName{
   font-size: 20px;
+  margin-bottom: 10px;
+}
+.devIndi{
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.devLink{
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 5px;
+  color: #678;
+  cursor: pointer;
+}
+
+.devLink:hover{
+  color:white;
 }
