@@ -133,10 +133,7 @@ export default class MoviesShow extends React.Component {
                                         className="poster"
                                         />
                                 </div>
-                                <ul className="movie-stats">
-                                    watched stats here
-                                    {/* {this.props.movie.watchedIds.length} */}
-                                </ul>
+                              
                                 <div className="watch-panel">
                                     <p>WATCH</p>
                                     <div className="trailer-link-container" onClick={() => this.props.openModal({ modal: 'trailer', movieId: this.props.match.params.movieId})}>

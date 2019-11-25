@@ -1,0 +1,16 @@
+.devDivBG{
+  background-color: #14181c;
+  color: #678;
+  padding: 90px 100px;
+  border-radius: 3px;
+}
+
+.devDivBody{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.DevHead{
+  font-size: 20px;
+}
