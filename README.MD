@@ -124,8 +124,73 @@ Styling and workload, the bonus features are a bit tedious and so we are a littl
 * Users arrive on the home page.  Here, they can view a range of popular, recently added movies paired with their title, ratings, and posters.  On click in any one of these individual components, they will be taken to a detailed show page for that particular movie.  Below, they can find a range of recent reviews which also link to the associated movie as well as the profile of the review’s author.
 
 
-
 * Hovering over each thumbnail provides an outline effect and displays additional possible actions dependent on current logged in status.  If logged out, users are provided with an option to sign in.  If logged in, users can opt to both mark a movie as watched and write up a review.
+
+#### Code Sample
+
+The following is code we used to render the CSS for average raiting for each film displayed on the index page
+
+`rating(){
+        let sum = 0
+        let count = 0
+        this.props.movie.reviews.forEach(review => {
+            
+            if (review.rating){
+                count += 1
+                sum += parseInt(review.rating.$numberDecimal)
+            }
+        });
+        return (sum/count)
+        
+    }
+
+    ratingStar(){
+        let rating = this.rating()
+        if (rating > 0 && rating < 1){
+            return (
+                <div className={'ratingHlf'}>1/2</div>
+            )
+        } else if (rating >= 1 && rating < 1.5) {
+            
+            return (<div className={'ratingOne'}>1</div>)
+
+        } else if (rating >= 1.5 && rating < 2){
+            
+            return (<div className={'ratingOneHlf'}>1.5</div>)
+
+        } else if (rating >= 2 && rating < 2.5){
+            
+            return (<div className={'ratingTwo'}>2</div>)
+
+        } else if (rating >= 2.5 && rating < 3) {
+            
+            return (<div className={'ratingTwoHlf'}>2.5</div>)
+
+        } else if (rating >= 3 && rating < 3.5) {
+            
+            return (<div className={'ratingThree'}>3</div>)
+
+        } else if (rating >= 3.5 && rating < 4) {
+            
+            return (<div className={'ratingThreeHlf'}>3.5</div>)
+
+        } else if (rating >= 4 && rating < 4.5) {
+            
+            return (<div className={'ratingFour'}></div>)
+
+        } else if (rating >= 4.5 && rating < 5) {
+            
+            return (<div className={'ratingFourHlf'}></div>)
+
+        } else if (rating >= 5) {
+            
+            return (<div className={'ratingFive'}>5</div>)
+
+        } else {
+            
+            return (<div>No ratings yet</div>)
+        }
+    }`
 
 ### Movies Show Page
 
