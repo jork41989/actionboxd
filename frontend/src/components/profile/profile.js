@@ -3,6 +3,7 @@ import './profile.css'
 import ProfileMoviesSampleIndex from './profile_movies_sample_index'
 import ProfileMoviesAllIndex from './profile_movies_all_index'
 import ProfileReviewSampleIndex from './profile_review_sample_index'
+import { Link } from "react-router-dom";
 
 class Profile extends React.Component {
     constructor(props) {
@@ -138,6 +139,9 @@ class Profile extends React.Component {
               <div className={'profileHeaderUserInfo'}>
                 <div className={'Profile-photo'}></div>
                 <p className={'Profile-username'}>{this.state.user.username}</p>
+                <Link to={`/users/${this.userId}/settings`}>
+                    <button className="settings-button">Settings</button>
+                </Link>
               </div>
               <div className={'profileHeaderCountsDiv'}>
               <div className={'profileHeaderMovieCount'} onClick={this.MoviesAllState}>
