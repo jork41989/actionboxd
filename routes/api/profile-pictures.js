@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const router = express.Router();
-const User = require("../models/User");
+const User = require("../../models/User");
 const multer = require("multer");
 var AWS = require("aws-sdk");
 
@@ -33,26 +33,17 @@ router.post("/upload", upload.single("file"), function(req, res) {
       res.status(500).json({ error: true, Message: err });
     } else {
       var newFileUploaded = {
-        description: req.body.description,
         fileLink: s3FileURL + file.originalname,
         s3_key: params.Key
       };
-      var art = new Art({
-        photoLink: newFileUploaded.fileLink,
-        title: req.body.title,
-        description: req.body.description,
-        author: req.body.author,
-        category: req.body.category
-      });
-
-      art
+      var user = User.findByIdAndUpdate(
+          req.params.id,
+          { $set: newFileUploaded },
+          { new: true }
+      )
+      user
         .save()
         .then(data => {
-          // console.log(res)
-          Art.addCategory(data.cateogry, data._id);
-          User.addPublishedArt(data.author, data._id);
-          console.log("DATA RESPONSE FROM FILEUPLOAD");
-          console.log(data);
           res.send({ data });
         })
         .catch(err => console.log(err));
