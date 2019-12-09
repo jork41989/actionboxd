@@ -81,6 +81,7 @@ class ReviewsIndexItem extends React.Component{
         return (
             <div className="review-item-container">
                 <div className="review-item-avatar">
+                    {/* {this.props.review.profilePicture} */}
                 </div>
 
                 <div className="review-item-info-container">

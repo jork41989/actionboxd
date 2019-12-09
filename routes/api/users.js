@@ -255,8 +255,6 @@ router.get('/:user_id', (req, res) => {
 
 
 router.patch("/:user_id", passport.authenticate('jwt', { session: false }), upload.single("file"), function(req, res) {
-  // console.log(req);
-  // debugger;
   const file = req.file;
   const s3FileURL = process.env.AWS_UPLOADED_FILE_URL_LINK;
 
@@ -275,7 +273,6 @@ router.patch("/:user_id", passport.authenticate('jwt', { session: false }), uplo
   };
 
   s3bucket.upload(params, function(err, data) {
-    debugger;
     if (err) {
       res.status(500).json({ error: true, Message: err });
     } else {

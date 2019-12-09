@@ -45,7 +45,6 @@ class Settings extends React.Component {
     event.preventDefault();
     const data = new FormData(event.target);
     data.append("file", this.state.profilePicture);
-    debugger;
     axios
       // .patch(endpoint, data)
       .patch(`/api/users/${this.userId}`, data)

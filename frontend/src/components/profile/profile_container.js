@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { requestSingleUser } from '../../actions/users_actions'
+import { openModal } from "../../actions/modal_actions";
 import Profile from './profile';
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,7 +21,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   const userId = parseInt(ownProps.match.params.id);
   return {
-    requestSingleUser: (userId) => dispatch(requestSingleUser(userId))
+    openModal: modal => dispatch(openModal(modal)),
+    requestSingleUser: userId => dispatch(requestSingleUser(userId))
   };
 };
 

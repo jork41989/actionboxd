@@ -142,9 +142,12 @@ class Profile extends React.Component {
                 <div className={'Profile-photo'}>
                     <img className="profile-picture-image" src={this.state.user.profilePicture}/>
                 </div>
-                <Link to={`/users/${this.userId}/settings`}>
-                    <button className="settings-button">Change</button>
-                </Link>
+                {/* <Link to={`/users/${this.userId}/settings`}> */}
+                    <button 
+                        className="settings-button"
+                        onClick={() => this.props.openModal({ modal: 'profilePicture' })}
+                        >Change</button>
+                {/* </Link> */}
                 </div>
                 <p className={'Profile-username'}>{this.state.user.username}</p>
               </div>
