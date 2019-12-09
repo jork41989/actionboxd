@@ -36,6 +36,7 @@ class NavBar extends React.Component {
             <Link to={`/users/${this.props.currentUser.id}`} className="profile-link">{this.props.currentUser.username}</Link>
               <button onClick={this.logoutUser}>Logout</button>
             <Search />
+            <button onClick={() => this.props.openModal({ modal: 'devs' })}>Meet The Devs</button>
             {this.admin()}
           </div>
         );
@@ -45,7 +46,7 @@ class NavBar extends React.Component {
               <button onClick={() => this.props.openModal({modal: 'login'})}>Login</button>
             <button onClick={() => this.props.openModal({modal: 'signup'})}>Create account</button>
             <Search />
-             
+            <button onClick={() => this.props.openModal({ modal: 'devs' })}>Meet The Devs</button>
             </div>
         );
       }

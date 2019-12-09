@@ -1,0 +1,46 @@
+.devDivBG{
+  background-color: #14181c;
+  color: #678;
+  padding: 90px 100px;
+  border-radius: 3px;
+}
+
+.devDivBody{
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.DevHead{
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+.devMain{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.devName{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.devIndi{
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.devLink{
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 5px;
+  color: #678;
+  cursor: pointer;
+}
+
+.devLink:hover{
+  color:white;
+}
