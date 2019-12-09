@@ -49,6 +49,7 @@ class Settings extends React.Component {
     if (!this.state.previewUrl) {
       this.setState({errors: "Please choose a file to upload."});
     }
+    
     const data = new FormData(event.target);
     data.append("file", this.state.profilePicture);
     axios
@@ -56,6 +57,7 @@ class Settings extends React.Component {
       .patch(`/api/users/${this.userId}`, data)
       .then(() => {
         // this.props.history.push("/");
+        this.setState({ profilePicture: ""})
         this.props.closeModal();
       })
       .catch(error => {

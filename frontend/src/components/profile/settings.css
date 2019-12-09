@@ -47,6 +47,7 @@
 
 .file-input{
     position: relative;
+    z-index: -1;
     top: -15px;
     opacity: 0;
 }
