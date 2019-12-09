@@ -8,6 +8,7 @@ import ReviewsCreateFormContainer from '../reviews/reviews_create_form_container
 import MovieFormContainer from '../movie-form/movie_form_container';
 import ReviewsEditFormContainer from '../reviews/reviews_edit_form_container';
 import ActorFormContainer from '../actor-form/actor_form_container';
+import AboutDevContainer from '../about-dev/about_dev_container'
 
 
 import './modal.css';
@@ -40,6 +41,9 @@ function Modal ({payload, closeModal}) {
       break;
     case 'actor':
       component = <ActorFormContainer />;
+      break;
+    case 'devs':
+      component = <AboutDevContainer />;
       break;
     default:
       return null;
