@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./settings.css"
 
 let endpoint;
 
@@ -49,7 +50,8 @@ class Settings extends React.Component {
       // .patch(endpoint, data)
       .patch(`/api/users/${this.userId}`, data)
       .then(() => {
-        this.props.history.push("/");
+        // this.props.history.push("/");
+        this.props.closeModal();
       })
       .catch(error => {
         alert("Oops some error happened, please try again");
@@ -70,7 +72,6 @@ class Settings extends React.Component {
     if (this.state.user) {
       return (
         <div>
-          hi
           <form onSubmit={this.handleUpload}>
             <div className="form-group">
               <input
