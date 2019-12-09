@@ -161,8 +161,13 @@ class Profile extends React.Component {
                 <div className={'profileMain'}>
                 <div className={'profileHeader'}>
                     <div className={'profileHeaderUserInfo'}>
-                        <div className={'Profile-photo'}></div>
+                        {/* <div className={'Profile-photo'}></div> */}
                         <p className={'Profile-username'}>Loading...</p>
+                            <div class="lds-ellipsis">
+                                <div style={{ backgroundColor: "rgb(255,128,0)" }}>
+                                </div><div style={{ backgroundColor: "rgb(0,224,84)" }}>
+                                </div><div style={{ backgroundColor: "rgb(64,188,244)" }}></div>
+                            </div>
                     </div>
                     <div className={'profileHeaderMovieCount'}>
                         <p className={'profileHeaderCountsUpper'}>0</p>
