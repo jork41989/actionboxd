@@ -25,6 +25,8 @@ li {
     border-radius: 20px;
     margin-right: 22px;
     border: 1px solid hsla(0,0%,100%,.25);
+    background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .review-item-info-container{

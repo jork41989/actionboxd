@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   Movie.findById(req.params.id)
-  .populate({path:'reviews', populate: { path: 'user_id', select: '_id'}}) 
+    .populate({ path: 'reviews', populate: { path: 'user_id', select: '_id, profilePicture'}}) 
   .populate({ path: 'actors', select: '_id name' })
     .then(movie => res.json(movie))
     .catch(err => 

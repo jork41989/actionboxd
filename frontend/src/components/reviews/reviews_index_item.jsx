@@ -58,7 +58,7 @@ class ReviewsIndexItem extends React.Component{
 }
     render(){
         let rating;
-      
+
 
         if (this.props.review.rating){
             switch (this.props.review.rating.$numberDecimal){
@@ -83,10 +83,12 @@ class ReviewsIndexItem extends React.Component{
         }
 
         let UserI = this.props.review.user_id ? this.props.review.user_id._id : null
-        
+        let profilePhoto = this.props.review.user_id ? this.props.review.user_id.profilePicture : null
+        let BG ={ backgroundImage: `url('${profilePhoto}`}
+        console.log(profilePhoto)
         return (
             <div className="review-item-container">
-                <div className="review-item-avatar">
+                <div className="review-item-avatar" style={BG}>
                     {/* {this.props.review.profilePicture} */}
                 </div>
 
