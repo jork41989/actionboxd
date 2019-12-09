@@ -162,7 +162,7 @@ class Profile extends React.Component {
                 <div className={'profileHeader'}>
                     <div className={'profileHeaderUserInfo'}>
                         <div className={'Profile-photo'}></div>
-                        <p className={'Profile-username'}>John Wick</p>
+                        <p className={'Profile-username'}>Loading...</p>
                     </div>
                     <div className={'profileHeaderMovieCount'}>
                         <p className={'profileHeaderCountsUpper'}>0</p>
