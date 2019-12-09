@@ -24,7 +24,6 @@ class Profile extends React.Component {
     }
     
     componentDidMount(e) {
-        // this.poke = this.props.requestSinglePokemon(this.pokeId);
         this.props.requestSingleUser(this.userId).then(response => {
 
             this.setState({ user: response.user.data, activeComponent: 'profile' });
@@ -145,7 +144,7 @@ class Profile extends React.Component {
                 {/* <Link to={`/users/${this.userId}/settings`}> */}
                     <button 
                         className="settings-button"
-                        onClick={() => this.props.openModal({ modal: 'profilePicture' })}
+                        onClick={() => this.props.openModal({ modal: 'profilePicture', userId: this.userId })}
                         >Change</button>
                 {/* </Link> */}
                 </div>

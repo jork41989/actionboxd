@@ -7,7 +7,7 @@ let endpoint;
 class Settings extends React.Component {
   constructor(props) {
     super(props);
-    this.userId = this.props.match.params.id;
+    this.userId = this.props.userId;
     this.state = {
       profilePicture: "",
       previewUrl: ""

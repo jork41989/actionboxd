@@ -4,7 +4,7 @@ import { openModal } from "../../actions/modal_actions";
 import Settings from "./settings";
 
 const mapStateToProps = (state, ownProps) => {
-  const userId = parseInt(ownProps.match.params.id);
+  const userId = ownProps.userId;
   let user = state.entities.users[userId];
   let currentUser = state.session.user
     ? state.entities.users[state.session.user.id]
@@ -21,7 +21,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const userId = parseInt(ownProps.match.params.id);
+  const userId = ownProps.userId;
   return {
     openModal: modal => dispatch(openModal(modal)),
     requestSingleUser: userId => dispatch(requestSingleUser(userId))

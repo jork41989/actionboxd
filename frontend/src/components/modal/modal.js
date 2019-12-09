@@ -47,7 +47,7 @@ function Modal ({payload, closeModal}) {
       component = <AboutDevContainer />;
       break;
     case 'profilePicture':
-      component = <SettingsContainer />;
+      component = <SettingsContainer userId={payload.userId}/>;
       break;
     default:
       return null;
