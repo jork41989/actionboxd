@@ -16,6 +16,42 @@
 
 }
 
+.settings-buttons-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 40px;
+}
+
+.file-button-label {
+    display: inline-block;
+    height: 25px;
+    background: #14181C;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 2px;
+    font-family: Graphik-Regular-Web,sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    width: 90.75px;
+    height: 28.09px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0 hsla(0,0%,100%,.3);
+    margin-left: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+
+.file-input{
+    position: relative;
+    top: -15px;
+    opacity: 0;
+}
+
+
 .settings-close-button{
     display: inline-block;
     height: 25px;
@@ -42,7 +78,7 @@
 }
 
 .settings-submit {
-    width: 61.75px;
+    width: 90.75px;
     height: 28.09px;
     color: #f4fcf0;
     margin-left: 5px;

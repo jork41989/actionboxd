@@ -89,14 +89,18 @@ class Settings extends React.Component {
           <form className="settings-form" onSubmit={this.handleUpload}>
             {preview}
             <div className="settings-buttons-container">
-              <div className="form-group">
-                <input
-                  type="file"
-                  name=""
-                  id=""
-                  onChange={this.handleSelectedFile}
+              <label for="file" className="file-button-label">
+                <div className="form-group">
+                  <input
+                    type="file"
+                    name=""
+                    id="file"
+                    onChange={this.handleSelectedFile}
+                    className="file-input"
                   />
-              </div>
+                </div>
+                Choose file
+              </label>
               {this.renderErrors}
               <button type="submit" className="settings-submit">
                 Upload

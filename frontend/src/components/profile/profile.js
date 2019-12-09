@@ -29,6 +29,7 @@ class Profile extends React.Component {
             this.setState({ user: response.user.data, activeComponent: 'profile' });
         })
     }
+    
     MovieCount (){
         if (this.state.user.watched_movies){
             return (<p className={'profileHeaderCountsUpper'}>{Object.values(this.state.user.watched_movies).length}</p>)
