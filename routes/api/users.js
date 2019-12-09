@@ -253,8 +253,9 @@ router.get('/:user_id', (req, res) => {
 
 
 
-router.patch("/:user_id/settings", upload.single("file"), function(req, res) {
+router.patch("/:user_id", passport.authenticate('jwt', { session: false }), upload.single("file"), function(req, res) {
   // console.log(req);
+  // debugger;
   const file = req.file;
   const s3FileURL = process.env.AWS_UPLOADED_FILE_URL_LINK;
 
@@ -273,21 +274,19 @@ router.patch("/:user_id/settings", upload.single("file"), function(req, res) {
   };
 
   s3bucket.upload(params, function(err, data) {
-    // debugger;
+    debugger;
     if (err) {
       res.status(500).json({ error: true, Message: err });
     } else {
       var newFileUploaded = {
-        fileLink: s3FileURL + file.originalname,
+        profilePicture: s3FileURL + file.originalname,
         s3_key: params.Key
       };
       var user = User.findByIdAndUpdate(
-        req.params.id,
+        req.params.user_id,
         { $set: newFileUploaded },
-        { upser: true, new: true }
-      );
-      user
-        .save()
+        { upsert: true, new: true }
+      ).then(user => user.save())
         .then(data => {
           res.send({ data });
         })

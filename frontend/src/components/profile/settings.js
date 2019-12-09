@@ -3,11 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 let endpoint;
-if (process.env.NODE_ENV === "production") {
-  endpoint = `/api/users/:user_id/settings`;
-} else {
-  endpoint = "http://localhost:5000/api/users/:user_id/settings";
-}
 
 class Settings extends React.Component {
   constructor(props) {
@@ -24,6 +19,9 @@ class Settings extends React.Component {
   componentDidMount(e) {
     this.props.requestSingleUser(this.userId).then(response => {
       this.setState({ user: response.user.data, activeComponent: "profile" });
+    })
+    .catch(err => {
+      console.log(err)
     });
   }
 
@@ -47,9 +45,10 @@ class Settings extends React.Component {
     event.preventDefault();
     const data = new FormData(event.target);
     data.append("file", this.state.profilePicture);
-
+    debugger;
     axios
-      .patch(endpoint, data)
+      // .patch(endpoint, data)
+      .patch(`/api/users/${this.userId}`, data)
       .then(() => {
         this.props.history.push("/");
       })
@@ -59,6 +58,7 @@ class Settings extends React.Component {
   };
 
   render() {
+
         let preview = this.state.previewUrl ? 
         <img className="art-form-image-previewed" alt="" src={this.state.previewUrl} /> 
             : <span
