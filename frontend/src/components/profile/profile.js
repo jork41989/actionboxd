@@ -137,13 +137,16 @@ class Profile extends React.Component {
       return ( <div>
           <div className={'profileHeader'}>
               <div className={'profileHeaderUserInfo'}>
+                <div className="profile-photo-container">
+
                 <div className={'Profile-photo'}>
-                    <img src={this.state.user.profilePicture}/>
+                    <img className="profile-picture-image" src={this.state.user.profilePicture}/>
+                </div>
+                <Link to={`/users/${this.userId}/settings`}>
+                    <button className="settings-button">Change</button>
+                </Link>
                 </div>
                 <p className={'Profile-username'}>{this.state.user.username}</p>
-                <Link to={`/users/${this.userId}/settings`}>
-                    <button className="settings-button">Settings</button>
-                </Link>
               </div>
               <div className={'profileHeaderCountsDiv'}>
               <div className={'profileHeaderMovieCount'} onClick={this.MoviesAllState}>
