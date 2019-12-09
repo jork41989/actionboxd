@@ -10,7 +10,7 @@ class Settings extends React.Component {
     super(props);
     this.userId = this.props.userId;
     this.state = {
-      profilePicture: "",
+      profilePicture: this.props.profilePicture || "",
       previewUrl: ""
     //   selectedFile: null
     };
@@ -60,33 +60,37 @@ class Settings extends React.Component {
 
   render() {
 
+    let item = this.state.profilePicture ? <img className="profile-image-preview" src={this.state.profilePicture}></img> : <div></div>;
         let preview = this.state.previewUrl ? 
         <img className="profile-image-preview" alt="" src={this.state.previewUrl} /> 
-            : <span
-                role="img"
-                alt=""
-                aria-label="debug"
-                className="art-form-image-debug-icon">📷</span>;
+            : <div>{item}</div>;
 
 
     if (this.state.user) {
       return (
         <div className="settings-container">
-          <form onSubmit={this.handleUpload}>
-            <div className="form-group">
-              <input
-                type="file"
-                name=""
-                id=""
-                onChange={this.handleSelectedFile}
-              />
-            </div>
+          <form className="settings-form" onSubmit={this.handleUpload}>
             {preview}
-            <button type="submit" class="btn btn-primary">
-              Upload
-            </button>
+            <div className="settings-buttons-container">
+              <div className="form-group">
+                <input
+                  type="file"
+                  name=""
+                  id=""
+                  onChange={this.handleSelectedFile}
+                  />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Upload
+              </button>
+            </div>
           </form>
-          <div className="settings-close-button" onClick={() => this.props.closeModal()}>X</div>
+          <div
+            className="settings-close-button"
+            onClick={() => this.props.closeModal()}
+          >
+            X
+          </div>
         </div>
       );
     } else {

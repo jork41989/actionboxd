@@ -16,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     user: user,
     errors: state.errors,
-    currentUser: currentUser
+    currentUser: currentUser,
+    profilePicture: user.profilePicture
   };
 };
 
