@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./settings.css"
+import ReactTooltip from 'react-tooltip';
 
 let endpoint;
 
@@ -11,7 +12,8 @@ class Settings extends React.Component {
     this.userId = this.props.userId;
     this.state = {
       profilePicture: this.props.profilePicture || "",
-      previewUrl: ""
+      previewUrl: "", 
+      errors: ""
     //   selectedFile: null
     };
     this.handleUpload = this.handleUpload.bind(this);
@@ -44,6 +46,9 @@ class Settings extends React.Component {
 
   handleUpload = event => {
     event.preventDefault();
+    if (!this.state.previewUrl) {
+      this.setState({errors: "Please choose a file to upload."});
+    }
     const data = new FormData(event.target);
     data.append("file", this.state.profilePicture);
     axios
@@ -54,9 +59,21 @@ class Settings extends React.Component {
         this.props.closeModal();
       })
       .catch(error => {
-        alert("Oops some error happened, please try again");
+        this.setState({ errors: "Hey"});
+        this.renderErrors();
+        // alert("Oops some error happened, please try again");
+        console.log(error);
       });
   };
+
+  renderErrors() {
+    debugger;
+    if (this.state.errors) {
+      return <div>{this.state.errors}</div>
+    } else {
+      return <div>Nothing to see here.</div>
+    }
+  }
 
   render() {
 
@@ -80,7 +97,8 @@ class Settings extends React.Component {
                   onChange={this.handleSelectedFile}
                   />
               </div>
-              <button type="submit" class="btn btn-primary">
+              {this.renderErrors}
+              <button type="submit" className="settings-submit">
                 Upload
               </button>
             </div>
