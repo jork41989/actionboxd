@@ -8,7 +8,8 @@ import ReviewsCreateFormContainer from '../reviews/reviews_create_form_container
 import MovieFormContainer from '../movie-form/movie_form_container';
 import ReviewsEditFormContainer from '../reviews/reviews_edit_form_container';
 import ActorFormContainer from '../actor-form/actor_form_container';
-import AboutDevContainer from '../about-dev/about_dev_container'
+import AboutDevContainer from '../about-dev/about_dev_container';
+import SettingsContainer from "../profile/settings_container";
 
 
 import './modal.css';
@@ -44,6 +45,9 @@ function Modal ({payload, closeModal}) {
       break;
     case 'devs':
       component = <AboutDevContainer />;
+      break;
+    case 'profilePicture':
+      component = <SettingsContainer userId={payload.userId}/>;
       break;
     default:
       return null;
