@@ -37,6 +37,10 @@ class ReviewsIndexItem extends React.Component{
 
     }
 
+    userLink(){
+
+    }
+
     trash(){ 
         if (this.props.currentUser && Object.keys(this.props.currentUser).length !== 0) {
             if(this.props.currentUser.username === this.props.review.username){
@@ -54,7 +58,7 @@ class ReviewsIndexItem extends React.Component{
 }
     render(){
         let rating;
-        
+
 
         if (this.props.review.rating){
             switch (this.props.review.rating.$numberDecimal){
@@ -78,9 +82,13 @@ class ReviewsIndexItem extends React.Component{
             }
         }
 
+        let UserI = this.props.review.user_id ? this.props.review.user_id._id : null
+        let profilePhoto = this.props.review.user_id ? this.props.review.user_id.profilePicture : null
+        let BG ={ backgroundImage: `url('${profilePhoto}`}
+        console.log(profilePhoto)
         return (
             <div className="review-item-container">
-                <div className="review-item-avatar">
+                <div className="review-item-avatar" style={BG}>
                     {/* {this.props.review.profilePicture} */}
                 </div>
 
@@ -88,7 +96,7 @@ class ReviewsIndexItem extends React.Component{
                     <div className="review-item-header">
                         <div className="review-item-header-extended">
                             
-                            Review by <Link to={`/users/${this.props.review.user_id}`}> <p className="review-username">{this.props.review.username}</p></Link> {rating}
+                            Review by <Link to={`/users/${UserI}`}> <p className="review-username">{this.props.review.username}</p></Link> {rating}
                         </div>
                         <div className="review-item-actions">
                             {this.trash()}
@@ -101,6 +109,7 @@ class ReviewsIndexItem extends React.Component{
                 </div>
             </div>
         )
+        
     }
 }
 
