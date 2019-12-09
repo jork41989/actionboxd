@@ -246,6 +246,7 @@ router.get('/:user_id', (req, res) => {
       watched_movies: watchedMovieObj,
       authored_reviews: user.authored_reviews,
       id: user.id,
+      profilePicture: user.profilePicture
     })})
     .catch(err => 
       res.status(404).json({nomoviesfound: 'no movies found for this user'}))

@@ -137,7 +137,9 @@ class Profile extends React.Component {
       return ( <div>
           <div className={'profileHeader'}>
               <div className={'profileHeaderUserInfo'}>
-                <div className={'Profile-photo'}></div>
+                <div className={'Profile-photo'}>
+                    <img src={this.state.user.profilePicture}/>
+                </div>
                 <p className={'Profile-username'}>{this.state.user.username}</p>
                 <Link to={`/users/${this.userId}/settings`}>
                     <button className="settings-button">Settings</button>
