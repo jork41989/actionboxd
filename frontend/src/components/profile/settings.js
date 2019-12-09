@@ -61,7 +61,7 @@ class Settings extends React.Component {
   render() {
 
         let preview = this.state.previewUrl ? 
-        <img className="art-form-image-previewed" alt="" src={this.state.previewUrl} /> 
+        <img className="profile-image-preview" alt="" src={this.state.previewUrl} /> 
             : <span
                 role="img"
                 alt=""
@@ -71,7 +71,7 @@ class Settings extends React.Component {
 
     if (this.state.user) {
       return (
-        <div>
+        <div className="settings-container">
           <form onSubmit={this.handleUpload}>
             <div className="form-group">
               <input
@@ -86,6 +86,7 @@ class Settings extends React.Component {
               Upload
             </button>
           </form>
+          <div className="settings-close-button" onClick={() => this.props.closeModal()}>X</div>
         </div>
       );
     } else {

@@ -32,7 +32,7 @@
   border: none;
 }
 
-.settings-button:active{
+.settings-button:focus{
   outline: none;
 }
 
