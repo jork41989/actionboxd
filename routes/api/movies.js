@@ -19,21 +19,21 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   Movie.findById(req.params.id)
-  .populate('reviews')
+    .populate({ path: 'reviews', populate: { path: 'user_id', select: '_id, profilePicture'}}) 
   .populate({ path: 'actors', select: '_id name' })
     .then(movie => res.json(movie))
     .catch(err => 
       res.status(404).json({movienotfound: 'Movie not found with that id'}))
     });
     
-    router.get('/search/:term', (req, res) => {
-        Movie.find({ title: { $in: [new RegExp(`^${req.params.term}`, 'i'),
-         new RegExp(`the ${req.params.term}`, 'i')]}})
-        .limit(5)
-        .sort({title: 1})
-        .then(movies => res.json(movies))
-        .catch(err => res.status(404).json({ moviesnotfound: 'movies not found'})) 
-    });
+router.get('/search/:term', (req, res) => {
+    Movie.find({ title: { $in: [new RegExp(`^${req.params.term}`, 'i'),
+      new RegExp(`the ${req.params.term}`, 'i')]}})
+    .limit(5)
+    .sort({title: 1})
+    .then(movies => res.json(movies))
+    .catch(err => res.status(404).json({ moviesnotfound: 'movies not found'})) 
+});
 
 
 router.post('/newMovie',

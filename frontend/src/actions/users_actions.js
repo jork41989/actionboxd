@@ -25,6 +25,7 @@ export const unwatchAOldMovie = user => ({
 
 
 
+
 export const requestSingleUser = userId => (dispatch) => (
   getUser(userId).then(user => dispatch(receiveAUser(user)))
 )
