@@ -162,7 +162,7 @@ class Profile extends React.Component {
                 <div className={'profileHeader'}>
                     <div className={'profileHeaderUserInfo'}>
                         {/* <div className={'Profile-photo'}></div> */}
-                        <p className={'Profile-username'}>Loading...</p>
+                        <p className={'loading'}>Loading...</p>
                             <div class="lds-ellipsis">
                                 <div style={{ backgroundColor: "rgb(255,128,0)" }}>
                                 </div><div style={{ backgroundColor: "rgb(0,224,84)" }}>
