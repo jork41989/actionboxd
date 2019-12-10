@@ -93,7 +93,7 @@ class Settings extends React.Component {
             <div className="settings-buttons-container">
               <label for="file" className="file-button-label">
                 <div className="form-group">
-                  <p className="choose-file">Choose file</p>
+                  <p className="choose-file">Select</p>
                   <input
                     type="file"
                     name=""
