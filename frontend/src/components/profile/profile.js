@@ -146,21 +146,25 @@ class Profile extends React.Component {
         if (this.state.user) {
         //   debugger;
           let changeButton;
-          if (this.props.currentUser.id === this.userId) {
-            changeButton = (
-              <button
-                className="settings-button"
-                onClick={() =>
-                  this.props.openModal({
-                    modal: "profilePicture",
-                    userId: this.userId,
-                    profilePicture: this.props.user.profilePicture || ""
-                  })
-                }
-              >
-                Change
-              </button>
-            );
+          if(this.props.currentUser){
+            if (this.props.currentUser.id === this.userId) {
+              changeButton = (
+                <button
+                  className="settings-button"
+                  onClick={() =>
+                    this.props.openModal({
+                      modal: "profilePicture",
+                      userId: this.userId,
+                      profilePicture: this.props.user.profilePicture || ""
+                    })
+                  }
+                >
+                  Change
+                </button>
+              );
+            } else {
+              changeButton = <div></div>;
+            }
           } else {
             changeButton = <div></div>;
           }
