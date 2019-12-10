@@ -13,7 +13,8 @@ class Settings extends React.Component {
     this.state = {
       profilePicture: this.props.profilePicture || "",
       previewUrl: "", 
-      errors: ""
+      errors: "",
+      loading: false
     //   selectedFile: null
     };
     this.handleUpload = this.handleUpload.bind(this);
@@ -52,41 +53,26 @@ class Settings extends React.Component {
     let submit = document.getElementById("settings-submit");
     submit.disabled = true;
     submit.classList.add("selected");
-    if (!this.state.previewUrl) {
-      this.setState({errors: "Please choose a file to upload."});
-    }
-
+    this.setState({loading: true});
     const data = new FormData(event.target);
     data.append("file", this.state.profilePicture);
     axios
-      // .patch(endpoint, data)
       .patch(`/api/users/${this.userId}`, data)
       .then(() => {
-        // this.props.history.push("/");
-        // this.props.requestSingleUser(this.userId);
-        this.setState({ profilePicture: ""})
+        this.setState({ profilePicture: "", loading: true})
         this.props.closeModal();
         submit.disabled = false;
-        submit.classList.remove("selected")
-      }).then(() => this.props.requestSingleUser(this.userId))
-      .then(() => this.props.re)
+        submit.classList.remove("selected");
+
+      }).then(() => {
+        this.setState({loading: false})
+        this.props.requestSingleUser(this.userId)
+      })
       .catch(error => {
-        // this.setState({ errors: "Hey"});
-        // this.renderErrors();
         submit.disabled = false;
         submit.classList.remove("selected");
-        // alert("Oops some error happened, please try again");
-        console.log(error);
       });
   };
-
-  // renderErrors() {
-  //   if (this.state.errors) {
-  //     return <div>{this.state.errors}</div>
-  //   } else {
-  //     return <div>Nothing to see here.</div>
-  //   }
-  // }
 
   render() {
     let submitButton = this.state.previewUrl ? (
@@ -98,6 +84,19 @@ class Settings extends React.Component {
         Upload
       </button>
     );
+
+     let loadingDisplay = this.state.loading ? (
+       <div>
+         <div class="loading">Loading...</div>
+         <div class="lds-ellipsis">
+           <div style={{ backgroundColor: "rgb(255,128,0)" }}> </div>
+           <div style={{ backgroundColor: "rgb(0,224,84)" }}></div>
+           <div style={{ backgroundColor: "rgb(64,188,244)" }}></div>
+         </div>
+       </div>
+     ) : (
+       submitButton
+     );
 
     let item = this.state.profilePicture ? <img className="profile-image-preview" src={this.state.profilePicture}></img> : <div>hi</div>;
         let preview = this.state.previewUrl ? 
@@ -123,8 +122,7 @@ class Settings extends React.Component {
                   />
                 </div>
               </label>
-              {/* {this.renderErrors} */}
-             {submitButton}
+              {loadingDisplay}
             </div>
           </form>
           <div
