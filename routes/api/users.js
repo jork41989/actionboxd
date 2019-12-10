@@ -9,6 +9,19 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
+
+
+
+require("dotenv").config();
+const multer = require("multer");
+var AWS = require("aws-sdk");
+
+var storage = multer.memoryStorage();
+var upload = multer({ storage: storage });
+
+
+
+
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -233,9 +246,55 @@ router.get('/:user_id', (req, res) => {
       watched_movies: watchedMovieObj,
       authored_reviews: user.authored_reviews,
       id: user.id,
+      profilePicture: user.profilePicture
     })})
     .catch(err => 
       res.status(404).json({nomoviesfound: 'no movies found for this user'}))
 })
+
+
+
+router.patch("/:user_id", passport.authenticate('jwt', { session: false }), upload.single("file"), function(req, res) {
+  const file = req.file;
+  const s3FileURL = process.env.AWS_UPLOADED_FILE_URL_LINK;
+
+  let s3bucket = new AWS.S3({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    region: process.env.AWS_REGION
+  });
+
+  var params = {
+    Bucket: process.env.AWS_BUCKET_NAME,
+    Key: file.originalname,
+    Body: file.buffer,
+    ContentType: file.mimetype,
+    ACL: "public-read"
+  };
+
+  s3bucket.upload(params, function(err, data) {
+    if (err) {
+      res.status(500).json({ error: true, Message: err });
+    } else {
+      var newFileUploaded = {
+        profilePicture: s3FileURL + file.originalname,
+        s3_key: params.Key
+      };
+      var user = User.findByIdAndUpdate(
+        req.params.user_id,
+        { $set: newFileUploaded },
+        { upsert: true, new: true }
+      ).then(user => user.save())
+        .then(data => {
+          res.send({ data });
+        })
+        .catch(err => console.log(err));
+    }
+  });
+});
+
+
+
+
 
 module.exports = router;
