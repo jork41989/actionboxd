@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./settings.css"
+import ReactTooltip from 'react-tooltip';
 
 let endpoint;
 
@@ -10,8 +11,9 @@ class Settings extends React.Component {
     super(props);
     this.userId = this.props.userId;
     this.state = {
-      profilePicture: "",
-      previewUrl: ""
+      profilePicture: this.props.profilePicture || "",
+      previewUrl: "", 
+      errors: ""
     //   selectedFile: null
     };
     this.handleUpload = this.handleUpload.bind(this);
@@ -36,6 +38,9 @@ class Settings extends React.Component {
     if (file) {
       fileReader.readAsDataURL(file);
     }
+    let submit = document.getElementById("settings-submit");
+    submit.classList.remove("selected");
+    submit.disabled = false;
   };
 
   onChange = e => {
@@ -44,6 +49,13 @@ class Settings extends React.Component {
 
   handleUpload = event => {
     event.preventDefault();
+    let submit = document.getElementById("settings-submit");
+    submit.disabled = true;
+    submit.classList.add("selected");
+    if (!this.state.previewUrl) {
+      this.setState({errors: "Please choose a file to upload."});
+    }
+
     const data = new FormData(event.target);
     data.append("file", this.state.profilePicture);
     axios
@@ -51,46 +63,80 @@ class Settings extends React.Component {
       .patch(`/api/users/${this.userId}`, data)
       .then(() => {
         // this.props.history.push("/");
+        // this.props.requestSingleUser(this.userId);
+        this.setState({ profilePicture: ""})
         this.props.closeModal();
-      })
+        submit.disabled = false;
+        submit.classList.remove("selected")
+      }).then(() => this.props.requestSingleUser(this.userId))
+      .then(() => this.props.re)
       .catch(error => {
-        alert("Oops some error happened, please try again");
+        // this.setState({ errors: "Hey"});
+        // this.renderErrors();
+        submit.disabled = false;
+        submit.classList.remove("selected");
+        // alert("Oops some error happened, please try again");
+        console.log(error);
       });
   };
 
-  render() {
+  // renderErrors() {
+  //   if (this.state.errors) {
+  //     return <div>{this.state.errors}</div>
+  //   } else {
+  //     return <div>Nothing to see here.</div>
+  //   }
+  // }
 
+  render() {
+    let submitButton = this.state.previewUrl ? (
+      <button type="submit" className="settings-submit" id="settings-submit">
+        Upload
+      </button>
+    ) : (
+      <button type="submit" className="settings-submit selected" id="settings-submit" disabled="true">
+        Upload
+      </button>
+    );
+
+    let item = this.state.profilePicture ? <img className="profile-image-preview" src={this.state.profilePicture}></img> : <div>hi</div>;
         let preview = this.state.previewUrl ? 
         <img className="profile-image-preview" alt="" src={this.state.previewUrl} /> 
-            : <span
-                role="img"
-                alt=""
-                aria-label="debug"
-                className="art-form-image-debug-icon">📷</span>;
+            : <div>{item}</div>;
 
 
     if (this.state.user) {
       return (
         <div className="settings-container">
-          <form onSubmit={this.handleUpload}>
-            <div className="form-group">
-              <input
-                type="file"
-                name=""
-                id=""
-                onChange={this.handleSelectedFile}
-              />
-            </div>
+          <form className="settings-form" onSubmit={this.handleUpload}>
             {preview}
-            <button type="submit" class="btn btn-primary">
-              Upload
-            </button>
+            <div className="settings-buttons-container">
+              <label for="file" className="file-button-label">
+                <div className="form-group">
+                  <p className="choose-file">Select</p>
+                  <input
+                    type="file"
+                    name=""
+                    id="file"
+                    onChange={this.handleSelectedFile}
+                    className="file-input"
+                  />
+                </div>
+              </label>
+              {/* {this.renderErrors} */}
+             {submitButton}
+            </div>
           </form>
-          <div className="settings-close-button" onClick={() => this.props.closeModal()}>X</div>
+          <div
+            className="settings-close-button"
+            onClick={() => this.props.closeModal()}
+          >
+            X
+          </div>
         </div>
       );
     } else {
-      return <div>gosh</div>;
+      return <div>Loading</div>;
     }
   }
 }

@@ -87,28 +87,34 @@ class ReviewsIndexItem extends React.Component{
         let BG ={ backgroundImage: `url('${profilePhoto}`}
         console.log(profilePhoto)
         return (
-            <div className="review-item-container">
-                <div className="review-item-avatar" style={BG}>
-                    {/* {this.props.review.profilePicture} */}
-                </div>
-
-                <div className="review-item-info-container">
-                    <div className="review-item-header">
-                        <div className="review-item-header-extended">
-                            
-                            Review by <Link to={`/users/${UserI}`}> <p className="review-username">{this.props.review.username}</p></Link> {rating}
-                        </div>
-                        <div className="review-item-actions">
-                            {this.trash()}
-                            {this.edit()}
-                        </div>    
-                    </div>
-                    <div className="review-item-body">
-                        {this.props.review.text}
-                    </div>
-                </div>
+          <div className="review-item-container">
+            {/* <div className="review-item-avatar" style={BG}> */}
+            <div className="review-item-avatar">
+              <img src={profilePhoto} className="review-item-avatar-image" />
             </div>
-        )
+            
+
+            <div className="review-item-info-container">
+              <div className="review-item-header">
+                <div className="review-item-header-extended">
+                  Review by{" "}
+                  <Link to={`/users/${UserI}`}>
+                    {" "}
+                    <p className="review-username">
+                      {this.props.review.username}
+                    </p>
+                  </Link>{" "}
+                  {rating}
+                </div>
+                <div className="review-item-actions">
+                  {this.trash()}
+                  {this.edit()}
+                </div>
+              </div>
+              <div className="review-item-body">{this.props.review.text}</div>
+            </div>
+          </div>
+        );
         
     }
 }
