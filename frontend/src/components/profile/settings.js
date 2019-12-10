@@ -63,14 +63,16 @@ class Settings extends React.Component {
       .patch(`/api/users/${this.userId}`, data)
       .then(() => {
         // this.props.history.push("/");
+        // this.props.requestSingleUser(this.userId);
         this.setState({ profilePicture: ""})
         this.props.closeModal();
         submit.disabled = false;
         submit.classList.remove("selected")
       }).then(() => this.props.requestSingleUser(this.userId))
+      .then(() => this.props.re)
       .catch(error => {
-        this.setState({ errors: "Hey"});
-        this.renderErrors();
+        // this.setState({ errors: "Hey"});
+        // this.renderErrors();
         submit.disabled = false;
         submit.classList.remove("selected");
         // alert("Oops some error happened, please try again");
@@ -78,13 +80,13 @@ class Settings extends React.Component {
       });
   };
 
-  renderErrors() {
-    if (this.state.errors) {
-      return <div>{this.state.errors}</div>
-    } else {
-      return <div>Nothing to see here.</div>
-    }
-  }
+  // renderErrors() {
+  //   if (this.state.errors) {
+  //     return <div>{this.state.errors}</div>
+  //   } else {
+  //     return <div>Nothing to see here.</div>
+  //   }
+  // }
 
   render() {
     let submitButton = this.state.previewUrl ? (
@@ -121,7 +123,7 @@ class Settings extends React.Component {
                   />
                 </div>
               </label>
-              {this.renderErrors}
+              {/* {this.renderErrors} */}
              {submitButton}
             </div>
           </form>

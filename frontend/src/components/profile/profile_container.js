@@ -4,7 +4,7 @@ import { openModal } from "../../actions/modal_actions";
 import Profile from './profile';
 
 const mapStateToProps = (state, ownProps) => {
-  const userId = parseInt(ownProps.match.params.id);
+  const userId = ownProps.match.params.id;
   let user = state.entities.users[userId];
   let currentUser = state.session.user ? state.entities.users[state.session.user.id] : {};
   if (user) {

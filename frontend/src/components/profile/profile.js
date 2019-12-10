@@ -10,7 +10,7 @@ class Profile extends React.Component {
         super(props);
         this.userId = this.props.match.params.id;
         this.state = {
-           
+           user: this.props.user
         }
         this.MovieCount = this.MovieCount.bind(this);
         this.renderComponent = this.renderComponent.bind(this)
@@ -24,7 +24,7 @@ class Profile extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        debugger;
+        // debugger;
         if (prevProps.match.params.id !== this.props.match.params.id){
             this.props.requestSingleUser(this.props.match.params.id).then(response => {
                 this.setState({ user: response.user.data, activeComponent: 'profile' });
@@ -154,7 +154,7 @@ class Profile extends React.Component {
                   this.props.openModal({
                     modal: "profilePicture",
                     userId: this.userId,
-                    profilePicture: this.state.user.profilePicture || ""
+                    profilePicture: this.props.user.profilePicture || ""
                   })
                 }
               >
@@ -173,7 +173,7 @@ class Profile extends React.Component {
                     <div className={"Profile-photo"}>
                       <img
                         className="profile-picture-image"
-                        src={this.state.user.profilePicture}
+                        src={this.props.user.profilePicture}
                       />
                     </div>
                     {/* <Link to={`/users/${this.userId}/settings`}> */}
