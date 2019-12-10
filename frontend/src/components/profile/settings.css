@@ -105,6 +105,7 @@
 
 .settings-submit.selected{
     background: gray;
+    cursor: auto;
 }
 
 /* .profile-picture-image{

@@ -38,6 +38,9 @@ class Settings extends React.Component {
     if (file) {
       fileReader.readAsDataURL(file);
     }
+    let submit = document.getElementById("settings-submit");
+    submit.classList.remove("selected");
+    submit.disabled = false;
   };
 
   onChange = e => {
@@ -76,7 +79,6 @@ class Settings extends React.Component {
   };
 
   renderErrors() {
-    debugger;
     if (this.state.errors) {
       return <div>{this.state.errors}</div>
     } else {
@@ -85,7 +87,16 @@ class Settings extends React.Component {
   }
 
   render() {
-debugger;
+    let submitButton = this.state.previewUrl ? (
+      <button type="submit" className="settings-submit" id="settings-submit">
+        Upload
+      </button>
+    ) : (
+      <button type="submit" className="settings-submit selected" id="settings-submit" disabled="true">
+        Upload
+      </button>
+    );
+
     let item = this.state.profilePicture ? <img className="profile-image-preview" src={this.state.profilePicture}></img> : <div>hi</div>;
         let preview = this.state.previewUrl ? 
         <img className="profile-image-preview" alt="" src={this.state.previewUrl} /> 
@@ -111,9 +122,7 @@ debugger;
                 </div>
               </label>
               {this.renderErrors}
-              <button type="submit" className="settings-submit" id="settings-submit">
-                Upload
-              </button>
+             {submitButton}
             </div>
           </form>
           <div

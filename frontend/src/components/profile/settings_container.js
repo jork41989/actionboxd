@@ -4,7 +4,6 @@ import { openModal, closeModal } from "../../actions/modal_actions";
 import Settings from "./settings.js";
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   const userId = ownProps.userId;
   let user = state.entities.users[userId];
   let currentUser = state.session.user
