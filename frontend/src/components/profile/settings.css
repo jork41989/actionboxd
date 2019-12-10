@@ -109,6 +109,14 @@
     cursor: auto;
 }
 
+.settings-loading-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
 /* .profile-picture-image{
   height: 100%;
   width: 100%;

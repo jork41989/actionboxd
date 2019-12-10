@@ -86,8 +86,8 @@ class Settings extends React.Component {
     );
 
      let loadingDisplay = this.state.loading ? (
-       <div>
-         <div class="loading">Loading...</div>
+       <div className="settings-loading-container">
+         <div class="loading" style={{ fontSize: "14px"}}>Loading...</div>
          <div class="lds-ellipsis">
            <div style={{ backgroundColor: "rgb(255,128,0)" }}> </div>
            <div style={{ backgroundColor: "rgb(0,224,84)" }}></div>
@@ -98,7 +98,7 @@ class Settings extends React.Component {
        submitButton
      );
 
-    let item = this.state.profilePicture ? <img className="profile-image-preview" src={this.state.profilePicture}></img> : <div>hi</div>;
+    let item = this.state.profilePicture ? <img className="profile-image-preview" src={this.state.profilePicture}></img> : <div></div>;
         let preview = this.state.previewUrl ? 
         <img className="profile-image-preview" alt="" src={this.state.previewUrl} /> 
             : <div>{item}</div>;
