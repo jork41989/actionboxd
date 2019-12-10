@@ -4,6 +4,7 @@ import { openModal, closeModal } from "../../actions/modal_actions";
 import Settings from "./settings.js";
 
 const mapStateToProps = (state, ownProps) => {
+  debugger;
   const userId = ownProps.userId;
   let user = state.entities.users[userId];
   let currentUser = state.session.user
@@ -17,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
     user: user,
     errors: state.errors,
     currentUser: currentUser,
-    profilePicture: user.profilePicture
+    profilePicture: ownProps.profilePicture
   };
 };
 

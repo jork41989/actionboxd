@@ -85,8 +85,8 @@ class Settings extends React.Component {
   }
 
   render() {
-
-    let item = this.state.profilePicture ? <img className="profile-image-preview" src={this.state.profilePicture}></img> : <div></div>;
+debugger;
+    let item = this.state.profilePicture ? <img className="profile-image-preview" src={this.state.profilePicture}></img> : <div>hi</div>;
         let preview = this.state.previewUrl ? 
         <img className="profile-image-preview" alt="" src={this.state.previewUrl} /> 
             : <div>{item}</div>;

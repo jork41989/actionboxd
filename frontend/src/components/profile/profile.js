@@ -149,7 +149,8 @@ class Profile extends React.Component {
                 onClick={() =>
                   this.props.openModal({
                     modal: "profilePicture",
-                    userId: this.userId
+                    userId: this.userId,
+                    profilePicture: this.state.user.profilePicture || ""
                   })
                 }
               >
