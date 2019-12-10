@@ -59,6 +59,10 @@
     pointer-events: none;
 }
 
+.form-group:hover{
+   color: white;
+}
+
 .settings-close-button{
     display: inline-block;
     height: 25px;
