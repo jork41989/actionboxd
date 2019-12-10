@@ -117,7 +117,10 @@ router.patch('/:id',
       {$set: {text: req.body.text, rating: req.body.rating}},
       { runValidators: true, new: true }
       )
-      .then((docs) => res.json(docs))
+      .populate({path: 'user_id', select: '_id, profilePicture'})
+      .then((docs) =>
+      
+      res.json(docs))
       .catch(err =>
         res.status(404).json(err))
 });
