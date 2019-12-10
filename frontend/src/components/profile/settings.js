@@ -24,9 +24,6 @@ class Settings extends React.Component {
     this.props.requestSingleUser(this.userId).then(response => {
       this.setState({ user: response.user.data, activeComponent: "profile" });
     })
-    .catch(err => {
-      console.log(err)
-    });
   }
 
   handleSelectedFile = e => {

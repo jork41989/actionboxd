@@ -85,7 +85,6 @@ class ReviewsIndexItem extends React.Component{
         let UserI = this.props.review.user_id ? this.props.review.user_id._id : null
         let profilePhoto = this.props.review.user_id ? this.props.review.user_id.profilePicture : null
         let BG ={ backgroundImage: `url('${profilePhoto}`}
-        console.log(profilePhoto)
         return (
           <div className="review-item-container">
             {/* <div className="review-item-avatar" style={BG}> */}

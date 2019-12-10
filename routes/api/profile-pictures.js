@@ -45,7 +45,7 @@ router.post("/upload", upload.single("file"), function(req, res) {
         .then(data => {
           res.send({ data });
         })
-        .catch(err => console.log(err));
+        // .catch(err => console.log(err));
     }
   });
 });
