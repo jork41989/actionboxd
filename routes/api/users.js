@@ -38,6 +38,7 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
         watched_movies: watchedMovieObj,
         authored_reviews: user.authored_reviews,
         id: user.id,
+        profilePicture: user.profilePicture
       })})
     .catch(err => res.status(404).json({ moviesnotfound: 'Yo dog there is no user!' })) 
 });
