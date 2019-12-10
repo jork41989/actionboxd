@@ -52,6 +52,11 @@
     opacity: 0;
 }
 
+.choose-file{
+    position: relative;
+    top: 5px;
+    pointer-events: none;
+}
 
 .settings-close-button{
     display: inline-block;
@@ -98,9 +103,7 @@
     outline: none;
 }
 
-.form-group{
-    background: #14181C;
-}
+
 /* .profile-picture-image{
   height: 100%;
   width: 100%;

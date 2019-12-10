@@ -49,7 +49,7 @@ class Settings extends React.Component {
     if (!this.state.previewUrl) {
       this.setState({errors: "Please choose a file to upload."});
     }
-    
+
     const data = new FormData(event.target);
     data.append("file", this.state.profilePicture);
     axios
@@ -59,7 +59,7 @@ class Settings extends React.Component {
         // this.props.history.push("/");
         this.setState({ profilePicture: ""})
         this.props.closeModal();
-      })
+      }).then(() => this.props.requestSingleUser(this.userId))
       .catch(error => {
         this.setState({ errors: "Hey"});
         this.renderErrors();
@@ -93,6 +93,7 @@ class Settings extends React.Component {
             <div className="settings-buttons-container">
               <label for="file" className="file-button-label">
                 <div className="form-group">
+                  <p className="choose-file">Choose file</p>
                   <input
                     type="file"
                     name=""
@@ -101,7 +102,6 @@ class Settings extends React.Component {
                     className="file-input"
                   />
                 </div>
-                Choose file
               </label>
               {this.renderErrors}
               <button type="submit" className="settings-submit">
