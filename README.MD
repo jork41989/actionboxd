@@ -194,6 +194,132 @@ The following is code we used to render the CSS for average raiting for each fil
     }
 ```
 
+Careful coordination between CSS descendants, jsx elements, and local react states were required to render ratings visually and in real time. In our render function, we defined a block of code dedicated to keeping track of each of our stars.
+
+```
+<div id="rating-input" className="review-stars" data-tip data-for="rating">
+   <div className={'review-stars-1'} onClick={this.updateRating("1.0")}></div>
+   <div className={'review-stars-2'} onClick={this.updateRating("2.0")}></div>
+   <div className={'review-stars-3'} onClick={this.updateRating("3.0")}></div>
+   <div className={'review-stars-4'} onClick={this.updateRating("4.0")}></div>
+   <div className={'review-stars-5'} onClick={this.updateRating("5.0")}></div>
+   <div className={`review-stars-color ${ratingSelect}`}></div>   
+</div>
+```
+On the CSS side, we used a sprite to render the five hollow stars that load on form click.  
+
+```
+.review-stars{
+    position: relative;
+    margin-top: 15px;
+    height: 32px;
+    width: 180px;
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-size: 800px 1000px;
+    background-position: 1px -890px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+```
+
+A blue colored version of the five stars from our SVG file was left beneath the hollowed version with display set to none.  
+
+```
+.review-stars-color{
+   	display: none;
+	   position: absolute;
+    height: 32px;
+    width: 180px;
+    background-image: url(/sprite.c71fa7b3.svg);
+    background-repeat: no-repeat;
+    background-size: 800px 1000px;
+    pointer-events: none;
+}
+```
+
+The first star was given the css properties below:  
+
+```
+.review-stars-1{
+    width: 36px;
+    height: 32px;
+}
+```
+
+If the user were to hover over this first star, the css general sibling selector (~) would then be used to render the colored stars visible and set width to cover the first hollowed star.    
+
+```
+div.review-stars-1:hover ~ .review-stars-color{
+    display: block !important;
+    background-position: 1px -959px;
+    width: 35px;
+}
+```
+
+The user now would see one blue star. The sibling selector + hover pseudo selector allow for this preview color to follow the user along their continued star selection. 
+
+Once a star is actually clicked, the updateText function is invoked. 
+
+```
+    updateText() {
+        return e => {
+            this.setState({ text: e.currentTarget.value })
+        };
+    }
+```
+
+On this state change, the component is re-rendered, and a conditional checking for this.state.rating is triggered. 
+
+```
+ switch(this.state.rating){
+            case "1.0":
+                ratingSelect = "one";
+                break;
+            case "2.0":
+                ratingSelect = "two";
+                break;
+            case "3.0":
+                ratingSelect = "three";
+                break;
+            case "4.0":
+                ratingSelect = "four";
+                break;
+            case "5.0":
+                ratingSelect = "five";
+                break;
+            default: 
+                ratingSelect = "";
+   }
+```
+
+This variable in turn is called within the earlier code block.  In this example, the user would see 
+
+```
+<div className={`review-stars-color ${ratingSelect}`}></div> 
+```
+
+turn into 
+
+```
+<div className={`review-stars-color one`}></div> 
+```
+
+which itself corresponds with the css below:
+
+```
+.review-stars-color.one{
+    display: block !important;
+    background-position: 1px -924px;
+    width: 35px;
+}
+```
+
+This then renders one green star from our SVG file where before there was blue.
+
+
+
 ### Movies Show Page
 
 ![alt text](https://i.imgur.com/Ohx3lYr.png)
