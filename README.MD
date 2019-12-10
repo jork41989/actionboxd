@@ -15,6 +15,14 @@ Created by
 
 A movie review platform that allows users to collect, share and discover top action movies from across history.
 
+
+## Technologies 
+ 
+
+ActionBoxd is built with the MERN stack (MongoDB, Express, React, and Node) and AWS.
+
+
+
 ## Functionality & MVP
 
 ### User Auth
@@ -59,17 +67,6 @@ A movie review platform that allows users to collect, share and discover top act
 
 ![alt Text](http://g.recordit.co/3lnEShWV1Z.gif)
 
-
-## Technologies & Challenges
- 
-### Architecture
-
-ActionBoxd is built with the MERN stack (MongoDB, Express, React, and Node) and AWS.
-
-
-
-### Challenges 
-Styling and workload, the bonus features are a bit tedious and so we are a little worried about completing them.  
 
 
 
@@ -318,6 +315,18 @@ which itself corresponds with the css below:
 
 This then renders one green star from our SVG file where before there was blue.
 
+This route blends MondoDB search properties with a RegEx to achieve autocomplete functionality on movie title search.
+
+```javascript
+router.get('/search/:term', (req, res) => {
+    Movie.find({ title: { $in: [new RegExp(`^${req.params.term}`, 'i'),
+      new RegExp(`the ${req.params.term}`, 'i')]}})
+    .limit(5)
+    .sort({title: 1})
+    .then(movies => res.json(movies))
+    .catch(err => res.status(404).json({ moviesnotfound: 'movies not found'})) 
+});
+```
 
 
 ### Movies Show Page
