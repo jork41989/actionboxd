@@ -59,6 +59,10 @@
     pointer-events: none;
 }
 
+.form-group:hover{
+   color: white;
+}
+
 .settings-close-button{
     display: inline-block;
     height: 25px;
@@ -107,6 +111,14 @@
 .settings-submit.selected{
     background: gray;
     cursor: auto;
+}
+
+.settings-loading-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 /* .profile-picture-image{

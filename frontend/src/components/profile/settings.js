@@ -13,7 +13,8 @@ class Settings extends React.Component {
     this.state = {
       profilePicture: this.props.profilePicture || "",
       previewUrl: "", 
-      errors: ""
+      errors: "",
+      loading: false
     //   selectedFile: null
     };
     this.handleUpload = this.handleUpload.bind(this);
@@ -23,9 +24,6 @@ class Settings extends React.Component {
     this.props.requestSingleUser(this.userId).then(response => {
       this.setState({ user: response.user.data, activeComponent: "profile" });
     })
-    .catch(err => {
-      console.log(err)
-    });
   }
 
   handleSelectedFile = e => {
@@ -52,41 +50,26 @@ class Settings extends React.Component {
     let submit = document.getElementById("settings-submit");
     submit.disabled = true;
     submit.classList.add("selected");
-    if (!this.state.previewUrl) {
-      this.setState({errors: "Please choose a file to upload."});
-    }
-
+    this.setState({loading: true});
     const data = new FormData(event.target);
     data.append("file", this.state.profilePicture);
     axios
-      // .patch(endpoint, data)
       .patch(`/api/users/${this.userId}`, data)
       .then(() => {
-        // this.props.history.push("/");
-        // this.props.requestSingleUser(this.userId);
-        this.setState({ profilePicture: ""})
+        this.setState({ profilePicture: "", loading: true})
         this.props.closeModal();
         submit.disabled = false;
-        submit.classList.remove("selected")
-      }).then(() => this.props.requestSingleUser(this.userId))
-      .then(() => this.props.re)
+        submit.classList.remove("selected");
+
+      }).then(() => {
+        this.setState({loading: false})
+        this.props.requestSingleUser(this.userId)
+      })
       .catch(error => {
-        // this.setState({ errors: "Hey"});
-        // this.renderErrors();
         submit.disabled = false;
         submit.classList.remove("selected");
-        // alert("Oops some error happened, please try again");
-        console.log(error);
       });
   };
-
-  // renderErrors() {
-  //   if (this.state.errors) {
-  //     return <div>{this.state.errors}</div>
-  //   } else {
-  //     return <div>Nothing to see here.</div>
-  //   }
-  // }
 
   render() {
     let submitButton = this.state.previewUrl ? (
@@ -99,7 +82,20 @@ class Settings extends React.Component {
       </button>
     );
 
-    let item = this.state.profilePicture ? <img className="profile-image-preview" src={this.state.profilePicture}></img> : <div>hi</div>;
+     let loadingDisplay = this.state.loading ? (
+       <div className="settings-loading-container">
+         <div class="loading" style={{ fontSize: "14px"}}>Loading...</div>
+         <div class="lds-ellipsis">
+           <div style={{ backgroundColor: "rgb(255,128,0)" }}> </div>
+           <div style={{ backgroundColor: "rgb(0,224,84)" }}></div>
+           <div style={{ backgroundColor: "rgb(64,188,244)" }}></div>
+         </div>
+       </div>
+     ) : (
+       submitButton
+     );
+
+    let item = this.state.profilePicture ? <img className="profile-image-preview" src={this.state.profilePicture}></img> : <div></div>;
         let preview = this.state.previewUrl ? 
         <img className="profile-image-preview" alt="" src={this.state.previewUrl} /> 
             : <div>{item}</div>;
@@ -123,8 +119,7 @@ class Settings extends React.Component {
                   />
                 </div>
               </label>
-              {/* {this.renderErrors} */}
-             {submitButton}
+              {loadingDisplay}
             </div>
           </form>
           <div
@@ -136,7 +131,18 @@ class Settings extends React.Component {
         </div>
       );
     } else {
-      return <div>Loading</div>;
+      return (
+        <div>
+          <div class="loading" style={{ fontSize: "14px" }}>
+            Loading...
+          </div>
+          <div class="lds-ellipsis">
+            <div style={{ backgroundColor: "rgb(255,128,0)" }}> </div>
+            <div style={{ backgroundColor: "rgb(0,224,84)" }}></div>
+            <div style={{ backgroundColor: "rgb(64,188,244)" }}></div>
+          </div>
+        </div>
+      );
     }
   }
 }

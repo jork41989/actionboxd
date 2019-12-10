@@ -24,15 +24,11 @@ class Profile extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        // debugger;
         if (prevProps.match.params.id !== this.props.match.params.id){
             this.props.requestSingleUser(this.props.match.params.id).then(response => {
                 this.setState({ user: response.user.data, activeComponent: 'profile' });
             })
         } 
-        // if (this.state.user.profilePicture !== ) {
-
-        // } 
     }
     
     componentDidMount(e) {
@@ -144,7 +140,6 @@ class Profile extends React.Component {
     
     render() {
         if (this.state.user) {
-        //   debugger;
           let changeButton;
           if(this.props.currentUser){
             if (this.props.currentUser.id === this.userId) {
@@ -180,12 +175,6 @@ class Profile extends React.Component {
                         src={this.props.user.profilePicture}
                       />
                     </div>
-                    {/* <Link to={`/users/${this.userId}/settings`}> */}
-                    {/* <button 
-                        className="settings-button"
-                        onClick={() => this.props.openModal({ modal: 'profilePicture', userId: this.userId })}
-                        >Change</button> */}
-                    {/* </Link> */}
                     {changeButton}
                   </div>
                   <p className={"Profile-username"}>
@@ -218,7 +207,6 @@ class Profile extends React.Component {
               <div className={'profileMain'}>
                 <div className={'profileHeader'}>
                     <div className={'profileHeaderUserInfo'}>
-                        {/* <div className={'Profile-photo'}></div> */}
                         <p className={'loading'}>Loading...</p>
                             <div class="lds-ellipsis">
                                 <div style={{ backgroundColor: "rgb(255,128,0)" }}>
