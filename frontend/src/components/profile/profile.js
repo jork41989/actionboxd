@@ -24,11 +24,15 @@ class Profile extends React.Component {
     }
 
     componentDidUpdate(prevProps){
+        debugger;
         if (prevProps.match.params.id !== this.props.match.params.id){
             this.props.requestSingleUser(this.props.match.params.id).then(response => {
                 this.setState({ user: response.user.data, activeComponent: 'profile' });
             })
         } 
+        // if (this.state.user.profilePicture !== ) {
+
+        // } 
     }
     
     componentDidMount(e) {
