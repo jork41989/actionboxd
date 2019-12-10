@@ -46,6 +46,9 @@ class Settings extends React.Component {
 
   handleUpload = event => {
     event.preventDefault();
+    let submit = document.getElementById("settings-submit");
+    submit.disabled = true;
+    submit.classList.add("selected");
     if (!this.state.previewUrl) {
       this.setState({errors: "Please choose a file to upload."});
     }
@@ -59,10 +62,14 @@ class Settings extends React.Component {
         // this.props.history.push("/");
         this.setState({ profilePicture: ""})
         this.props.closeModal();
+        submit.disabled = false;
+        submit.classList.remove("selected")
       }).then(() => this.props.requestSingleUser(this.userId))
       .catch(error => {
         this.setState({ errors: "Hey"});
         this.renderErrors();
+        submit.disabled = false;
+        submit.classList.remove("selected");
         // alert("Oops some error happened, please try again");
         console.log(error);
       });
@@ -104,7 +111,7 @@ class Settings extends React.Component {
                 </div>
               </label>
               {this.renderErrors}
-              <button type="submit" className="settings-submit">
+              <button type="submit" className="settings-submit" id="settings-submit">
                 Upload
               </button>
             </div>

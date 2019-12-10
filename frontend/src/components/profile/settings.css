@@ -103,6 +103,9 @@
     outline: none;
 }
 
+.settings-submit.selected{
+    background: gray;
+}
 
 /* .profile-picture-image{
   height: 100%;
