@@ -9,7 +9,14 @@ class ReviewsIndex extends React.Component {
     render() {
        
         if(!this.props.movie.reviews){
-            return <div>Loading...</div>
+            return <div>
+                <div class="loading">Loading...</div>
+                    <div class="lds-ellipsis">
+                        <div style={{ backgroundColor: "rgb(255,128,0)" }}>
+                        </div><div style={{ backgroundColor: "rgb(0,224,84)" }}>
+                        </div><div style={{ backgroundColor: "rgb(64,188,244)" }}></div>
+                    </div>
+                </div>
         }
 
         let sortedReviews = this.props.movie.reviews.sort((a, b) => (a.date < b.date) ? 1 : -1);

@@ -75,7 +75,13 @@ export default class MoviesShow extends React.Component {
     }
     render() {
         if (!this.props.movie || !this.props.movie.actors) {
-            return <div>Loading...</div>;
+            return <div>Loading...
+                <div class="lds-ellipsis">
+                    <div style={{ backgroundColor: "rgb(255,128,0)" }}>
+                    </div><div style={{ backgroundColor: "rgb(0,224,84)" }}>
+                    </div><div style={{ backgroundColor: "rgb(64,188,244)" }}></div>
+                </div>
+            </div>;
         }
 
         let posterAlt = `${this.props.movie.title} poster`;

@@ -209,18 +209,29 @@ class Profile extends React.Component {
             </div>
           );
         } else {
-          return (
-            <div className={"profileMain"}>
-              <div className={"profileHeader"}>
-                <div className={"profileHeaderUserInfo"}>
-                  <div className={"Profile-photo"}></div>
-                  <p className={"Profile-username"}>John Wick</p>
+            
+            return (
+              <div className={'profileMain'}>
+                <div className={'profileHeader'}>
+                    <div className={'profileHeaderUserInfo'}>
+                        {/* <div className={'Profile-photo'}></div> */}
+                        <p className={'loading'}>Loading...</p>
+                            <div class="lds-ellipsis">
+                                <div style={{ backgroundColor: "rgb(255,128,0)" }}>
+                                </div><div style={{ backgroundColor: "rgb(0,224,84)" }}>
+                                </div><div style={{ backgroundColor: "rgb(64,188,244)" }}></div>
+                            </div>
+                    </div>
+                    <div className={'profileHeaderMovieCount'}>
+                        <p className={'profileHeaderCountsUpper'}>0</p>
+                        <p className={'profileHeaderMovieCountLabel'}>Films</p>
+                    </div>
                 </div>
                 <div className={"profileHeaderMovieCount"}>
                   <p className={"profileHeaderCountsUpper"}>0</p>
                   <p className={"profileHeaderMovieCountLabel"}>Films</p>
                 </div>
-              </div>
+              
               <div>
                 <div className={"profileTextLabel"}>
                   <p className={"profileBodyText"}>RECENTLY WATCHED</p>

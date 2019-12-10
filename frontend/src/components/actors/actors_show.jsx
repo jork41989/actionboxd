@@ -19,7 +19,14 @@ class ActorsShow extends React.Component {
 
     render() {
         if (!this.props.actor){
-            return <div>Loading...</div>
+            return <div>
+                <div className="loading">Loading...</div>
+                <div class="lds-ellipsis">
+                    <div style={{ backgroundColor: "rgb(255,128,0)" }}>
+                    </div><div style={{ backgroundColor: "rgb(0,224,84)" }}>
+                    </div><div style={{ backgroundColor: "rgb(64,188,244)" }}></div>
+                </div>
+            </div>
         }
         return (
             <div className="actor-show-container">
