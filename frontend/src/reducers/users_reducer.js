@@ -23,7 +23,7 @@ export default (state = {}, action) => {
       review = action.review;
       userId = review.user_id;
       newState = merge({}, state);
-      user = newState[userId];
+      user = newState[userId._id];
       user.authored_reviews = user.authored_reviews.filter(rev => rev._id !== review._id);
       return newState
     case RECEIVE_REVIEW:
@@ -31,6 +31,7 @@ export default (state = {}, action) => {
       userId = review.user_id;
       newState = merge({}, state);
       user = newState[userId];
+     
       user.authored_reviews.push(review);
       return newState;
     default:
