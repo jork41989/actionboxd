@@ -9,7 +9,6 @@ import{
 } from '../actions/review_actions';
 import { RECEIVE_ACTOR } from '../actions/actor_actions';
 
-import merge from 'lodash/merge'
 
 const moviesReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -22,7 +21,7 @@ const moviesReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_MOVIE:
             movie = action.movie.data
-            newState = merge({}, state, { [movie._id]: movie });
+            newState = Object.assign({}, state, { [movie._id]: movie });
             return newState;
         case RECEIVE_MOVIES:
             moviesArr = action.movies.data;
@@ -30,7 +29,7 @@ const moviesReducer = (state = {}, action) => {
             moviesArr.forEach(movie => {
                 moviesObj[movie._id] = movie
             })
-            newState = merge({}, state, moviesObj);
+            newState = Object.assign({}, state, moviesObj);
             return newState; 
         case RECEIVE_ACTOR: 
             moviesArr = action.actor.movies;
@@ -39,7 +38,7 @@ const moviesReducer = (state = {}, action) => {
                 moviesArr.forEach(movie => {
                     moviesObj[movie._id] = movie
                 })
-                newState = merge({}, state, moviesObj);
+                newState = Object.assign({}, state, moviesObj);
                 return newState;
             } else {
                 return state
@@ -47,14 +46,14 @@ const moviesReducer = (state = {}, action) => {
         case RECEIVE_REVIEW:
             review = action.review;
             movieId = review.movie_id;
-            newState = merge({}, state);
+            newState = Object.assign({}, state);
             movie = newState[movieId];
             movie.reviews.push(review._id);
             return newState;
         case UPDATE_REVIEW:
             review = action.review;
             movieId = review.movie_id;
-            newState = merge({}, state);
+            newState = Object.assign({}, state);
             movie = newState[movieId];
             movie.reviews = movie.reviews.filter(rev => rev._id !== review._id);
             movie.reviews.push(review);
@@ -62,7 +61,7 @@ const moviesReducer = (state = {}, action) => {
         case REMOVE_REVIEW:
             review = action.review;
             movieId = review.movie_id;
-            newState = merge({}, state);
+            newState = Object.assign({}, state);
             movie = newState[movieId];
             movie.reviews = movie.reviews.filter(rev => rev._id !== review._id);
             return newState;

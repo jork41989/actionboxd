@@ -8,7 +8,7 @@ import {
     REMOVE_REVIEW 
 } from "../actions/review_actions";
 
-import {merge} from 'lodash';
+
 
 import { WATCH_MOVIE, UNWATCH_MOVIE } from "../actions/users_actions"
 
