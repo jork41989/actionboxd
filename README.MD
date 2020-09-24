@@ -2,7 +2,7 @@
 
 ![alt text](https://i.imgur.com/m7ZZwNu.png)
 
-[Visit Us!](https://actionboxd.herokuapp.com/#/)
+[Visit Us!](https://actionboxd.com/#/)
 
 
 Created by
@@ -315,7 +315,7 @@ which itself corresponds with the css below:
 
 This then renders one green star from our SVG file where before there was blue.
 
-This route blends MondoDB search properties with a RegEx to achieve autocomplete functionality on movie title search.
+This route blends MongoDB search properties with a RegEx to achieve autocomplete functionality on movie title search.
 
 ```javascript
 router.get('/search/:term', (req, res) => {
