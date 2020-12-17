@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getMostRecentReviews } from '../../actions/review_actions';
 import { getMovie } from '../../actions/movie_actions';
 import ReviewsIndex from './reviews_index';
 

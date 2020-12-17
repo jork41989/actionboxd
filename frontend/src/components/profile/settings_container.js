@@ -22,7 +22,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const userId = ownProps.userId;
   return {
     openModal: modal => dispatch(openModal(modal)),
     closeModal: () => dispatch(closeModal()),

@@ -1,11 +1,10 @@
 import React from 'react';
 import './admin.css'
-import { openModal } from '../../actions/modal_actions';
+
 
 class AdminPortal extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
 

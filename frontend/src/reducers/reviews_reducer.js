@@ -12,7 +12,6 @@ const reviewsReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState;
     let review;
-    let reviews;
     let reviewsArr;
     let reviewsObj;
     switch(action.type){

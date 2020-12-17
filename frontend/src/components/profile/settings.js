@@ -1,10 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import "./settings.css"
-import ReactTooltip from 'react-tooltip';
 
-let endpoint;
 
 class Settings extends React.Component {
   constructor(props) {
@@ -95,7 +92,7 @@ class Settings extends React.Component {
        submitButton
      );
 
-    let item = this.state.profilePicture ? <img className="profile-image-preview" src={this.state.profilePicture}></img> : <div></div>;
+    let item = this.state.profilePicture ? <img className="profile-image-preview" src={this.state.profilePicture} alt="profilePhoto"></img> : <div></div>;
         let preview = this.state.previewUrl ? 
         <img className="profile-image-preview" alt="" src={this.state.previewUrl} /> 
             : <div>{item}</div>;

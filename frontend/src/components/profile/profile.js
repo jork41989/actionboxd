@@ -3,7 +3,6 @@ import './profile.css'
 import ProfileMoviesSampleIndex from './profile_movies_sample_index'
 import ProfileMoviesAllIndex from './profile_movies_all_index'
 import ProfileReviewSampleIndex from './profile_review_sample_index'
-import { Link } from "react-router-dom";
 
 class Profile extends React.Component {
     constructor(props) {
@@ -172,6 +171,7 @@ class Profile extends React.Component {
                     <div className={"Profile-photo"}>
                       <img
                         className="profile-picture-image"
+                        alt="profilePhoto"
                         src={this.props.user.profilePicture}
                       />
                     </div>

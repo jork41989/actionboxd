@@ -3,14 +3,10 @@ import {
     RECEIVE_USER_LOGOUT,
     RECEIVE_USER_SIGN_IN
 } from '../actions/session_actions';
-import { 
-    RECEIVE_REVIEW, 
-    REMOVE_REVIEW 
-} from "../actions/review_actions";
 
 
 
-import { WATCH_MOVIE, UNWATCH_MOVIE } from "../actions/users_actions"
+
 
 const initialState = {
     isAuthenticated: false,
@@ -18,9 +14,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-    let updatedUser;
-    let newU;
-    let newState;
+
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return {

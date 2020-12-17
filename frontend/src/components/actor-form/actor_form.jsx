@@ -148,7 +148,6 @@ class ActorForm extends React.Component {
       return options = <div></div>
     } else {
       options = this.props.results.map(result => {
-
         if (result.hasOwnProperty('title')) {
           return <div className="searchbar-result-form" onClick={this.addMovie(result)}>{result.title}</div>
         } 

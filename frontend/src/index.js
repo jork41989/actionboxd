@@ -7,7 +7,7 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 
 //test//
-import { getMostRecentReviews, getReview, writeReview } from './util/reviews_api_util';
+
 import axios from 'axios';
 //test//
 

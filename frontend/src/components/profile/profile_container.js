@@ -19,7 +19,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const userId = parseInt(ownProps.match.params.id);
   return {
     openModal: modal => dispatch(openModal(modal)),
     requestSingleUser: userId => dispatch(requestSingleUser(userId))

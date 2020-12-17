@@ -22,6 +22,7 @@ class Trailer extends React.Component {
                     onClick={this.props.closeModal}
                 >X</div>
                 <iframe className="trailer"
+                title="trailerFrame"
                 src="https://www.youtube.com/embed/akX3Is3qBpw" 
                 src={this.props.movie.trailer_url}
                     frameBorder="0" 

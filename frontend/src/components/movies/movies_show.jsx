@@ -85,7 +85,6 @@ export default class MoviesShow extends React.Component {
         }
 
         let posterAlt = `${this.props.movie.title} poster`;
-        let coverAlt = `${this.props.movie.title} background`;
         let backgroundImageStyle = {
             display: "block",
             position: "absolute",

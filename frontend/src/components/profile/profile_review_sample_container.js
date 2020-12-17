@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { requestSingleUser } from '../../actions/users_actions'
+
 import ProfileReviewsSample from './profile_review_sample'
 import { openModal } from '../../actions/modal_actions';
 import { deleteReview } from '../../actions/review_actions';
